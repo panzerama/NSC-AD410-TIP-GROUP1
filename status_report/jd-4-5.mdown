@@ -1,0 +1,9 @@
+Jason Panzer
+Status Report
+4/5/2017
+
+- Requested github admin status from Paul
+- Cloned repo for group one
+- Group One has selected officers/leaders, established basic scrum and meeting schedules, and decided on preliminary team structure.
+- Next task: requirements collection from Paul: team will return to class tomorrow night with lists of questions, compile them, and give Michael the compilation to discuss with Paul.
+
