@@ -1,0 +1,10 @@
+04-10-2017
+
+Status update:
+
+Read existing project artifacts
+
+Created a rough draft Data model in MySQL Workbench
+	Also created a document explaining model draft
+
+Added some questions and assumptions to shared questions document for client review on Tuesday 4/10
