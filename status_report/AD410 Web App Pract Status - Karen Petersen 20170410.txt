@@ -1,0 +1,25 @@
+AD410 Web Application Practicum Status - Karen Petersen 20170405
+
+Have Done
+1.  Volunteered for project Scrum Master and Front End development team for team #1
+2.  Set up Github ID and went through the first tutorial to create a master and a branch, commit and merge
+3.  Read through requirements and reviewed screen flow shots.  
+4.  Created a document that combined the screen shots with the verbal requirements and sent to team in Slack.
+5.  Attached 20170405 meeting notes to team google docs
+6.  Created a tentative sprint schedule and sent to team
+7.  Started learning about how to create documents in google docs
+8.  Re-Review created requirements documents and create list of questions and tasks to review with team at stand up Friday 
+
+Issues
+1.  http://www.icoolshow.net/ad410-2017/tip/tip.pdf shows a blank black screen
+
+Next to Do
+1.  Learn Trello and set up for task tracking
+2.  Learn Join Me in case we need virtual meetings
+3.  Work with team to determine any UI dev tools to use and how we're going to split out UI flow work.
+4.  Continue learning Github and google docs
+5.  Review everyone's list of questions and tasks and add tasks to trello
+6.  Work with team to create UI flows
+
+
+
