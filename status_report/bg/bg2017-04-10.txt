@@ -1,0 +1,13 @@
+Bryson Good
+4-10-17
+Status Report
+
+1: What have you completed since the last report?
+	* Come up with questions, read documentation.
+
+2: What do you plan to complete by the next report?
+	* Familiarize myself more with GitHub and be able to use the command line to upload the next status report.
+	* Converse with the team and get an idea of our next steps after our questions have been answered.
+
+3: What is getting in your way?
+	* Little knowledge of GitHub, which is something that I will need to further familiarize myself with.
