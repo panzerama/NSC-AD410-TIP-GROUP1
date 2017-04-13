@@ -1,0 +1,11 @@
+Ilsa Coleman
+Status Report
+4/10/2017
+
+- Attended GitHub training meeting that Jason hosted Monday 4/10
+  - basics and best practices for workflows and collaberation among group members.
+- Completed preliminary research on javascript testing frameworks.  
+- To-do:
+  - Continue research testing options for front-end development.
+  - Research data visualization methods for web.
+  - Determine front-end group meeting time(s)
