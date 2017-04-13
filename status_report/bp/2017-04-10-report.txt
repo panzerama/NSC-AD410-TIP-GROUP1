@@ -1,0 +1,7 @@
+Status Report 2:
+
+1) Accept Trello invite and review group files
+
+2) Post first two status reports on Github
+
+3) Participate in Github usage meeting with my group on 4/10/17 to discuss how we will handle administration and pull requests for our repository

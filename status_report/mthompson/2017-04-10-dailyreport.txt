@@ -1,0 +1,8 @@
+Mitch Thompson
+Status Report
+
+- Joined Trello and Slack groups. 
+- Joined Github repo for project.
+- Reviewed documents related to project
+- Reviewed client questions submitted by team members
+- Researched unit testing for front end.

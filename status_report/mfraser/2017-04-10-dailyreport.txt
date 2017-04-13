@@ -1,0 +1,10 @@
+
+Status Report 1:
+
+1) Read project requirements
+
+2) Setup GitHub, cloned repo
+
+3) Reviewed questions for Tuesday meeting
+
+4) Setup Trello, to start using this week

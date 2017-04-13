@@ -1,0 +1,21 @@
+Ilsa Coleman
+Status Report
+4/8/2017
+
+- Read documents and supporting materials on the project requirements, specifications, and examples.
+- Reviewed and submitted client questions to be discussed at client meeting on Tuesday (4/11).
+- Added to Slack channel, Google docs, and cloned GitHub project repo.
+- Attended Group One meeting during Tuesday 4/4 class: 
+  - established team structure (signed up as front-end development assistant leader)
+  - subteam membership (signed up to be part of the front-end development team)
+  - determined regular group meeting times (T, Th + additional times for subgroups)
+  - short-term goals
+- Attended Group One stand-up meeting Thursday 4/6: 
+  - discuss client meeting to address project questions and clarifications
+  - go over EER diagram created by Lucas
+  - research required into different software options for code testing (TTD vs. Unit testing)
+  - schedule additional meetings for tutorials on GitHub and Trello software.
+- To-do:
+  - Research testing options for front-end development.
+  - Research data visualization methods for web.
+  - Determine front-end group meeting time(s)
