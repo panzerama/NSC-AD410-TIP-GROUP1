@@ -1,0 +1,5 @@
+Status update Wed 4/12
+
+Worked to integrate Github and Trello into Slack so all project management would pass through one portal.
+
+Started reviewing notes from team leaders meeting with client, and thinking about how that is going to affect the data model/database.
