@@ -1,0 +1,10 @@
+Mitch Thompson
+Status Report
+4/14/2017
+
+-Attended stand-up on 4/13
+    -Discussed technologies to be used
+    -Discussed Wireframe/Mock-up creation
+-Familiarizing myself with technologies we may use
+    -Laravel
+    -WrapBootStrap
