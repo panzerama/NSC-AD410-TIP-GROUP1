@@ -3,6 +3,7 @@ AD410 Web Application Practicum Status - Karen Petersen 20170417
 Have Done
 1. Worked on UI Flows
 2. Met with team to discuss UI Flows
+3. Chose UI format
 
 Issues
 1.  http://www.icoolshow.net/ad410-2017/tip/tip.pdf shows a blank black screen
