@@ -1,0 +1,6 @@
+Mitch Thompson
+Status Report
+4/17/2017
+
+-installed Laravel, played with tutorial
+-Created Google Doc for Bootstrap theme choices from team
