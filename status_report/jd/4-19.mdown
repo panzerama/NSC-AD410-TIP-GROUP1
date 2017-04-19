@@ -5,3 +5,4 @@
 - GitHub re-org for documentation
 - Laravel app init
 - Database integration (SQLite -> Code9)
+- I've taken on the educaiton of the team in our chosen toolset. Today we held a tutorial session on Cloud9, Laravel, and MVC design patterns in general.
