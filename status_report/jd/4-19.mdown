@@ -1,0 +1,7 @@
+#Status Report
+## 4-19-17
+
+- Workflow for Code9/Laravel dev environment
+- GitHub re-org for documentation
+- Laravel app init
+- Database integration (SQLite -> Code9)
