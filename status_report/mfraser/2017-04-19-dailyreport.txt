@@ -1,0 +1,14 @@
+
+Status Report 5:
+
+1) Met with team in class to go over UI mockups
+
+2) Worked on agenda with team and created action items
+
+3) Went over tasked and create sub-groups for tasks
+
+4) Decided on frameworks, and developer environment 
+
+5) Action items will be created in Trello, and follow up with team
+
+6) Setup Trello in Slack channel for alerts
