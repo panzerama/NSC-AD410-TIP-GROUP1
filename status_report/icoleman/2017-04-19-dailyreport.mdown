@@ -1,0 +1,11 @@
+Ilsa Coleman
+Status Report
+4/19/2017
+
+- Attended Tuesday 4/18/17 FE group meeting before and during class to discuss user flows and project specs.
+- Attended Wednesday 4/19/17 meeting on Cloud9 and Laravel architecture and group collaberation.
+- To-do:
+  - Meet with FE tomorrow before class to finalize FE tasks.
+  - Learn Laravel and how WrapBootstrap templates will integrate.
+  - Start creating FE pages of application.
+

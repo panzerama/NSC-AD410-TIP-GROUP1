@@ -1,5 +1,5 @@
 Aaron Hand<br>
-April 4, 2017<br>
+April 12, 2017<br>
 Status Report 2
 
 - Short meeting after class

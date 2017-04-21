@@ -1,0 +1,9 @@
+Khang Quach
+04-19-17
+Web Practicum
+
+-Learn blade on Laravel
+-Learn Eloquent
+-Setup DB for web
+-decided name and themes for application
+-divided up task based on needs.
