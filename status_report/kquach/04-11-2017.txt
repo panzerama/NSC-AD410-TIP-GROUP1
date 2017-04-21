@@ -1,0 +1,5 @@
+-Watched git tutorial
+-clone repo
+-created branch
+-created status report
+-commit and push

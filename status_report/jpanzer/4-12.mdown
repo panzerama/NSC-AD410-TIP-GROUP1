@@ -1,0 +1,7 @@
+#Status Report: 4-12-2017
+##JD
+
+- Git training on monday for team
+- Git cheatsheet and process communicated through team doc
+- GitHub integration for slack
+- Trello prep for team meeting on thursday

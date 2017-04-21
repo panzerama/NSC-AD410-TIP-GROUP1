@@ -1,0 +1,14 @@
+2017-04-17-dailyreport.txt
+
+Rasa Rasiulyte
+Status Report
+
+This week: 
+	- get familiar with the development environment of team's choice (Laravel)
+	- figure out PHPUnit integration iwith Laravel
+	- reviewing requirements
+	
+
+Next week:
+	
+	- investigate tools available for code reviews 

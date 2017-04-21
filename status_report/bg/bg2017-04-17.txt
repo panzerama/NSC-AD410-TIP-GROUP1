@@ -1,0 +1,12 @@
+Bryson Good
+4-17-17
+Status Report
+
+1: What have you completed since the last report?
+	* Met with a group to discuss workflows
+	* Created a document outlining expected user experience for each page within 		  application
+2: What do you plan to complete by the next report?
+	* More detailed UX documentation
+	* Start of wireframes
+3: What is getting in your way?
+	* knowing how we will obtain some NSC specific information such as faculty list. 
