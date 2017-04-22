@@ -3,7 +3,7 @@ Status Report
 4/21/2017
 
 - Attended Thursday 4/20/17 FE group meeting before and during class to discuss user flows and mockups.
-- Started watching Laracast video tutorials to learn about Laracast.
+- Started watching Laracast video tutorials to learn about Laravel.
 - Continued working on admin UI mockups.
 - To-do:
   - Finish Admin UI mockups.
