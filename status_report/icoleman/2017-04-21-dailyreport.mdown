@@ -1,0 +1,12 @@
+Ilsa Coleman
+Status Report
+4/21/2017
+
+- Attended Thursday 4/20/17 FE group meeting before and during class to discuss user flows and mockups.
+- Started watching Laracast video tutorials to learn about Laracast.
+- Continued working on admin UI mockups.
+- To-do:
+  - Finish Admin UI mockups.
+  - Continue learning Laravel and WrapBootstrap.
+  - Start creating FE pages of application.
+
