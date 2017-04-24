@@ -1,0 +1,41 @@
+- go to c9.io
+- create new workspace
+
+- select 'Hosted Workspace tab'
+  - under "Clone from Git or Mercurial URL (optional)", in the text field, 
+    - paste the URL "https://github.com/panzerama/NSC-AD410-TIP-GROUP1"
+    
+- select blank template, second to last template option at the time of this writing.
+
+- click create workspace.
+... wait for workspace to build
+
+- in the c9 terminal window
+  - type "cd prod" to move into the production folder.
+  - type "composer update --no-scripts" to reset php artisan and get everything running smoothly
+  ... wait for composer to update, will take a minute or two.
+  
+  - remaining in terminal, type "git branch {descriptive branch name}" to create your working branch
+  - type "git checkout {descriptive branch name}" to move into your working branch
+
+- Do your coding, make your feature, whatever you came here to do
+
+- when you're done coding/creating go back into a terminal window
+  - type "git status" to see a list of all the files you've changed in your branch
+    (cool thing about c9! you can click on a file directly to git add it! go ahead and try it out.)
+    
+  - make sure that all your changed files that you would like to commit have had "git add {file name}" done to them, either by clicking or by manually typing.
+  
+  - type "git commit -m "{descriptive message goes here}" to commit your changes to your branch
+  
+  - type "git push" to push your branch from cloud9 up to the github repo. 
+    - enter github username
+    - enter github password
+    
+  - now you should be able to open a webpage @ https://github.com/panzerama/NSC-AD410-TIP-GROUP1 and it should show you that you just pushed a branch, with an optional button to "compare/pull request" 
+  
+  - click on the pull request button and follow the steps like usual to have your code reviewed and merged.
+  
+To make sure that your branch on your workspace is up to date you can enter the terminal and type "git fetch" and you should be caught up.
+  
+  
