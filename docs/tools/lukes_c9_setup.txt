@@ -39,3 +39,5 @@
 To make sure that your branch on your workspace is up to date you can enter the terminal and type "git fetch" and you should be caught up.
   
 Remember that a branch should ideally be for one change/feature/task and deleted upon task completion.
+  - to delete your branch on the github repository, in terminal type "git push origin --delete <branch_name>"
+  - to delete your branch locally in your c9 workspace, in terminal type "git branch -d <branch_name>"
