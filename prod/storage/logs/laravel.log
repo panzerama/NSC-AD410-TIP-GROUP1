@@ -3767,3 +3767,30 @@ Stack trace:
 #56 /Users/Damian/Projects/inspinia/inspinia_v2.7/Laravel_Seed_Project/server.php(21): ()
 #57 /Users/Damian/Projects/inspinia/inspinia_v2.7/Laravel_Seed_Project/server.php(0): {main}()
 #58 {main}  
+[2017-04-25 03:01:55] local.ERROR: Symfony\Component\Console\Exception\CommandNotFoundException: Command "changes" is not defined. in /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php:546
+Stack trace:
+#0 /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php(187): Symfony\Component\Console\Application->find('changes')
+#1 /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php(121): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(123): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 /home/ubuntu/workspace/prod/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 {main}  
+[2017-04-25 03:02:31] local.ERROR: Symfony\Component\Console\Exception\CommandNotFoundException: There are no commands defined in the "asset" namespace. in /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php:500
+Stack trace:
+#0 /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php(532): Symfony\Component\Console\Application->findNamespace('asset')
+#1 /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php(187): Symfony\Component\Console\Application->find('asset:publish')
+#2 /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php(121): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(123): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 /home/ubuntu/workspace/prod/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 {main}  
+[2017-04-25 03:06:02] local.ERROR: Symfony\Component\Console\Exception\CommandNotFoundException: Command "routes" is not defined.
+
+Did you mean one of these?
+    route:cache
+    route:clear
+    route:list in /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php:546
+Stack trace:
+#0 /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php(187): Symfony\Component\Console\Application->find('routes')
+#1 /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php(121): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(123): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 /home/ubuntu/workspace/prod/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 {main}  
