@@ -7,7 +7,7 @@ return [
     | Default Queue Driver
     |--------------------------------------------------------------------------
     |
-    | Laravel's queue API supports an assortment of back-ends via a single
+    | The Laravel queue API supports a variety of back-ends via an unified
     | API, giving you convenient access to each back-end using the same
     | syntax for each one. Here you may set the default queue driver.
     |
@@ -16,19 +16,6 @@ return [
     */
 
     'default' => env('QUEUE_DRIVER', 'sync'),
-
-    /*
-    |--------------------------------------------------------------------------
-    | Queue Prefix
-    |--------------------------------------------------------------------------
-    |
-    | If you are running multiple sites on a single server you should consider
-    | specifying a queue prefix. This string will be prepended to the queue
-    | names to prevent cross-talk when using certain local queue drivers.
-    |
-    */
-
-    'prefix' => env('QUEUE_PREFIX', ''),
 
     /*
     |--------------------------------------------------------------------------
