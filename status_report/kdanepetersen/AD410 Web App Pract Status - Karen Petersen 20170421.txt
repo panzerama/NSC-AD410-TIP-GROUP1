@@ -1,10 +1,7 @@
-AD410 Web Application Practicum Status - Karen Petersen 20170419
+AD410 Web Application Practicum Status - Karen Petersen 20170421
 
 Have Done
 1. Worked on UI Flows
-2. Met with Front End team to discuss UI Flows - agreed upon instructor and admin screen flows
-3. Work with team to determine any UI dev tools to use and how we're going to split out UI flow work.
-4. Met with team for stand up/status review
 
 Issues
 1.  http://www.icoolshow.net/ad410-2017/tip/tip.pdf shows a blank black screen
