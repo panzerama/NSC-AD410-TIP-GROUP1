@@ -1,0 +1,10 @@
+-Khang Quach
+-04-25-2017
+-AD410-tips 
+-Status Report
+
+-updated database
+-learn migrations
+-learn Eloquent syntax
+-work with Luke to fix composer
+-work with Luke to build DB and migrate it
