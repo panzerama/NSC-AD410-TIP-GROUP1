@@ -3794,3 +3794,22 @@ Stack trace:
 #2 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(123): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
 #3 /home/ubuntu/workspace/prod/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
 #4 {main}  
+[2017-04-25 23:18:14] local.ERROR: ErrorException: Undefined variable: url in /home/ubuntu/workspace/prod/app/Providers/AppServiceProvider.php:17
+Stack trace:
+#0 /home/ubuntu/workspace/prod/app/Providers/AppServiceProvider.php(17): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(8, 'Undefined varia...', '/home/ubuntu/wo...', 17, Array)
+#1 [internal function]: App\Providers\AppServiceProvider->boot()
+#2 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#3 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#4 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Illuminate\Foundation\Application), Array, Object(Closure))
+#5 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Container/Container.php(531): Illuminate\Container\BoundMethod::call(Object(Illuminate\Foundation\Application), Array, Array, NULL)
+#6 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(768): Illuminate\Container\Container->call(Array)
+#7 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(751): Illuminate\Foundation\Application->bootProvider(Object(App\Providers\AppServiceProvider))
+#8 [internal function]: Illuminate\Foundation\Application->Illuminate\Foundation\{closure}(Object(App\Providers\AppServiceProvider), 14)
+#9 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(752): array_walk(Array, Object(Closure))
+#10 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/BootProviders.php(17): Illuminate\Foundation\Application->boot()
+#11 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(208): Illuminate\Foundation\Bootstrap\BootProviders->bootstrap(Object(Illuminate\Foundation\Application))
+#12 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(160): Illuminate\Foundation\Application->bootstrapWith(Array)
+#13 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate\Foundation\Http\Kernel->bootstrap()
+#14 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#15 /home/ubuntu/workspace/prod/public/index.php(53): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#16 {main}  

@@ -13,3 +13,6 @@
 
 Route::get('/', 'HomeController@index')->name("main");
 Route::get('/minor', 'HomeController@minor')->name("minor");
+Route::get('foo', function () {
+    return 'Hello World';
+});
