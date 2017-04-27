@@ -1,0 +1,12 @@
+Ilsa Coleman
+Status Report
+4/26/2017
+
+- Completed the Individual Reflection Report and Peer Report (4/25/17)
+- Finished mockup of admin dashboard UI in Axure.
+- To-do:
+  - Finish creating new mockup pages using the WrapBootstrap theme in photoshop for presentation to client.
+  - Continue learning Laravel and WrapBootstrap.
+  - Start creating FE pages of application.
+  - Start using the Cloud9 group project development environment.
+
