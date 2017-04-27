@@ -1,0 +1,9 @@
+-Khang Quach
+-04-24-17
+-Status update 
+
+-Learn Laravel migrations
+-work with luke on fixing composer
+-uploading migrations
+-figuring out how to set up mysqlite
+-create new branch
