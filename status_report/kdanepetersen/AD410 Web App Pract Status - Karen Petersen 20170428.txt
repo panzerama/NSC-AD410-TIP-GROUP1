@@ -1,0 +1,17 @@
+AD410 Web Application Practicum Status - Karen Petersen 20170424
+
+Have Done
+1.  Meet with Travis to review Laravel structure
+2.  Meet with team leaders to review Trello user stories and add steps so some so teach team leaders how to further define a user story so a programmer can just pick it up and develop from it.
+3.  Re-vamped Trello from sprint logs to feature logs per team leader request
+
+
+Issues
+1.  http://www.icoolshow.net/ad410-2017/tip/tip.pdf shows a blank black screen
+
+Next to Do
+1.  Learn Join Me in case we need virtual meetings
+2.  Continue learning Github, Google Docs, Trello 	
+3.  Learn Laravel
+4.  Start coding modify questions UI
+
