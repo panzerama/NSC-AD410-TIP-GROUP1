@@ -3851,3 +3851,13 @@ Stack trace:
 #2 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(123): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
 #3 /home/ubuntu/workspace/prod/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
 #4 {main}  
+[2017-04-29 07:36:24] local.ERROR: Symfony\Component\Debug\Exception\FatalErrorException: Cannot declare class CreateFacultyTable, because the name is already in use in /home/ubuntu/workspace/prod/database/migrations/2017_04_28_223842_create_faculty_table.php:37
+Stack trace:
+#0 {main}  
+[2017-04-29 07:37:21] local.ERROR: Symfony\Component\Console\Exception\CommandNotFoundException: Command "dump-autoload" is not defined. in /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php:546
+Stack trace:
+#0 /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php(187): Symfony\Component\Console\Application->find('dump-autoload')
+#1 /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php(121): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(123): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 /home/ubuntu/workspace/prod/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 {main}  
