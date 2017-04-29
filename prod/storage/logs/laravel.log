@@ -3813,3 +3813,41 @@ Stack trace:
 #14 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
 #15 /home/ubuntu/workspace/prod/public/index.php(53): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
 #16 {main}  
+[2017-04-28 22:56:06] local.ERROR: Symfony\Component\Console\Exception\CommandNotFoundException: Command "tinker" is not defined. in /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php:546
+Stack trace:
+#0 /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php(187): Symfony\Component\Console\Application->find('tinker')
+#1 /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php(121): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(123): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 /home/ubuntu/workspace/prod/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 {main}  
+[2017-04-28 22:56:22] local.ERROR: Symfony\Component\Console\Exception\CommandNotFoundException: Command "tinker" is not defined. in /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php:546
+Stack trace:
+#0 /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php(187): Symfony\Component\Console\Application->find('tinker')
+#1 /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php(121): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(123): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 /home/ubuntu/workspace/prod/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 {main}  
+[2017-04-28 22:58:58] local.ERROR: Symfony\Component\Console\Exception\CommandNotFoundException: Command "tinker" is not defined. in /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php:546
+Stack trace:
+#0 /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php(187): Symfony\Component\Console\Application->find('tinker')
+#1 /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php(121): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(123): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 /home/ubuntu/workspace/prod/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 {main}  
+[2017-04-28 23:02:06] local.ERROR: Symfony\Component\Console\Exception\CommandNotFoundException: Command "tinker" is not defined. in /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php:545
+Stack trace:
+#0 /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php(186): Symfony\Component\Console\Application->find('tinker')
+#1 /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php(120): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(123): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 /home/ubuntu/workspace/prod/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 {main}  
+[2017-04-28 23:15:46] local.ERROR: Symfony\Component\Console\Exception\CommandNotFoundException: Command "rollback" is not defined.
+
+Did you mean this?
+    migrate:rollback in /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php:545
+Stack trace:
+#0 /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php(186): Symfony\Component\Console\Application->find('rollback')
+#1 /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php(120): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(123): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 /home/ubuntu/workspace/prod/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 {main}  
