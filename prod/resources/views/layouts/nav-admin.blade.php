@@ -25,10 +25,10 @@
                 <a href="{{ url('/tips-management') }}"><i class="fa fa-table"></i> <span class="nav-label">TIPS Management</span> </a>
             </li>
             <li class="{{ isActiveRoute('reports') }}">
-                <a href="{{ url('/reports') }}"><i class="fa fa-envelope"></i> <span class="nav-label">Reports</span> </a>
+                <a href="{{ url('/reports') }}"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Reports</span> </a>
             </li>
             <li class="{{ isActiveRoute('inactivate-user') }}">
-                <a href="{{ url('/inactivate-user') }}"><i class="fa fa-envelope"></i> <span class="nav-label">Inactivate User</span> </a>
+                <a href="{{ url('/inactivate-user') }}"><i class="fa fa-star"></i> <span class="nav-label">Inactivate User</span> </a>
             </li>
         </ul>
 
