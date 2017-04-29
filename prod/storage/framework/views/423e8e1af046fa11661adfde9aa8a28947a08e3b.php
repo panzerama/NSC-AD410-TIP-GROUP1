@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', 'TIPS Submission'); ?>
+<?php $__env->startSection('title', 'Admin Management'); ?>
 
 <?php $__env->startSection('content'); ?>
     <div class="wrapper wrapper-content animated fadeInRight">
@@ -6,7 +6,7 @@
                     <div class="col-lg-12">
                         <div class="m-t-lg">
                             <h1>
-                                TIPS Submission
+                                Admin Management
                             </h1>
                         
                         </div>
@@ -15,4 +15,4 @@
             </div>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('layouts.admin-app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

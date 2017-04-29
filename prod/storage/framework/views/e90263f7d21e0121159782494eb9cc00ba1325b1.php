@@ -16,7 +16,7 @@
     <div id="wrapper">
 
         <!-- Navigation -->
-        <?php echo $__env->make('layouts.nav', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <?php echo $__env->make('layouts.nav-admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
         <!-- Page wraper -->
         <div id="page-wrapper" class="gray-bg">

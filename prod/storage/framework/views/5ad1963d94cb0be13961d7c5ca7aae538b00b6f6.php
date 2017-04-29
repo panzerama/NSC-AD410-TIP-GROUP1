@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', 'TIPS Submission'); ?>
+<?php $__env->startSection('title', 'Contact Admin'); ?>
 
 <?php $__env->startSection('content'); ?>
     <div class="wrapper wrapper-content animated fadeInRight">
@@ -6,7 +6,7 @@
                     <div class="col-lg-12">
                         <div class="m-t-lg">
                             <h1>
-                                TIPS Submission
+                                Contact Admin
                             </h1>
                         
                         </div>

@@ -13,4 +13,22 @@ class HomeController extends Controller
     {
         return view('home/minor');
     }
+    
+    public function viewPreviousTips()
+    {
+        return view('home/view-previous-tips');
+    }
+    
+    public function previousTip()
+    {
+        return view('home/previous-tip');
+    }
+    
+    public function contactAdmin()
+    {
+        return view('home/contact-admin');
+    }
+    
+    
+    
 }

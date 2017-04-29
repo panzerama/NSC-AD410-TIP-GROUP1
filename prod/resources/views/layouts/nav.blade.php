@@ -3,11 +3,11 @@
         <ul class="nav metismenu" id="side-menu">
             <li class="nav-header">
                 <div class="dropdown profile-element">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <span class="clear">
                             <span class="block m-t-xs">
-                                <strong class="font-bold">Example user</strong>
-                            </span> <span class="text-muted text-xs block">Example menu <b class="caret"></b></span>
+                                
+                                <strong class="font-bold">User Name</strong>
+                            </span> 
                         </span>
                     </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
@@ -15,14 +15,17 @@
                     </ul>
                 </div>
                 <div class="logo-element">
-                    IN+
+                    <h3>LOGO</h3>
                 </div>
             </li>
             <li class="{{ isActiveRoute('main') }}">
-                <a href="{{ url('/') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Main view</span></a>
+                <a href="{{ url('/') }}"><i class="fa fa-th"></i> <span class="nav-label">TIPS</span></a>
             </li>
-            <li class="{{ isActiveRoute('minor') }}">
-                <a href="{{ url('/minor') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Minor view</span> </a>
+            <li class="{{ isActiveRoute('view-previous-tips') }}">
+                <a href="{{ url('/view-previous-tips') }}"><i class="fa fa-table"></i> <span class="nav-label">View Previous TIPS</span> </a>
+            </li>
+            <li class="{{ isActiveRoute('admin-contact') }}">
+                <a href="{{ url('/admin-contact') }}"><i class="fa fa-envelope"></i> <span class="nav-label">Contact Admin</span> </a>
             </li>
         </ul>
 
