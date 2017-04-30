@@ -24,8 +24,8 @@
             <li class="<?php echo e(isActiveRoute('view-previous-tips')); ?> <?php echo e(isActiveRoute('previous-tip')); ?>">
                 <a href="<?php echo e(url('/view-previous-tips')); ?>"><i class="fa fa-table"></i> <span class="nav-label">View Previous TIPS</span> </a>
             </li>
-            <li class="<?php echo e(isActiveRoute('admin-contact')); ?>">
-                <a href="<?php echo e(url('/admin-contact')); ?>"><i class="fa fa-envelope"></i> <span class="nav-label">Contact Admin</span> </a>
+            <li class="<?php echo e(isActiveRoute('contact-admin')); ?>">
+                <a href="<?php echo e(url('/contact-admin')); ?>"><i class="fa fa-envelope"></i> <span class="nav-label">Contact Admin</span> </a>
             </li>
         </ul>
 

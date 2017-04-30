@@ -24,8 +24,8 @@
             <li class="{{ isActiveRoute('view-previous-tips') }} {{ isActiveRoute('previous-tip') }}">
                 <a href="{{ url('/view-previous-tips') }}"><i class="fa fa-table"></i> <span class="nav-label">View Previous TIPS</span> </a>
             </li>
-            <li class="{{ isActiveRoute('admin-contact') }}">
-                <a href="{{ url('/admin-contact') }}"><i class="fa fa-envelope"></i> <span class="nav-label">Contact Admin</span> </a>
+            <li class="{{ isActiveRoute('contact-admin') }}">
+                <a href="{{ url('/contact-admin') }}"><i class="fa fa-envelope"></i> <span class="nav-label">Contact Admin</span> </a>
             </li>
         </ul>
 
