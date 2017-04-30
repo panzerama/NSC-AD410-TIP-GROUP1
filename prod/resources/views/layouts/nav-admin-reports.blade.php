@@ -18,20 +18,24 @@
                     <h3>LOGO</h3>
                 </div>
             </li>
-            <li class="<?php echo e(isActiveRoute('reports')); ?>">
-                <a href="<?php echo e(url('/reports')); ?>"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Reports</span> </a>
+            <li class="{{ isActiveRoute('reports') }}">
+                <a href="{{ url('/reports') }}"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Reports</span> </a>
             </li>
-            <li class="<?php echo e(isActiveRoute('admin-management')); ?>">
-                <a href="<?php echo e(url('/admin-management')); ?>"><i class="fa fa-th"></i> <span class="nav-label">Admin Management</span></a>
+            <li class="{{ isActiveRoute('admin-management') }}">
+                <a href="{{ url('/admin-management') }}"><i class="fa fa-th"></i> <span class="nav-label">Admin Management</span></a>
             </li>
-            <li class="<?php echo e(isActiveRoute('tips-management')); ?>">
-                <a href="<?php echo e(url('/tips-management')); ?>"><i class="fa fa-table"></i> <span class="nav-label">TIPS Management</span> </a>
+            <li class="{{ isActiveRoute('tips-management') }}">
+                <a href="{{ url('/tips-management') }}"><i class="fa fa-table"></i> <span class="nav-label">TIPS Management</span> </a>
             </li>
-            <li class="<?php echo e(isActiveRoute('inactivate-user')); ?>">
-                <a href="<?php echo e(url('/inactivate-user')); ?>"><i class="fa fa-star"></i> <span class="nav-label">Inactivate User</span> </a>
+            <li class="{{ isActiveRoute('inactivate-user') }}">
+                <a href="{{ url('/inactivate-user') }}"><i class="fa fa-star"></i> <span class="nav-label">Inactivate User</span> </a>
             </li>
         </ul>
 
     </div>
+    
+    <h3 class="text-center" style="margin-top:10px">Filters</h3>
+
+
 </nav>
 

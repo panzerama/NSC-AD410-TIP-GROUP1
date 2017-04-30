@@ -18,10 +18,10 @@
                     <h3>LOGO</h3>
                 </div>
             </li>
-            <li class="{{ isActiveRoute('main') }}">
-                <a href="{{ url('/') }}"><i class="fa fa-th"></i> <span class="nav-label">TIPS</span></a>
+            <li class="{{ isActiveRoute('tip') }} {{ isActiveRoute('tip-questions') }}">
+                <a href="{{ url('/tip') }}"><i class="fa fa-th"></i> <span class="nav-label">TIPS</span></a>
             </li>
-            <li class="{{ isActiveRoute('view-previous-tips') }}">
+            <li class="{{ isActiveRoute('view-previous-tips') }} {{ isActiveRoute('previous-tip') }}">
                 <a href="{{ url('/view-previous-tips') }}"><i class="fa fa-table"></i> <span class="nav-label">View Previous TIPS</span> </a>
             </li>
             <li class="{{ isActiveRoute('admin-contact') }}">

@@ -14,6 +14,18 @@ class HomeController extends Controller
         return view('home/minor');
     }
     
+    
+    
+    public function tip()
+    {
+        return view('home/tip');
+    }
+    
+    public function tipQuestions()
+    {
+        return view('home/tip-questions');
+    }
+
     public function viewPreviousTips()
     {
         return view('home/view-previous-tips');

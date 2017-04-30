@@ -18,14 +18,14 @@
                     <h3>LOGO</h3>
                 </div>
             </li>
+            <li class="{{ isActiveRoute('reports') }}">
+                <a href="{{ url('/reports') }}"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Reports</span> </a>
+            </li>
             <li class="{{ isActiveRoute('admin-management') }}">
                 <a href="{{ url('/admin-management') }}"><i class="fa fa-th"></i> <span class="nav-label">Admin Management</span></a>
             </li>
             <li class="{{ isActiveRoute('tips-management') }}">
                 <a href="{{ url('/tips-management') }}"><i class="fa fa-table"></i> <span class="nav-label">TIPS Management</span> </a>
-            </li>
-            <li class="{{ isActiveRoute('reports') }}">
-                <a href="{{ url('/reports') }}"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Reports</span> </a>
             </li>
             <li class="{{ isActiveRoute('inactivate-user') }}">
                 <a href="{{ url('/inactivate-user') }}"><i class="fa fa-star"></i> <span class="nav-label">Inactivate User</span> </a>
@@ -34,3 +34,4 @@
 
     </div>
 </nav>
+

@@ -33,5 +33,9 @@
         </ul>
 
     </div>
+    
+    <h3 class="text-center" style="margin-top:10px">Filters</h3>
+
+
 </nav>
 
