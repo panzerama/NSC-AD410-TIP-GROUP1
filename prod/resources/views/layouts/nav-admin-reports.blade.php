@@ -30,12 +30,16 @@
             <li class="{{ isActiveRoute('inactivate-user') }}">
                 <a href="{{ url('/inactivate-user') }}"><i class="fa fa-star"></i> <span class="nav-label">Inactivate User</span> </a>
             </li>
+            
         </ul>
-
+        
+    <div class="container">
+    <h3 style="margin-top:20px">Report Filters</h3>
+    
     </div>
     
-    <h3 class="text-center" style="margin-top:10px">Filters</h3>
-
-
+    
+    </div>
+    
 </nav>
 

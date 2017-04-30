@@ -214,16 +214,18 @@
     ]
     };
 
-    var barOptions = {
-        responsive: true
+    var barOptions2 = {
+        legend: { display: false,
+            responsive: true, 
+        }
     };
-
+         
 
     var ctx5 = document.getElementById("barChart2").getContext("2d");
-    new Chart(ctx5, {type: 'bar', data: barData2, options:barOptions});
+    new Chart(ctx5, {type: 'bar', data: barData2, options:barOptions2});
     
     var ctx7 = document.getElementById("barChart3").getContext("2d");
-    new Chart(ctx7, {type: 'bar', data: barData3, options:barOptions});
+    new Chart(ctx7, {type: 'bar', data: barData3, options:barOptions2});
 
 </script>
 
