@@ -1,0 +1,10 @@
+Ilsa Coleman
+Status Report
+4/28/2017
+
+- Attended Travis' Cloud9 training meeting Thursday before class.
+- Created Admin dashboard mockup using WrapBootstrap theme in Photoshop.
+- Learning how to code front-end pages using the Cloud9 group project development environment.
+- To-do:
+  - Code front-end UI pages of application.
+  - Add to user stories.
