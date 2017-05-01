@@ -8,7 +8,8 @@
                                 <div class="ibox-title">
                                   <h2>View Previous TIPS</h2>  
                                 </div>
-                        
+                            
+                            
                         </div>
                     </div>
                 </div>
