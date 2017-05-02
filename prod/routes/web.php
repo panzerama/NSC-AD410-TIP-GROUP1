@@ -16,6 +16,10 @@ Route::get('/minor', 'HomeController@minor')->name("minor");
 
 Route::get('/editquestions', 'EditQuestionsController@index');
 
+// Tips route
+Route::get('/tips', 'TipsController@index')->name('TipsIndex');
+
+
 Route::get('foo', function () {
     return 'Hello World';
 });
