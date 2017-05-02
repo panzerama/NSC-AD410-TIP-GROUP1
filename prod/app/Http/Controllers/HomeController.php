@@ -21,6 +21,12 @@ class HomeController extends Controller
         return view('home/tip');
     }
     
+    public function firstTimeUser()
+    {
+        return view('home/first-time-user');
+    }
+
+    
     public function tipQuestions()
     {
         return view('home/tip-questions');

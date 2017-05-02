@@ -19,6 +19,7 @@ Route::get('foo', function () {
 
 
 //TIPS User
+Route::get('/first-time-user', 'HomeController@firstTimeUser')->name("first-time-user");
 Route::get('/tip', 'HomeController@tip')->name("tip");
 Route::get('/tip/tip-questions', 'HomeController@tipQuestions')->name("tip-questions");
 Route::get('/view-previous-tips', 'HomeController@viewPreviousTips')->name("view-previous-tips");
