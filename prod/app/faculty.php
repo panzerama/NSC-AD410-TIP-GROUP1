@@ -15,3 +15,4 @@ class faculty extends Model
         return $this->belongsToMany('App\tip', 'faculty_tips', 'faculty_id', 'tips_id');
     }
 }
+// A little test for the testing commit line.
