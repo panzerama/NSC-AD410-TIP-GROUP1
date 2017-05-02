@@ -1,0 +1,43 @@
+Michael Fraser
+Status Report 9
+Date: 4/28/2017
+
+Updated report to include numbered answers to required report questions from syllabus.
+
+What have you completed since the last report?
+
+1) Created mockups in Photoshop with our final design 
+
+2) Reviewed all UI mockups before meeting with Alissa last night
+
+3) Met with Alissa to show UI mockups and get feedback
+
+4) Followed up with Karen to get update on Trello, and tasks broken out with team lead
+
+5) Emailed Canva admin on a question regarding app
+
+6) Started setup of VM in cloud for prod app build  
+
+What do you plan to complete by the next report?
+
+1) Work on getting coding in Cloud 9
+
+2) Need to review my Cloud 9 and tweak for work on my end
+
+3) Follow up team on status of prototype build
+
+What is getting in your way?
+
+1) Time, need more hours in the day. =P
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,15 @@
+2017-05-01-dailyreport.txt
+
+Rasa Rasiulyte
+Status Report
+
+What have you completed since the last report?
+	- Completed self assesment and peer evaluation 
+
+What do you plan to complete by the next report?
+	- go over rest of laravel videos, including phpunit testing 
+	- create simple unit test and evaluate if learning curve for going TDD path on this project is reasonable given amount of the things team already needs to learn 
+
+What is getting in your way?
+	- nothing blocking 
+
