@@ -17,9 +17,18 @@ class CreateFacultyTipsTable extends Migration
             $table->integer('faculty_id')->unsigned();
             $table->integer('tips_id')->unsigned();
             
-            //foriegn keys
-            $table->foreign('faculty_id')->references('faculty_id')->on('faculty');
-            $table->foreign('tips_id')->references('tips_id')->on('tips');
+            
+        });
+        Schema::table('faculty_tips', function (Blueprint $table) {
+            //foreign keys
+            $table->foreign('faculty_id')
+                ->references('faculty_id')
+                ->on('faculty')
+                ->onDelete('cascade');
+            $table->foreign('tips_id')
+                ->references('tips_id')
+                ->on('tips')
+                ->onDelete('cascade');
         });
     }
 
@@ -30,6 +39,6 @@ class CreateFacultyTipsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('faculty_tips');
     }
 }

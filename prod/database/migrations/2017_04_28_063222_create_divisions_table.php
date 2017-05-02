@@ -13,6 +13,7 @@ class CreateDivisionsTable extends Migration
      */
     public function up()
     {
+        //create divisions table
         Schema::create('divisions', function (Blueprint $table) {
             $table->increments('division_id');
             $table->string('division_name');
@@ -20,6 +21,20 @@ class CreateDivisionsTable extends Migration
             $table->boolean('is_active');
             $table->timestamps();
         });
+        
+        // Insert divisions data
+        DB::table('divisions')->insert(array(
+            array(
+                'division_name' => 'Arts, Humanities, and Social Sciences',
+                'abbr' => 'AHSS',
+                'is_active' => true
+            ),
+            array(
+                'division_name' => 'testing testing tester',
+                'abbr' => 'TTT',
+                'is_active' => true
+            )
+        ));
     }
 
     /**
