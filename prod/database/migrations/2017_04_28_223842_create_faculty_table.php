@@ -23,6 +23,24 @@ class CreateFacultyTable extends Migration
             $table->enum('employee_type', ['FULLTIME','PARTTIME'])->nullable();
             $table->timestamps();
         });
+        
+        // Insert faculty test data
+        DB::table('faculty')->insert(array(
+            array(
+                'faculty_name' => 'John Stager',
+                'email' => 'Zhou.Wu@seattlecolleges.edu',
+                'is_admin' => false,
+                'is_active' => true,
+                'employee_type' => 'PARTTIME'
+            ),
+            array(
+                'faculty_name' => 'Paul Wu',
+                'email' => 'John.Stager@seattlecolleges.edu',
+                'is_admin' => true,
+                'is_active' => true,
+                'employee_type' => 'FULLTIME'
+            )
+        ));
     }
 
     /**
