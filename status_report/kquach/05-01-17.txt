@@ -6,4 +6,4 @@ Moved migrations
 learn foreign key constraints with laravel
 install tinker
 commit and merge migrations with master
-finish db design
+finish db designgit 
