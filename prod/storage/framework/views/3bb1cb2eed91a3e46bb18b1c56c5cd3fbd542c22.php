@@ -5,6 +5,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1>TIPS Submission</h1>
+                        <div id="tip-instructions">
                         <p>As you prepare to record a tip in this shell, please be thinking about the following pieces of information. Most of the pieces you can fill in even before you implement your change. In fact, some faculty have found it helpful to do so. The last items on the list can be entered only after you have implemented and evaluated your change.</p>
                         <ul>
                             <li>The issue that you became aware of that suggested students were not achieving a course objective</li>
@@ -13,33 +14,67 @@
                             <li>A description of the impact of the change(s) on student learning (or lack of impact)</li>                               
                             <li>Your conclusions about the process and next steps.</li>
                         </ul>
-                        <p>NOTE: If you don't finish at one sitting, you can return to your TIP later. Select the save button to save your tip and it will automatically be resumed the next time you log in. Once you choose "Submit" you cannot return to it! </p><br>
+                        <p>NOTE: If you don't finish at one sitting, you can return to your TIP later. Select the save button to save your tip and it will automatically be resumed the next time you log in. Once you choose "Submit" you cannot return to it! </p>
+                        <a onclick="hideInstructions()"><span class="glyphicon glyphicon-chevron-up"></span>Hide Instructions</a>
+                        </div>
+                        <div style="display:none" id="show-instructions">
+                            <a onclick="showInstructions()"><span class="glyphicon glyphicon-chevron-down"></span>Show Instructions</a>
+                        </div>
+                        <br><br>
                         <div class="ibox float-e-margins">
                             <div class="ibox-content">
                                 <form class="form-horizontal">
                                     
                                 
                                     <div class="form-group">
-                                        <label class="col-sm-2 col-md-2 control-label">Is this an individual or group TIP?</label>
-                                        <div class="col-md-6">
+                                        <div class="col-sm-12">
+                                            <label class="col-sm-12">Is this an individual or group TIP?</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-2 col-md-offset-1">
                                           <label>
                                               
-                                            <input class="form-check-input" type="radio" name="Individual">
+                                            <input class="form-check-input" type="radio" onclick="indyTip()" value="individual" name="type-tip">
                                             Individual
                                             
                                           </label>
                                           
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-5">
                                           <label>
                                               
-                                            <input class="form-check-input" type="radio" name="group">
+                                            <input class="form-check-input" type="radio" onclick="groupTip()" value="group" name="type-tip">
                                             Group
                                             
                                           </label>
                                           
                                         </div>
                                     </div>
+                                    <br>
+                                    <div style="display:none" id="group-tip">
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                        <label class="col-sm-12">Enter the name of additional TIP member</label>
+                                        <small class="col-sm-12">Click Add Another to enter more than one member</small>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <div class="col-sm-7">
+                                                <input type="text" class="form-control" name="course-prefix">
+                                            </div>
+                                            <div class="col-sm-5">
+                                                <button class="btn btn-md" type="submit">Add Another</button>
+                                            </div>
+                                       </div>
+                                     </div>
+                                     </div>
+                                     
+                                       
+                                       
+                        
                                     
                     
                                     
@@ -111,7 +146,7 @@
                                     <br>
                                     <div class="form-group">
                                        <div class="col-sm-offset-9">
-                                           <button class="btn btn-lg btn-white" type="submit">Continue</button>
+                                           <a href="<?php echo e(url('/tip/tip-questions')); ?>" class="btn btn-lg btn-white" type="submit">Continue</a>
                                        </div>
                                        
                                    </div>
@@ -122,6 +157,24 @@
                     </div>
                 </div>
             </div>
+            
+            <script>
+                function hideInstructions() {
+                    document.getElementById('tip-instructions').style.display = "none";
+                    document.getElementById('show-instructions').style.display = "block";
+                }
+                function showInstructions() {
+                    document.getElementById('tip-instructions').style.display = "block";
+                    document.getElementById('show-instructions').style.display = "none"
+                }
+                function groupTip() {
+                        document.getElementById('group-tip').style.display = "block";
+                    }
+                function indyTip() {
+                        document.getElementById('group-tip').style.display = "none";
+                    }
+            </script>
+            
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
