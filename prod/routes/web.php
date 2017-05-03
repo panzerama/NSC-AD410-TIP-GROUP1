@@ -12,8 +12,8 @@
 */
 
 Route::get('/', 'HomeController@index')->name("main");
+Route::get('/login', 'LoginController@index')->name("login");
 Route::get('/minor', 'HomeController@minor')->name("minor");
-
 Route::get('/editquestions', 'EditQuestionsController@index');
 
 // Tips route
