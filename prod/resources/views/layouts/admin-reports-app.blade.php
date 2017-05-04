@@ -16,7 +16,7 @@
     <div id="wrapper">
 
         <!-- Navigation -->
-        @include('layouts.nav')
+        @include('layouts.nav-admin-reports')
 
         <!-- Page wraper -->
         <div id="page-wrapper" class="gray-bg">
