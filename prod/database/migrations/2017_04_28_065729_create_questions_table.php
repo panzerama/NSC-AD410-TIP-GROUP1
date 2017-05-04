@@ -22,6 +22,29 @@ class CreateQuestionsTable extends Migration
             $table->text('question_desc')->nullable();
             $table->timestamps();
         });
+        
+        // Insert questions test data
+        DB::table('questions')->insert(array(
+            // id 1
+            array(
+                'question_number' => 1,
+                'question_text' => 'What is the problem or lesson that you 
+                    identified and will be discussing in this TIP? No topic is 
+                    too big or too small. All are welcomed!',
+                'question_type' => 'TEXT',
+                'is_active' => true,
+                'question_desc' => null
+            ),
+            // id 2
+            array(
+                'question_number' => 2,
+                'question_text' => 'Which of the college-wide Essential Learning
+                    Outcomes does your TIP most closely address? ',
+                'question_type' => 'RADIO',
+                'is_active' => true,
+                'question_desc' => null
+            )
+        ));
     }
 
     /**

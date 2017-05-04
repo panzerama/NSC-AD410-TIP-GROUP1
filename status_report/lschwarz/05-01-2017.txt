@@ -1,0 +1,8 @@
+05-01-2017 status update
+
+Figured out how to populate database with known data, i.e. divisions or questions
+
+Worked to figure out how to create relationships between model objects in laravel
+    Hope to finish and implement this tomorrow
+
+Tomorrow and Wednesday I have to figure out how to create and start coding controllers.
