@@ -158,10 +158,10 @@
                     </div>
                 </div>
             </div>
-            
             <script>
                 $(document).ready(function(){
                     
+                    //TIP Questionnaire            
                     // hide or show TIP instructions based on user clicks
                     $(".hide-instructions").click(function(){
                         $("#show-instructions").slideDown();
@@ -179,8 +179,6 @@
                      $("#indy-select").click(function(){
                         $("#group-tip").slideUp();
                     });
-                    
-                    
                     //Adds field to when user clicks 'Add Another Member' / Removes field when user clicks 'remove'
                     var max_fields      = 10; //maximum input boxes allowed
                     var wrapper         = $(".add-member-field-div"); //Fields wrapper
@@ -203,7 +201,6 @@
                 
                 });
                 
-          
             </script>
             
 @endsection

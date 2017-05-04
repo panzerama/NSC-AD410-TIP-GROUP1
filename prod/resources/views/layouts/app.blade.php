@@ -37,6 +37,7 @@
     <!-- End wrapper-->
 <script src="{!! asset('js/app.js', true) !!}" type="text/javascript"></script>
 
+
 @section('scripts')
 @show
 

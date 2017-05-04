@@ -37,6 +37,7 @@
     <!-- End wrapper-->
 <script src="<?php echo asset('js/app.js', true); ?>" type="text/javascript"></script>
 
+
 <?php $__env->startSection('scripts'); ?>
 <?php echo $__env->yieldSection(); ?>
 
