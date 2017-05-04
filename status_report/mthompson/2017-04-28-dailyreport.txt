@@ -1,0 +1,7 @@
+Mitch Thompson
+Status Report
+4/28/2017
+
+- Modified UI/Mock-up for TIPS questionaire. 
+- Meet with Karen & Travis to discuss back-log and tasks
+- Created views/routes/controller for header/footer/siderbar/topnav in front-end branch

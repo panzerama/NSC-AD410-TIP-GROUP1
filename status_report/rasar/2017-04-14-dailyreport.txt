@@ -1,0 +1,13 @@
+2017-04-14-dailyreport.txt
+
+Rasa Rasiulyte
+Status Report
+
+This week: 
+	- setting up github
+	- created simple unit test sample using PHPUnit integreated into PHPStorm
+
+Next week:
+	- get familiar with the development environment of team's choice (Laravel)
+	- figure out PHPUnit integration iwith Laravel
+	- investigate tools available for code reviews 

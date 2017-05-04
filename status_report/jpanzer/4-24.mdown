@@ -1,0 +1,8 @@
+4-24
+jd status report
+
+- Finished configuring cloud9 for easy replication across the whole team
+- finished installing laravel basic app
+- handed off to michael for integration of chosen admin theme
+- next step: training for team on replicating the cloud9 workspace
+

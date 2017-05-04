@@ -1,0 +1,9 @@
+Mitch Thompson
+Status Report
+4/19/2017
+
+- Worked with FE team to develop UI flows
+- Worked with FE team to determine what each page would contain (still working on this)
+- Volunteered to work on UI for header, footer, and TIPS questions page.
+- started cloud 9 account - connected with Github repo - for dev workspace.
+- attended Jason's cloud 9/Laravel rundown
