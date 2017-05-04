@@ -1,0 +1,10 @@
+05-03-2017 status update
+Created one many-to-many model relationship in Laravel, as an example to others.
+
+Created some dummy data to start to test against.
+
+Talked more with other teammates about a few more revisions that need to happen to the database design.
+
+Talked with teammates about the authentication piece.
+
+Over the next few days I need to help to implement the user authentication from Canvas.
