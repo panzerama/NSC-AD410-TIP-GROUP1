@@ -17,7 +17,7 @@ class CreateQuestionsTable extends Migration
             $table->increments('question_id');
             $table->integer('question_number');
             $table->text('question_text');
-            $table->enum('question_type', ['TEXT','RADIO','CHECKBOX']);
+            $table->enum('question_type', ['TEXT','RADIO','CHECKBOX','DROPDOWN']);
             $table->boolean('is_active');
             $table->text('question_desc')->nullable();
             $table->timestamps();
@@ -40,7 +40,7 @@ class CreateQuestionsTable extends Migration
                 'question_number' => 2,
                 'question_text' => 'Which of the college-wide Essential Learning
                     Outcomes does your TIP most closely address? ',
-                'question_type' => 'RADIO',
+                'question_type' => 'DROPDOWN',
                 'is_active' => true,
                 'question_desc' => null
             )
