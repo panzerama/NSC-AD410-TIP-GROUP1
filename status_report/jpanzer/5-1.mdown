@@ -1,0 +1,7 @@
+5-1
+Status Report
+JD
+
+Completed groundwork for Ansible playbook
+Still some outstanding questions about how to configure files
+Next steps: tested ansible playbook, design for reporting module
