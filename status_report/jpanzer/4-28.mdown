@@ -1,0 +1,4 @@
+# Status Report
+## 4-28-2017
+
+- Built tutorial instructions into app files
