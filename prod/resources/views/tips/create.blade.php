@@ -5,25 +5,27 @@
 @section('content')
     <div class="wrapper wrapper-content animated fadeInRight">
                 <div class="row">
-                    <div class="col-lg-12">
-                        <h1>TIPS Submission</h1>
-                        <div class="tip-instructions">
-                        <p>As you prepare to record a tip in this shell, please be thinking about the following pieces of information. Most of the pieces you can fill in even before you implement your change. In fact, some faculty have found it helpful to do so. The last items on the list can be entered only after you have implemented and evaluated your change.</p>
-                        <ul>
-                            <li>The issue that you became aware of that suggested students were not achieving a course objective</li>
-                            <li>The course objective(s) and Essential Learning Outcome that relate to this issue</li>
-                            <li>Evidence of the issue (how did you know?)</li>
-                            <li>A description of the impact of the change(s) on student learning (or lack of impact)</li>                               
-                            <li>Your conclusions about the process and next steps.</li>
-                        </ul>
-                        <p>NOTE: If you don't finish at one sitting, you can return to your TIP later. Select the save button to save your tip and it will automatically be resumed the next time you log in. Once you choose "Submit" you cannot return to it! </p>
-                        <a class="hide-instructions"><span class="glyphicon glyphicon-chevron-up"></span>Hide Instructions</a>
-                        <br><br>
-                        </div>
-                        <div style="display:none" id="show-instructions">
-                            <a class="show-instructions"><span class="glyphicon glyphicon-chevron-down"></span>Show Instructions</a>
-                            <br><br>
-                        </div>
+                    <div class="col-sm-12">
+                        <div class="col-sm-12">
+                            <h1>TIPS Submission</h1>
+                            <div class="tip-instructions">
+                                <p>As you prepare to record a tip in this shell, please be thinking about the following pieces of information. Most of the pieces you can fill in even before you implement your change. In fact, some faculty have found it helpful to do so. The last items on the list can be entered only after you have implemented and evaluated your change.</p>
+                                <ul>
+                                    <li>The issue that you became aware of that suggested students were not achieving a course objective</li>
+                                    <li>The course objective(s) and Essential Learning Outcome that relate to this issue</li>
+                                    <li>Evidence of the issue (how did you know?)</li>
+                                    <li>A description of the impact of the change(s) on student learning (or lack of impact)</li>                               
+                                    <li>Your conclusions about the process and next steps.</li>
+                                </ul>
+                                <p>NOTE: If you don't finish at one sitting, you can return to your TIP later. Select the save button to save your tip and it will automatically be resumed the next time you log in. Once you choose "Submit" you cannot return to it! </p>
+                                <a class="hide-instructions"><span class="glyphicon glyphicon-chevron-up"></span>Hide Instructions</a>
+                                <br><br>
+                            </div><!-- tip-instructions -->
+                            <div style="display:none" id="show-instructions">
+                                <a class="show-instructions"><span class="glyphicon glyphicon-chevron-down"></span>Show Instructions</a>
+                                <br><br>
+                            </div>
+                        </div><!-- col-sm-12 -->
                         
                         <?php
                             $questions = array(
