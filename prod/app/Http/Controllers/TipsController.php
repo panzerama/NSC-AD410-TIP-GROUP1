@@ -6,14 +6,10 @@ use Illuminate\Http\Request;
 
 class TipsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        return view('tips/index'); // Returns view for tips/index.blade.php
     }
 
     /**
@@ -23,7 +19,7 @@ class TipsController extends Controller
      */
     public function create()
     {
-        //
+        return view('tips/create'); // Returns view for tips/create.blade.php
     }
 
     /**
