@@ -6,12 +6,7 @@ server {
 
 server {
 
-    # disable below line to only listen on 80
-    # listen 80 default_server; 
-    listen 443 ssl default_server;
-
-    ssl_certificate /etc/letsencrypt/live/{{ domain }}/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/{{ domain }}/privkey.pem;
+    listen 80 default_server; 
 
     root /var/www/{{ domain }}/public;
     index index.php index.html index.html;
@@ -22,7 +17,6 @@ server {
 
     server_name {{ domain }};
     charset utf-8;
-    include h5bp/basic.conf;
 
     location /favicon.ico { log_not_found off; access_log off;}
     location /robots.txt  { log_not_found off; access_log off;}

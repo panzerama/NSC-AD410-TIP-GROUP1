@@ -10,8 +10,8 @@
   notify:
    - Start Nginx
 
-- name: Add H5BP Config
-  copy: src=h5bp dest=/etc/nginx owner=root group=root
+#- name: Add H5BP Config
+#  copy: src=h5bp dest=/etc/nginx owner=root group=root
 
 - name: Disable Default Config
   file: dest=/etc/nginx/sites-enabled/default state=absent

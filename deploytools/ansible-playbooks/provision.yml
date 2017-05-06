@@ -1,7 +1,7 @@
 ---
- - hosts: web
+ - hosts: python2 
    become: yes
-   user: ubuntu
+   user: root 
    roles: 
     - nginx
     - itcraftsmanpl.php7
