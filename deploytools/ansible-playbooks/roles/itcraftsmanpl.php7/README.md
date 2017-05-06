@@ -20,7 +20,7 @@ Available variables are listed below, along with default values (see `defaults/m
       - php7.0-curl
       - php7.0-cgi
       - php7.0-fpm
-      - php7.0-mysql
+      - php7.0-mysql * modified for tips project to sqlite *
       - php7.0-gd
       - php7.0-mbstring
       - php7.0-mcrypt
