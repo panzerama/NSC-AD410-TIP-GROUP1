@@ -1,0 +1,17 @@
+---
+- name: Clone Git Repo into /home/tips/
+	repo: https://github.com/panzerama/NSC-AD410-TIP-GROUP1.git
+	dest: /home/tips
+
+- name: Set permissions on Application Directory
+  file: path=/home/tips/prod state=directory mode=775 owner=www-data group=www-data recurse=yes
+
+- name: Create symlink between /var/www/domain.com and /home/tips/prod/
+	shell: ln -s /home/tips/prod /var/www/162.243.130.59
+
+- name: Run composer install
+	shell: cd /home/tips/prod && composer install
+
+# - name: .env file copy
+
+# - name: set permissions on cache and storage files?
