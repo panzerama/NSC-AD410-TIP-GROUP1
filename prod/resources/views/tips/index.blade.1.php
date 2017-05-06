@@ -140,20 +140,17 @@
                                                 </select>
                                             </div><!--col-sm-8-->
                                     </div><!--form-group-->
-
-                                    <br><br>
-                                   <div class="form-group">
-                                       <div class="col-md-3">
-                                           <button class="btn btn-lg btn-warning" type="submit">Cancel</button>
+                                       
+                                   
+                                   
+                                    
+                                    
+                                    <br>
+                                    <div class="form-group">
+                                       <div class="col-sm-offset-9">
+                                           <a href="{{ url('/tip/tip-questions') }}" class="btn btn-lg btn-primary" type="submit">Continue</a>
                                        </div>
-                                       <div class="col-md-3">
-                                        </div>
-                                       <div class="col-md-3">
-                                           <button class="btn btn-lg btn-block btn-#5E5E5E" type="submit">Save Draft</button>
-                                       </div>
-                                       <div class="col-sm-3">
-                                           <a href="{{ url('/tip/questions') }}" class="btn btn-lg btn-block btn-primary">Continue</a>
-                                       </div>
+                                       
                                    </div>
                                     
                                 </form>
