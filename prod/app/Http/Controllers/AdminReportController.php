@@ -3,15 +3,32 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminReportController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Displays default tips dashboard, with default report
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
+    {
+        //write the sql query for the default info
+        $tips = DB::table('TIPS')->get()->toJson();
+        
+        //return response
+        return view('reports.index', $tips);
+    }
+    
+    /**
+     * Given an incoming Request, pass into tips fucntion and pass the results
+     * of the db call into view.
+     *
+     * @param  Request $search
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
     {
         //
     }
@@ -37,16 +54,7 @@ class AdminReportController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+
 
     /**
      * Show the form for editing the specified resource.
