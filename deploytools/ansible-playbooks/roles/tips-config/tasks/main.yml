@@ -13,7 +13,9 @@
     file: path=/home/tips/prod state=directory mode=775 owner=www-data group=www-data recurse=yes
 
 - name: Create symlink between /var/www/domain.com and /home/tips/prod/
-  shell: ln -s /home/tips/prod /var/www/162.243.130.59
+  file: /var/www/45.55.16.239
+    state: link
+    dest: /home/tips/prod/public
 
 - name: Run composer install
   shell: cd /home/tips/prod && composer install
