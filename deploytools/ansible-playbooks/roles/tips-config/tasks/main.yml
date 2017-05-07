@@ -13,10 +13,11 @@
 - name: Set permissions on Application Directory
   file: path=/home/tips/prod state=directory mode=775 owner=www-data group=www-data recurse=yes
 
+
 - name: Create symlink between /var/www/domain.com and /home/tips/prod/
   file:
     src: /home/tips/prod/public
-    dest: "/var/www/{{ domain }}"
+    dest: "/var/www/{{ domain }}/public"
     state: link
 
 - name: Run composer install
