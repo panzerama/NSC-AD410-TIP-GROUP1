@@ -14,14 +14,6 @@ class AdminController extends Controller
         return view('admin/tips-management');
     }
     
-    public function reports()
-    {
-        //how do i get the data
-        //building a query
-        
-        return view('admin/reports', $data);
-    }
-    
     public function inactivateUser()
     {
         return view('admin/inactivate-user');

@@ -28,9 +28,13 @@ class AdminReportController extends Controller
      * @param  Request $search
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($request)
     {
-        //
+        //From the data in the request, run a search
+        //TipsSearch::apply($request)
+        //Conditions for empty results sets
+        //          for filters not being set or no post data
+        //          for issues contacting DB or errors upstream
     }
 
     /**
