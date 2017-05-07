@@ -1,13 +1,13 @@
 ---
 - name: create dir for repo
   file: 
-		path: /home/tips 
-		state: directory
+    path: /home/tips 
+    state: directory
 
 - name: Clone Git Repo into /home/tips/
   git:
-     repo: https://github.com/panzerama/NSC-AD410-TIP-GROUP1.git
-     dest: /home/tips
+    repo: https://github.com/panzerama/NSC-AD410-TIP-GROUP1.git
+    dest: /home/tips
 
 - name: Set permissions on Application Directory
   file: path=/home/tips/prod state=directory mode=775 owner=www-data group=www-data recurse=yes
