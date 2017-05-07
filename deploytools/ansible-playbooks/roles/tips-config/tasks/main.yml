@@ -14,10 +14,10 @@
   file: path=/home/tips/prod state=directory mode=775 owner=www-data group=www-data recurse=yes
 
 - name: Create symlink between /var/www/domain.com and /home/tips/prod/
-  file: 
-    path: /var/www/45.55.16.239
+  file:
+    src: /home/tips/prod/public
+    dest: "/var/www/{{ domain }}"
     state: link
-    dest: /home/tips/prod/public
 
 - name: Run composer install
   shell: cd /home/tips/prod && composer install
