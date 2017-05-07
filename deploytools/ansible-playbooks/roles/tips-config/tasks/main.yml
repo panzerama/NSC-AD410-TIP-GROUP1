@@ -8,12 +8,14 @@
   git:
     repo: https://github.com/panzerama/NSC-AD410-TIP-GROUP1.git
     dest: /home/tips
+    force: yes
 
 - name: Set permissions on Application Directory
   file: path=/home/tips/prod state=directory mode=775 owner=www-data group=www-data recurse=yes
 
 - name: Create symlink between /var/www/domain.com and /home/tips/prod/
-  file: /var/www/45.55.16.239
+  file: 
+    path: /var/www/45.55.16.239
     state: link
     dest: /home/tips/prod/public
 
