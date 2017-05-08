@@ -3,7 +3,8 @@
 @section('title', 'TIPS Submission')
 
 @section('content')
-    <div class="wrapper wrapper-content animated fadeInRight">
+
+<div class="wrapper wrapper-content animated fadeInRight">
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="col-sm-12">
@@ -27,99 +28,45 @@
                             </div>
                         </div><!-- col-sm-12 -->
                         
-                        <?php
-                            $questions = array(
-                                array("What is the problem or lesson that you identified
-                                    and will be discussing in this TIP?", 
-                                    "textarea", 
-                                    "Ut sed tortor eu nulla dapibus interdum id sed ante. Praesent in velit odio. Quisque iaculis tincidunt est, id suscipit odio elementum id. Mauris tempus turpis dapibus, iaculis neque quis, imperdiet quam. Quisque sit amet fringilla quam. Mauris faucibus mattis porttitor. Fusce et bibendum felis, sed tempus odio. Maecenas accumsan risus sit amet neque euismod, ut elementum tellus lobortis. Donec vitae ipsum ut massa iaculis hendrerit. Nulla non lacus ante. Ut aliquam ex vel facilisis pulvinar."),
-                                array("Which of the following best 
-                                    describes the evidence you found for the problem?", 
-                                    "radio", 
-                                    "Ut sed tortor eu nulla dapibus interdum id sed ante. Praesent in velit odio. Quisque iaculis tincidunt est, id suscipit odio elementum id. Mauris tempus turpis dapibus, iaculis neque quis, imperdiet quam. Quisque sit amet fringilla quam. Mauris faucibus mattis porttitor. Fusce et bibendum felis, sed tempus odio. Maecenas accumsan risus sit amet neque euismod, ut elementum tellus lobortis. Donec vitae ipsum ut massa iaculis hendrerit. Nulla non lacus ante. Ut aliquam ex vel facilisis pulvinar."),
-                                array("Which of the college-wide Essential Learning
-                                    Outcomes does your TIP most closely address?",
-                                    "dropdown", 
-                                    "Ut sed tortor eu nulla dapibus interdum id sed ante. Praesent in velit odio. Quisque iaculis tincidunt est, id suscipit odio elementum id. Mauris tempus turpis dapibus, iaculis neque quis, imperdiet quam. Quisque sit amet fringilla quam. Mauris faucibus mattis porttitor. Fusce et bibendum felis, sed tempus odio. Maecenas accumsan risus sit amet neque euismod, ut elementum tellus lobortis. Donec vitae ipsum ut massa iaculis hendrerit. Nulla non lacus ante. Ut aliquam ex vel facilisis pulvinar."),
-                                array("What is the problem or lesson that you identified
-                                    and will be discussing in this TIP? No topic is too big or too small. All are welcomed!", 
-                                    "textarea", 
-                                    "Ut sed tortor eu nulla dapibus interdum id sed ante. Praesent in velit odio. Quisque iaculis tincidunt est, id suscipit odio elementum id. Mauris tempus turpis dapibus, iaculis neque quis, imperdiet quam. Quisque sit amet fringilla quam. Mauris faucibus mattis porttitor. Fusce et bibendum felis, sed tempus odio. Maecenas accumsan risus sit amet neque euismod, ut elementum tellus lobortis. Donec vitae ipsum ut massa iaculis hendrerit. Nulla non lacus ante. Ut aliquam ex vel facilisis pulvinar."),    
-                                );
+                        <form class="form-horizontal">
+                            {{ csrf_field() }}
                         
-                            
-                            
-                            $dropDownOptions = ["Communication and self-expression", "Technological proficiency" , "Quantitative reasoning"];
-                            
-                            $radioOptions = ["Communication and self-expression", "Technological proficiency" , "Quantitative reasoning"];
+                        @foreach($questions as $question)
+                            <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h3 style="font-size:1.6em">{{ $question->question_text }}</h3>
+                            </div><!-- ibox title-->    
+                            <div class="ibox-content">
+                            <div class="form-group">
                         
-                        ?>
-                        
-                        
-                                <form class="form-horizontal">
+
+                            @if($question->question_type == "TEXT")
+                                    <div class="col-lg-8 col-sm-12">
+                                    <textarea class="form-control" rows="4" cols="60"></textarea>
+                            @elseif ( $question->question_type == "DROPDOWN")       
+                                    <div class="col-sm-4">
+                                    <select class="form-control" name="dropdown-select">
                                     
-                                    <?php 
+                                        <option></option>
+                                  
+                                    </select>
+                             @elseif ($question->question_type == "RADIO")       
+                                   <div class="col-sm-8">
+                                        <div class="form-check">
+                                        <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="radio-select"></label>
+                                        </div><!-- form-check-->
+                            @endIf
+                            
+                            </div><!-- answer div -->
+                            </div><!-- form-group -->
+                            </div><!-- ibox-content -->
+                            </div><!-- ibox -->
+                        
+                        @endforeach
+                                
                                     
-                                        for ($i = 0; $i < count($questions); $i++) {
-                                            echo 
-                                            '<div class="ibox float-e-margins">
-                                            <div class="ibox-title">
-                                                
-                                                    <h3 style="font-size:1.6em">' . $questions[$i][0] . '</h3>
-                                                
-                                                
-                                                
-                                            </div><!-- ibox title-->    
-                                            <div class="ibox-content">
-                                            <div class="form-group">
-                                            
-                                            ';
-                                            $questionType = $questions[$i][1];    
-                                            switch ($questionType) {
-                                                
-                                                case "textarea":
-                                                    echo '
-                                                    <div class="col-lg-8 col-sm-12">
-                                                            <textarea class="form-control" rows="4" cols="60"></textarea>';
-                                                    break;
-                                                    
-                                                case "dropdown":
-                                                    echo '
-                                                    <div class="col-sm-4">
-                                                    <select class="form-control" name="dropdown-select">';
-                                                    foreach($dropDownOptions as $option){
-                                                        echo '<option value=' . $option . '>' . $option .'</option>';
-                                                    }
-                                                    echo '</select>';
-                                                    break;
-                                                    
-                                                case "radio":
-                                                    echo '<div class="col-sm-8">';
-                                                    foreach($radioOptions as $option){
-                                                        echo '
-                                                        
-                                                        <div class="form-check">
-                                                        <label class="form-check-label">
-                                                        <input type="radio" class="form-check-input" name="radio-select">    ' . $option . 
-                                                        '</label>
-                                                        </div><!-- form-check-->';
-                                                    }
-                                            }
-                                            echo '
-                                            </div><!-- answer div -->
-                                            <div class="col-md-1 pull-right">
-                                                <div class="ibox-tools">
-                                                    <a href="#" data-toggle="popover" title="Example Answer" data-trigger="focus" data-placement="left" data-content="' . $questions[$i][2] . '"><span style="font-size:1.5em;" class="glyphicon glyphicon-question-sign"></span></a>
-                                                </div><!-- ibox tools -->
-                                            </div> <!-- col-md-1 -->   
-                                            </div><!-- form-group -->
-                                            </div><!-- ibox-content -->
-                                            </div><!-- ibox -->
-                                            ';
-                                            
-                                        }
                                     
-                                    ?>
                                     
                                     
                                     <br><br>
