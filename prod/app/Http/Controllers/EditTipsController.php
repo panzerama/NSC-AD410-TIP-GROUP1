@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\question;
 
 class EditTipsController extends Controller
 {
     public function index(){
         $questions = question::all();
-        return view('/editquestions/index',compact('questions'));
+        return view('edittips/index',compact('questions'));
     }
     
     public function create(){
