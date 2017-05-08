@@ -1,0 +1,8 @@
+Mitch Thompson
+Status Report
+5/5/2017
+
+-Worked on TIPS Questionnaire. 
+    -Added jquery to first page so when user selects group TIP text input field for adding more tip members displays. 
+    -Also jquery to show/hide TIP instructions based on user click
+    -Added switch statement to second page for building TIP questions. Switch cases based on question type in database. 
