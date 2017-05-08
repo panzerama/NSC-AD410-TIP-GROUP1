@@ -152,7 +152,7 @@
                                        <div class="col-md-3">
                                         </div>
                                        <div class="col-md-3">
-                                           <button class="btn btn-lg btn-block btn-#5E5E5E" type="submit">Save Draft</button>
+                                           <button class="btn btn-lg btn-block btn-secondar" type="submit">Save Draft</button>
                                        </div>
                                        <div class="col-sm-3">
                                            <a href="{{ url('/tip/questions') }}" class="btn btn-lg btn-block btn-primary">Continue</a>
@@ -160,6 +160,7 @@
                                    </div><!--form-group-->
                                     
                                 </form>
+                                <br><br><br><br>
                            
                     </div><!-- col-lg-12 -->
                 </div><!--row-->

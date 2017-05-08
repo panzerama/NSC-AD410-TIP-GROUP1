@@ -30,13 +30,21 @@
                         <?php
                             $questions = array(
                                 array("What is the problem or lesson that you identified
-                                    and will be discussing in this TIP? No topic is too big or too small. All are welcomed!", "textarea"),
+                                    and will be discussing in this TIP?", 
+                                    "textarea", 
+                                    "Ut sed tortor eu nulla dapibus interdum id sed ante. Praesent in velit odio. Quisque iaculis tincidunt est, id suscipit odio elementum id. Mauris tempus turpis dapibus, iaculis neque quis, imperdiet quam. Quisque sit amet fringilla quam. Mauris faucibus mattis porttitor. Fusce et bibendum felis, sed tempus odio. Maecenas accumsan risus sit amet neque euismod, ut elementum tellus lobortis. Donec vitae ipsum ut massa iaculis hendrerit. Nulla non lacus ante. Ut aliquam ex vel facilisis pulvinar."),
                                 array("Which of the following best 
-                                    describes the evidence you found for the problem?", "radio"),
+                                    describes the evidence you found for the problem?", 
+                                    "radio", 
+                                    "Ut sed tortor eu nulla dapibus interdum id sed ante. Praesent in velit odio. Quisque iaculis tincidunt est, id suscipit odio elementum id. Mauris tempus turpis dapibus, iaculis neque quis, imperdiet quam. Quisque sit amet fringilla quam. Mauris faucibus mattis porttitor. Fusce et bibendum felis, sed tempus odio. Maecenas accumsan risus sit amet neque euismod, ut elementum tellus lobortis. Donec vitae ipsum ut massa iaculis hendrerit. Nulla non lacus ante. Ut aliquam ex vel facilisis pulvinar."),
                                 array("Which of the college-wide Essential Learning
-                                    Outcomes does your TIP most closely address?", "dropdown"),
+                                    Outcomes does your TIP most closely address?",
+                                    "dropdown", 
+                                    "Ut sed tortor eu nulla dapibus interdum id sed ante. Praesent in velit odio. Quisque iaculis tincidunt est, id suscipit odio elementum id. Mauris tempus turpis dapibus, iaculis neque quis, imperdiet quam. Quisque sit amet fringilla quam. Mauris faucibus mattis porttitor. Fusce et bibendum felis, sed tempus odio. Maecenas accumsan risus sit amet neque euismod, ut elementum tellus lobortis. Donec vitae ipsum ut massa iaculis hendrerit. Nulla non lacus ante. Ut aliquam ex vel facilisis pulvinar."),
                                 array("What is the problem or lesson that you identified
-                                    and will be discussing in this TIP? No topic is too big or too small. All are welcomed!", "textarea"),    
+                                    and will be discussing in this TIP? No topic is too big or too small. All are welcomed!", 
+                                    "textarea", 
+                                    "Ut sed tortor eu nulla dapibus interdum id sed ante. Praesent in velit odio. Quisque iaculis tincidunt est, id suscipit odio elementum id. Mauris tempus turpis dapibus, iaculis neque quis, imperdiet quam. Quisque sit amet fringilla quam. Mauris faucibus mattis porttitor. Fusce et bibendum felis, sed tempus odio. Maecenas accumsan risus sit amet neque euismod, ut elementum tellus lobortis. Donec vitae ipsum ut massa iaculis hendrerit. Nulla non lacus ante. Ut aliquam ex vel facilisis pulvinar."),    
                                 );
                         
                             
@@ -55,19 +63,30 @@
                                         for ($i = 0; $i < count($questions); $i++) {
                                             echo 
                                             '<div class="ibox float-e-margins">
-                                            <div class="ibox-title"><h3>' . $questions[$i][0] . '</h3></div>
+                                            <div class="ibox-title">
+                                                
+                                                    <h3 style="font-size:1.6em">' . $questions[$i][0] . '</h3>
+                                                
+                                                
+                                                
+                                            </div><!-- ibox title-->    
                                             <div class="ibox-content">
                                             <div class="form-group">
-                                            <div class="col-sm-12">';
+                                            
+                                            ';
                                             $questionType = $questions[$i][1];    
                                             switch ($questionType) {
                                                 
                                                 case "textarea":
-                                                    echo '<textarea class="form-control" rows="4" cols="60"></textarea>';
+                                                    echo '
+                                                    <div class="col-lg-8 col-sm-12">
+                                                            <textarea class="form-control" rows="4" cols="60"></textarea>';
                                                     break;
                                                     
                                                 case "dropdown":
-                                                    echo '<select class="form-control col-sm-6" name="dropdown-select">';
+                                                    echo '
+                                                    <div class="col-sm-4">
+                                                    <select class="form-control" name="dropdown-select">';
                                                     foreach($dropDownOptions as $option){
                                                         echo '<option value=' . $option . '>' . $option .'</option>';
                                                     }
@@ -75,8 +94,10 @@
                                                     break;
                                                     
                                                 case "radio":
+                                                    echo '<div class="col-sm-8">';
                                                     foreach($radioOptions as $option){
                                                         echo '
+                                                        
                                                         <div class="form-check">
                                                         <label class="form-check-label">
                                                         <input type="radio" class="form-check-input" name="radio-select">    ' . $option . 
@@ -85,10 +106,15 @@
                                                     }
                                             }
                                             echo '
-                                            </div><!-- col-sm-12 -->
+                                            </div><!-- answer div -->
+                                            <div class="col-md-1 pull-right">
+                                                <div class="ibox-tools">
+                                                    <a href="#" data-toggle="popover" title="Example Answer" data-trigger="focus" data-placement="left" data-content="' . $questions[$i][2] . '"><span style="font-size:1.5em;" class="glyphicon glyphicon-question-sign"></span></a>
+                                                </div><!-- ibox tools -->
+                                            </div> <!-- col-md-1 -->   
                                             </div><!-- form-group -->
-                                            </div><!-- i-box-content -->
-                                            </div><!-- i-box -->
+                                            </div><!-- ibox-content -->
+                                            </div><!-- ibox -->
                                             ';
                                             
                                         }
@@ -102,9 +128,10 @@
                                            <button class="btn btn-lg btn-block btn-warning" type="submit">Cancel</button>
                                        </div>
                                        <div class="col-md-3">
+                                           <a href="{{ url('/tip/questions') }}" class="btn btn-lg btn-block btn-warning">Back</a>
                                         </div>
                                        <div class="col-md-3">
-                                           <button class="btn btn-lg btn-block btn-#5E5E5E" type="submit">Save Draft</button>
+                                           <button class="btn btn-lg btn-block btn-secondary" type="submit">Save Draft</button>
                                        </div>
                                        <div class="col-md-3">
                                            <button class="btn btn-lg btn-block btn-primary" type="submit">Submit</button>
@@ -136,6 +163,9 @@
                     $("#show-instructions").hide();
                     $(".tip-instructions").slideDown("slow");
                 });
+                
+                //For example answer popup
+                $('[data-toggle="popover"]').popover();
              });
         </script>
     
