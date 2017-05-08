@@ -3,17 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\question;
+use App\answer;
 
 class TipsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        
+        return view('tips/index'); // Returns view for tips/index.blade.php
+        
     }
 
     /**
@@ -23,7 +23,11 @@ class TipsController extends Controller
      */
     public function create()
     {
-        //
+        $questions = question::all();
+        $answers = answer::all();
+        // dd($questions);
+        // dd($answers);
+        return view('tips/create', compact('questions', 'answers')); // Returns view for tips/create.blade.php
     }
 
     /**

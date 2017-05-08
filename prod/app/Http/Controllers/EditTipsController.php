@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class EditQuestionsController extends Controller
+class EditTipsController extends Controller
 {
     public function index(){
         $questions = question::all();
@@ -12,7 +12,7 @@ class EditQuestionsController extends Controller
     }
     
     public function create(){
-        
+
     }
     
     public function store(){

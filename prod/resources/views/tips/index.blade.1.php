@@ -6,6 +6,7 @@
     <div class="wrapper wrapper-content animated fadeInRight">
                 <div class="row">
                     <div class="col-lg-12">
+                        <div class="col-lg-12">
                         <h1>TIPS Submission</h1>
                         <div class="tip-instructions">
                         <p>As you prepare to record a tip in this shell, please be thinking about the following pieces of information. Most of the pieces you can fill in even before you implement your change. In fact, some faculty have found it helpful to do so. The last items on the list can be entered only after you have implemented and evaluated your change.</p>
