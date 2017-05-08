@@ -18,7 +18,7 @@
                                     <li>A description of the impact of the change(s) on student learning (or lack of impact)</li>                               
                                     <li>Your conclusions about the process and next steps.</li>
                                 </ul>
-                                <p>NOTE: If you don't finish at one sitting, you can return to your TIP later. Select the save button to save your tip and it will automatically be resumed the next time you log in. Once you choose "Submit" you cannot return to it! </p>
+                                <p><strong>NOTE: </strong>If you don't finish at one sitting, you can return to your TIP later. Select the "Save Draft" button to save your tip and it will automatically be resumed the next time you log in. Once you select "Submit" you cannot return to it! </p>
                                 <a class="hide-instructions"><span class="glyphicon glyphicon-chevron-up"></span>Hide Instructions</a>
                                 <br><br>
                             </div><!-- tip-instructions -->
@@ -34,32 +34,42 @@
                         @foreach($questions as $question)
                             <div class="ibox float-e-margins">
                             <div class="ibox-title">
-                                <h3 style="font-size:1.6em">{{ $question->question_text }}</h3>
+                                    <h5 style="font-size:1.2em">{{ $question->question_text }}</h5>
+                                <div class="ibox-tools">
+                                    <a tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Example Answer" data-placement="left" data-content="{{ $question->question_desc }}"><span class="glyphicon glyphicon-question-sign" style="font-size:1.2em"></span></a>
+                                </div><!-- ibox-tools -->
                             </div><!-- ibox title-->    
+                            
+                            
                             <div class="ibox-content">
                             <div class="form-group">
                         
 
-                            @if($question->question_type == "TEXT")
+                            @if ($question->question_type == "TEXT")
                                     <div class="col-lg-8 col-sm-12">
                                     <textarea class="form-control" rows="4" cols="60"></textarea>
                             @elseif ( $question->question_type == "DROPDOWN")       
                                     <div class="col-sm-4">
                                     <select class="form-control" name="dropdown-select">
-                                    
-                                        <option></option>
-                                  
+                                        <option>Test</option>
                                     </select>
                              @elseif ($question->question_type == "RADIO")       
                                    <div class="col-sm-8">
                                         <div class="form-check">
                                         <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="radio-select"></label>
+                                        <input type="radio" class="form-check-input" name="radio-select">Test</label>
+                                        </div><!-- form-check-->
+                            @elseif ($question->question_type == "CHECKBOX")       
+                                   <div class="col-sm-8">
+                                        <div class="form-check">
+                                        <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="radio-select">Test</label>
                                         </div><!-- form-check-->
                             @endIf
                             
                             </div><!-- answer div -->
                             </div><!-- form-group -->
+                            
                             </div><!-- ibox-content -->
                             </div><!-- ibox -->
                         
@@ -69,30 +79,24 @@
                                     
                                     
                                     
-                                    <br><br>
-                                   <div class="form-group">
-                                       <div class="col-md-3">
-                                           <button class="btn btn-lg btn-block btn-warning" type="submit">Cancel</button>
-                                       </div>
-                                       <div class="col-md-3">
-                                           <a href="{{ url('/tip/questions') }}" class="btn btn-lg btn-block btn-warning">Back</a>
-                                        </div>
-                                       <div class="col-md-3">
-                                           <button class="btn btn-lg btn-block btn-secondary" type="submit">Save Draft</button>
-                                       </div>
-                                       <div class="col-md-3">
-                                           <button class="btn btn-lg btn-block btn-primary" type="submit">Submit</button>
-                                       </div>
-                                   </div>
-                                </form>
-                                <br><br><br><br>
+                            <br><br>
+                           <div class="form-group">
+                               <div class="col-md-3">
+                                   <button class="btn btn-lg btn-block btn-warning" type="submit">Cancel</button>
+                               </div>
+                               <div class="col-md-3">
+                                   <a href="{{ url('/tip/questions') }}" class="btn btn-lg btn-block btn-warning">Back</a>
+                                </div>
+                               <div class="col-md-3">
+                                   <button class="btn btn-lg btn-block btn-secondary" type="submit">Save Draft</button>
+                               </div>
+                               <div class="col-md-3">
+                                   <button class="btn btn-lg btn-block btn-primary" type="submit">Submit</button>
+                               </div>
+                           </div>
+                        </form>
+                        <br><br><br><br>
                             
-                                
-                        
-                        
-        
-                        
-                        
                     
                 </div><!--col-lg-12-->
             </div><!--row-->

@@ -17,7 +17,7 @@
                                     <li>A description of the impact of the change(s) on student learning (or lack of impact)</li>                               
                                     <li>Your conclusions about the process and next steps.</li>
                                 </ul>
-                                <p>NOTE: If you don't finish at one sitting, you can return to your TIP later. Select the save button to save your tip and it will automatically be resumed the next time you log in. Once you choose "Submit" you cannot return to it! </p>
+                                <p><strong>NOTE: </strong>If you don't finish at one sitting, you can return to your TIP later. Select the "Save Draft" button to save your tip and it will automatically be resumed the next time you log in. Once you select "Submit" you cannot return to it! </p>
                                 <a class="hide-instructions"><span class="glyphicon glyphicon-chevron-up"></span>Hide Instructions</a>
                                 <br><br>
                             </div><!--tip-instructions-->
@@ -32,13 +32,13 @@
                         <div class="ibox float-e-margins">
                             <div class="ibox-content">
                                 <form class="form-horizontal">
+                                    {{ csrf_field() }}
                                     <div class="form-group">
-                                        <div class="col-sm-12">
-                                            <label class="col-sm-12">Is this an individual or group TIP?</label>
+                                        <div class="col-sm-4">
+                                            <label>Is this an individual or group TIP?</label>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-md-2 col-md-offset-1">
+                                    
+                                        <div class="col-md-3">
                                           <label>
                                               
                                             <input class="form-check-input" type="radio" id="indy-select" value="individual" name="type-tip">
@@ -47,7 +47,7 @@
                                           </label>
                                           
                                         </div>
-                                        <div class="col-md-5">
+                                        <div class="col-md-3">
                                           <label>
                                               
                                             <input class="form-check-input" type="radio" id="group-select" value="group" name="type-tip">
@@ -57,7 +57,7 @@
                                           
                                         </div>
                                     </div>
-                                    <br>
+                                    
                                     
                                     <!--Only displays when user selects Group Tip radio option-->
                                     <div style="display:none" id="group-tip">
@@ -71,11 +71,11 @@
                                     
                                     <!--jquery function will add fields when user clicks 'Add Another Member'-->
                                     <div class="form-group">
-                                        <div class="col-sm-12 add-member-field-div">
+                                        <div class="col-md-12 add-member-field-div">
                                             <div class="col-sm-5">
                                                 <input type="text" class="form-control" name="tip-members[]">
                                             </div>
-                                            <div class="col-sm-7">
+                                            <div class="col-md-7">
                                                 <a href="#" class="add-tip-member"><span class="glyphicon glyphicon-plus"></span> Add Another Member</a>
                                             </div>
                                             <br><br><br>
