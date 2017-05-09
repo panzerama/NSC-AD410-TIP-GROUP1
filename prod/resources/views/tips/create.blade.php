@@ -60,19 +60,52 @@
                 @elseif ( $question->question_type == "DROPDOWN")       
                         <div class="col-sm-4">
                         <select class="form-control" name="dropdown-select">
-                            <option>Test</option>
+                            <option>Test Option 1</option>
+                            <option>Test Option 2</option>
+                            <option>Test Option 3</option>
+                            <option>Test Option 4</option>
                         </select>
                  @elseif ($question->question_type == "RADIO")       
                        <div class="col-sm-8">
                             <div class="form-check">
-                            <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="radio-select">Test</label>
+                                <div class="col-sm-12">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="radio-select">Test Option 1
+                                    </label>
+                                </div>
+                                <div class="col-sm-12">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="radio-select">Test Option 2
+                                    </label>
+                                </div>
+                                <div class="col-sm-12">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="radio-select">Test Option 3
+                                    </label>
+                                </div>
+                                <div class="col-sm-12">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="radio-select">Test Option 4
+                                    </label>
+                                </div>
                             </div><!-- form-check-->
                 @elseif ($question->question_type == "CHECKBOX")       
                        <div class="col-sm-8">
                             <div class="form-check">
-                            <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" name="radio-select">Test</label>
+                                <div class="col-sm-12">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="radio-select">Test Option 1
+                                    </label>
+                                </div>
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" name="radio-select">Test Option 2
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" name="radio-select">Test Option 3
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" name="radio-select">Test Option 4
+                                </label>
                             </div><!-- form-check-->
                 @endIf
                 
