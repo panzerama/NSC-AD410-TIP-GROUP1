@@ -26,8 +26,8 @@ class faculty extends Model
         return $this->belongsToMany('App\tip', 'faculty_tips', 'faculty_id', 'tips_id');
     }
     
-    public function faculty() {
-        return $this->hasOne('App\faculty');
+    public function division() {
+        return $this->hasOne('App\division');
     }
 }
 // A little test for the testing commit line.
