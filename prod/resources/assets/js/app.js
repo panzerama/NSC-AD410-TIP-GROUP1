@@ -105,7 +105,10 @@ $(document).ready(function () {
     // Add slimscroll to element
     $('.full-height-scroll').slimscroll({
         height: '100%'
-    })
+    });
+    
+    
+    
 });
 
 
@@ -138,3 +141,5 @@ function SmoothlyMenu() {
         $('#side-menu').removeAttr('style');
     }
 }
+
+
