@@ -17,7 +17,7 @@ class question extends Model
         ];
         
     public function answer(){
-        return $this->hasMany(answer::class);
+        return $this->hasMany(answer::class, 'question_id', 'question_id');
     }
     
     public function tip_question(){
