@@ -60,10 +60,9 @@
                 @elseif ( $question->question_type == "DROPDOWN")       
                         <div class="col-sm-4">
                         <select class="form-control" name="dropdown-select">
-                            <option>Test Option 1</option>
-                            <option>Test Option 2</option>
-                            <option>Test Option 3</option>
-                            <option>Test Option 4</option>
+                            @foreach ($question->answer as $answer)
+                            <option>{{$answer->answer_text}}</option>
+                            @endforeach
                         </select>
                  @elseif ($question->question_type == "RADIO")       
                        <div class="col-sm-8">
