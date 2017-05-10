@@ -1,0 +1,4 @@
+Not much to report.  I spent a solid two days trying to get Oauth packages to install with Composer but didn't have any luck.  The issue is that, using cloud9, we don't have access to the php.ini files being used to configure php.  So without being able to enable certain extensions I was unable to install the packages needed.
+
+Solution seems to be that Michael is standing up a server to host our app, where we will have access to all our config files.  Hopefully this can be done by Wednesday but at the latest it should be done by next week.
+

@@ -1,6 +1,8 @@
-<?php $__env->startSection('title', 'TIPS Submission'); ?>
+@extends('layouts.app')
 
-<?php $__env->startSection('content'); ?>
+@section('title', 'TIPS Submission')
+
+@section('content')
     <div class="wrapper wrapper-content animated fadeInRight">
                 <div class="row">
                     <div class="col-lg-12">
@@ -145,7 +147,7 @@
                                     <br>
                                     <div class="form-group">
                                        <div class="col-sm-offset-9">
-                                           <a href="<?php echo e(url('/tip/tip-questions')); ?>" class="btn btn-lg btn-primary" type="submit">Continue</a>
+                                           <a href="{{ url('/tip/tip-questions') }}" class="btn btn-lg btn-primary" type="submit">Continue</a>
                                        </div>
                                        
                                    </div>
@@ -201,6 +203,4 @@
                 
             </script>
             
-<?php $__env->stopSection(); ?>
-
-<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+@endsection

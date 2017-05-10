@@ -6,9 +6,10 @@
     <title><?php echo $__env->yieldContent('title'); ?> </title>
 
 
-    <link rel="stylesheet" href="<?php echo asset('css/vendor.css', true); ?>" />
-    <link rel="stylesheet" href="<?php echo asset('css/app.css', true); ?>" />
-
+    <link rel="stylesheet" href="<?php echo asset('css/vendor.css', true); ?>" type="text/css" />
+    <link rel="stylesheet" href="<?php echo asset('css/app.css', true); ?>" type="text/css" />
+    <link rel="stylesheet" href="<?php echo asset('css/custom.css', true); ?>" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
 </head>
 <body>
 
@@ -35,8 +36,8 @@
 
     </div>
     <!-- End wrapper-->
-
 <script src="<?php echo asset('js/app.js', true); ?>" type="text/javascript"></script>
+
 
 <?php $__env->startSection('scripts'); ?>
 <?php echo $__env->yieldSection(); ?>

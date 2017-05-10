@@ -7,4 +7,21 @@ use Illuminate\Database\Eloquent\Model;
 class question extends Model
 {
     //
+    protected $fillable = [
+        'question_id',
+        'question_number',
+        'question_text',
+        'question_type',
+        'is_active',
+        'question_desc'
+        ];
+        
+    public function answer(){
+        return $this->hasMany(answer::class);
+    }
+    
+    public function tip_question(){
+        return $this->hasMany(tip_question::class);
+    }
+        
 }
