@@ -16,4 +16,12 @@ class question extends Model
         'question_desc'
         ];
         
+    public function answer(){
+        return $this->hasMany(answer::class);
+    }
+    
+    public function tip_question(){
+        return $this->hasMany(tip_question::class);
+    }
+        
 }

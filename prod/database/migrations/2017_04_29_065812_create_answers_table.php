@@ -31,37 +31,108 @@ class CreateAnswersTable extends Migration
         // Insert answers test data
         DB::table('answers')->insert(array(
             array(
-                'question_id' => 2,
+                'question_id' => 3,
                 'answer_text' => 'Modified a learning activity',
                 'is_active' => true
             ),
             array(
-                'question_id' => 2,
+                'question_id' => 3,
                 'answer_text' => 'Added new learning activity',
                 'is_active' => true
             ),
             array(
-                'question_id' => 2,
+                'question_id' => 3,
                 'answer_text' => 'Provided more context or more practice',
                 'is_active' => true
             ),
             array(
-                'question_id' => 2,
+                'question_id' => 3,
                 'answer_text' => 'Provided “real world” examples or applications',
                 'is_active' => true
             ),
             array(
-                'question_id' => 2,
+                'question_id' => 3,
                 'answer_text' => 'Tried a new approach to the material',
                 'is_active' => true
             ),
             array(
-                'question_id' => 2,
+                'question_id' => 3,
                 'answer_text' => 'Reapportioned time/effort devoted to topics',
                 'is_active' => true
             ),
             array(
-                'question_id' => 2,
+                'question_id' => 3,
+                'answer_text' => 'Reviewed the material',
+                'is_active' => true
+            ),
+            //
+            array(
+                'question_id' => 4,
+                'answer_text' => 'Modified a learning activity',
+                'is_active' => true
+            ),
+            array(
+                'question_id' => 4,
+                'answer_text' => 'Added new learning activity',
+                'is_active' => true
+            ),
+            array(
+                'question_id' => 4,
+                'answer_text' => 'Provided more context or more practice',
+                'is_active' => true
+            ),
+            array(
+                'question_id' => 4,
+                'answer_text' => 'Provided “real world” examples or applications',
+                'is_active' => true
+            ),
+            array(
+                'question_id' => 4,
+                'answer_text' => 'Tried a new approach to the material',
+                'is_active' => true
+            ),
+            array(
+                'question_id' => 4,
+                'answer_text' => 'Reapportioned time/effort devoted to topics',
+                'is_active' => true
+            ),
+            array(
+                'question_id' => 4,
+                'answer_text' => 'Reviewed the material',
+                'is_active' => true
+            ),
+            array(
+                'question_id' => 5,
+                'answer_text' => 'Modified a learning activity',
+                'is_active' => true
+            ),
+            array(
+                'question_id' => 5,
+                'answer_text' => 'Added new learning activity',
+                'is_active' => true
+            ),
+            array(
+                'question_id' => 5,
+                'answer_text' => 'Provided more context or more practice',
+                'is_active' => true
+            ),
+            array(
+                'question_id' => 5,
+                'answer_text' => 'Provided “real world” examples or applications',
+                'is_active' => true
+            ),
+            array(
+                'question_id' => 5,
+                'answer_text' => 'Tried a new approach to the material',
+                'is_active' => true
+            ),
+            array(
+                'question_id' => 5,
+                'answer_text' => 'Reapportioned time/effort devoted to topics',
+                'is_active' => true
+            ),
+            array(
+                'question_id' => 5,
                 'answer_text' => 'Reviewed the material',
                 'is_active' => true
             )

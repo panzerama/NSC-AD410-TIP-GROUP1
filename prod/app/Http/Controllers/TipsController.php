@@ -25,7 +25,6 @@ class TipsController extends Controller
     {
         $questions = question::all();
         $answers = answer::all();
-        // dd($questions);
         // dd($answers);
         return view('tips/create', compact('questions', 'answers')); // Returns view for tips/create.blade.php
     }
