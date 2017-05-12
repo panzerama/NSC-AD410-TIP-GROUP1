@@ -1,0 +1,8 @@
+Mitch Thompson
+Status Report
+5/12/2017
+
+-Met with Bonnie to work on testing form submission data
+-Tested all form submission data on tips questionnaire
+	-Created temp HTML output to display form data at top of each page
+-Added jQuery function to output alert for user confirmation before submitting on tips questionnaire
