@@ -6,16 +6,21 @@
 
 <!-- Second TIP Questionnaire page - url 'tip/questions' -->
 
+<!-- Test form submission output -->
 @if(Request::has('submit'))
+    <h2>Form Output:</h2>
+    <ul>
     @foreach($questions as $question)
         @php ($id = $question->question_id)
         @php ($type = $question->question_type)
         @if (Request::has($id))
             @php ($useranswer = Request::input($id))
-            <p>Answer: {{ $useranswer }}</p>
+            <li>Question ID: {{ $id }} - Answer: {{ $useranswer }}</li>
         @endIf
     @endforeach
+    </ul>
 @endIf
+<!-- End test form submission output -->
 
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
@@ -94,7 +99,7 @@
                                 @foreach ($question->answer as $answer)
                                 <div class="col-sm-12">
                                     <label class="form-check-label">
-                                        <input type="checkbox" class="form-check-input" name="{{ $question->question_id }}[]" value="{{ $answer->answer_text }}">   {{ $answer->answer_text }}
+                                        <input type="checkbox" class="form-check-input" name="{{ $question->question_id }}" value="{{ $answer->answer_text }}">   {{ $answer->answer_text }}
                                     </label>
                                 </div>
                                 @endforeach
@@ -116,10 +121,9 @@
            <br><br>
            <div class="form-group">
                <div class="col-md-3">
-                   <button class="btn btn-lg btn-block btn-warning" value ="cancel" name="cancel" type="submit">Cancel</button>
+                   <a href="{{ url('/tip') }}" class="btn btn-lg btn-block btn-warning">Back</a>
                </div>
                <div class="col-md-3">
-                   <a href="{{ url('/tip') }}" class="btn btn-lg btn-block btn-warning">Back</a>
                 </div>
                <div class="col-md-3">
                    <button class="btn btn-lg btn-block btn-secondary" value="save" name="save" type="submit">Save Draft</button>
