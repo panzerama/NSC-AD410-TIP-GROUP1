@@ -6,6 +6,17 @@
 
 <!-- Second TIP Questionnaire page - url 'tip/questions' -->
 
+@if(Request::has('submit'))
+    @foreach($questions as $question)
+        @php ($id = $question->question_id)
+        @php ($type = $question->question_type)
+        @if (Request::has($id))
+            @php ($useranswer = Request::input($id))
+            <p>Answer: {{ $useranswer }}</p>
+        @endIf
+    @endforeach
+@endIf
+
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
         <div class="col-sm-12">
@@ -52,59 +63,41 @@
                 
                 <div class="ibox-content">
                 <div class="form-group">
-            
+    
                 <!-- start if/else block that outputs different HTML based on question_type (TEXT, DROPDOWN, RADIO, CHECKBOX) -->
                 @if ($question->question_type == "TEXT")
                         <div class="col-lg-8 col-sm-12">
-                        <textarea class="form-control" rows="4" cols="60"></textarea>
+                        <textarea class="form-control" name="{{ $question->question_id }}" value="{{ $question->question_id }}" rows="4" cols="60"></textarea>
                 @elseif ( $question->question_type == "DROPDOWN")       
                         <div class="col-sm-4">
-                        <select class="form-control" name="dropdown-select">
+                        <select class="form-control" name="{{ $question->question_id }}">
+                            <option selected disabled>Choose here</option>
                             @foreach ($question->answer as $answer)
-                            <option>{{$answer->answer_text}}</option>
+                            <option select="{{$answer->answer_text}}">{{$answer->answer_text}}</option>
                             @endforeach
                         </select>
                  @elseif ($question->question_type == "RADIO")       
                        <div class="col-sm-8">
                             <div class="form-check">
+                                @foreach ($question->answer as $answer)
                                 <div class="col-sm-12">
                                     <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="radio-select">Test Option 1
+                                        <input type="radio" name="{{ $question->question_id }}" value="{{ $answer->answer_text }}" class="form-check-input">   {{ $answer->answer_text }}
                                     </label>
                                 </div>
-                                <div class="col-sm-12">
-                                    <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="radio-select">Test Option 2
-                                    </label>
-                                </div>
-                                <div class="col-sm-12">
-                                    <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="radio-select">Test Option 3
-                                    </label>
-                                </div>
-                                <div class="col-sm-12">
-                                    <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="radio-select">Test Option 4
-                                    </label>
-                                </div>
+                                @endforeach
+    
                             </div><!-- form-check-->
                 @elseif ($question->question_type == "CHECKBOX")       
                        <div class="col-sm-8">
                             <div class="form-check">
+                                @foreach ($question->answer as $answer)
                                 <div class="col-sm-12">
                                     <label class="form-check-label">
-                                        <input type="checkbox" class="form-check-input" name="radio-select">Test Option 1
+                                        <input type="checkbox" class="form-check-input" name="{{ $question->question_id }}[]" value="{{ $answer->answer_text }}">   {{ $answer->answer_text }}
                                     </label>
                                 </div>
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="radio-select">Test Option 2
-                                </label>
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="radio-select">Test Option 3
-                                </label>
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="radio-select">Test Option 4
-                                </label>
+                                @endforeach
                             </div><!-- form-check-->
                 @endIf
                 
@@ -123,16 +116,16 @@
            <br><br>
            <div class="form-group">
                <div class="col-md-3">
-                   <button class="btn btn-lg btn-block btn-warning" type="submit">Cancel</button>
+                   <button class="btn btn-lg btn-block btn-warning" value ="cancel" name="cancel" type="submit">Cancel</button>
                </div>
                <div class="col-md-3">
-                   <a href="{{ url('/tip/questions') }}" class="btn btn-lg btn-block btn-warning">Back</a>
+                   <a href="{{ url('/tip') }}" class="btn btn-lg btn-block btn-warning">Back</a>
                 </div>
                <div class="col-md-3">
-                   <button class="btn btn-lg btn-block btn-secondary" type="submit">Save Draft</button>
+                   <button class="btn btn-lg btn-block btn-secondary" value="save" name="save" type="submit">Save Draft</button>
                </div>
                <div class="col-md-3">
-                   <button class="btn btn-lg btn-block btn-primary" type="submit">Submit</button>
+                   <button class="btn btn-lg btn-block btn-primary" value="submit" name="submit" type="submit">Submit</button>
                </div>
            </div>
         </form>
