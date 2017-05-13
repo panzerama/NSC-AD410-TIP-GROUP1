@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\question;
 use App\answer;
-
+use App\tip;
+use App\tips_questions;
+use App\DB;
 class TipsController extends Controller
 {
 
@@ -47,9 +49,11 @@ class TipsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $tip = tip::where('tips_id','=',1)->get();
+        $answers = question::all();
+        return view('tips/show',compact('tip','answers'));
     }
 
     /**
