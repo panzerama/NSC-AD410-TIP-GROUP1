@@ -10,4 +10,9 @@ class ReportsController extends Controller
         return view('reports/index');
     }
     
+     public function table()
+    {
+        return view('reports/table');
+    }
+    
 }
