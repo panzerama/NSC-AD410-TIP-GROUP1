@@ -16,4 +16,8 @@ class AdminController extends Controller
     public function show(){
         return view('admin/show');
     }
+    
+    public function destroy(){
+        
+    }
 }
