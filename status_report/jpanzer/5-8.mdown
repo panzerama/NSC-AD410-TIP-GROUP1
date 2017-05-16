@@ -1,0 +1,8 @@
+#Status Report
+## 5-8
+
+- Created new model for faculty
+- Created new relationships for model
+- Created new AdminReportController to facilitate sorted searching of tips
+- Final models needed before we can write search logic
+- Aaron, Bonnie, Bryson and I are working toward an effective solution, but we need to set aside some time tomorrow night for hthat.

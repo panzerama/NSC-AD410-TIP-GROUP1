@@ -1,0 +1,8 @@
+Khang Quach
+05-08-17
+status report
+
+-Connected Controller to model
+-Connected both models questions and answer to model
+-Worked with front end on data persistence
+-Was able to pass data to view

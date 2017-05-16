@@ -14,19 +14,23 @@ class CreateFacultyTable extends Migration
     public function up()
     {
         Schema::create('faculty', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('faculty_id');
+            $table->integer('division_id');
             $table->string('faculty_name');
             $table->string('email');
-            $table->boolean('is_admin');
-            $table->string('admin_password')->nullable();
-            $table->boolean('is_active');
             $table->enum('employee_type', ['FULLTIME','PARTTIME'])->nullable();
+            $table->boolean('is_admin');
+            $table->boolean('is_active');
             $table->timestamps();
+            
+            //basic foreign key creation
+            $table->foreign('division_id')->references('division_id')->on('division');
         });
         
         // Insert faculty test data
         DB::table('faculty')->insert(array(
             array(
+                'division_id' => 1,
                 'faculty_name' => 'John Stager',
                 'email' => 'Zhou.Wu@seattlecolleges.edu',
                 'is_admin' => false,
@@ -34,6 +38,7 @@ class CreateFacultyTable extends Migration
                 'employee_type' => 'PARTTIME'
             ),
             array(
+                'division_id' => 2,
                 'faculty_name' => 'Paul Wu',
                 'email' => 'John.Stager@seattlecolleges.edu',
                 'is_admin' => true,
