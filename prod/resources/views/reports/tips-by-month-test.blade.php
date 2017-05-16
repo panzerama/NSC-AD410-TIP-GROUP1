@@ -21,8 +21,12 @@
 //----------------------------------------------------------------       
 /* TIPS by month */
 //----------------------------------------------------------------   
+    var month = <?php echo $month; ?>;
+    var countByMthSubmitted = <?php echo $countByMthSubmitted; ?>;
+    var countByMthInprogress = <?php echo $countByMthInprogress; ?>;
+    
     var lineData = {
-        labels: ["July", "August", "September", "October", "November", "January", "February"],
+        labels: month,
         datasets: [
 
             {
@@ -32,13 +36,13 @@
                 pointBackgroundColor: "rgba(26,179,148,1)",
                 pointBorderColor: "#fff",
                 fill: true,
-                data: [24, 14, 29, 10, 13, 30, 6]
+                data: countByMthSubmitted
             },{
                 label: "In-progress",
                 backgroundColor: 'rgba(220, 220, 220, 0.5)',
                 pointBorderColor: "#fff",
                 fill: true,
-                data: [5, 10, 15, 17, 20, 4, 2]
+                data: countByMthInprogress
             }
         ]
     };

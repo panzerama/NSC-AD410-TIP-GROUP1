@@ -19,9 +19,14 @@
 <script>
 //----------------------------------------------------------------     
 /* Faculty participation by division */
-//----------------------------------------------------------------    
+//---------------------------------------------------------------- 
+
+    var division = <?php echo $division; ?>;
+    var countByDivisionSubmitted = <?php echo $countByDivisionSubmitted; ?>;
+    var countByDivisionInprogress = <?php echo $countByDivisionInprogress; ?>;
+    
     var barData1 = {
-        labels: ["AHSS", "BEIT", "BTS", "HHS", "LIB", "M&S"],
+        labels: division,
         datasets: [
             {
                 label: "Submitted",
@@ -29,7 +34,7 @@
                 borderColor: 'rgba(26,179,148,0.7)',
                 pointBackgroundColor: "rgba(26,179,148,1)",
                 pointBorderColor: "#fff",
-                data: [65, 48, 29, 19, 13, 6]
+                data: countByDivisionSubmitted
             },
             {
                 label: "In-progress",
@@ -37,7 +42,7 @@
                 borderColor: 'rgba(220, 220, 220, 0.7)',
                 backgroundColor: 'rgba(220, 220, 220, 0.5)',
                 pointBorderColor: "#fff",
-                data: [5, 10, 15, 7, 20, 4]
+                data: countByDivisionInprogress
             }
         ]
     };

@@ -29,28 +29,30 @@ class ReportsControllerDev extends Controller
     public function tipsbymonthtest()
     {
         //hardcode data (to do: replace with queries)
-            $data = array('countSubmitted' => '220',
-                          'countInprogress' => '50',
-                          'countNotstarted' => '230');  
-        
+        $month = array("July", "August", "September", "October", "November", "January", "February");
+        $countByMthSubmitted = array(24, 14, 29, 10, 1, 30, 6);
+        $countByMthInprogress = array(5, 10, 15, 17, 20, 4, 2);
+
         //return data to view
-        return view('reports/tips-by-month-test');
+        return view('reports/tips-by-month-test')
+            ->with('month',json_encode($month))
+            ->with('countByMthSubmitted',json_encode($countByMthSubmitted,JSON_NUMERIC_CHECK))
+            ->with('countByMthInprogress',json_encode($countByMthInprogress,JSON_NUMERIC_CHECK));
     }
     
      //this sends test data to /tipsByDivision-test page
     public function tipsbydivisiontest()
     {
         //hardcode data (to do: replace with queries)
-            $data = array('countSubmitted' => '220',
-                          'countInprogress' => '50',
-                          'countNotstarted' => '230');  
-        
+        $division = array("AHSS", "BEIT", "BTS", "HHS", "LIB", "M&S");
+        $countByDivisionSubmitted = array(65, 48, 29, 19, 13, 6);
+        $countByDivisionInprogress = array(5, 10, 15, 7, 20, 42);
+
         //return data to view
-        return view('reports/tips-by-division-test')->with($data);
-    }
-    
-    public function boot() {
-        View::share('data');
+        return view('reports/tips-by-division-test')
+            ->with('division',json_encode($division))
+            ->with('countByDivisionSubmitted',json_encode($countByDivisionSubmitted,JSON_NUMERIC_CHECK))
+            ->with('countByDivisionInprogress',json_encode($countByDivisionInprogress,JSON_NUMERIC_CHECK));
     }
     
      public function tabledev()
