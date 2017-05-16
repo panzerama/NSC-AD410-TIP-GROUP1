@@ -17,7 +17,28 @@
 
 <!-- ChartJS-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>   
+<!-- 
 <script type="text/javascript" src="js/charts-demo-data.js"></script>
-  
+-->
+<script>
+//----------------------------------------------------------------     
+/* Type of change */
+//----------------------------------------------------------------     
+    var doughnutData2 = {
+        labels: ["Feedback","Behavoir","Performance" ],
+        datasets: [{
+            data: [100,150,300],
+            backgroundColor: ["#a3e1d4","#dedede","#b5b8cf"]
+        }]
+    } ;
+    var doughnutOptions2 = {
+        responsive: true,
+            legend: { display: false,
+            position: 'right'
+        }
+    };
+    var ctx6 = document.getElementById("doughnutChart2").getContext("2d");
+    new Chart(ctx6, {type: 'doughnut', data: doughnutData2, options:doughnutOptions2});
+</script>
 
 

@@ -13,7 +13,7 @@ class ReportsControllerDev extends Controller
         return view('reports/index-dev');
     }
 
-    //this sends data to /summarytest page
+    //this sends test data to /summary-test page
     public function summarytest()
     {
         //hardcode data (to do: replace with queries)
@@ -22,7 +22,31 @@ class ReportsControllerDev extends Controller
                           'countNotstarted' => '230');  
         
         //return data to view
-        return view('reports/summarytest')->with($data);
+        return view('reports/summary-test')->with($data);
+    }
+    
+     //this sends test data to /tipsByMonth-test page
+    public function tipsbymonthtest()
+    {
+        //hardcode data (to do: replace with queries)
+            $data = array('countSubmitted' => '220',
+                          'countInprogress' => '50',
+                          'countNotstarted' => '230');  
+        
+        //return data to view
+        return view('reports/tips-by-month-test');
+    }
+    
+     //this sends test data to /tipsByDivision-test page
+    public function tipsbydivisiontest()
+    {
+        //hardcode data (to do: replace with queries)
+            $data = array('countSubmitted' => '220',
+                          'countInprogress' => '50',
+                          'countNotstarted' => '230');  
+        
+        //return data to view
+        return view('reports/tips-by-division-test')->with($data);
     }
     
     public function boot() {

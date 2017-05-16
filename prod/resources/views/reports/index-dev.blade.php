@@ -26,14 +26,14 @@
             
             <div class="col-lg-12">
                     <!-- Tips By Month Report -->
-                    @include('reports.tipsByMonth')
+                    @include('reports.tips-by-month')
                 </div>
                 </div>
 
             
             <div class="col-lg-6">
                     <!-- Tips By Division Report -->
-                    @include('reports.tipsByDivision')
+                    @include('reports.tips-by-division')
             </div>  
 </div>        
     
@@ -44,9 +44,9 @@
             <div class="ibox float-e-margins">  
                 <div class="row">
                 
-                    @include('reports.evidenceChangeNeeded')
+                    @include('reports.evidence-change-needed')
                     
-                    @include('reports.howImpactAssessed')
+                    @include('reports.how-impact-assessed')
 
                 </div>
             </div>
@@ -57,9 +57,9 @@
             <div class="col-lg-12">
                 <div class="ibox float-e-margins">  
                 
-                    @include('reports.typeOfChange')
+                    @include('reports.type-of-change')
                     
-                    @include('reports.newOpportunities')
+                    @include('reports.new-opportunities')
                     
                 </div>
             </div>
@@ -67,7 +67,7 @@
     </div>
 
         <div class="col-lg-6">
-                     @include('reports.primaryELOadded')
+                     @include('reports.primary-elo-added')
         </div>
 </div>
                 

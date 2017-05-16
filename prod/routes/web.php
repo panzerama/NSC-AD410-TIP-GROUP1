@@ -68,7 +68,9 @@ Route::get('/logout', 'SessionsController@destroy'); // Log Out
  Route::get('/table','ReportsController@table'); // Display Table
  Route::get('/reports-dev','ReportsControllerDev@indexdev'); // Reports Splash Page (under development)
  Route::get('/table-dev','ReportsControllerDev@tabledev'); //Display Table (under development)
- Route::get('/summarytest','ReportsControllerDev@summarytest'); // testing data display
+ Route::get('/summary-test','ReportsControllerDev@summarytest'); // testing data display
+ Route::get('/tipsbymonth-test','ReportsControllerDev@tipsbymonthtest'); // testing data display
+ Route::get('/tipsbydivision-test','ReportsControllerDev@tipsbydivisiontest'); // testing data display
  Route::get('/reports/filter','ReportsController@create'); // Show Reports Filter Form
  Route::get('/reports/results','ReportsController@show'); // Display Reports
 
