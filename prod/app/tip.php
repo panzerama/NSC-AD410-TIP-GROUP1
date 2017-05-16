@@ -3,8 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class tip extends Model
+class tip extends model
 {
     protected $fillable = 
         ['tips_id',
@@ -15,9 +16,11 @@ class tip extends Model
         'year',
         'is_finished',
         'is_group'];
-        
-    public function tip_question(){
-        return $this->hasMany(tip_question::class);
+    
+    protected $primaryKey = 'tips_id'; 
+       
+    public function tips_questions(){
+        return $this->hasMany(tips_questions::class,'tips_id','tips_id');
     }
     
     public function division(){
@@ -26,5 +29,9 @@ class tip extends Model
     
     public function faculty_tip(){
         return $this->hasMany(faculty_tip::class);
+    } 
+    
+    public function question(){
+        return $this->belongsToMany(question::class,'tips_questions','tips_id','question_id');   
     }
 }
