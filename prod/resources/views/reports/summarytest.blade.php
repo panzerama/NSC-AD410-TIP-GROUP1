@@ -16,14 +16,14 @@
                                 </div>
                             </div>
                             <div class="col-lg-4">
-                                <h2 class="no-margins">{{ $countSubmitted }}</h2>
+                                <h2 class="no-margins">{{ $countInprogress }}</h2>
                                 <h5>In-progress</h5>
                                 <div class="progress progress-mini">
                                 <div class="progress-bar" style="width: 10%;"></div>
                                 </div>
                             </div>
                             <div class="col-lg-4">
-                                <h2 class="no-margins">{{ $countSubmitted }}</h2>
+                                <h2 class="no-margins">{{ $countNotstarted }}</h2>
                                 <h5>Not-started</h5>
                                 <div class="progress progress-mini">
                                 <div class="progress-bar" style="width: 46%;"></div>
