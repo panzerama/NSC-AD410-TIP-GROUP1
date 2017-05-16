@@ -5773,3 +5773,6 @@ Stack trace:
 #39 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
 #40 /home/ubuntu/workspace/prod/public/index.php(53): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
 #41 {main}  
+[2017-05-16 03:43:48] local.ERROR: Symfony\Component\Debug\Exception\FatalErrorException: Namespace declaration statement has to be the very first statement or after any declare call in the script in /home/ubuntu/workspace/prod/app/User.php:4
+Stack trace:
+#0 {main}  
