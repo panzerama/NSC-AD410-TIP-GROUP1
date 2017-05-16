@@ -18,7 +18,7 @@
 Route::get('/tip', 'TipsController@index'); // Tips Create Form P.1
 Route::get('tip/questions', 'TipsController@create'); // Tips Create Form P.2
 Route::post('/tip', 'TipsController@store'); // Submit and Store Tips Page
-//Route::get('/tip/**', 'TipsController@show');
+Route::get('/tip/test', 'TipsController@show');
 
 
 // Prevous Tip
@@ -51,7 +51,7 @@ Route::get('/logout', 'SessionsController@destroy'); // Log Out
  Route::get('/admin/create', 'AdminController@create'); // Create New Admin Form
  Route::post('/admin/create','AdminController@store'); // Submit and Store New Admin Form
  Route::get('/admin/show','AdminController@show');
- Route::post('/admin/inactivate', 'AdminControllers@destroy'); //Inactivate a User
+ Route::post('/admin/inactivate', 'AdminController@destroy'); //Inactivate a User
  
  
  /***************************
@@ -65,6 +65,7 @@ Route::get('/logout', 'SessionsController@destroy'); // Log Out
  ***************************/
  
  Route::get('/reports','ReportsController@index'); // Reports Splash Page
+ Route::get('/table','ReportsController@table'); // Reports Splash Page
  Route::get('/reports/filter','ReportsController@create'); // Show Reports Filter Form
  Route::get('/reports/results','ReportsController@show'); // Display Reports
 

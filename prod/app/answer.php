@@ -14,7 +14,9 @@ class answer extends Model
         'created_at',
         'updated_at'];
     
+    protected $primaryKey = 'answer_id';  
+    
     public function question(){
-        return $this->belongsTo(question::class);
+        return $this->belongsTo(question::class,'question_id');
     }
 }

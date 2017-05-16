@@ -6,6 +6,33 @@
 
 <!-- First TIP Questionnaire page - url 'tip' -->
 
+<!-- Test form submission output -->
+@if(Request::has('continue'))
+    @php ($tipType = Request::input('tip-type'))
+    @php ($tipMembers = Request::input('tip-members'))
+    @php ($division = Request::input('division'))
+    @php ($coursePrefix = Request::input('course-prefix'))
+    @php ($courseNumber = Request::input('course-number'))
+    @php ($quarter = Request::input('quarter'))
+    @php ($year = Request::input('year'))
+    <p>Form output:</p>
+    <ul>
+        <li>Individual/Group: {{ $tipType }}</li>    
+        <li>Tip Members</li>
+        <ul>
+            @foreach($tipMembers as $tipMember)
+                <li>{{ $tipMember }}</li>
+            @endforeach
+        </ul>
+        <li>Division: {{ $division }}</li>
+        <li>Course Prefix: {{ $coursePrefix }}</li>
+        <li>Course Number: {{ $courseNumber }}</li>
+        <li>Quarter: {{ $quarter }}</li>
+        <li>Year: {{ $year }}</li>
+    </ul>
+@endIf
+<!-- End test form submission output -->
+
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
         <div class="col-lg-12">
@@ -38,30 +65,17 @@
                 <div class="ibox-content">
                     <form class="form-horizontal">
                         {{ csrf_field() }}
+                        <br>
                         <div class="form-group">
-                            <div class="col-sm-4">
-                                <label>Is this an individual or group TIP?</label>
-                            </div>
-                        
-                            <div class="col-md-3">
-                              <label>
-                                  
-                                <input class="form-check-input" type="radio" id="indy-select" value="individual" name="type-tip">
-                                Individual
-                                
-                              </label>
-                              
-                            </div>
-                            <div class="col-md-3">
-                              <label>
-                                  
-                                <input class="form-check-input" type="radio" id="group-select" value="group" name="type-tip">
-                                Group
-                                
-                              </label>
-                              
-                            </div>
-                        </div>
+                            <label class="col-sm-2 control-label">Is this an individual or group TIP?</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="tip-type" name="tip-type">
+                                        <option selected disabled>Choose here</option>
+                                        <option select="individual">Individual</option>
+                                        <option select="group">Group</option>
+                                    </select>
+                                </div><!--col-sm-8-->
+                        </div><!--form-group-->
                         
                         
                         <!--Only displays when user selects Group Tip radio option-->
@@ -94,10 +108,11 @@
                             <label class="col-sm-2 control-label">Division</label>
                                 <div class="col-sm-8">
                                     <select class="form-control" name="division">
-                                        <option>ACCT</option>
-                                        <option>ABE</option>
-                                        <option>AME</option>
-                                        <option>ASL</option>
+                                        <option selected disabled>Choose division</option>
+                                        <option select="ACCT">ACCT</option>
+                                        <option select="ABE">ABE</option>
+                                        <option select="AME">AME</option>
+                                        <option select="ASL">ASL</option>
                                     </select>
                                 </div><!--col-sm-8-->
                         </div><!--form-group-->
@@ -125,6 +140,7 @@
                             <label class="col-sm-2 control-label">Select Quarter</label>
                                 <div class="col-sm-8">
                                     <select class="form-control" name="quarter">
+                                        <option selected disabled>Choose quarter</option>
                                         <option>Fall</option>
                                         <option>Winter</option>
                                         <option>Spring</option>
@@ -137,10 +153,12 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Select Year</label>
                                 <div class="col-sm-8">
+                                    @php ($year = date("Y"))
                                     <select class="form-control" name="year">
-                                        <option>2017</option>
-                                        <option>2018</option>
-                                        <option>2019</option>
+                                        <option selected disabled>Choose year</option>
+                                        <option>{{ $year - 1 }}</option>
+                                        <option>{{ $year }}</option>
+                                        <option>{{ $year + 1 }}</option>
                                     </select>
                                 </div><!--col-sm-8-->
                         </div><!--form-group-->
@@ -150,15 +168,14 @@
             <br><br>
            <div class="form-group">
                <div class="col-md-3">
-                   <button class="btn btn-lg btn-block btn-warning" type="submit">Cancel</button>
                </div>
                <div class="col-md-3">
                 </div>
                <div class="col-md-3">
-                   <button class="btn btn-lg btn-block btn-secondar" type="submit">Save Draft</button>
+                   <button class="btn btn-lg btn-block btn-secondar" value="save" name="save" type="submit">Save Draft</button>
                </div>
                <div class="col-sm-3">
-                   <a href="{{ url('/tip/questions') }}" class="btn btn-lg btn-block btn-primary">Continue</a>
+                   <button class="btn btn-lg btn-block btn-primary" value="continue" name="continue" type="submit">Continue</button>
                </div>
            </div><!--form-group-->
             
@@ -183,12 +200,13 @@
             $(".tip-instructions").slideDown("slow");
         });
         
-        //hide or show field to add more more members to TIP based on if user clicks group or indy radio option
-        $("#group-select").click(function(){
-            $("#group-tip").slideDown();
-        });
-         $("#indy-select").click(function(){
-            $("#group-tip").slideUp();
+        //hide or show field to add more more members to TIP based on if user selects group or indy option
+        $('#tip-type').on('change', function() {
+          if ( this.value == 'Group'){
+             $("#group-tip").slideDown();
+          }else{
+             $("#group-tip").slideUp();
+          }
         });
         
         

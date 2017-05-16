@@ -1,0 +1,1 @@
+Had a good meeting on Tuesday with my small group members.  We divvied up tasks for getting the login controller taken care of.  As soon as the Server Michael is building is configured we can test our work, but in the meantime I will be working on getting the Session created for tracking our user through our pages.
