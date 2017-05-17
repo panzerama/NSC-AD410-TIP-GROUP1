@@ -6,33 +6,6 @@
 
 <!-- First TIP Questionnaire page - url 'tip' -->
 
-<!-- Test form submission output -->
-@if(Request::has('continue'))
-    @php ($tipType = Request::input('tip-type'))
-    @php ($tipMembers = Request::input('tip-members'))
-    @php ($division = Request::input('division'))
-    @php ($coursePrefix = Request::input('course-prefix'))
-    @php ($courseNumber = Request::input('course-number'))
-    @php ($quarter = Request::input('quarter'))
-    @php ($year = Request::input('year'))
-    <p>Form output:</p>
-    <ul>
-        <li>Individual/Group: {{ $tipType }}</li>    
-        <li>Tip Members</li>
-        <ul>
-            @foreach($tipMembers as $tipMember)
-                <li>{{ $tipMember }}</li>
-            @endforeach
-        </ul>
-        <li>Division: {{ $division }}</li>
-        <li>Course Prefix: {{ $coursePrefix }}</li>
-        <li>Course Number: {{ $courseNumber }}</li>
-        <li>Quarter: {{ $quarter }}</li>
-        <li>Year: {{ $year }}</li>
-    </ul>
-@endIf
-<!-- End test form submission output -->
-
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
         <div class="col-lg-12">

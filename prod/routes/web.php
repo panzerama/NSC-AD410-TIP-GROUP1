@@ -51,7 +51,7 @@ Route::get('/logout', 'SessionsController@destroy'); // Log Out
  Route::get('/admin/create', 'AdminController@create'); // Create New Admin Form
  Route::post('/admin/create','AdminController@store'); // Submit and Store New Admin Form
  Route::get('/admin/show','AdminController@show');
- Route::post('/admin/inactivate', 'AdminControllers@destroy'); //Inactivate a User
+ Route::post('/admin/inactivate', 'AdminController@destroy'); //Inactivate a User
  
  
  /***************************
@@ -65,6 +65,7 @@ Route::get('/logout', 'SessionsController@destroy'); // Log Out
  ***************************/
  
  Route::get('/reports','ReportsController@index'); // Reports Splash Page
+ Route::get('/table','ReportsController@table'); // Reports Splash Page
  Route::get('/reports/filter','ReportsController@create'); // Show Reports Filter Form
  Route::get('/reports/results','ReportsController@show'); // Display Reports
 
