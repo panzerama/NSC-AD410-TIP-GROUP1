@@ -71,5 +71,5 @@ class LoginController extends Controller
 //if the user is a first time user 
 //store function: create a new record for the user in the faculty table using their name and email
 //create a session and redirect user to home page
-    
+    //TODO: RASA -- if the user is_admin is TRUE redirect them to the reports index page.
 }
