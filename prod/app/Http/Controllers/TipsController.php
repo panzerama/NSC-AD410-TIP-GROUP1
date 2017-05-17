@@ -10,7 +10,15 @@ use App\tips_questions;
 use App\DB;
 class TipsController extends Controller
 {
+<<<<<<< HEAD
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     **/
+=======
 
+>>>>>>> 028045f164a8313d2376a66b1ab7a8ef96a9ed75
     public function index()
     {
         

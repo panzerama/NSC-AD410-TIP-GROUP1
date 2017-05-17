@@ -46,30 +46,30 @@
             </div>    <!-- end col lg 12 -->
         </div>    <!-- end row -->
     </div>     <!-- wrapper -->
-    <div class="panel panel-body" align="left">
+    <div class="p0anel panel-body" align="left">
         @foreach($questions as $question)
             <form>
                 <!-- begin row -->
                 <div class="row">
                     <!-- col 1 -->
                     <div class="col-lg-6">
-                    <textarea style="width:100%"  style="font-weight:bold" class="text-area" name="q_text" readonly> {{ $question->question_text}} </textarea>
+                    <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="q_text" readonly> {{ $question->question_text}} </textarea>
                     </div>
                     <div class="col-lg-6">
                         @if ($question->question_id > 6)
-                            <button type="button" class="btn btn-outline btn-default" name="addbefore" >Add New Before</button>
-                            <button type="button" class="btn btn-outline btn-primary" name="addafter">Add New After</button>
-                            <button type="button" class="btn btn-outline btn-success" name="moveup">Move Up</button>
-                            <button type="button" class="btn btn-outline btn-info" name="movedown">Move Down</button>
-                            <button type="button" class="btn btn-outline btn-warning" name="modify">Modify</button>
+                            <button type="button" class="btn btn-outline btn-default" name="addbefore" onclick="addbefore()" >Add New Before</button>
+                            <button type="button" class="btn btn-outline btn-primary" name="addafter" onclick="addafter()" >Add New After</button>
+                            <button type="button" class="btn btn-outline btn-success" name="moveup" onclick="moveup()" >Move Up</button>
+                            <button type="button" class="btn btn-outline btn-info" name="movedown" onclick="movedown()" >Move Down</button>
+                            <button type="button" class="btn btn-outline btn-warning" name="modify" onclick="modify()" >Modify</button>
                             @if ($question->is_active == 1)
-                                <button type="button" class="btn btn-outline btn-danger" name="inactivate">Inactivate</button>
+                                <button type="button" class="btn btn-outline btn-danger" name="inactivate" onclick="inactivate()" >Inactivate</button>
                             @else
-                                <button type="button" class="btn btn-outline btn-primary" name="activate">Activate</button>
+                                <button type="button" class="btn btn-outline btn-primary" name="activate" onclick="activate()" >Activate</button>
                             @endif
                         @endif
                         @if ($question->question_type=='DROPDOWN')
-                            <button type="button" class="btn btn-outline btn-primary" name="edit_list">Edit List</button>
+                            <button type="button" class="btn btn-outline btn-primary" name="edit_list" onclick="editlist()" >Edit List</button>
                         @endIf              
                         </p>
                     </div>  <!-- end col lg 6 -->
@@ -103,11 +103,8 @@
             case 'activate':
                 activate();
                 break;
-            case 'cancel':
-                cancel();
-                break;
-            case 'submit':
-                submit();
+            case 'editlist':
+                editlist();
                 break;
             }
         }
