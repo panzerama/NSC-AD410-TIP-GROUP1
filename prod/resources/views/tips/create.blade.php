@@ -34,11 +34,12 @@
             
             
             <!-- Start TIP questions form -->
-            <form class="form-horizontal">
+            <form id="tip" class="form-horizontal">
                 {{ csrf_field() }}
             
             <!-- start foreach loop through questions -->
             @foreach($questions as $question)
+                @if ($question->question_id >= 7)
                 <div class="ibox float-e-margins">
                     
                  <!-- output question_text and then question_desc (example answer) in '?' popover--->   
@@ -52,69 +53,50 @@
                 
                 <div class="ibox-content">
                 <div class="form-group">
-            
+    
                 <!-- start if/else block that outputs different HTML based on question_type (TEXT, DROPDOWN, RADIO, CHECKBOX) -->
                 @if ($question->question_type == "TEXT")
                         <div class="col-lg-8 col-sm-12">
-                        <textarea class="form-control" rows="4" cols="60"></textarea>
+                        <textarea class="form-control" name="{{ $question->question_id }}" value="{{ $question->question_id }}" rows="4" cols="60"></textarea>
                 @elseif ( $question->question_type == "DROPDOWN")       
                         <div class="col-sm-4">
-                        <select class="form-control" name="dropdown-select">
-                            <option>Test Option 1</option>
-                            <option>Test Option 2</option>
-                            <option>Test Option 3</option>
-                            <option>Test Option 4</option>
+                        <select class="form-control" name="{{ $question->question_id }}">
+                            <option selected disabled>Choose here</option>
+                            @foreach ($question->answer as $answer)
+                            <option select="{{$answer->answer_text}}">{{$answer->answer_text}}</option>
+                            @endforeach
                         </select>
                  @elseif ($question->question_type == "RADIO")       
                        <div class="col-sm-8">
                             <div class="form-check">
+                                @foreach ($question->answer as $answer)
                                 <div class="col-sm-12">
                                     <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="radio-select">Test Option 1
+                                        <input type="radio" name="{{ $question->question_id }}" value="{{ $answer->answer_text }}" class="form-check-input">   {{ $answer->answer_text }}
                                     </label>
                                 </div>
-                                <div class="col-sm-12">
-                                    <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="radio-select">Test Option 2
-                                    </label>
-                                </div>
-                                <div class="col-sm-12">
-                                    <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="radio-select">Test Option 3
-                                    </label>
-                                </div>
-                                <div class="col-sm-12">
-                                    <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="radio-select">Test Option 4
-                                    </label>
-                                </div>
+                                @endforeach
+    
                             </div><!-- form-check-->
                 @elseif ($question->question_type == "CHECKBOX")       
                        <div class="col-sm-8">
                             <div class="form-check">
+                                @foreach ($question->answer as $answer)
                                 <div class="col-sm-12">
                                     <label class="form-check-label">
-                                        <input type="checkbox" class="form-check-input" name="radio-select">Test Option 1
+                                        <input type="checkbox" class="form-check-input" name="{{ $question->question_id }}" value="{{ $answer->answer_text }}">   {{ $answer->answer_text }}
                                     </label>
                                 </div>
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="radio-select">Test Option 2
-                                </label>
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="radio-select">Test Option 3
-                                </label>
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="radio-select">Test Option 4
-                                </label>
+                                @endforeach
                             </div><!-- form-check-->
-                @endIf
+                @endif
                 
                 </div><!-- answer div -->
                 </div><!-- form-group -->
                 
                 </div><!-- ibox-content -->
                 </div><!-- ibox -->
-            
+                @endif
             @endforeach
                     
                         
@@ -123,19 +105,35 @@
             <!-- start form buttons -->            
            <br><br>
            <div class="form-group">
-               <div class="col-md-3">
-                   <button class="btn btn-lg btn-block btn-warning" type="submit">Cancel</button>
-               </div>
-               <div class="col-md-3">
-                   <a href="{{ url('/tip/questions') }}" class="btn btn-lg btn-block btn-warning">Back</a>
-                </div>
-               <div class="col-md-3">
-                   <button class="btn btn-lg btn-block btn-secondary" type="submit">Save Draft</button>
-               </div>
-               <div class="col-md-3">
-                   <button class="btn btn-lg btn-block btn-primary" type="submit">Submit</button>
-               </div>
-           </div>
+               <div id="form-buttons">
+                   <div class="col-md-3">
+                       <a href="{{ url('/tip') }}" class="btn btn-lg btn-block btn-warning">Back</a>
+                   </div>
+                   <div class="col-md-3">
+                    </div>
+                   <div class="col-md-3">
+                       <button class="btn btn-lg btn-block btn-secondary" value="save" name="save" type="submit">Save Draft</button>
+                   </div>
+                   <div class="col-md-3">
+                       <a href="#" class="btn btn-lg btn-block btn-primary" id="submit">Submit</a>
+                   </div>
+               </div><!-- form-buttons -->
+               
+               <!-- Display when user clicks submit. Displays alert asking user to confirm submission -->
+               <div id="confirm-submit" style="display:none">
+                       <div class="alert alert-danger col-md-6 col-md-offset-3 text-center" role="alert">
+                           <h3>Once you submit this TIP you will not be able to edit it again.</h3> 
+                           <h3><strong>Are you sure? </strong></h3>
+                       </div>
+                         <br><br>
+                   <div class="col-md-6">
+                       <a href="#" class="btn btn-lg btn-block btn-primary" id="not-now">Not Now</a>
+                   </div>
+                   <div class="col-md-6">
+                       <button class="btn btn-lg btn-block btn-primary" value="submit" name="submit" type="submit">Submit</button>
+                   </div>
+               </div><!-- confirm-submit -->
+            </div> <!-- form-group --> 
         </form>
         <br><br><br><br>
                 
@@ -159,6 +157,18 @@
         
         //For example answer popup
         $('[data-toggle="popover"]').popover();
+        
+        //When submit is clicked - show alert for user to confirm form submission
+        $("#submit").click(function() {
+            $("#form-buttons").hide();
+            $("#confirm-submit").slideDown("slow");
+            $('html, body').animate({scrollTop: $("#confirm-submit").offset().top}, 2000);
+         });
+         $("#not-now").click(function() {
+            $("#confirm-submit").hide();
+            $("#form-buttons").slideDown("slow");
+            $('html, body').animate({scrollTop: $("#form-buttons").offset().top}, 2000);
+         });
      });
 </script>
     
