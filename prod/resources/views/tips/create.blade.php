@@ -6,22 +6,6 @@
 
 <!-- Second TIP Questionnaire page - url 'tip/questions' -->
 
-<!-- Test form submission output -->
-@if(Request::has('submit'))
-    <h2>Form Output:</h2>
-    <ul>
-    @foreach($questions as $question)
-        @php ($id = $question->question_id)
-        @php ($type = $question->question_type)
-        @if (Request::has($id))
-            @php ($useranswer = Request::input($id))
-            <li>Question ID: {{ $id }} - Answer: {{ $useranswer }}</li>
-        @endIf
-    @endforeach
-    </ul>
-@endIf
-<!-- End test form submission output -->
-
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
         <div class="col-sm-12">
