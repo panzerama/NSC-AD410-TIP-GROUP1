@@ -1,0 +1,9 @@
+Ilsa Coleman
+Status Report
+5/10/2017
+
+- Attended group meeting during class 5/9/17.
+- Met with backend group to develop functionality to admin dashboard.
+- Created reference list of reports filters.
+- Working on adding features to admin pages.
+- Working on interface between backend and frontend.

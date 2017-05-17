@@ -1,31 +1,38 @@
 /*global Chart*/   
 
 //----------------------------------------------------------------       
+/* TIPS summary */
+//----------------------------------------------------------------   
+
+//----------------------------------------------------------------       
 /* TIPS by month */
 //----------------------------------------------------------------   
     var lineData = {
-        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        labels: ["July", "August", "September", "October", "November", "January", "February"],
         datasets: [
 
             {
-                label: "TIPS submitted",
+                label: "Submitted",
                 backgroundColor: 'rgba(26,179,148,0.5)',
                 borderColor: "rgba(26,179,148,0.7)",
                 pointBackgroundColor: "rgba(26,179,148,1)",
                 pointBorderColor: "#fff",
-                fill: false,
-                data: [28, 48, 40, 19, 86, 27, 90]
+                fill: true,
+                data: [24, 14, 29, 10, 13, 30, 6]
             },{
-                label: "TIPS in progress",
+                label: "In-progress",
                 backgroundColor: 'rgba(220, 220, 220, 0.5)',
                 pointBorderColor: "#fff",
-                fill: false,
-                data: [5, 10, 15, 7, 20, 4, 12]
+                fill: true,
+                data: [5, 10, 15, 17, 20, 4, 2]
             }
         ]
     };
     var lineOptions = {
-        responsive: true
+        responsive: true,
+            legend: { display: true,
+            position: 'right'
+            }
     };
     var ctx = document.getElementById("lineChart").getContext("2d");
     new Chart(ctx, {type: 'line', data: lineData, options:lineOptions});
@@ -36,15 +43,17 @@
         labels: ["AHSS", "BEIT", "BTS", "HHS", "LIB", "M&S"],
         datasets: [
             {
-                label: "TIPS submitted",
+                label: "Submitted",
                 backgroundColor: 'rgba(26,179,148,0.5)',
-                borderColor: "rgba(26,179,148,0.7)",
+                borderColor: 'rgba(26,179,148,0.7)',
                 pointBackgroundColor: "rgba(26,179,148,1)",
                 pointBorderColor: "#fff",
-                data: [28, 48, 40, 19, 86, 27]
+                data: [65, 48, 29, 19, 13, 6]
             },
             {
-                label: "TIPS in progress",
+                label: "In-progress",
+                backgroundColor: 'rgba(220, 220, 220, 0.5)',
+                borderColor: 'rgba(220, 220, 220, 0.7)',
                 backgroundColor: 'rgba(220, 220, 220, 0.5)',
                 pointBorderColor: "#fff",
                 data: [5, 10, 15, 7, 20, 4]
@@ -52,7 +61,10 @@
         ]
     };
     var barOptions = {
-        responsive: true
+        responsive: true,
+            legend: { display: true,
+            position: 'right'
+        }
     };
     var ctx2 = document.getElementById("barChart1").getContext("2d");
     new Chart(ctx2, {type: 'bar', data: barData1, options:barOptions});
@@ -67,7 +79,10 @@
         }]
     } ;
     var doughnutOptions = {
-        responsive: true
+        responsive: true,
+            legend: { display: false,
+            position: 'bottom'
+        }
     };
     var ctx4 = document.getElementById("doughnutChart1").getContext("2d");
     new Chart(ctx4, {type: 'doughnut', data: doughnutData1, options:doughnutOptions});
@@ -81,11 +96,14 @@
             backgroundColor: ["#a3e1d4","#dedede","#b5b8cf"]
         }]
     } ;
-    var doughnutOptions = {
-        responsive: true
+    var doughnutOptions2 = {
+        responsive: true,
+            legend: { display: false,
+            position: 'right'
+        }
     };
     var ctx6 = document.getElementById("doughnutChart2").getContext("2d");
-    new Chart(ctx6, {type: 'doughnut', data: doughnutData2, options:doughnutOptions});
+    new Chart(ctx6, {type: 'doughnut', data: doughnutData2, options:doughnutOptions2});
 //----------------------------------------------------------------     
 /* How impact assessed */
 //----------------------------------------------------------------     
@@ -123,13 +141,13 @@
         }
     ]
     };
-    var barOptions2 = {
+    var barOptions3 = {
         legend: { display: false,
             responsive: true, 
         }
     };
     var ctx7 = document.getElementById("barChart3").getContext("2d");
-    new Chart(ctx7, {type: 'bar', data: barData3, options:barOptions2});
+    new Chart(ctx7, {type: 'bar', data: barData3, options:barOptions3});
 //----------------------------------------------------------------     
 /* Primary ELO added by TIP */
 //----------------------------------------------------------------            
@@ -145,12 +163,13 @@
         }
     ]
     };
-    var barOptions2 = {
-        legend: { display: false,
-            responsive: true, 
-        }
+    var barOptions4 = {
+        responsive: true,
+            legend: { display: false,
+            position: 'right'
+            }
     };
     var ctx8 = document.getElementById("barChart4").getContext("2d");
-    new Chart(ctx8, {type: 'bar', data: barData4, options:barOptions2});
+    new Chart(ctx8, {type: 'bar', data: barData4, options:barOptions4});
 //----------------------------------------------------------------      
     

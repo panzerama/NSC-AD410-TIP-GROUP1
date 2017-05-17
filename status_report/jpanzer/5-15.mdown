@@ -1,0 +1,6 @@
+# Status report
+## 5-15
+
+- Met with Ilsa to hammer out design of report modules
+- Demo route and controller built
+- basic query and controller implemented, suitable for demo by michael
