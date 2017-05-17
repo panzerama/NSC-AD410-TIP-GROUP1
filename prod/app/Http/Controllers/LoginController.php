@@ -18,15 +18,16 @@ class LoginController extends Controller
 
 //if authentication fails
 // redirect user back to the canvas url
-
-//if authentication succeeds
 //TODO: KIP - get the name and email
 //TODO: RASAR - and compare against existing data in the table
 public function validateEmail($name, $email)
 {
     $bValid = FALSE; 
     
-    $users = DB::select('SELECT name FROM FACULTY WHERE email = :email', ['email' => $email]);
+    $users = DB::table('FACULTY')
+                   ->where('name', $name)
+                   ->where('email', $email)->get();
+                   
     if(count($users) > 0)
     {
        $bValid = TRUE;
