@@ -30,6 +30,7 @@ class CreateAnswersTable extends Migration
         
         // Insert answers test data
         DB::table('answers')->insert(array(
+            //TYPE DROPDOWN
             array(
                 'question_id' => 1,
                 'answer_text' => 'Individual',
@@ -173,36 +174,61 @@ class CreateAnswersTable extends Migration
                 'is_active' => true
             ),
             array(
+<<<<<<< HEAD
                 'question_id' => 12,
+=======
+                'question_id' => 6,
+>>>>>>> d4c2db7be0065ced085f1a97591bf9518091356e
                 'answer_text' => 'Modified a learning activity',
                 'is_active' => true
             ),
             array(
+<<<<<<< HEAD
                 'question_id' => 12,
+=======
+                'question_id' => 6,
+>>>>>>> d4c2db7be0065ced085f1a97591bf9518091356e
                 'answer_text' => 'Added new learning activity',
                 'is_active' => true
             ),
             array(
+<<<<<<< HEAD
                 'question_id' => 12,
+=======
+                'question_id' => 6,
+>>>>>>> d4c2db7be0065ced085f1a97591bf9518091356e
                 'answer_text' => 'Provided more context or more practice',
                 'is_active' => true
             ),
             array(
+<<<<<<< HEAD
                 'question_id' => 12,
+=======
+                'question_id' => 6,
+>>>>>>> d4c2db7be0065ced085f1a97591bf9518091356e
                 'answer_text' => 'Provided “real world” examples or applications',
                 'is_active' => true
             ),
             array(
+<<<<<<< HEAD
                 'question_id' => 12,
+=======
+                'question_id' => 6,
+>>>>>>> d4c2db7be0065ced085f1a97591bf9518091356e
                 'answer_text' => 'Tried a new approach to the material',
                 'is_active' => true
             ),
             array(
+<<<<<<< HEAD
                 'question_id' => 12,
+=======
+                'question_id' => 6,
+>>>>>>> d4c2db7be0065ced085f1a97591bf9518091356e
                 'answer_text' => 'Reapportioned time/effort devoted to topics',
                 'is_active' => true
             ),
             array(
+<<<<<<< HEAD
                 'question_id' => 12,
                 'answer_text' => 'Reviewed the material',
                 'is_active' => true
@@ -245,56 +271,140 @@ class CreateAnswersTable extends Migration
             //
             array(
                 'question_id' => 16,
-                'answer_text' => 'Modified a learning activity',
-                'is_active' => true
-            ),
-            array(
-                'question_id' => 16,
-                'answer_text' => 'Added new learning activity',
-                'is_active' => true
-            ),
-            array(
-                'question_id' => 16,
-                'answer_text' => 'Provided more context or more practice',
-                'is_active' => true
-            ),
-            array(
-                'question_id' => 16,
-                'answer_text' => 'Provided “real world” examples or applications',
-                'is_active' => true
-            ),
-            array(
-                'question_id' => 16,
-                'answer_text' => 'Tried a new approach to the material',
-                'is_active' => true
-            ),
-            array(
-                'question_id' => 16,
-                'answer_text' => 'Reapportioned time/effort devoted to topics',
-                'is_active' => true
-            ),
-            array(
-                'question_id' => 16,
+=======
+                'question_id' => 6,
                 'answer_text' => 'Reviewed the material',
                 'is_active' => true
             ),
             array(
-                'question_id' => 18,
+                'question_id' => 8,
+>>>>>>> d4c2db7be0065ced085f1a97591bf9518091356e
                 'answer_text' => 'Modified a learning activity',
                 'is_active' => true
             ),
             array(
-                'question_id' => 18,
+<<<<<<< HEAD
+                'question_id' => 16,
+=======
+                'question_id' => 8,
+>>>>>>> d4c2db7be0065ced085f1a97591bf9518091356e
                 'answer_text' => 'Added new learning activity',
                 'is_active' => true
             ),
             array(
-                'question_id' => 18,
+<<<<<<< HEAD
+                'question_id' => 16,
+=======
+                'question_id' => 8,
+>>>>>>> d4c2db7be0065ced085f1a97591bf9518091356e
                 'answer_text' => 'Provided more context or more practice',
                 'is_active' => true
             ),
             array(
+<<<<<<< HEAD
+                'question_id' => 16,
+=======
+                'question_id' => 8,
+>>>>>>> d4c2db7be0065ced085f1a97591bf9518091356e
+                'answer_text' => 'Provided “real world” examples or applications',
+                'is_active' => true
+            ),
+            array(
+<<<<<<< HEAD
+                'question_id' => 16,
+=======
+                'question_id' => 8,
+>>>>>>> d4c2db7be0065ced085f1a97591bf9518091356e
+                'answer_text' => 'Tried a new approach to the material',
+                'is_active' => true
+            ),
+            array(
+<<<<<<< HEAD
+                'question_id' => 16,
+=======
+                'question_id' => 8,
+>>>>>>> d4c2db7be0065ced085f1a97591bf9518091356e
+                'answer_text' => 'Reapportioned time/effort devoted to topics',
+                'is_active' => true
+            ),
+            array(
+<<<<<<< HEAD
+                'question_id' => 16,
+=======
+                'question_id' => 8,
+>>>>>>> d4c2db7be0065ced085f1a97591bf9518091356e
+                'answer_text' => 'Reviewed the material',
+                'is_active' => true
+            ),
+            array(
+<<<<<<< HEAD
                 'question_id' => 18,
+=======
+                'question_id' => 10,
+>>>>>>> d4c2db7be0065ced085f1a97591bf9518091356e
+                'answer_text' => 'Modified a learning activity',
+                'is_active' => true
+            ),
+            array(
+<<<<<<< HEAD
+                'question_id' => 18,
+=======
+                'question_id' => 10,
+>>>>>>> d4c2db7be0065ced085f1a97591bf9518091356e
+                'answer_text' => 'Added new learning activity',
+                'is_active' => true
+            ),
+            array(
+<<<<<<< HEAD
+                'question_id' => 18,
+=======
+                'question_id' => 10,
+>>>>>>> d4c2db7be0065ced085f1a97591bf9518091356e
+                'answer_text' => 'Provided more context or more practice',
+                'is_active' => true
+            ),
+            array(
+<<<<<<< HEAD
+                'question_id' => 18,
+=======
+                'question_id' => 10,
+                'answer_text' => 'Provided “real world” examples or applications',
+                'is_active' => true
+            ),
+            array(
+                'question_id' => 10,
+                'answer_text' => 'Tried a new approach to the material',
+                'is_active' => true
+            ),
+            array(
+                'question_id' => 10,
+                'answer_text' => 'Reapportioned time/effort devoted to topics',
+                'is_active' => true
+            ),
+            array(
+                'question_id' => 10,
+                'answer_text' => 'Reviewed the material',
+                'is_active' => true
+            ),
+            // TYPE: RADIO buttons
+            array(
+                'question_id' => 12,
+                'answer_text' => 'Modified a learning activity',
+                'is_active' => true
+            ),
+            array(
+                'question_id' => 12,
+                'answer_text' => 'Added new learning activity',
+                'is_active' => true
+            ),
+            array(
+                'question_id' => 12,
+                'answer_text' => 'Provided more context or more practice',
+                'is_active' => true
+            ),
+            array(
+                'question_id' => 12,
+>>>>>>> d4c2db7be0065ced085f1a97591bf9518091356e
                 'answer_text' => 'Provided “real world” examples or applications',
                 'is_active' => true
             )

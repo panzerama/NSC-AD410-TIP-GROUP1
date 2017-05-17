@@ -8,7 +8,7 @@ use App\question;
 class EditTipsController extends Controller
 {
     public function index(){
-        $questions = question::all();
+        dd($questions = question::all());
         return view('edittips/index',compact('questions'));
     }
     

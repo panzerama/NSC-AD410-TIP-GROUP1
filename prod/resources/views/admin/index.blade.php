@@ -7,6 +7,7 @@
     
 </style>
 
+<<<<<<< HEAD
 @section('title', 'TIPS Management')
 @section('content')
 <?php
@@ -108,4 +109,19 @@
             }
         }
     ?>
+=======
+@section('title', 'Placeholder Text')
+
+@section('content')
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>Placeholder Text</h2>
+            
+            
+            </div><!-- ibox -->
+        </div><!-- col-lg-12 -->
+    </div><!-- row -->
+</div><!-- wrapper -->
+>>>>>>> b1f7bd0bc12fedff8909dca3aa11512bde41493f
 @endsection

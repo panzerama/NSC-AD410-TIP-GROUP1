@@ -3,8 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class tip extends Model
+class tip extends model
 {
     protected $fillable = 
         ['tips_id',
@@ -15,7 +16,11 @@ class tip extends Model
         'year',
         'is_finished',
         'is_group'];
+<<<<<<< HEAD
         
+=======
+    
+>>>>>>> d4c2db7be0065ced085f1a97591bf9518091356e
     protected $primaryKey = 'tips_id'; 
        
     public function tips_questions(){
