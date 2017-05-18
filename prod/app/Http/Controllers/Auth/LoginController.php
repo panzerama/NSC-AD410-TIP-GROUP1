@@ -64,12 +64,34 @@ class LoginController extends Controller
             
         return $bValid;    
     }
-
+    
+    public function redirectAdmin($email)
+    {
+        $bAdmin = FALSE;
+        $admin = DB::table('FACULTY')
+                    ->where('email', $email)
+                    ->where('is_admin', TRUE )->get(); 
+        
+        if(count($admin) > 0)
+        {
+            $bAdmin = TRUE;
+            //user is admin redirect to the reports index page
+            return view('home/index');
+        }
+        else
+        {
+            //TODO: user isn't admin to redirect where? 
+            return view('home/index');
+            
+        }
+    }
+    
+  
 //TODO: LUCAS if the data exists:
 //create a session and redirect user to home page
 
 //if the user is a first time user 
 //store function: create a new record for the user in the faculty table using their name and email
 //create a session and redirect user to home page
-    //TODO: RASA -- if the user is_admin is TRUE redirect them to the reports index page.
+
 }
