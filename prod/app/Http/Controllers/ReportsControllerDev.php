@@ -17,7 +17,8 @@ class ReportsControllerDev extends Controller
     public function summarytest()
     {
         //hardcode data (to do: replace with queries)
-            $data = array('countSubmitted' => '220',
+        $count_submitted = DB::table('tips')->where('is_finished',1)->count();
+            $data = array('countSubmitted' => $count_submitted,
                           'countInprogress' => '50',
                           'countNotstarted' => '230');  
         
