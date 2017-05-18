@@ -1,0 +1,8 @@
+Khang Quach
+05/15/17
+status report
+
+Check new model logic for tips
+Look at PHP unit
+Creating test cases
+looking to implement test cases

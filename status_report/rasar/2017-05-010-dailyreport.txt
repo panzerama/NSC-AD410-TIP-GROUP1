@@ -1,0 +1,19 @@
+2017-05-10-dailyreport.txt
+
+Rasa Rasiulyte
+Status Report
+
+What have you completed since the last report?
+	- Continue troubleshooting environment and figuring out why phunit tests not working
+	- Had meeting with login team to sync up on current status and assign next work items
+	- Started working on implementing function for validating name/email againsts existing data in the table 
+
+What do you plan to complete by the next report?
+	- figure out why I can't execute tests from terminal as is
+
+
+What is getting in your way?
+	- Ability to test on prod server  
+	- Still blocked on runing unit tests  
+
+

@@ -11,32 +11,61 @@
 |
 */
 
-Route::get('/', 'HomeController@index')->name("main");
-Route::get('/minor', 'HomeController@minor')->name("minor");
-
-Route::get('/editquestions', 'EditQuestionsController@index');
-
-// Tips route
-Route::get('/tips', 'TipsController@index')->name('TipsIndex');
-
-
-Route::get('foo', function () {
-    return 'Hello World';
-});
+/***************************
+ *  Tip Routing
+ ***************************/
+// Create Tip
+Route::get('/tip', 'TipsController@index'); // Tips Create Form P.1
+Route::get('tip/questions', 'TipsController@create'); // Tips Create Form P.2
+Route::post('/tip', 'TipsController@store'); // Submit and Store Tips Page
+Route::get('/tip/test', 'TipsController@show');
 
 
-//TIPS User
-Route::get('/first-time-user', 'HomeController@firstTimeUser')->name("first-time-user");
-Route::get('/tip', 'HomeController@tip')->name("tip");
-Route::get('/tip/tip-questions', 'HomeController@tipQuestions')->name("tip-questions");
-Route::get('/view-previous-tips', 'HomeController@viewPreviousTips')->name("view-previous-tips");
-Route::get('/previous-tip', 'HomeController@previousTip')->name("previous-tip");
-Route::get('/contact-admin', 'HomeController@contactAdmin')->name("contact-admin");
+// Prevous Tip
+Route::get('/tip/previous','PreviousTipsController@index'); // Display Previous Tips List
+Route::get('/tip/previous/{id}','PreviousTipsController@show'); // Display Specific Previous Tip
 
 
-//admin
-Route::get('/admin-management', 'AdminController@adminManagement')->name("admin-management");
-Route::get('/tips-management', 'AdminController@tipsManagement')->name("tips-management");
-Route::get('/reports', 'AdminController@reports')->name("reports");
-Route::get('/inactivate-user', 'AdminController@inactivateUser')->name("inactivate-user");
+// Edit Tip
+Route::get('/tip/edit','EditTipsController@index');
+Route::get('/tip/edit/form','EditTipsController@create'); // Display Edit Tips Form
+Route::post('/tip/edit','EditTipsController@store'); // Save Edit Tips Form
+
+/***************************
+ *  Login and Auth Routing
+ ***************************/
+// Create account 
+Route::get('/account/create', 'RegistrationController@create');
+Route::post('/account/create', 'RegistrationController@store');
+
+// Login Account
+//Route::get('/account/','SessionsController@index'); 
+Route::get('/login' , 'SessionsController@create'); // Login Auth Form 
+Route::post('/login', 'SessionsController@store' ); // Auth and Login User
+Route::get('/logout', 'SessionsController@destroy'); // Log Out
+
+/***************************
+ *  Admin Routing
+ ***************************/
+ Route::get('/admin','AdminController@index'); // Splash Page for Admin Functions
+ Route::get('/admin/create', 'AdminController@create'); // Create New Admin Form
+ Route::post('/admin/create','AdminController@store'); // Submit and Store New Admin Form
+ Route::get('/admin/show','AdminController@show');
+ Route::post('/admin/inactivate', 'AdminController@destroy'); //Inactivate a User
+ 
+ 
+ /***************************
+ *  Contact Routing
+ ***************************/
+ 
+ Route::get('/contact/','ContactsController@create'); // Contact Admin form.
+ 
+ /***************************
+ *  Reporting Routing
+ ***************************/
+ 
+ Route::get('/reports','ReportsController@index'); // Reports Splash Page
+ Route::get('/table','ReportsController@table'); // Reports Splash Page
+ Route::get('/reports/filter','ReportsController@create'); // Show Reports Filter Form
+ Route::get('/reports/results','ReportsController@show'); // Display Reports
 

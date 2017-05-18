@@ -1,0 +1,5 @@
+Status report
+
+Further progress made on Ansible Playbook: we'll be using a set of roles created for another laravel playbook https://github.com/aligajani/ansible-playbooks-laravel-5
+First meeting of admin-reporting subgroup. Travis has some recommendations for us about using filters in the admin panel with the built-in Laravel query builder
+

@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class EditQuestionsController extends Controller
+class EditTipsController extends Controller
 {
     public function index(){
-        return view('/editquestions/index');
+        return view('edittips/index');
     }
     
     public function create(){
-        
+
     }
     
     public function store(){

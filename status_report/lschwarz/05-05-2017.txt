@@ -1,0 +1,7 @@
+05-03-2017 status update
+
+Made a new revision of the database design, and reset the migrations to conform to that design.
+
+Made a little progress with the authentication but am having trouble getting composer to install the dependencies we need.
+
+Hope to have some kind of authentication working by class on Tuesday.
