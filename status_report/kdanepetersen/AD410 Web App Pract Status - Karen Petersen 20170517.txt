@@ -1,0 +1,14 @@
+AD410 Web Application Practicum Status - Karen Petersen 20170501
+
+Have Done
+1. Research/coding Modify Questions UI - questions are now displaying from the database instead of the hard-coded arrays.
+2. Worked with Travis to learn how to get data from the database using Laravel
+3. Discussed using modals instead of new screens for add and modify functions.  Discussed using controller for move up/down functions.
+
+Issues
+1.  http://www.icoolshow.net/ad410-2017/tip/tip.pdf shows a blank black screen
+
+Next to Do
+1.  Learn Join Me in case we need virtual meetings
+2.  Continue learning Github, Google Docs, Trello, Laravel 	
+
