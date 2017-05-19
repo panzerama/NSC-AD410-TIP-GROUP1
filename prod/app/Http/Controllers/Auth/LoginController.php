@@ -7,35 +7,6 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
-
-    use AuthenticatesUsers;
-
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest', ['except' => 'logout']);
-    }
     
 //TODO: PAULS SAMPLE CODE 
 // in the store() function(or whatever we made it)
@@ -43,8 +14,6 @@ class LoginController extends Controller
 // get the info for the config.php from here(?):  https://canvas.northseattle.edu/courses/1421135/pages/test-developer-api-key?module_item_id=22440853
 // attempt to authenticate(this is probably done fine in pauls work)
 
-//if authentication fails
-// redirect user back to the canvas url
 //TODO: KIP - get the name and email
 
     //rasar: validateEmail(name, email)
@@ -65,7 +34,7 @@ class LoginController extends Controller
         return $bValid;    
     }
     
-    public function redirectAdmin($email)
+    public function redirect($email)
     {
         $bAdmin = FALSE;
         $admin = DB::table('FACULTY')
@@ -76,22 +45,32 @@ class LoginController extends Controller
         {
             $bAdmin = TRUE;
             //user is admin redirect to the reports index page
-            return view('home/index');
+            return view('home/index'); //this gets changed later to point to the correct place.
         }
         else
         {
-            //TODO: user isn't admin to redirect where? 
-            return view('home/index');
-            
+            // if user is existing user:
+            // create a session 
+            // redirect user to tips page, only if they aren't an admin
+            if(validateEmail()) {
+                Session::put('name', $name);
+                Session::put('email', $email); 
+                return view('home/index'); //this gets changed later to point to the correct place.
+            }
+            // else:
+            // create a session
+            // direct user to confirm details page
+            else {
+                Session::put('name', $name);
+                Session::put('email', $email); 
+                return view('home/index'); //this gets changed later to point to the correct place.
+            }
         }
     }
     
   
-//TODO: LUCAS if the data exists:
-//create a session and redirect user to home page
 
-//if the user is a first time user 
-//store function: create a new record for the user in the faculty table using their name and email
-//create a session and redirect user to home page
 
+
+        
 }
