@@ -34,7 +34,12 @@ class ReportsControllerDev extends Controller
     {
         //hardcode data (to do: replace with queries)
         //we need a datetime
-        $month = array("July", "August", "September", "October", "November", "January", "February");
+        $month = array("July", "August", "September", "October", "November", 
+                        "January", "February", "March", "April", "May", "June");
+        //For each month in $month
+        //   array entry = tip::where(updated by month = $month and is_finished is 1)
+        //   if there's nothing there, don't display!
+        
         $countByMthSubmitted = array(24, 14, 29, 10, 1, 30, 6);
         $countByMthInprogress = array(5, 10, 15, 17, 20, 4, 2);
 
@@ -48,6 +53,8 @@ class ReportsControllerDev extends Controller
      //this sends test data to /tipsByDivision-test page
     public function tipsbydivisiontest()
     {
+        //get which divisions have active tips?
+        //tip::joing('division'&c.)->selelct('division.abbr')->distinct('division.abbr')->where('tips.is_active/whatever', 0)->get();
         //hardcode data (to do: replace with queries)
         $tips_by_division = DB::table('tips')
                                 ->join('divisions', 'tips.division_id', '=', 'divisions.division_id')
