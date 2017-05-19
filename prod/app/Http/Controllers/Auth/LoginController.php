@@ -17,8 +17,10 @@ $config = [
     'canvasInstanceUrl'=>'https://northseattle.test.instructure.com'
 ];
 
+//is this required to use the CanvasLMS and the Guzzle Client?
 require_once "../vendor/autoload.php";
 
+//are these both required for us?
 use smtech\OAuth2\Client\Provider\CanvasLMS;
 use GuzzleHttp\Client;
 
@@ -76,6 +78,8 @@ else {
     // against our faculty table
     $email = $profile->primary_email;
 }
+
+
 class LoginController extends Controller
 {
     
