@@ -1,0 +1,7 @@
+Kip Tatum
+Status Report
+5/10/2017
+
+1) continued to try and extract name and password for database purposes form user login
+2) can't really test because of compatibilty issues with laravel and a PHP file
+3) continuing to find a resolution to the issue

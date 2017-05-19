@@ -1,0 +1,14 @@
+AD410 Web Application Practicum Status - Karen Petersen 20170501
+
+Have Done
+1. Learning Laravel
+2. Coding Modify Questions UI 
+
+
+Issues
+1.  http://www.icoolshow.net/ad410-2017/tip/tip.pdf shows a blank black screen
+
+Next to Do
+1.  Learn Join Me in case we need virtual meetings
+2.  Continue learning Github, Google Docs, Trello 	
+

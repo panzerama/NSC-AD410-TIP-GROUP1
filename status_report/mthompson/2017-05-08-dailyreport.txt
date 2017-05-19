@@ -1,0 +1,15 @@
+Mitch Thompson
+Status Report
+5/8/2017
+
+-Added code comments to Tips Questionnaire views
+-Modified Tips Questionnaire UI for readability
+	-Separated questions into individual containers
+	-Tweaked positioning/color of cancel/save/submit buttons 
+	-Made font larger for questions
+-Researched building controller & model for TIP Questionnaire
+-Met with Kenny & Travis to discuss implementing TIP model & controller into view
+-TIPS questionnaire now uses database data to dynamically build questions based on question type (radio, textarea, dropdown, checkbox).
+-Added ‘Back’ button to second page of TIP Questionnaire
+-Added ‘?’ popover to each question that opens a popover with an example answer
+-Contacted FE members for updates on their task progress 

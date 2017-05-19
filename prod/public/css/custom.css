@@ -1,0 +1,12 @@
+/*
+Custom CSS file to override defaults
+*/
+
+/* Set max-width for views */
+#page-wrapper > .wrapper.wrapper-content.animated.fadeInRight {
+    max-width: 1100px;
+}
+
+.clickable-row:hover {
+    cursor: pointer;
+}

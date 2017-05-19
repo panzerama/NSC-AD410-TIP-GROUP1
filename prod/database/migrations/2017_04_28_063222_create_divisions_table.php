@@ -22,7 +22,7 @@ class CreateDivisionsTable extends Migration
             $table->timestamps();
         });
         
-        // Insert divisions data
+        // Insert divisions test data
         DB::table('divisions')->insert(array(
             array(
                 'division_name' => 'Arts, Humanities, and Social Sciences',
