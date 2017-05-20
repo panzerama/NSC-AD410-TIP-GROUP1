@@ -21,14 +21,14 @@
             <li class="<?php echo e(isActiveRoute('reports')); ?>">
                 <a href="<?php echo e(url('/reports')); ?>"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Reports</span> </a>
             </li>
-            <li class="<?php echo e(isActiveRoute('admin-management')); ?>">
-                <a href="<?php echo e(url('/admin-management')); ?>"><i class="fa fa-th"></i> <span class="nav-label">Admin Management</span></a>
+            <li class="<?php echo e(isActiveRoute('admin/create')); ?>">
+                <a href="<?php echo e(url('/admin/create')); ?>"><i class="fa fa-th"></i> <span class="nav-label">Admin Management</span></a>
             </li>
-            <li class="<?php echo e(isActiveRoute('tips-management')); ?>">
-                <a href="<?php echo e(url('/tips-management')); ?>"><i class="fa fa-table"></i> <span class="nav-label">TIPS Management</span> </a>
+            <li class="<?php echo e(isActiveRoute('tip/edit/form')); ?>">
+                <a href="<?php echo e(url('/tip/edit/form')); ?>"><i class="fa fa-table"></i> <span class="nav-label">TIPS Management</span> </a>
             </li>
-            <li class="<?php echo e(isActiveRoute('inactivate-user')); ?>">
-                <a href="<?php echo e(url('/inactivate-user')); ?>"><i class="fa fa-star"></i> <span class="nav-label">Inactivate User</span> </a>
+            <li class="<?php echo e(isActiveRoute('admin/show')); ?>">
+                <a href="<?php echo e(url('/admin/show')); ?>"><i class="fa fa-star"></i> <span class="nav-label">Inactivate User</span> </a>
             </li>
         </ul>
 

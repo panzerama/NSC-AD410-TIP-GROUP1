@@ -6,3 +6,7 @@ Custom CSS file to override defaults
 #page-wrapper > .wrapper.wrapper-content.animated.fadeInRight {
     max-width: 1100px;
 }
+
+.clickable-row:hover {
+    cursor: pointer;
+}

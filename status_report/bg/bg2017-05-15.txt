@@ -1,0 +1,11 @@
+Bryson Good
+5-15-17	
+Status Report
+
+1: What have you completed since the last report?
+	* Created a filter for admins to use to query the tip submission database.
+2: What do you plan to complete by the next report?
+	* implement the same form but by using larvel
+3: What is getting in your way?
+	* With work taking up a lot of my time, it is difficult for me to find time to 
+	work on this project as well as other class work.
