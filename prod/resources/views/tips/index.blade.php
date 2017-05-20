@@ -140,14 +140,7 @@
 
             <br><br>
            <div class="form-group">
-               <div class="col-md-3">
-               </div>
-               <div class="col-md-3">
-                </div>
-               <div class="col-md-3">
-                   <button class="btn btn-lg btn-block btn-secondar" value="save" name="save" type="submit">Save Draft</button>
-               </div>
-               <div class="col-sm-3">
+               <div class="col-sm-3 col-md-offset-9">
                    <button class="btn btn-lg btn-block btn-primary" value="continue" name="continue" type="submit">Continue</button>
                </div>
            </div><!--form-group-->
