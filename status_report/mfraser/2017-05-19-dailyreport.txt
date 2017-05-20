@@ -1,0 +1,37 @@
+Michael Fraser
+Status Report 18
+Date: 5/19/2017
+
+
+What have you completed since the last report?
+
+1) Worked on and submitted Peer and Individual Report 2 
+
+2) Discussed updates to app in class needed for presentation next week with Alissa
+
+2) Worked on OAuth setup on server
+
+
+What do you plan to complete by the next report?
+
+1) Get OAuth working on prod server
+
+2) Functions created for TIPs page
+
+3) Work on UI elements
+
+What is getting in your way?
+
+1) Time, need more hours in the day. =P
+
+
+
+
+
+
+
+
+
+
+
+
