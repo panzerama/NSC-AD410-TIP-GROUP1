@@ -27,6 +27,7 @@
                             <li class="">
                                 <a href="#"><h5>Quarter</h5></a>
                                 <ul class="nav nav-third-level collapse selected-filter-child" style="height: 0px;">
+                                    <form name="report-filter" method="post" action="/report-new">
                                     <!-- By Quarter -->
                                     <label class="filter-ui-label">From:</label>
                                     <select class="form-control filter-ui-right" name="qtr-start">
@@ -78,58 +79,58 @@
                                     <option>Course E</option>
                                     <option>Course F</option>
                                 </select>
-                                <div class="filter-ui-radio">
-                                    <div class="radio radio-info">
-                                        <input type="radio" id="single-tips" value="single-tips" name="tip-type">
-                                        <label for="single-tips">Single</label>
-                                    </div>
-                                    <div class="radio radio-info ">
-                                        <input type="radio" id="group-tips" value="group-tips" name="tip-type" >
-                                        <label for="group-tips">Group</label>
-                                    </div>
-                                    <div class="radio radio-info">
-                                        <input type="radio" id="all-tips" value="all-tips" name="tip-type" checked="">
-                                        <label for="all-tips">All</label>
-                                    </div>
+                            <div class="filter-ui-radio">
+                                <div class="radio radio-info">
+                                    <input type="radio" id="single-tips" value="single-tips" name="tip-type">
+                                    <label for="single-tips">Single</label>
+                                </div>
+                                <div class="radio radio-info ">
+                                    <input type="radio" id="group-tips" value="group-tips" name="tip-type" >
+                                    <label for="group-tips">Group</label>
+                                </div>
+                                <div class="radio radio-info">
+                                    <input type="radio" id="all-tips" value="all-tips" name="tip-type" checked="">
+                                    <label for="all-tips">All</label>
+                                </div>
                             </div>
                         </ul>
                     </li>
                         <li>
                             <a href="#"><h5>Question / Response</h5></a>
-                                    <ul class="nav nav-third-level collapse selected-filter-child" style="height: 0px;">
-                                        <label class="filter-ui-label">Question:</label>
-                                            <select class="form-control nav-full-width" name="question">
-                                                <option>What is the problem or lesson that you identified and will be discussing in this TIP? No topic is too big or too small. All are welcomed!</option>
-                                                <option>What is the course-level objective that this TIP best addresses?</option>
-                                                <option>Which of the college-wide Essential Learning Outcomes does your TIP most closely address? (select one)</option>
-                                                <option>Which of the following best describes the evidence you found for the problem. (select one)</option>
-                                                <option>Please describe more specifically how you identified the problem.</option>
-                                                <option>Please select the change that best fits what you did to try to address the problem.  (select one)</option>
-                                                <option>Specifically, what did you do to address the problem?</option>
-                                                <option>Please select the evidence that best fits how you assessed the impact of the change you made. (select one)</option>
-                                                <option>Please describe more fully how you assessed the impact of the change you made.</option>
-                                                <option>What new opportunities did you consider as a result of identifying this problem and making this change?</option>
-                                                <option>What else would you like to share about the teaching improvement process you engaged in this quarter?</option>
-                                                <option>TIP data will be shared de-identified and in aggregate. Would you like to share specifics?</option>
-                                               
-                                            </select>
-                                            
-                                        <label class="filter-ui-label">Response:</label>
-                                            <select class="form-control nav-full-width" name="selection-division">
-                                                <option>- Text -</option>
-                                                <option>Dynamic Option 1</option>
-                                                <option>Dynamic Option 2</option>
-                                                <option>Dynamic Option 3</option>
-                                                <option>Dynamic Option 4</option>
-                                            </select>
-                                        <label class="filter-ui-label nav-full-width">Search  By Keyword(s):</label>
-                                            <input type="text" class="form-control nav-full-width" style="margin-bottom: 10px;">
-                                    </ul>
+                            <ul class="nav nav-third-level collapse selected-filter-child" style="height: 0px;">
+                                <label class="filter-ui-label">Question:</label>
+                                    <select class="form-control nav-full-width" name="question">
+                                        <option>What is the problem or lesson that you identified and will be discussing in this TIP? No topic is too big or too small. All are welcomed!</option>
+                                        <option>What is the course-level objective that this TIP best addresses?</option>
+                                        <option>Which of the college-wide Essential Learning Outcomes does your TIP most closely address? (select one)</option>
+                                        <option>Which of the following best describes the evidence you found for the problem. (select one)</option>
+                                        <option>Please describe more specifically how you identified the problem.</option>
+                                        <option>Please select the change that best fits what you did to try to address the problem.  (select one)</option>
+                                        <option>Specifically, what did you do to address the problem?</option>
+                                        <option>Please select the evidence that best fits how you assessed the impact of the change you made. (select one)</option>
+                                        <option>Please describe more fully how you assessed the impact of the change you made.</option>
+                                        <option>What new opportunities did you consider as a result of identifying this problem and making this change?</option>
+                                        <option>What else would you like to share about the teaching improvement process you engaged in this quarter?</option>
+                                        <option>TIP data will be shared de-identified and in aggregate. Would you like to share specifics?</option>
+                                       
+                                    </select>
+                                    
+                                <label class="filter-ui-label">Response:</label>
+                                    <select class="form-control nav-full-width" name="selection-division">
+                                        <option>- Text -</option>
+                                        <option>Dynamic Option 1</option>
+                                        <option>Dynamic Option 2</option>
+                                        <option>Dynamic Option 3</option>
+                                        <option>Dynamic Option 4</option>
+                                    </select>
+                                <label class="filter-ui-label nav-full-width">Search  By Keyword(s):</label>
+                                    <input type="textarea" class="form-control nav-full-width" style="margin-bottom: 10px;">
+                            </ul>
                         </li>
                         <li>
-                           <a href="#"><button class="btn btn-primary btn-block">Search</button></a>
+                           <a><button class="btn btn-primary btn-block">Search</button></a>
                         </li>
-
+                        </form>
                     </ul>
                     </li>
                     <li class="">
@@ -144,7 +145,6 @@
                                 <li>
                                     <a href="#">All</a>
                                 </li>
-
                             </ul>
                         </li>
                     </li>
@@ -161,13 +161,6 @@
             </li>
             
         </ul>
-        
-    <div class="container">
-    <h3 style="margin-top:20px">Report Filters</h3>
-    
-    </div>
-    
-    
     </div>
     
 </nav>

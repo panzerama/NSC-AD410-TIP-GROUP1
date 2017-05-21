@@ -27,6 +27,7 @@
                             <li class="">
                                 <a href="#"><h5>Quarter</h5></a>
                                 <ul class="nav nav-third-level collapse selected-filter-child" style="height: 0px;">
+                                    <form name="report-filter" method="post" action="/report-new">
                                     <!-- By Quarter -->
                                     <label class="filter-ui-label">From:</label>
                                     <select class="form-control filter-ui-right" name="qtr-start">
@@ -127,8 +128,9 @@
                             </ul>
                         </li>
                         <li>
-                           <a href="#"><button class="btn btn-primary btn-block">Search</button></a>
+                           <a><button class="btn btn-primary btn-block">Search</button></a>
                         </li>
+                        </form>
                     </ul>
                     </li>
                     <li class="">
@@ -159,13 +161,6 @@
             </li>
             
         </ul>
-        
-    <div class="container">
-    <h3 style="margin-top:20px">Report Filters</h3>
-    
-    </div>
-    
-    
     </div>
     
 </nav>
