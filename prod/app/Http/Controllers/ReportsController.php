@@ -56,5 +56,12 @@ class ReportsController extends Controller
         $num_finished_tips = $query->where('is_finished', 1)->count();
         $num_in_progress_tips = $query->where('is_finished', 0)->count();
         
+        $num_faculty_no_tip = $query
+            ->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')
+            ->join('faculty', 'faculty_tips.faculty_id', '=', 'faculty.faculty_id')
+            ->where('tips.is_finished', 1)
+            ->groupBy('tips.faculty_id')
+            ->count();
+        
     }
 }

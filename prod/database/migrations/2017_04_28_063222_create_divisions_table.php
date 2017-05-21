@@ -33,7 +33,7 @@ class CreateDivisionsTable extends Migration
                 'division_name' => 'testing testing tester',
                 'abbr' => 'TTT',
                 'is_active' => true
-            )
+            ),
         ));
     }
 
