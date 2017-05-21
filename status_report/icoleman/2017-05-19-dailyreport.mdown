@@ -1,0 +1,8 @@
+Ilsa Coleman
+Status Report
+5/19/2017
+
+- Working last week and this weekend on getting admin-reports functional.
+- Goal is to query the database for current TIPS data and return queries 
+    to the admin-reports page which will be displayed in reports and tables.
+    

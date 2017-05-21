@@ -150,14 +150,14 @@
                     </li>
                 </ul>
             </li>
-            <li class="{{ isActiveRoute('admin-management') }}">
-                <a href="{{ url('/admin-management') }}"><i class="fa fa-th"></i> <span class="nav-label">Admin Management</span></a>
+            <li class="{{ isActiveRoute('admin/create') }}">
+                <a href="{{ url('/admin/create') }}"><i class="fa fa-th"></i> <span class="nav-label">Admin Management</span></a>
             </li>
-            <li class="{{ isActiveRoute('tips-management') }}">
-                <a href="{{ url('/tips-management') }}"><i class="fa fa-table"></i> <span class="nav-label">TIPS Management</span> </a>
+            <li class="{{ isActiveRoute('tip/edit') }}">
+                <a href="{{ url('/tip/edit') }}"><i class="fa fa-table"></i> <span class="nav-label">TIPS Management</span> </a>
             </li>
-            <li class="{{ isActiveRoute('inactivate-user') }}">
-                <a href="{{ url('/inactivate-user') }}"><i class="fa fa-star"></i> <span class="nav-label">Inactivate User</span> </a>
+            <li class="{{ isActiveRoute('admin/show') }}">
+                <a href="{{ url('/admin/show') }}"><i class="fa fa-star"></i> <span class="nav-label">Inactivate User</span> </a>
             </li>
             
         </ul>
