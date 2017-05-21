@@ -15,22 +15,28 @@ class ReportsController extends Controller
     //admin
     public function index()
     {
-        //call reportsDataBuilder 
+        //init array
         $reports_array = array();
+        //create basic query - for index, this is just 'tips'
         $query = DB::table('tips');
+        //pass query and array into reportsDataBuilder
         reportsDataBuilder($reports_array, $query);
-        
+        //return view with amended report array
         return view('reports/index', ['data' => $reports_array]);
     }
     
      public function table()
     {
+        //return only the last 10 tips lines
+        $query = DB::table('tips');
+        
+        $table_array = $query->get()->slice(0, 15);
         return view('reports/table');
     }
     
     private function reportsDataBuilder(&$reports_array, $query){
         // aggregator that assembles the various data points for reporting
-        // modeled on filter
+        tipsSummary($reports_array, $query);
     }
     
     private function reportFilterExample(&$reports_array, $query){
@@ -56,12 +62,23 @@ class ReportsController extends Controller
         $num_finished_tips = $query->where('is_finished', 1)->count();
         $num_in_progress_tips = $query->where('is_finished', 0)->count();
         
-        $num_faculty_no_tip = $query
+        //number of faculty, assuming that the faculty table is complete
+        $num_faculty = DB::table('faculty')->where('is_active', 1)->count();
+        
+        $collect_faculty_no_tip = $query
+            ->select('faculty.faculty_id')
             ->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')
             ->join('faculty', 'faculty_tips.faculty_id', '=', 'faculty.faculty_id')
             ->where('tips.is_finished', 1)
-            ->groupBy('tips.faculty_id')
-            ->count();
+            ->distinct()
+            ->get();
+            
+        $num_faculty_no_tip = $num_faculty - $collect_faculty_no_tip->count();
         
+        $reports_array[$key] = array(
+            'finished_tips' => $num_finished_tips,
+            'in_progress_tips' => $num_in_progress_tips,
+            'not_started_tips' => $num_faculty_no_tip);
+
     }
 }
