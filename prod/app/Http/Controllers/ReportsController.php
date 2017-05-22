@@ -69,13 +69,29 @@ class ReportsController extends Controller
     private function tipsSummary(&$reports_array, $base_query){
         $key = "tips_summary";
         
-        //$summary_query = $base_query;
+        //$base_query should not be operated on directly
+        $summary_query = clone $base_query;
         
-        $num_finished_tips = DB::table('tips')->where('is_finished', 1)->count();
+        //building a collection based on the query lets us manipulate the data
+        //in a safe way.
+        $summary_query
+            ->join('faculty_tips', 
+                   'tips.tips_id', 
+                   '=', 
+                   'faculty_tips.tips_id')
+            ->join('faculty', 
+                   'faculty_tips.faculty_id', 
+                   '=', 
+                   'faculty.faculty_id');
+        
+        $summary_collection = $summary_query->get();
+        
+        $num_finished_tips = 
+            $summary_collection->where('is_finished', 1)->count();
         
         //$summary_query = $base_query;
         $num_in_progress_tips = 
-            DB::table('tips')->where('is_finished', 0)->count();
+            $summary_collection->where('is_finished', 0)->count();
         
         //number of faculty, assuming that the faculty table is complete
         $num_faculty = DB::table('faculty')->where('is_active', 1)->count();
