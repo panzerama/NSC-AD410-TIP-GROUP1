@@ -16,7 +16,10 @@
 </div>
 
 
-<div class="wrapper wrapper-content">    
+<div class="wrapper wrapper-content">
+    <div class="row">
+        {{ print_r($data) }} <!-- debugging -->
+    </div>    
 <div class="row">
             <div class="col-lg-6">
                 <div class="col-lg-12">
@@ -29,21 +32,21 @@
                         <div class="row">
 
                             <div class="col-lg-4">
-                                <h2 class="no-margins">220</h2>
+                                <h2 class="no-margins">{{ $data['tips_summary']['finished_tips'] }}</h2>
                                 <h5>Submitted</h5>
                                 <div class="progress progress-mini">
                                 <div class="progress-bar" style="width: 44%;"></div>
                                 </div>
                             </div>
                             <div class="col-lg-4">
-                                <h2 class="no-margins">50</h2>
+                                <h2 class="no-margins">{{ $data['tips_summary']['in_progress_tips'] }}</h2>
                                 <h5>In-progress</h5>
                                 <div class="progress progress-mini">
                                 <div class="progress-bar" style="width: 10%;"></div>
                                 </div>
                             </div>
                             <div class="col-lg-4">
-                                <h2 class="no-margins">230</h2>
+                                <h2 class="no-margins">{{ $data['tips_summary']['not_started_tips'] }}</h2>
                                 <h5>Not-started</h5>
                                 <div class="progress progress-mini">
                                 <div class="progress-bar" style="width: 46%;"></div>

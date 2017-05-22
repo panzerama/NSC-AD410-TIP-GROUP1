@@ -17,13 +17,37 @@ class ReportsControllerDev extends Controller
     //this sends test data to /summary-test page
     public function summarytest()
     {
-        //hardcode data (to do: replace with queries)
+        /*//hardcode data (to do: replace with queries)
         $count_submitted = tip::where('is_finished', 1)->count();
         //DB::table('tips')->where('is_finished',1)->count();
         $count_in_progress = DB::table('tips')->where('is_finished',0)->count();
         $data = array('countSubmitted' => $count_submitted,
                           'countInprogress' => $count_in_progress,
-                          'countNotstarted' => '230');  
+                          'countNotstarted' => '230');  */
+                          
+        $key = "tips_summary";
+        $query = DB::table('tips');
+        
+        $num_finished_tips = $query->where('is_finished', 1)->count();
+        $num_in_progress_tips = $query->where('is_finished', 0)->count();
+        
+        //number of faculty, assuming that the faculty table is complete
+        $num_faculty = DB::table('faculty')->where('is_active', 1)->count();
+        
+        $collect_faculty_no_tip = $query
+            ->select('faculty.faculty_id')
+            ->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')
+            ->join('faculty', 'faculty_tips.faculty_id', '=', 'faculty.faculty_id')
+            ->where('tips.is_finished', 1)
+            ->distinct()
+            ->get();
+            
+        $num_faculty_no_tip = $num_faculty - $collect_faculty_no_tip->count();
+        
+        $data = array(
+            'countSubmitted' => $num_finished_tips,
+            'countInprogress' => $num_in_progress_tips,
+            'countNotstarted' => $num_faculty_no_tip);
         
         //return data to view
         return view('reports/summary-test')->with($data);
