@@ -58,7 +58,8 @@ Route::get('/logout', 'SessionsController@destroy'); // Log Out
  *  Contact Routing
  ***************************/
  
- Route::get('/contact/','ContactsController@create'); // Contact Admin form.
+ Route::get('/contact','ContactsController@create'); // Contact Admin form.
+ Route::post('/contact','ContactsController@sendEmail'); 
  
  /***************************
  *  Reporting Routing
