@@ -15,6 +15,7 @@ class ReportsController extends Controller
     //   reports to run
     //5. we'll be dealing with a base query that will be modified by the
     //   searching
+    //JDP - Flag for refactor
     
     //admin
     public function index()
@@ -29,7 +30,7 @@ class ReportsController extends Controller
         return view('reports/index', ['data' => $reports_array]);
     }
     
-     public function table()
+    public function table()
     {
         //return all tips with division and faculty, let frontend
         //sort out what's displayed
@@ -38,8 +39,8 @@ class ReportsController extends Controller
             ->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')
             ->join('faculty', 'faculty_tips.faculty_id', '=', 'faculty.faculty_id');
         
-        $table_array = $table_query->get()->slice(0, 15);
-        return view('reports/table');
+        $table_array = $table_query->get();
+        return view('reports/table', ['data' => $table_array]);
     }
     
     private function reportsDataBuilder(&$reports_array, $base_query){
@@ -154,6 +155,15 @@ class ReportsController extends Controller
     }
     
     private function facultyByDivision(&$reports_array, $base_query){
+        $key = "faculty_by_division";
+        
+        $division_collection = DB::table('tips')->
+            ->join('divisions', 'divisions.division_id', '=', 'tips.division_id')
+            ->select('division.division_name', DB::raw('count(tips.tips_id)'))
+            ->where('tips.is_finished', 1)
+            ->groupBy('tips.division_id')
+            ->get();
+            
         
     }
 }
