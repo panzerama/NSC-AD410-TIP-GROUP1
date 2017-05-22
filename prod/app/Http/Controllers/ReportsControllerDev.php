@@ -13,6 +13,11 @@ class ReportsControllerDev extends Controller
     {
         return view('reports/index-old');
     }
+    
+    public function summaryold()
+    {
+        return view('reports/summary-old');
+    }
 
     //this sends test data to /summary-test page
     public function summarytest()
