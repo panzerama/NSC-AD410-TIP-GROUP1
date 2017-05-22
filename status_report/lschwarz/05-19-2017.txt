@@ -1,0 +1,7 @@
+Status update for 5/19
+
+Approaching a workable login authorization.   
+I spent a few hours today working Paul's example code into our login controller.  
+After reading up more on the Canvas documentation I'm getting the impression we will need a redirect controller as well.
+
+I have high hopes for having it all working or at least testable tomorrow.  

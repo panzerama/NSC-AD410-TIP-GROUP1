@@ -105,33 +105,27 @@
            <br><br>
            <div class="form-group">
                <div id="form-buttons">
+                   <div style="display:none" class="confirm-submit alert alert-danger col-md-10 col-md-offset-1 text-center" role="alert">
+                           <h3>Once you submit this TIP you will not be able to edit it again. Select 'Save Draft' to save and resume later.</h3> 
+                           <h3><strong>Are you sure you want to submit now? </strong></h3>
+                   </div>
                    <div class="col-md-3">
                        <a href="{{ url('/tip') }}" class="btn btn-lg btn-block btn-warning">Back</a>
                    </div>
                    <div class="col-md-3">
+                       <a style="display:none" href="#" class="confirm-submit btn btn-lg btn-block btn-primary" id="not-now">Not Now</a>
                     </div>
                    <div class="col-md-3">
                        <button class="btn btn-lg btn-block btn-secondary" value="save" name="save" type="submit">Save Draft</button>
                    </div>
                    <div class="col-md-3">
-                       <a href="#" class="btn btn-lg btn-block btn-primary" id="submit">Submit</a>
+                        <!-- first click brings up alert, second click (on button) submits form --> 
+                       <a href="#"  class="btn btn-lg btn-block btn-primary" id="first-click-submit">Submit</a>
+                       <button style="display:none" class="confirm-submit btn btn-lg btn-block btn-primary" value="submit" name="submit" type="submit">Submit</button>
                    </div>
+                   
                </div><!-- form-buttons -->
                
-               <!-- Display when user clicks submit. Displays alert asking user to confirm submission -->
-               <div id="confirm-submit" style="display:none">
-                       <div class="alert alert-danger col-md-6 col-md-offset-3 text-center" role="alert">
-                           <h3>Once you submit this TIP you will not be able to edit it again.</h3> 
-                           <h3><strong>Are you sure? </strong></h3>
-                       </div>
-                         <br><br>
-                   <div class="col-md-6">
-                       <a href="#" class="btn btn-lg btn-block btn-primary" id="not-now">Not Now</a>
-                   </div>
-                   <div class="col-md-6">
-                       <button class="btn btn-lg btn-block btn-primary" value="submit" name="submit" type="submit">Submit</button>
-                   </div>
-               </div><!-- confirm-submit -->
             </div> <!-- form-group --> 
         </form>
         <br><br><br><br>
@@ -158,14 +152,14 @@
         $('[data-toggle="popover"]').popover();
         
         //When submit is clicked - show alert for user to confirm form submission
-        $("#submit").click(function() {
-            $("#form-buttons").hide();
-            $("#confirm-submit").slideDown("slow");
-            $('html, body').animate({scrollTop: $("#confirm-submit").offset().top}, 2000);
+        $("#first-click-submit").click(function() {
+            $("#first-click-submit").hide();
+            $(".confirm-submit").slideDown("slow");
+            $('html, body').animate({scrollTop: $("#form-buttons").offset().top}, 2000);
          });
          $("#not-now").click(function() {
-            $("#confirm-submit").hide();
-            $("#form-buttons").slideDown("slow");
+            $(".confirm-submit").slideUp("slow");
+            $("#first-click-submit").slideDown("slow");
             $('html, body').animate({scrollTop: $("#form-buttons").offset().top}, 2000);
          });
      });
