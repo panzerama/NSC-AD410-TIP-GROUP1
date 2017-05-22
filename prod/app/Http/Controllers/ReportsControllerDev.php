@@ -9,9 +9,9 @@ use App\tip;
 class ReportsControllerDev extends Controller
 {
     //admin
-    public function indexdev()
+    public function indexold()
     {
-        return view('reports/index-dev');
+        return view('reports/index-old');
     }
 
     //this sends test data to /summary-test page

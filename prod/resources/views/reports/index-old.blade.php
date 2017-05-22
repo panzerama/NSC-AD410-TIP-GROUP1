@@ -20,20 +20,67 @@
 <div class="row">
             <div class="col-lg-6">
                 <div class="col-lg-12">
-                    <!-- reports summary -->
-                    @include('reports.summary')
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <span class="label label-primary pull-right">Current Academic Year</span>
+                        <h2>TIPS Summary</h2>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="row">
+
+                            <div class="col-lg-4">
+                                <h2 class="no-margins">220</h2>
+                                <h5>Submitted</h5>
+                                <div class="progress progress-mini">
+                                <div class="progress-bar" style="width: 44%;"></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <h2 class="no-margins">50</h2>
+                                <h5>In-progress</h5>
+                                <div class="progress progress-mini">
+                                <div class="progress-bar" style="width: 10%;"></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <h2 class="no-margins">230</h2>
+                                <h5>Not-started</h5>
+                                <div class="progress progress-mini">
+                                <div class="progress-bar" style="width: 46%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
                 </div>
             
             <div class="col-lg-12">
-                    <!-- Tips By Month Report -->
-                    @include('reports.tips-by-month')
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>TIPS by month
+                            </h5>
+                        </div>
+                        <div class="ibox-content">
+                            <div><iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+                                <canvas id="lineChart" height="50" style="display: block; height: 50px;"></canvas>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 </div>
 
             
             <div class="col-lg-6">
-                    <!-- Tips By Division Report -->
-                    @include('reports.tips-by-division')
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Faculty participation by division</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <div><iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+                            <canvas id="barChart1" height="120" style="display: block; height: 120px;"></canvas>
+                        </div>
+                    </div>
+                </div>
             </div>  
 </div>        
     
@@ -41,34 +88,71 @@
 <div class="row">
     <div class="col-lg-6">
         <div class="col-lg-12">
-            <div class="ibox float-e-margins">  
-                <div class="row">
+        <div class="ibox float-e-margins">  
+            <div class="row">
                 
-                    @include('reports.evidence-change-needed')
-                    
-                    @include('reports.how-impact-assessed')
+                    <div class="col-lg-6">
+                        <div class="ibox-title">
+                         <h5 class = "no-margins">Evidence for change needed</h5>
+                         </div>
+                          <div class="ibox-content">
+                        <iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+                    <canvas id="doughnutChart1"  width="50" height="10" style="margin: 0px auto 0px; display: block; width: 50px; height: 10px;"></canvas>
+                    </div>
+                    </div>
 
+                    <div class="col-lg-6">
+                    <div class="ibox-title">
+                         <h5 class = "no-margins">How impact assessed</h5>
+                         </div>
+                          <div class="ibox-content">
+                        <iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+                    <canvas id="doughnutChart2" width="50" height="10" style="margin: 0px auto 0px; display: block; width: 50px; height: 10px;"></canvas>
+                    </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+                </div>
+                </div>
                 
         
-        <div class="row">
-            <div class="col-lg-12">
+                <div class="row">
+                            <div class="col-lg-12">
                 <div class="ibox float-e-margins">  
-                
-                    @include('reports.type-of-change')
-                    
-                    @include('reports.new-opportunities')
-                    
+                    <div class="col-lg-6">
+                        <div class="ibox-title">
+                         <h5 class = "no-margins">Type of change</h5>
+                         </div>
+                          <div class="ibox-content">
+                        <iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+                    <canvas id="barChart2"  width="50" height="15" style="margin: 0px auto 0px; display: block; width: 10px; height: 10px;"></canvas>
+                    </div>
+                    </div>
+                    <div class="col-lg-6">
+                    <div class="ibox-title">
+                         <h5 class = "no-margins">New opportunities</h5>
+                         </div>
+                          <div class="ibox-content">
+                        <iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+                    <canvas id="barChart3" width="50" height="15" style="margin: 0px auto 0px; display: block; width: 50px; height: 10px;"></canvas>
+                    </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
+                </div>
+                </div>
+                 </div>
 
-        <div class="col-lg-6">
-                     @include('reports.primary-elo-added')
-        </div>
+                <div class="col-lg-6">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Primary ELO added by TIP</h5>
+                        </div>
+                        <div class="ibox-content">
+                            <div><iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+                                <canvas id="barChart4" height="110" style="display: block; height: 110px;"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 </div>
                 
 <div class="wrapper wrapper-content animated fadeInRight">
