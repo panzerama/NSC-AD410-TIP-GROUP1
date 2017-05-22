@@ -21,7 +21,7 @@
             <div class="col-lg-6">
                 <div class="col-lg-12">
                     <!-- reports summary -->
-                    @include('reports.summary-test', ['data' => $data])
+                    @include('reports.summary')
                 </div>
             
             <div class="col-lg-12">
