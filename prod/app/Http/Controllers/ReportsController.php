@@ -75,6 +75,7 @@ class ReportsController extends Controller
         //building a collection based on the query lets us manipulate the data
         //in a safe way.
         $summary_query
+            ->select('tips.*', 'faculty.*')
             ->join('faculty_tips', 
                    'tips.tips_id', 
                    '=', 
@@ -94,18 +95,23 @@ class ReportsController extends Controller
             $summary_collection->where('is_finished', 0)->count();
         
         //number of faculty, assuming that the faculty table is complete
+        //is there a way to refactor this?
         $num_faculty = DB::table('faculty')->where('is_active', 1)->count();
         
         //$summary_query = $base_query;
-        $collect_faculty_no_tip = DB::table('tips')
+        $collect_faculty_with_tips = 
+            $summary_collection->pluck('faculty_name')->unique()->count();
+        
+        /*DB::table('tips')
             ->select('faculty.faculty_id')
             ->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')
             ->join('faculty', 'faculty_tips.faculty_id', '=', 'faculty.faculty_id')
             ->where('tips.is_finished', 1)
             ->distinct()
             ->get();
+            */
             
-        $num_faculty_no_tip = $num_faculty - $collect_faculty_no_tip->count();
+        $num_faculty_no_tip = $num_faculty - $collect_faculty_no_tip;
         
         $reports_array[$key] = array(
             'finished_tips' => $num_finished_tips,
@@ -123,45 +129,41 @@ class ReportsController extends Controller
         
         // return only the records within school year
         $by_month_query = clone $base_query;
-        $by_month_query->whereDate('updated_at', '>', $school_year_start)
-                       ->whereDate('updated_at', '<', $school_year_end);
+        $by_month_collection = 
+            $by_month_query->select('tips.*')
+                           ->whereDate('updated_at', '>', $school_year_start)
+                           ->whereDate('updated_at', '<', $school_year_end)
+                           ->get();
         
         // build an array of months using the school year start and end
         
         $start_month = $school_year_start->startOfMonth();
         $end_month = $school_year_end->startOfMonth();
+        
         $month = array();
         $by_month_finished = array();
         $by_month_in_progress = array();
         
-        $by_month_finished_query = clone $by_month_query;
-        $by_month_finished_query->where('is_finished', 1);
-        //verified by logging
-        
-        $by_month_in_progress_query = clone $by_month_query;
-        $by_month_in_progress_query->where('is_finished', 0);
-        $debug_by_month_in_progress_query = $by_month_in_progress_query->count();
-        //verified by logging
-        Log::info("Total number of tips in by_month_in_progress: " . 
-                    $debug_by_month_in_progress_query);
+        $by_month_finished = $by_month_collection->where('is_finished', 1);
+        $by_month_in_progress = $by_month_collection->where('is_finished', 0);
         
         do{
             $start_month_plus_one = clone $start_month;
             $start_month_plus_one->addMonth();
-            Log::info("Start month: " . $start_month->format('m-Y')
-                      . "\nStart month plus on: " . $start_month_plus_one->format('m-Y'));
+            
             $month[$start_month->format('m-Y')] = 
                 ucfirst($start_month->format('F'));
+                
             $by_month_finished[$start_month->format('m-Y')] 
-                = $by_month_finished_query
-                ->where('updated_at', '>=', $start_month)
-                ->where('updated_at', '<', $start_month_plus_one)
-                ->get();
+                = $by_month_collection
+                    ->where('updated_at', '>=', $start_month)
+                    ->where('updated_at', '<', $start_month_plus_one)
+                    ->get();
             $by_month_in_progress[$start_month->format('m-Y')] 
-                = $by_month_in_progress_query
-                ->where('updated_at', '>=', $start_month)
-                ->where('updated_at', '<', $start_month_plus_one)
-                ->get();
+                = $by_month_collection
+                    ->where('updated_at', '>=', $start_month)
+                    ->where('updated_at', '<', $start_month_plus_one)
+                    ->get();
         } while ($start_month->addMonth() <= $end_month);
         
         $reports_array[$key] = array(
