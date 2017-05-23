@@ -111,7 +111,7 @@ class ReportsController extends Controller
             ->get();
             */
             
-        $num_faculty_no_tip = $num_faculty - $collect_faculty_no_tip;
+        $num_faculty_no_tip = $num_faculty - $collect_faculty_with_tips;
         
         $reports_array[$key] = array(
             'finished_tips' => $num_finished_tips,
@@ -158,12 +158,12 @@ class ReportsController extends Controller
                 = $by_month_collection
                     ->where('updated_at', '>=', $start_month)
                     ->where('updated_at', '<', $start_month_plus_one)
-                    ->get();
+                    ->all();
             $by_month_in_progress[$start_month->format('m-Y')] 
                 = $by_month_collection
                     ->where('updated_at', '>=', $start_month)
                     ->where('updated_at', '<', $start_month_plus_one)
-                    ->get();
+                    ->all();
         } while ($start_month->addMonth() <= $end_month);
         
         $reports_array[$key] = array(
@@ -175,7 +175,7 @@ class ReportsController extends Controller
     private function facultyByDivision(&$reports_array, $base_query){
         $key = "faculty_by_division";
         
-        $division_collection = DB::table('tips')->
+        $division_collection = DB::table('tips')
             ->join('divisions', 'divisions.division_id', '=', 'tips.division_id')
             ->select('division.division_name', DB::raw('count(tips.tips_id)'))
             ->where('tips.is_finished', 1)
