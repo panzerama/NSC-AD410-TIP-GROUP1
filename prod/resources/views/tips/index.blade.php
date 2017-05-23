@@ -141,7 +141,7 @@
             <br><br>
            <div class="form-group">
                <div class="col-sm-3 col-md-offset-9">
-                   <button class="btn btn-lg btn-block btn-primary" value="continue" name="continue" type="submit">Continue</button>
+                   <a href="{{ url('/tip/questions') }}" class="btn btn-lg btn-block btn-primary" value="continue" name="continue" type="submit">Continue</a>
                </div>
            </div><!--form-group-->
             
