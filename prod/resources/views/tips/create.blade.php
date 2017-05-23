@@ -39,6 +39,7 @@
             
             <!-- start foreach loop through questions -->
             @foreach($questions as $question)
+            @if($question->question_number > 6)
                 <div class="ibox float-e-margins">
                     
                  <!-- output question_text and then question_desc (example answer) in '?' popover--->   
@@ -56,24 +57,36 @@
                 <!-- start if/else block that outputs different HTML based on question_type (TEXT, DROPDOWN, RADIO, CHECKBOX) -->
                 @if ($question->question_type == "TEXT")
                         <div class="col-lg-8 col-sm-12">
-                        <textarea class="form-control" name="{{ $question->question_id }}" value="{{ $question->question_id }}" rows="4" cols="60"></textarea>
+                        <textarea class="form-control" name="{{ $question->question_id }}" value="{{ $question->question_id }}" rows="4" cols="60">{{ $existing_answers[$question->question_number - 1]->question_answer }}</textarea>
                 @elseif ( $question->question_type == "DROPDOWN")       
                         <div class="col-sm-4">
                         <select class="form-control" name="{{ $question->question_id }}">
                             <option selected disabled>Choose here</option>
                             @foreach ($question->answer as $answer)
-                            <option select="{{$answer->answer_text}}">{{$answer->answer_text}}</option>
+                                @if($answer->answer_text == $existing_answers[$question->question_number - 1]->question_answer) 
+                                    <option selected select="{{$answer->answer_text}}">{{$answer->answer_text}}</option>
+                                @else
+                                    <option select="{{$answer->answer_text}}">{{$answer->answer_text}}</option>
+                                @endIf
                             @endforeach
                         </select>
                  @elseif ($question->question_type == "RADIO")       
                        <div class="col-sm-8">
                             <div class="form-check">
                                 @foreach ($question->answer as $answer)
-                                <div class="col-sm-12">
-                                    <label class="form-check-label">
-                                        <input type="radio" name="{{ $question->question_id }}" value="{{ $answer->answer_text }}" class="form-check-input">   {{ $answer->answer_text }}
-                                    </label>
-                                </div>
+                                    @if($answer->answer_text == $existing_answers[$question->question_number - 1]->question_answer)
+                                        <div class="col-sm-12">
+                                            <label class="form-check-label">
+                                                <input checked="checked" type="radio" name="{{ $question->question_id }}" value="{{ $answer->answer_text }}" class="form-check-input">   {{ $answer->answer_text }}
+                                            </label>
+                                        </div>
+                                    @else
+                                        <div class="col-sm-12">
+                                            <label class="form-check-label">
+                                                <input type="radio" name="{{ $question->question_id }}" value="{{ $answer->answer_text }}" class="form-check-input">   {{ $answer->answer_text }}
+                                            </label>
+                                        </div>
+                                    @endIf
                                 @endforeach
     
                             </div><!-- form-check-->
@@ -81,11 +94,19 @@
                        <div class="col-sm-8">
                             <div class="form-check">
                                 @foreach ($question->answer as $answer)
-                                <div class="col-sm-12">
-                                    <label class="form-check-label">
-                                        <input type="checkbox" class="form-check-input" name="{{ $question->question_id }}" value="{{ $answer->answer_text }}">   {{ $answer->answer_text }}
-                                    </label>
-                                </div>
+                                    @if($answer->answer_text == $existing_answers[$question->question_number - 1]->question_answer)
+                                        <div class="col-sm-12">
+                                            <label class="form-check-label">
+                                                <input checked="checked" type="checkbox" class="form-check-input" name="{{ $question->question_id }}" value="{{ $answer->answer_text }}">   {{ $answer->answer_text }}
+                                            </label>
+                                        </div>
+                                    @else
+                                        <div class="col-sm-12">
+                                            <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input" name="{{ $question->question_id }}" value="{{ $answer->answer_text }}">   {{ $answer->answer_text }}
+                                            </label>
+                                        </div>
+                                    @endIf
                                 @endforeach
                             </div><!-- form-check-->
                 @endIf
@@ -95,7 +116,7 @@
                 
                 </div><!-- ibox-content -->
                 </div><!-- ibox -->
-            
+            @endif
             @endforeach
                     
                         

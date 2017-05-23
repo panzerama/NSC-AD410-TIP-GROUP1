@@ -49,13 +49,23 @@
                     <form class="form-horizontal">
                         {{ csrf_field() }}
                         <br>
+                        
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Is this an individual or group TIP?</label>
                                 <div class="col-sm-8">
                                     <select class="form-control" id="tip-type" name="tip-type">
                                         <option selected disabled>Choose here</option>
-                                        <option select="individual">Individual</option>
-                                        <option select="group">Group</option>
+                                        @foreach($questions as $question) 
+                                            @if($question->question_text == 'Is this an individual or group TIP?')
+                                                 @foreach($question->answer as $answer)
+                                                     @if($answer->answer_text == $existing_answers[$question->question_number - 1]->question_answer)
+                                                         <option selected select="{{ $answer->answer_text }}">{{ $answer->answer_text }}</option>
+                                                     @else
+                                                        <option select="{{ $answer->answer_text }}">{{ $answer->answer_text }}</option>
+                                                     @endIf
+                                                @endforeach
+                                            @endIf
+                                        @endforeach
                                     </select>
                                 </div><!--col-sm-8-->
                         </div><!--form-group-->
@@ -86,16 +96,22 @@
                          
                         <div class="hr-line-dashed"></div>
                         
-                           <!--TO DO: populate divisions with list-->
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Division</label>
                                 <div class="col-sm-8">
                                     <select class="form-control" name="division">
                                         <option selected disabled>Choose division</option>
-                                        <option select="ACCT">ACCT</option>
-                                        <option select="ABE">ABE</option>
-                                        <option select="AME">AME</option>
-                                        <option select="ASL">ASL</option>
+                                        @foreach($questions as $question) 
+                                            @if($question->question_text == 'Division')
+                                                 @foreach($question->answer as $answer)
+                                                     @if($answer->answer_text == $existing_answers[$question->question_number - 1]->question_answer)
+                                                         <option selected select="{{ $answer->answer_text }}">{{ $answer->answer_text }}</option>
+                                                     @else
+                                                        <option select="{{ $answer->answer_text }}">{{ $answer->answer_text }}</option>
+                                                     @endIf
+                                                @endforeach
+                                            @endIf
+                                        @endforeach
                                     </select>
                                 </div><!--col-sm-8-->
                         </div><!--form-group-->
@@ -105,16 +121,32 @@
                         
                         <div class="form-group">
                            <label class="col-sm-2 control-label">Enter Course Prefix</label>
-                           <div class="col-sm-8">
-                               <input type="text" class="form-control" name="course-prefix">
-                           </div>
+                           @foreach($questions as $question) 
+                                @if($question->question_text == 'Enter Course Prefix')
+                                     <div class="col-sm-8">
+                                     @if($existing_answers[$question->question_number - 1]->question_answer)
+                                         <input type="text" class="form-control" name="course-prefix" value="{{ $existing_answers[$question->question_number - 1]->question_answer }}">
+                                     @else
+                                        <input type="text" class="form-control" name="course-prefix">
+                                     @endIf
+                                    </div>
+                                @endIf
+                            @endforeach
                        </div>
                        
                        <div class="form-group">
                            <label class="col-sm-2 control-label">Enter Course Number</label>
-                           <div class="col-sm-8">
-                               <input type="text" class="form-control" name="course-number">
-                           </div>
+                           @foreach($questions as $question) 
+                                @if($question->question_text == 'Enter Course Number')
+                                     <div class="col-sm-8">
+                                     @if($existing_answers[$question->question_number - 1]->question_answer)
+                                         <input type="text" class="form-control" name="course-number" value="{{ $existing_answers[$question->question_number - 1]->question_answer }}">
+                                     @else
+                                        <input type="text" class="form-control" name="course-number">
+                                     @endIf
+                                    </div>
+                                @endIf
+                            @endforeach
                        </div>
 
                        <div class="hr-line-dashed"></div>
@@ -124,10 +156,17 @@
                                 <div class="col-sm-8">
                                     <select class="form-control" name="quarter">
                                         <option selected disabled>Choose quarter</option>
-                                        <option>Fall</option>
-                                        <option>Winter</option>
-                                        <option>Spring</option>
-                                        <option>Summer</option>
+                                         @foreach($questions as $question) 
+                                            @if($question->question_text == 'Select Quarter')
+                                                 @foreach($question->answer as $answer)
+                                                     @if($answer->answer_text == $existing_answers[$question->question_number - 1]->question_answer)
+                                                         <option selected select="{{ $answer->answer_text }}">{{ $answer->answer_text }}</option>
+                                                     @else
+                                                        <option select="{{ $answer->answer_text }}">{{ $answer->answer_text }}</option>
+                                                     @endIf
+                                                @endforeach
+                                            @endIf
+                                        @endforeach
                                     </select>
                                 </div><!--col-sm-8-->
                         </div><!--form-group-->
@@ -136,18 +175,24 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Select Year</label>
                                 <div class="col-sm-8">
-                                    @php ($year = date("Y"))
                                     <select class="form-control" name="year">
                                         <option selected disabled>Choose year</option>
-                                        <option>{{ $year - 1 }}</option>
-                                        <option>{{ $year }}</option>
-                                        <option>{{ $year + 1 }}</option>
+                                        @foreach($questions as $question) 
+                                            @if($question->question_text == 'Select Year')
+                                                 @foreach($question->answer as $answer)
+                                                     @if($answer->answer_text == $existing_answers[$question->question_number - 1]->question_answer)
+                                                         <option selected select="{{ $answer->answer_text }}">{{ $answer->answer_text }}</option>
+                                                     @else
+                                                        <option select="{{ $answer->answer_text }}">{{ $answer->answer_text }}</option>
+                                                     @endIf
+                                                @endforeach
+                                            @endIf
+                                        @endforeach
                                     </select>
                                 </div><!--col-sm-8-->
                         </div><!--form-group-->
                 </div><!-- ibox-content -->
             </div><!--ibox-->
-
             <br><br>
            <div class="form-group">
                <div class="col-sm-3 col-md-offset-9">
