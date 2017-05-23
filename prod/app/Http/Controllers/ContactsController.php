@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Mail;
 use Illuminate\Http\Request;
-use App\DB;
+use App\Mail\AdminContact;
 
 class ContactsController extends Controller
 {
@@ -13,17 +13,13 @@ class ContactsController extends Controller
     }
     
     public function sendEmail(){
-        //todo: update admin email address ($to)/Reply-To
-        $to      = '';
-        $subject = request('subject');
-        $message = request('body');
-        $headers = request('email') . "\r\n" .
-        'Reply-To: replacewithadmin@email.com' . "\r\n";
         
-       
-        mail($to, $subject, $message, $headers);
+        $to      = request('email');
+        $topic = request('topic');
+        $body = request('body');
+        
+        \Mail::to($to)->send(new AdminContact($topic, $body));
         $result = true;
-       
         return view('contacts/create', compact('result'));
     }
 }

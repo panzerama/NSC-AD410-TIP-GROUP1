@@ -28,9 +28,9 @@
                            </div>
                            
                            <div class="form-group">
-                               <label class="col-lg-2 control-label">Subject</label>
+                               <label class="col-lg-2 control-label">Topic</label>
                                <div class="col-lg-9">
-                                   <input type="text" class="form-control" required name="subject">
+                                   <input type="text" class="form-control" required name="topic">
                                </div>
                            </div>
                            
