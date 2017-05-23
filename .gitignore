@@ -7,3 +7,4 @@
 *.mp4
 prod/storage/framework/*
 .fuse*
+.idea
