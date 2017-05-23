@@ -8,3 +8,4 @@
 prod/storage/framework/*
 .fuse*
 .idea
+/prod/storage/logs/*
