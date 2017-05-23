@@ -107,7 +107,7 @@
                <div id="form-buttons">
                    <div style="display:none" class="confirm-submit alert alert-danger col-md-10 col-md-offset-1 text-center" role="alert">
                            <h3>Once you submit this TIP you will not be able to edit it again. Select 'Save Draft' to save and resume later.</h3> 
-                           <h3><strong>Are you sure you want to submit now? </strong></h3>
+                           <h3><strong>Are you sure you want to submit now? If so, click submit again.</strong></h3>
                    </div>
                    <div class="col-md-3">
                        <a href="{{ url('/tip') }}" class="btn btn-lg btn-block btn-warning">Back</a>

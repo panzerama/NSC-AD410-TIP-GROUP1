@@ -210,7 +210,7 @@ class CreateAnswersTable extends Migration
             // TYPE: RADIO buttons
             array(
                 'question_id' => 12,
-                'answer_text' => 'Modified a learning activity',
+                'answer_text' => 'TEST change',
                 'is_active' => true
             ),
             array(
