@@ -10,6 +10,16 @@
     <div class="row">
         <div class="col-lg-12">
             
+<!-- TEST / EXAMPLE -->            
+ @foreach($questions as $question)
+    {{ $question->question_id }}
+    {{ $question->question_text }}<br>
+     @foreach($question->answer as $answer)
+         {{ $answer->answer_text }}<br>
+     @endforeach
+      <p style="color:red">{{ $existing_answers[$question->question_number - 1]->question_answer }}</p></br>
+ @endforeach
+ 
             <!-- Start TIP instructions -->
             <div class="col-sm-12">
                 <h1>TIPS Submission</h1>

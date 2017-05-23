@@ -19,4 +19,8 @@ class tips_questions extends Model
         return $this->belongsTo(tip::class,'tips_id');
     }
     
+    
+    public function answer(){
+    return $this->hasManyThough(tips_questions::class , answer::class,'question_id','question_id','question_id');
+    }
 }

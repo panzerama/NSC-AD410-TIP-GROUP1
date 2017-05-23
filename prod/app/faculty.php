@@ -17,6 +17,8 @@ class faculty extends Model
         'is_active'
         ];
         
+    protected $table = 'faculty';    
+        
     //defining a many to many relation between faculty member and tip report models
     public function tips() {
         /* general layout

@@ -30,6 +30,20 @@ class CreateFacultyTipsTable extends Migration
                 ->on('tips')
                 ->onDelete('cascade');
         });
+        
+         DB::table('faculty_tips')->insert(array(
+            // is finished = true
+            array(
+                'faculty_id' => 1,
+                'tips_id' => 3
+            ),
+            // is finished = false
+            array(
+                'faculty_id' => 1,
+                'tips_id' => 4
+            )
+            
+        ));
     }
 
     /**

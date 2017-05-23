@@ -15,14 +15,14 @@ class CreateTipsTable extends Migration
     {
         Schema::create('tips', function (Blueprint $table) {
             $table->increments('tips_id');
-            $table->integer('division_id')->unsigned();
-            $table->string('course_name');
-            $table->string('course_number');
-            $table->enum('quarter', ['FALL','WINTER','SPRING','SUMMER']);
-            $table->integer('year');
+            $table->integer('division_id')->unsigned()->nullable();
+            $table->string('course_name')->nullable();
+            $table->string('course_number')->nullable();
+            $table->enum('quarter', ['FALL','WINTER','SPRING','SUMMER'])->nullable();
+            $table->integer('year')->nullable();
             $table->boolean('is_finished');
             $table->boolean('is_active');
-            $table->boolean('is_group');
+            $table->boolean('is_group')->nullable();
             $table->timestamps();
             
             //basic foreign key creation
