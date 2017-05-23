@@ -6,3 +6,4 @@
 ._*
 *.mp4
 prod/storage/framework/*
+.fuse*
