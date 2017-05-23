@@ -17,6 +17,16 @@ class ReportsController extends Controller
     //   searching
     //JDP - Flag for refactor
     
+    //Array keys
+    // tips_summary => 
+        // finished_tips => $num_finished_tips,
+        // in_progress_tips => $num_in_progress_tips,
+        // not_started_tips => $num_faculty_no_tip
+    //tips_by_month =>
+        // month => $month,
+        // tips_by_month_finished => $by_month_finished,
+        // tips_by_month_in_progress => $by_month_in_progress
+    
     //admin
     public function index()
     {
