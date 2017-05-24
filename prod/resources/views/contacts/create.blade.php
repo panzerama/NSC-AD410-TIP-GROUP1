@@ -9,13 +9,12 @@
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
         <div class="col-lg-12">
-            
+            <h1> Contact Admin</h1>
             <!-- start form --> 
             <form method="POST" action="/contact" class="form-horizontal">
                 {{ csrf_field() }}
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h2> Contact Admin</h2>
                         <small>Fill out form to message the Admin</small>
                     </div>
                     <div class="ibox-content">
