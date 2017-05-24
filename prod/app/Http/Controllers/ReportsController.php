@@ -17,6 +17,20 @@ class ReportsController extends Controller
     //   searching
     //JDP - Flag for refactor
     
+    //Array keys
+    // tips_summary => 
+        // finished_tips => $num_finished_tips,
+        // in_progress_tips => $num_in_progress_tips,
+        // not_started_tips => $num_faculty_no_tip
+    //tips_by_month =>
+        // month => $month,
+        // tips_by_month_finished => $by_month_finished,
+        // tips_by_month_in_progress => $by_month_in_progress
+    //tips_by_divition =>
+        // division abbreviation =>
+            // 'tips_by_division_finished'
+            // 'tips_by_division_in_progress'
+    
     //admin
     public function index()
     {
@@ -47,6 +61,7 @@ class ReportsController extends Controller
         // aggregator that assembles the various data points for reporting
         ReportsController::tipsSummary($reports_array, $base_query);
         ReportsController::tipsByMonth($reports_array, $base_query);
+        ReportsController::tipsByDivision($reports_array, $base_query);
     }
     
     private function reportFilterExample(&$reports_array, $query){
@@ -111,7 +126,7 @@ class ReportsController extends Controller
             ->get();
             */
             
-        $num_faculty_no_tip = $num_faculty - $collect_faculty_no_tip;
+        $num_faculty_no_tip = $num_faculty - $collect_faculty_with_tips;
         
         $reports_array[$key] = array(
             'finished_tips' => $num_finished_tips,
@@ -158,12 +173,12 @@ class ReportsController extends Controller
                 = $by_month_collection
                     ->where('updated_at', '>=', $start_month)
                     ->where('updated_at', '<', $start_month_plus_one)
-                    ->get();
+                    ->all();
             $by_month_in_progress[$start_month->format('m-Y')] 
                 = $by_month_collection
                     ->where('updated_at', '>=', $start_month)
                     ->where('updated_at', '<', $start_month_plus_one)
-                    ->get();
+                    ->all();
         } while ($start_month->addMonth() <= $end_month);
         
         $reports_array[$key] = array(
@@ -172,16 +187,37 @@ class ReportsController extends Controller
             'tips_by_month_in_progress' => $by_month_in_progress);
     }
     
-    private function facultyByDivision(&$reports_array, $base_query){
-        $key = "faculty_by_division";
+    private function tipsByDivision(&$reports_array, $base_query){
+        $key = "tips_by_division";
         
-        $division_collection = DB::table('tips')->
+        $division_query = clone $base_query;
+        
+        $division_collection = $division_query
             ->join('divisions', 'divisions.division_id', '=', 'tips.division_id')
-            ->select('division.division_name', DB::raw('count(tips.tips_id)'))
-            ->where('tips.is_finished', 1)
-            ->groupBy('tips.division_id')
             ->get();
             
+        $list_of_divisions = $division_collection
+                                ->pluck('divisions.abbr')
+                                ->unique()
+                                ->sortBy('divisions.abbr');
+                                
+        $tips_by_division = array();
+                                
+        foreach($list_of_divisions as $idx => $division){
+            $tips_by_division_finished = 
+                $division_collection->where('divisions.abbr', '=', $division)
+                                    ->where('tips.is_finished', 1)
+                                    ->count();
+            $tips_by_division_in_progress =  
+                $division_collection->where('divisions.abbr', '=', $division)
+                                    ->where('tips.is_finished', 0)
+                                    ->count();
+            $tips_by_division[$division] = 
+                array('tips_by_division_finished' => $tips_by_division_finished,
+                      'tips_by_division_in_progress' => $tips_by_division_in_progress); 
+        }
+        
+        $reports_array[$key] = $tips_by_division;
         
     }
 }
