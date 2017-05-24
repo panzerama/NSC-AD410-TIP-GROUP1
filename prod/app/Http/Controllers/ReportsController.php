@@ -199,20 +199,20 @@ class ReportsController extends Controller
             ->get();
             
         $list_of_divisions = $division_collection
-                                ->pluck('divisions.abbr')
+                                ->pluck('abbr')
                                 ->unique();
                                 
         $tips_by_division = array();
                                 
         foreach($list_of_divisions as $idx => $division){
             $tips_by_division_finished = 
-                $division_collection->where('divisions.abbr', '=', $division)
-                                    ->where('tips.is_finished', 1)
+                $division_collection->where('abbr', '=', $division)
+                                    ->where('is_finished', 1)
                                     ->count();
                                     
             $tips_by_division_in_progress =  
-                $division_collection->where('divisions.abbr', '=', $division)
-                                    ->where('tips.is_finished', 0)
+                $division_collection->where('abbr', '=', $division)
+                                    ->where('is_finished', 0)
                                     ->count();
                                     
             $tips_by_division[$division] = 
