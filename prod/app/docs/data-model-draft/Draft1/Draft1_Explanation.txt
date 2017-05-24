@@ -1,0 +1,15 @@
+Initial TIPS EER Explanation
+
+There is a many to many relationship between TIPS and FACULTY members(users). Obviously a teacher creates many TIPS, but there is also a suggestion somewhere that many faculty be associated to 1 TIP, in some cases.
+
+I don't really see a reason to separate out any other stuff like divisions or courses, sure we could normalize it more I just can't think of a reason to. We can still run queries by all that stuff without them being in separate tables.
+
+Anything that is a TEXT type is one of the text field descriptive use your own words questions.  Anything that is a VARCHAR is one of the radio button questions.  TEXT type ones can be NULL, the others cannot, so I reckon we'll want some 'required' stuff on our front end forms.
+
+The column names kinda suck right now, if you have any better ideas please let me know.  I considered running with the question numbers but I feel like that is too changeable a thing, what if they change the number of questions? As you run down the TIPS table the columns generally conform straight to the quiz form on canvas they are using. The only difference would be splitting up question 4 and moving question 5 to the FACULTY table.
+
+The QUESTIONS table is representative of the radio button questions on the existing TIPS form(question 15 for example).  In the second user story there is a suggestion that a dept head or admin would want to alter the questions or alter the answers to the questions.  Using this table would allow us to create a front-end interface that would allow an administrator to alter the answers. Remember the task list homework from last quarter? It'd be kind of like that. I can probably explain better at standup tomorrow.
+
+Hit me with questions tomorrow and I'll see you all before class.
+
+While writing this I listened to a song called Rat Race, by Trip Hazard. So there ya go.
