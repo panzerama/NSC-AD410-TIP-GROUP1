@@ -1,0 +1,1 @@
+Auth is working!  There is a rework in progress to get our controllers set up for login and for redirecting the user to the appropriate landing page.  We will need to do a serious amount of reworking in the next few days but we have a working auth so that's good.
