@@ -156,6 +156,12 @@
     </div><!--row-->
 </div><!--wrapper-->
         
+    
+    
+@endsection
+
+@section('scripts')
+
 <script>
     $(document).ready(function(){
             
@@ -185,6 +191,5 @@
          });
      });
 </script>
-    
-    
+
 @endsection

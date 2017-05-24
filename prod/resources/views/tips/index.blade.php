@@ -9,16 +9,6 @@
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
         <div class="col-lg-12">
-            
-<!-- TEST / EXAMPLE -->            
- @foreach($questions as $question)
-    {{ $question->question_id }}
-    {{ $question->question_text }}<br>
-     @foreach($question->answer as $answer)
-         {{ $answer->answer_text }}<br>
-     @endforeach
-      <p style="color:red">{{ $existing_answers[$question->question_number - 1]->question_answer }}</p></br>
- @endforeach
  
             <!-- Start TIP instructions -->
             <div class="col-sm-12">
@@ -207,6 +197,11 @@
     </div><!--row-->
 </div><!--wrapper-->
            
+            
+@endsection
+
+@section('scripts')
+
 <script>
     $(document).ready(function(){
         
@@ -229,28 +224,26 @@
              $("#group-tip").slideUp();
           }
         });
-        
-        
-        //Adds field to when user clicks 'Add Another Member' / Removes field when user clicks 'remove'
-        var max_fields      = 10; //maximum input boxes allowed
-        var wrapper         = $(".add-member-field-div"); //Fields wrapper
-        var add_member      = $(".add-tip-member"); //Add button ID
-        var x = 1; //initlal text box count
-        $(add_member).click(function(e){ //on add input button click
-            e.preventDefault();
-            if(x < max_fields){ //max input box allowed
-                x++; //text box increment
-                $(wrapper).append('<div class="col-sm-5 field"><br><input class="form-control type="text" name="tip-members[]"/><a href="#" class="remove_field"><br><span class="glyphicon glyphicon-minus"></span>  Remove</a></div>'); //add input box
-            }
-        });
-        $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
-            e.preventDefault(); 
-            $(this).parent('div').remove();
-            x--;
-        })
+    });
     
+    //Adds field to when user clicks 'Add Another Member' / Removes field when user clicks 'remove'
+    var max_fields      = 10; //maximum input boxes allowed
+    var wrapper         = $(".add-member-field-div"); //Fields wrapper
+    var add_member      = $(".add-tip-member"); //Add button ID
+    var x = 1; //initlal text box count
+    $(add_member).click(function(e){ //on add input button click
+        e.preventDefault();
+        if(x < max_fields){ //max input box allowed
+            x++; //text box increment
+            $(wrapper).append('<div class="col-sm-5 field"><br><input class="form-control type="text" name="tip-members[]"/><a href="#" class="remove_field"><br><span class="glyphicon glyphicon-minus"></span>  Remove</a></div>'); //add input box
+        }
+    });
+    $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+        e.preventDefault(); 
+        $(this).parent('div').remove();
+        x--;
     });
     
 </script>
-            
+
 @endsection
