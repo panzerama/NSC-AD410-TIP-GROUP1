@@ -21,3 +21,17 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\tip::class, function (Faker\Generator $faker) {
+
+    return [
+        'tips_id' => $faker->randomDigitNotNull,
+        'division_id' => '1',
+        'course_name' => $faker->name,
+        'course_number' => $faker->randomDigitNotNull,
+        'quarter' => $faker->randomElement($array = array ('1', '2', '3', '4')),
+        'year' => $faker->year($max = 'now'),
+        'is_finished' => $faker->boolean($chanceOfGettingTrue = 80),
+        'is_active' => true,
+    ];
+});
