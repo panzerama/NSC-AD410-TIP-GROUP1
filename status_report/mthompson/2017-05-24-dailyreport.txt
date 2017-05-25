@@ -1,0 +1,10 @@
+Mitch Thompson
+Status Report
+5/24/2017
+
+
+-Modified ContactsController to use Laravel mail features
+-Created Mail.php, AdminContact.php, and a email view
+-Used Mailtrap to test sending emails. Updated env file to use test email service.
+-Updated tips-questionnaire create and index views to parse new data from TipsController
+	-If question has an answer from previously saved tip it will now display the answer. 
