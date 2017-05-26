@@ -1,0 +1,7 @@
+Kip Tatum
+Status Report
+5/24/2017
+
+1)refactored some login controller code
+2) split out config.php from login controller to make code more independent
+3) got marching orders for the rest of the week.

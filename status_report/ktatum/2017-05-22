@@ -5,7 +5,3 @@ Status Report
 1) Did not get a whole lot done this weekend, had a trip to the ER.
 2) will get with Lucas, Rasa, and Michael to hash out TODO for this week
 
-//steps for this week
-get functions from smtech vendors folder current getID() getName()
-split config out
-create session controller logic to check session if verified let page render
