@@ -1,0 +1,1 @@
+Added a is_author bool to Faculty_Tips table.  This is so we can have a distinction when there is a group tip.
