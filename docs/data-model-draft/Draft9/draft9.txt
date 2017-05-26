@@ -1,0 +1,3 @@
+canvas ID is now what we're going to use to see if a user has been entered into our database yet.  
+
+originally we were using the faculty Name and email given through the canvas profile API, but those could conceivably be changed, the canvas ID would stay the same in those cases.
