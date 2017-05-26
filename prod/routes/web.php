@@ -41,9 +41,13 @@ Route::post('/tip/edit','EditTipsController@store'); // Save Edit Tips Form
 Route::get('/account/create', 'RegistrationController@create');
 Route::post('/account/create', 'RegistrationController@store');
 
+// First Time User Route
+Route::get('/account', 'AccountController@index');
+//needs the post to do the update function from the controller so that user details get confirmed
+
 // Login Account
 //Route::get('/account/','SessionsController@index'); 
-Route::get('/login' , 'SessionsController@create'); // Login Auth Form 
+Route::get('/login' , 'SessionsController@create')->name('login'); // Login Auth Form 
 Route::post('/login', 'SessionsController@store' ); // Auth and Login User
 Route::get('/logout', 'SessionsController@destroy'); // Log Out
 

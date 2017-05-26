@@ -18,7 +18,7 @@ class CreateFacultyTable extends Migration
             $table->integer('division_id');
             $table->string('faculty_name');
             $table->string('email');
-            $table->string('token');
+            $table->string('faculty_canvas_id');
             $table->enum('employee_type', ['FULLTIME','PARTTIME'])->nullable();
             $table->boolean('is_admin');
             $table->boolean('is_active');

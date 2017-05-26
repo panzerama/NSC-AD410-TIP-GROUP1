@@ -16,6 +16,7 @@ class CreateFacultyTipsTable extends Migration
         Schema::create('faculty_tips', function (Blueprint $table) {
             $table->integer('faculty_id')->unsigned();
             $table->integer('tips_id')->unsigned();
+            $table->boolean('is_author');
             
             
         });

@@ -36,6 +36,7 @@ $provider = new CanvasLMS([
 $c = new Client(['verify'=>false]);
 $provider->setHttpClient($c);
 
+
 // If we don't already have an authorization code, we will get one
 if (!isset($_GET[CODE])) {
     $authorizationUrl = $provider->getAuthorizationUrl();
@@ -44,27 +45,65 @@ if (!isset($_GET[CODE])) {
     exit;
 
 } else {
-    echo 'This is the authorization code: ', $_GET[CODE], '<br/><br/>';
+    //echo 'This is the authorization code: ', $_GET[CODE], '<br/><br/>';
     // try to get an access token (using our existing code) 
+    
     $token = $provider->getAccessToken('authorization_code', [CODE => $_GET[CODE]]);
-    echo 'The token has been fetched <br/><br/>';
+    
+    //echo 'The token has been fetched <br/><br/>';
     // Use the token, and print out info
-    echo 'This is the user token: ', $token->getToken(), '<br/><br/>';
+    //echo 'This is the user token: ', $token->getToken(), '<br/><br/>';
+    
     $ownerDetails = $provider->getResourceOwner($token);
-    echo '<br/><br/>';
+    
+    //echo '<br/><br/>';
     // Use these details to create a new profile
-    printf('Your Name: %s ', $ownerDetails->getName());
-    echo '<br/><br/>';
-    printf('Your id: %s ', $ownerDetails->getId());
-    echo '<br/><br/>';
+    //printf('Your Name: %s ', $ownerDetails->getName());
+    //echo '<br/><br/>';
+    //printf('Your id: %s ', $ownerDetails->getId());
+    //echo '<br/><br/>';
+    
     $uid = $ownerDetails->getId();
     $domain = 'north-seattle-college.acme.instructure.com';
     $profile_url = 'https://' . $domain . '/api/v1/users/' . $uid . '/profile?access_token=' . $token;
     $f = @file_get_contents($profile_url);
     //this is object
     $profile = json_decode($f);
-    echo 'This is the profile object:  ', $f;
+    //echo 'This is the profile object:  ', $profile;
+    
+    
+    
+    //canvas id from profile object:
+    $faculty_canvas_id = $profile->id;
+    
+    //if user has been here before a session gets created
+    if(Auth::attempt(['faculty_canvas_id' => $faculty_canvas_id])) {
+        //create instance of authenticated user
+        $user = Auth::user();
+        //get admin status
+        $userIsAdmin = $user->isAdmin;
+        
+        if($userIsAdmin) {
+            return redirect ('/admin');
+        } else {
+            return redirect ('/tip');
+        }
+    } else {
+        //user hasn't been here before so we'll get the details:
+        
+        // get name and email
+        $email = $profile->primary_email;
+        $name = $profile->name;
+        
+        
+        // TODO: store user deets 
+        
+        
+        //create a session for the new user
+        Auth::attempt(['faculty_canvas_id' => $faculty_canvas_id]);
+        
+        //is this right?
+        return redirect ('/');
+    }
+    
 }
-
-
-
