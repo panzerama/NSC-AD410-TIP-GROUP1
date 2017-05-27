@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
-@section('title', 'TIPS Submission')
+@section('title', 'TIP Submission')
 
 @section('content')
 
 <!-- Second TIP Questionnaire page - url 'tip/questions' -->
 
 <div class="wrapper wrapper-content animated fadeInRight">
-    <div class="row">
+    <div id="top" class="row">
         <div class="col-sm-12">
             
             <!-- Start TIP instructions -->
@@ -131,7 +131,7 @@
                            <h3><strong>Are you sure you want to submit now? If so, click submit again.</strong></h3>
                    </div>
                    <div class="col-md-3">
-                       <a href="{{ url('/tip') }}" class="btn btn-lg btn-block btn-warning">Back</a>
+                       <button onclick="location.href='{{ url('/tip') }}'" class="btn btn-lg btn-block btn-warning" value="save" name="save" type="submit">Back</button>
                    </div>
                    <div class="col-md-3">
                        <a style="display:none" href="#" class="confirm-submit btn btn-lg btn-block btn-primary" id="not-now">Not Now</a>
@@ -147,9 +147,14 @@
                    
                </div><!-- form-buttons -->
                
+               
             </div> <!-- form-group --> 
         </form>
         <br><br><br><br>
+        <div class="text-center">
+            <a href="#top"><i class="fa fa-arrow-up fa-1x"></i>  Back to top</a>
+        </div>
+        <br>
                 
         
         </div><!--col-lg-12-->
