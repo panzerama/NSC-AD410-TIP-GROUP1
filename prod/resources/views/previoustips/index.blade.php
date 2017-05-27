@@ -36,17 +36,17 @@
                         </tr>
                         <tr class='clickable-row' data-href="{{ url('/tip/previous/') }}/{{ $id }}">
                             <td>1</td>
-                            <td>Spring</td>
-                            <td class="text-navy">2016</td>
-                            <td>10</td>
+                            <td>Winter</td>
+                            <td class="text-navy">2015</td>
+                            <td>12</td>
                             <td class="text-navy">March 2, 2017</td>
                             <td><span class="fa fa-chevron-right"></span></td>
                         </tr>
                         <tr class='clickable-row' data-href="{{ url('/tip/previous/') }}/{{ $id }}">
                             <td>1</td>
-                            <td>Spring</td>
-                            <td class="text-navy">2016</td>
-                            <td>10</td>
+                            <td>Fall</td>
+                            <td class="text-navy">2015</td>
+                            <td>15</td>
                             <td class="text-navy">March 2, 2017</td>
                             <td><span class="fa fa-chevron-right"></span></td>
                         </tr>
