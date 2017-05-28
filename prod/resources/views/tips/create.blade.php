@@ -123,7 +123,8 @@
                         
                         
             <!-- start form buttons -->            
-           <br><br>
+          
+           <hr>
            <div class="form-group">
                <div id="form-buttons">
                    <div style="display:none" class="confirm-submit alert alert-danger col-md-10 col-md-offset-1 text-center" role="alert">

@@ -59,6 +59,9 @@
     </div><!-- row -->
 </div><!-- wrapper -->
 
+@endsection
+
+@section('scripts')
 <script>
     $( document ).ready(function() {
         $(".clickable-row").click(function() {
@@ -68,5 +71,4 @@
     
     
 </script>
-
 @endsection
