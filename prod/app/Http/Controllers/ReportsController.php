@@ -159,8 +159,8 @@ class ReportsController extends Controller
         $by_month_finished = array();
         $by_month_in_progress = array();
         
-        $by_month_finished = $by_month_collection->where('is_finished', 1);
-        $by_month_in_progress = $by_month_collection->where('is_finished', 0);
+        /*$by_month_finished = $by_month_collection->where('is_finished', 1);
+        $by_month_in_progress = $by_month_collection->where('is_finished', 0);*/
         
         do{
             $start_month_plus_one = clone $start_month;
@@ -171,14 +171,16 @@ class ReportsController extends Controller
                 
             $by_month_finished[$start_month->format('m-Y')] 
                 = $by_month_collection
+                    ->where('is_finished', 1)
                     ->where('updated_at', '>=', $start_month)
                     ->where('updated_at', '<', $start_month_plus_one)
-                    ->all();
+                    ->count();
             $by_month_in_progress[$start_month->format('m-Y')] 
                 = $by_month_collection
+                    ->where('is_finished', 0)
                     ->where('updated_at', '>=', $start_month)
                     ->where('updated_at', '<', $start_month_plus_one)
-                    ->all();
+                    ->count();
         } while ($start_month->addMonth() <= $end_month);
         
         $reports_array[$key] = array(
@@ -197,21 +199,22 @@ class ReportsController extends Controller
             ->get();
             
         $list_of_divisions = $division_collection
-                                ->pluck('divisions.abbr')
-                                ->unique()
-                                ->sortBy('divisions.abbr');
+                                ->pluck('abbr')
+                                ->unique();
                                 
         $tips_by_division = array();
                                 
         foreach($list_of_divisions as $idx => $division){
             $tips_by_division_finished = 
-                $division_collection->where('divisions.abbr', '=', $division)
-                                    ->where('tips.is_finished', 1)
+                $division_collection->where('abbr', '=', $division)
+                                    ->where('is_finished', 1)
                                     ->count();
+                                    
             $tips_by_division_in_progress =  
-                $division_collection->where('divisions.abbr', '=', $division)
-                                    ->where('tips.is_finished', 0)
+                $division_collection->where('abbr', '=', $division)
+                                    ->where('is_finished', 0)
                                     ->count();
+                                    
             $tips_by_division[$division] = 
                 array('tips_by_division_finished' => $tips_by_division_finished,
                       'tips_by_division_in_progress' => $tips_by_division_in_progress); 
