@@ -114,7 +114,8 @@ $factory->define(App\tips_questions::class, function(Faker\Generator $faker){
         'tips_id' => App\tip::
             inRandomOrder()
             ->first()
-            ->tips_id
+            ->tips_id,
+        'question_answer' => $faker->sentence($nbWords = 6, $variableNbWords = true)
         ];
 });
 
