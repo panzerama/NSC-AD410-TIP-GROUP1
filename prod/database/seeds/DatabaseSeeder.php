@@ -12,9 +12,14 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
-        $this->call(TipsTableSeeder::class);
-        $this->call(FacultyTipsTableSeeder::class);
-        $this->call(FacultyTableSeeder::class);
+        // $this->call(TipsTableSeeder::class);
+        // $this->call(FacultyTipsTableSeeder::class);
+        // $this->call(FacultyTableSeeder::class);
+        
+        //call the various factory methods
+        //in the order User, faculty, division, tips, faculty_tips, questions
+        //tips_questions, answers
+        $this->call(QuestionSeeder::class);
     }
 }
     
