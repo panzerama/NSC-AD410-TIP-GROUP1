@@ -60,7 +60,7 @@ $factory->define(App\tip::class, function (Faker\Generator $faker) {
             implode($faker->unique()->randomElements($array = array('A', 'B', 'C', 'D', 'E', 'F'), $count=3)) . $faker->randomDigitNotNull,
         'quarter' => $faker->randomElement($array = array ('1', '2', '3', '4')),
         'year' => $faker->year($max = 'now'),
-        'is_finished' => $faker->boolean($chanceOfGettingTrue = 80),
+        'is_finished' => $faker->boolean($chanceOfGettingTrue = 70),
         'is_active' => true,
         'is_group' => $faker->boolean($chanceOfGettingTrue = 10),
         'created_at' => $created_date,
