@@ -96,7 +96,8 @@ if (!isset($_GET[CODE])) {
         $name = $profile->name;
         
         
-        // TODO: store user deets 
+        // TODO: store id, email, name into faculty table
+        DB::insert('insert into FACULTY (faculty_id, faculty_name, email) values(?,?,?)', [$faculty_canvas_id, $name, $email]);
         
         
         //create a session for the new user

@@ -4,7 +4,7 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class ExampleTest 
+class ExampleTest extends TestCase
 {
     /**
      * A basic functional test example.
@@ -13,7 +13,7 @@ class ExampleTest
      */
     public function testBasicExample()
     {
-        $this->visit('/')
-             ->see('Laravel');
+        $this->visit('https://rasar1-rasar.c9users.io/')
+             ->see('blah');
     }
 }
