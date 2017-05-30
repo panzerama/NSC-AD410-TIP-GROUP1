@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Log;
 
 class DatabaseSeeder extends Seeder
 {
@@ -38,143 +39,31 @@ class DatabaseSeeder extends Seeder
         $tips_collection = App\tip::all();
         
         foreach($tips_collection as $key => $record){
+            Log::info('$record id: '. $record->tips_id);
             
             $faculty_member = App\faculty::where('division_id', $record->division_id)
                                          ->inRandomOrder()
+                                         ->get()
                                          ->first();
+            
+            
+            if($faculty_member->isEmpty()){
+                $faculty_member = App\faculty::inRandomOrder()->get()->first();
+                $faculty_id = $faculty_member->faculty_id;
+                $record->division_id = $faculty_member->division_id; 
+            } else {
+                $faculty_id = $faculty_member->faculty_id;
+            }
+                                         
+            Log::info('$faculty_member id: '. $faculty_id);
                                          
             DB::table('faculty_tips')->insert(
-                ['faculty_id' =>    $faculty_member->faculty_id,
+                ['faculty_id' =>    $faculty_id,
                  'tips_id' =>       $record->tips_id]);
         } 
         
         //Questions are static for now
-        DB::table('questions')->insert(array(
-            // id 1
-            array(
-                'question_number' => 1,
-                'question_text' => 'What is the problem or lesson that you identified 
-                and will be discussing in this TIP? No topic is too big or too small. 
-                All are welcomed!',
-                'question_type' => 'TEXT',
-                'is_active' => true,
-                'question_desc' => null
-            ),
-            // id 2
-            array(
-                'question_number' => 2,
-                'question_text' => 'What is the course-level objective that this 
-                TIP best addresses?',
-                'question_type' => 'TEXT',
-                'is_active' => true,
-                'question_desc' => null
-            ),
-            // id 3
-            array(
-                'question_number' => 3,
-                'question_text' => 'Which of the college-wide Essential Learning 
-                Outcomes
-                 does your TIP most closely address?',
-                'question_type' => 'DROPDOWN',
-                'is_active' => true,
-                'question_desc' => null
-            ),
-            // id 4
-            array(
-                'question_number' => 4,
-                'question_text' => 'Which of the following best describes the evidence 
-                you found for the problem?',
-                'question_type' => 'DROPDOWN',
-                'is_active' => true,
-                'question_desc' => null
-            ),
-            // id 5
-            array(
-                'question_number' => 5,
-                'question_text' => 'Please describe more specifically how you found 
-                the problem. For example, "Based on discussion posts, 
-                I realized that more than half of the class did not understand 
-                the prompt and was not demonstrating the kind of comprehension I was looking for.',
-                'question_type' => 'TEXT',
-                'is_active' => true,
-                'question_desc' => null
-            ),
-            // id 6
-            array(
-                'question_number' => 6,
-                'question_text' => 'Please select the change that best fits what you 
-                did to try to address the problem.',
-                'question_type' => 'DROPDOWN',
-                'is_active' => true,
-                'question_desc' => null
-            ),
-            // id 7
-            array(
-                'question_number' => 7,
-                'question_text' => 'Specifically, what did you do to address the 
-                problem? For example, "I broke the prompt down into two separate 
-                discussions so that it was clearer what the students should think 
-                about and write about in their posts.',
-                'question_type' => 'TEXT',
-                'is_active' => true,
-                'question_desc' => null
-            ),
-            
-            // id 8
-            array(
-                'question_number' => 8,
-                'question_text' => 'Please select the evidence that best fits how
-                you assessed the impact of the change you made.',
-                'question_type' => 'DROPDOWN',
-                'is_active' => true,
-                'question_desc' => null
-            ),
-            
-            // id 9
-            array(
-                'question_number' => 9,
-                'question_text' => 'Please describe more fully how you assessed 
-                the impact of the change you made. For example, "After I broke the 
-                prompt into two discussions, more students were able to write about 
-                the ideas thoroughly. This time it was about 75% of students. 
-                I might want to refine the prompts even further, but this was a good change."',
-                'question_type' => 'TEXT',
-                'is_active' => true,
-                'question_desc' => null
-            ),
-            
-            // id 10
-            array(
-                'question_number' => 10,
-                'question_text' => 'What new opportunities did you consider as a result 
-                of identifying this problem and making this change?',
-                'question_type' => 'DROPDOWN',
-                'is_active' => true,
-                'question_desc' => null
-            ),
-            
-            // id 11
-            array(
-                'question_number' => 11,
-                'question_text' => 'What else would you like to share about the 
-                teaching improvement process you engaged in this quarter?',
-                'question_type' => 'TEXT',
-                'is_active' => true,
-                'question_desc' => null
-            ),
-            
-            // id 12
-            array(
-                'question_number' => 12,
-                'question_text' => 'TIP data will be shared de-identified and in 
-                aggregate. TIPs are NOT an evaluation of your teaching. It is useful 
-                to campus-wide assessment and professional development to use specifics of individual TIPs.',
-                'question_type' => 'RADIO',
-                'is_active' => true,
-                'question_desc' => null
-            )
-            
-        ));
+        $this->call(QuestionSeeder::class);
         
         //generate tips_questions. like faculty tips, this is not a table that
         //can be written randomly
@@ -191,10 +80,7 @@ class DatabaseSeeder extends Seeder
         }
         
         //generate answers
-        
-        
-        //tips
-        $this->call(QuestionSeeder::class);
+        $factory(App\answer::class, 30)->create();
     }
 }
     
