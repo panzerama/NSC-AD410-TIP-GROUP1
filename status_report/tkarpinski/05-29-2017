@@ -1,0 +1,2 @@
+Continued to work on edit-tips logic. 
+I am attempting to refactor some of the most used functions in to an approprate library to conform with DRY.
