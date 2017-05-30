@@ -11197,6 +11197,7 @@ Stack trace:
 #39 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Pipeline\Pipeline->then(Object(Closure))
 #40 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
 #41 /home/ubuntu/workspace/prod/public/index.php(53): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+
 #42 {main}
 
 Next ErrorException: Cannot end a section without first starting one. (View: /home/ubuntu/workspace/prod/resources/views/contacts/create.blade.php) in /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/View/Concerns/ManagesLayouts.php:84
@@ -11548,7 +11549,6 @@ Stack trace:
 #19 /home/ubuntu/workspace/prod/public/index.php(53): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
 #20 {main}  
 #42 {main}  
-<<<<<<< Updated upstream
 [2017-05-23 16:02:33] local.ERROR: ErrorException: Undefined variable: questions in /home/ubuntu/workspace/prod/storage/framework/views/921d03954d18c08459b9f912e1d76bdaa98dcc6b.php:20
 =======
 [2017-05-17 20:09:49] testing.ERROR: InvalidArgumentException: Database (../database/db/production.sqlite) does not exist. in /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Database/Connectors/SQLiteConnector.php:34
@@ -16457,7 +16457,6 @@ Stack trace:
 #39 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
 #40 /home/ubuntu/workspace/prod/public/index.php(53): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
 #41 {main}  
-<<<<<<< Updated upstream
 =======
 [2017-05-23 19:44:08] local.ERROR: Symfony\Component\Debug\Exception\FatalErrorException: Maximum execution time of 30 seconds exceeded in /home/ubuntu/workspace/prod/vendor/composer/ClassLoader.php:414
 Stack trace:
