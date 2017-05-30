@@ -1,0 +1,5 @@
+#Status report
+
+- built individual model factories
+- put together a single database mocking command
+- helped ilsa (unsuccessfully) debug an installation issue
