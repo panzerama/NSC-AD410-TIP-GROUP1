@@ -49,7 +49,7 @@ Route::get('/login' , 'LoginController@index')->name('login'); // Login Auth For
 
 // if we implement a logout button somewhere this is the place to use it to 
 // destroy the session.
-// Route::get('/logout', 'SessionsController@destroy'); // Log Out
+// Route::get('/logout', 'LoginController@destroy'); // Log Out
 
 
 
