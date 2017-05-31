@@ -1,0 +1,8 @@
+Khang Quach
+05/24/17
+Status Report
+
+Added save method
+Working on Submit method
+added a new tip in database
+added more tip data 

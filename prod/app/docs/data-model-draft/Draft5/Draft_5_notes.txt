@@ -1,0 +1,14 @@
+Draft 5 notes
+
+Added a 'question_desc' row to QUESTIONS table, this is where the example answer or the helpful description of a question will be stored.  It can also be left blank.
+
+added distinct column names for the different 'name' columns.  so we have faculty_name and division_name instead of name and name
+
+ENUMS:
+	FACULTY:
+		employee_type: 'FULLTIME','PARTTIME'
+	TIPS:
+		quarter: 'FALL','WINTER','SPRING','SUMMER'
+	QUESTIONS:
+		question_type: 'TEXT','RADIO','CHECKBOX'
+

@@ -163,12 +163,12 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
+       //Illuminate\Foundation\Testing\TestCase::class,
 
         /*
          * Package Service Providers...
          */
 
-        //
 
         /*
          * Application Service Providers...

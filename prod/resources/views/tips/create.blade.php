@@ -134,7 +134,7 @@
                            <h3><strong>Are you sure you want to submit now? If so, click submit again.</strong></h3>
                    </div>
                    <div class="col-md-3">
-                       <button onclick="location.href='{{ url('/tip') }}'" class="btn btn-lg btn-block btn-warning" value="save" name="save" type="submit">Back</button>
+                       <a href='{{ url("/tip") }}' class="btn btn-lg btn-block btn-warning" type="submit">Back</a>
                    </div>
                    <div class="col-md-3">
                        <a style="display:none" href="#" class="confirm-submit btn btn-lg btn-block btn-primary" id="not-now">Not Now</a>

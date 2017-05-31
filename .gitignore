@@ -9,4 +9,7 @@ prod/storage/framework/*
 .fuse*
 .idea
 /prod/storage/logs/*
+<<<<<<< HEAD
 /prod/database/db/production.sqlite
+=======
+>>>>>>> 10763664f0624b0c43c3fbd01a4c74a57a42e362

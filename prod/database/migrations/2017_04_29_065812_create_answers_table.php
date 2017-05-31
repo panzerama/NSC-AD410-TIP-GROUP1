@@ -27,8 +27,7 @@ class CreateAnswersTable extends Migration
                 ->on('questions')
                 ->onDelete('cascade');
         });
-        
-              // Insert answers test data
+                      // Insert answers test data
         DB::table('answers')->insert(array(
             // for index view
             array(
@@ -247,11 +246,7 @@ class CreateAnswersTable extends Migration
             //
             array(
                 'question_id' => 16,
-<<<<<<< Updated upstream
-                'answer_text' => 'Reviewed the material',
-=======
                 'answer_text' => 'Modified a learning activity',
->>>>>>> Stashed changes
                 'is_active' => true
             ),
             array(
@@ -285,16 +280,8 @@ class CreateAnswersTable extends Migration
                 'is_active' => true
             ),
             array(
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-                'question_id' => 12,
-                'answer_text' => 'TEST change',
-=======
-=======
->>>>>>> Stashed changes
                 'question_id' => 18,
                 'answer_text' => 'Modified a learning activity',
->>>>>>> Stashed changes
                 'is_active' => true
             ),
             array(
@@ -314,6 +301,9 @@ class CreateAnswersTable extends Migration
             )
             
             ));
+
+        
+        
     }
 
     /**

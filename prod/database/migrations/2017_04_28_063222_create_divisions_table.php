@@ -22,19 +22,6 @@ class CreateDivisionsTable extends Migration
             $table->timestamps();
         });
         
-        // Insert divisions test data
-        DB::table('divisions')->insert(array(
-            array(
-                'division_name' => 'Arts, Humanities, and Social Sciences',
-                'abbr' => 'AHSS',
-                'is_active' => true
-            ),
-            array(
-                'division_name' => 'testing testing tester',
-                'abbr' => 'TTT',
-                'is_active' => true
-            )
-        ));
     }
 
     /**
