@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use smtech\OAuth2\Client\Provider\CanvasLMS;
 use GuzzleHttp\Client;
 include 'config.php';
+include '/var/www/html/mycollege.tips/prod/vendor/autoload.php';
 
 class LoginController extends Controller
 {
@@ -16,7 +17,7 @@ class LoginController extends Controller
         
         
         
-        require_once '/var/www/html/mycollege.tips/prod/vendor/autoload.php';
+        
         
         //removed old config info
         
