@@ -9,3 +9,4 @@ prod/storage/framework/*
 .fuse*
 .idea
 /prod/storage/logs/*
+.web.php.swo
