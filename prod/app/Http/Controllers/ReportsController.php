@@ -202,8 +202,6 @@ class ReportsController extends Controller
                                 ->pluck('abbr')
                                 ->unique();
                                 
-        $tips_by_division = array();
-                                
         foreach($list_of_divisions as $idx => $division){
             $tips_by_division_finished = 
                 $division_collection->where('abbr', '=', $division)
@@ -214,7 +212,7 @@ class ReportsController extends Controller
                 $division_collection->where('abbr', '=', $division)
                                     ->where('is_finished', 0)
                                     ->count();
-                                    
+       
             $tips_by_division[$division] = 
                 array('tips_by_division_finished' => $tips_by_division_finished,
                       'tips_by_division_in_progress' => $tips_by_division_in_progress); 
@@ -223,4 +221,5 @@ class ReportsController extends Controller
         $reports_array[$key] = $tips_by_division;
         
     }
+        
 }
