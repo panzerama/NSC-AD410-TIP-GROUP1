@@ -71,7 +71,7 @@ $factory->define(App\tip::class, function (Faker\Generator $faker) {
 
 $factory->define(App\answer::class, function (Faker\Generator $faker){
    
-   $parent_question = App\question::where('is_active', 1)->inRandomOrder()->first()->get();
+   $parent_question = App\question::where('is_active', 1)->inRandomOrder()->get()->first();
    $created_date = $faker->dateTimeBetween($startDate=$parent_question->created_at, $endDate = 'now', $timezone=date_default_timezone_get());
    
    return [

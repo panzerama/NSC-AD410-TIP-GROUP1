@@ -46,8 +46,9 @@ class DatabaseSeeder extends Seeder
                                          ->get()
                                          ->first();
             
+            Log::info('$faculty_member ' . gettype($faculty_member));
             
-            if($faculty_member->isEmpty()){
+            if($faculty_member === null){
                 $faculty_member = App\faculty::inRandomOrder()->get()->first();
                 $faculty_id = $faculty_member->faculty_id;
                 $record->division_id = $faculty_member->division_id; 
@@ -72,7 +73,7 @@ class DatabaseSeeder extends Seeder
         
         foreach($questions_collection as $key => $question_record){
             foreach($tips_collection as $key => $tips_record){
-                factory(App\tips_question::class)->create([
+                factory(App\tips_questions::class)->create([
                     'tips_id' => $tips_record->tips_id,
                     'question_id' => $question_record->question_id
                      ]);
@@ -80,7 +81,7 @@ class DatabaseSeeder extends Seeder
         }
         
         //generate answers
-        $factory(App\answer::class, 30)->create();
+        factory(App\answer::class, 30)->create();
     }
 }
     
