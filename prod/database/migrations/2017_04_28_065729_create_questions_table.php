@@ -22,7 +22,7 @@ class CreateQuestionsTable extends Migration
             $table->text('question_desc')->nullable();
             $table->timestamps();
         });
-        
+    }
     //     // Insert questions test data
     //     DB::table('questions')->insert(array(
     //         // for index view
@@ -202,6 +202,7 @@ class CreateQuestionsTable extends Migration
      *
      * @return void
      */
+    
     public function down()
     {
         Schema::dropIfExists('questions');
