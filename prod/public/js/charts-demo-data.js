@@ -83,7 +83,7 @@
     var ctx4 = document.getElementById("doughnutChart1").getContext("2d");
     new Chart(ctx4, {type: 'doughnut', data: doughnutData1, options:doughnutOptions});
 //----------------------------------------------------------------     
-/* Type of change */
+/* How impact assessed */
 //----------------------------------------------------------------     
     var doughnutData2 = {
         labels: ["Feedback","Behavoir","Performance" ],
@@ -101,7 +101,7 @@
     var ctx6 = document.getElementById("doughnutChart2").getContext("2d");
     new Chart(ctx6, {type: 'doughnut', data: doughnutData2, options:doughnutOptions2});
 //----------------------------------------------------------------     
-/* How impact assessed */
+/*   Type of change */
 //----------------------------------------------------------------     
     var barData2 = {
     labels: ["1", "2", "3", "4", "5", "6", "7"],

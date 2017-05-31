@@ -16,7 +16,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-4">
-                                <h2 class="no-margins">>{{ $data['tips_summary']['in_progress_tips'] }}</h2>
+                                <h2 class="no-margins">{{ $data['tips_summary']['in_progress_tips'] }}</h2>
                                 <h5>In-progress</h5>
                                 <div class="progress progress-mini">
                                 <div class="progress-bar" style="width: 10%;"></div>
