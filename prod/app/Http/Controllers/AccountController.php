@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\LoginController.php;
+use App\Http\Controllers\LoginController;
 
 class AccountController extends Controller
 {
