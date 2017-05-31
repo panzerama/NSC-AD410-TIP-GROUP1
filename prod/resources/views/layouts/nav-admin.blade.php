@@ -14,7 +14,7 @@
                     </ul>
                 </div>
                 <div class="logo-element">
-                     <img src="images/nsc_logo.png" height="64" width="64">
+                     <img src="/images/nsc_logo.png" height="64" width="64">
                 </div>
             </li>
             <li class="{{ isActiveRoute('reports') }}">
