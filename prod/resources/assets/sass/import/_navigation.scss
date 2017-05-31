@@ -162,12 +162,12 @@
 }
 
 ul.nav-second-level {
-  background: darken($nav-bg, 3%);
+  background: $navy;
 }
 
 .nav > li.active {
-  border-left: 4px solid darken($navy, 2%);
-  background: darken($nav-bg, 3%);
+  border-left: 4px solid $navy;
+  background: $navy;
 }
 
 .nav.nav-second-level > li.active {
