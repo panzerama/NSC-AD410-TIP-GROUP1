@@ -17,7 +17,7 @@
 // Create Tip
 Route::get('/tip', 'TipsController@index'); // Tips Create Form P.1
 Route::get('tip/questions', 'TipsController@create'); // Tips Create Form P.2
-Route::post('/tip', 'TipsController@store'); // Submit and Store Tips Page
+Route::post('/tip', 'TipsController@store')->name('tipStore'); // Submit and Store Tips Page
 Route::get('/tip/test', 'TipsController@show');
 
 

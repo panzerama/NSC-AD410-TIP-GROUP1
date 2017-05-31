@@ -34,7 +34,8 @@
             
             
             <!-- Start TIP questions form -->
-            <form id="tip" class="form-horizontal">
+            <!--Added route for when user saves or submit-->
+            <form id="tip" class="form-horizontal" method = "post" action = "{{ route('tipStore')}}">
                 {{ csrf_field() }}
             
             <!-- start foreach loop through questions -->
@@ -61,7 +62,8 @@
                 @elseif ( $question->question_type == "DROPDOWN")       
                         <div class="col-sm-4">
                         <select class="form-control" name="{{ $question->question_id }}">
-                            <option selected disabled>Choose here</option>
+                            <!--option value to 0 for validation purposes KQ-->
+                            <option selected disabled value = "0">Choose here</option>
                             @foreach ($question->answer as $answer)
                                 @if($answer->answer_text == $existing_answers[$question->question_number - 1]->question_answer) 
                                     <option selected select="{{$answer->answer_text}}">{{$answer->answer_text}}</option>
@@ -97,7 +99,7 @@
                                     @if($answer->answer_text == $existing_answers[$question->question_number - 1]->question_answer)
                                         <div class="col-sm-12">
                                             <label class="form-check-label">
-                                                <input checked="checked" type="checkbox" class="form-check-input" name="{{ $question->question_id }}" value="{{ $answer->answer_text }}">   {{ $answer->answer_text }}
+                                                <input checked="checked" type="checkbox" class="form-check-input" name="question[checkbox][{{ $question->question_id }}]" value="{{ $answer->answer_text }}">   {{ $answer->answer_text }}
                                             </label>
                                         </div>
                                     @else
@@ -148,6 +150,16 @@
                </div><!-- form-buttons -->
                
             </div> <!-- form-group --> 
+            <!--if statement to show validation errors-->
+            @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
         </form>
         <br><br><br><br>
                 

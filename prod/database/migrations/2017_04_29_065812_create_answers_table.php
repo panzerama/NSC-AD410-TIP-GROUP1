@@ -247,7 +247,11 @@ class CreateAnswersTable extends Migration
             //
             array(
                 'question_id' => 16,
+<<<<<<< Updated upstream
                 'answer_text' => 'Reviewed the material',
+=======
+                'answer_text' => 'Modified a learning activity',
+>>>>>>> Stashed changes
                 'is_active' => true
             ),
             array(
@@ -282,9 +286,12 @@ class CreateAnswersTable extends Migration
             ),
             array(
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 'question_id' => 12,
                 'answer_text' => 'TEST change',
 =======
+=======
+>>>>>>> Stashed changes
                 'question_id' => 18,
                 'answer_text' => 'Modified a learning activity',
 >>>>>>> Stashed changes

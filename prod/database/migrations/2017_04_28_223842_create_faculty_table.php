@@ -18,6 +18,7 @@ class CreateFacultyTable extends Migration
             $table->integer('division_id');
             $table->string('faculty_name');
             $table->string('email');
+            $table->string('token');
             $table->enum('employee_type', ['FULLTIME','PARTTIME'])->nullable();
             $table->boolean('is_admin');
             $table->boolean('is_active');
@@ -44,23 +45,6 @@ class CreateFacultyTable extends Migration
                 'is_admin' => true,
                 'is_active' => true,
                 'employee_type' => 'FULLTIME'
-            ),
-            array(
-                'division_id' => 1,
-                'faculty_name' => 'Michelle Melero',
-                'email' => 'Michelle.Melero@seattlecolleges.edu',
-                'is_admin' => true,
-                'is_active' => true,
-                'employee_type'=> 'FULLTIME'
-                
-            ),
-            array(
-                    'division_id'   => 2,
-                    'faculty_name'  => 'Steven Balo',
-                    'email'         => 'Steven.Balo@seattlecolleges.edu',
-                    'employee_type' => 'FULLTIME',
-                    'is_admin'      => 0,
-                    'is_active'     => 1
             )
         ));
     }

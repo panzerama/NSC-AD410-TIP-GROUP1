@@ -15,9 +15,9 @@ class TipsController extends Controller
 
     public function index()
     {   
-        
+
         // replace with auth id when implemented
-        $faculty_id =3; // Do not change this!!
+        $faculty_id =4; // Do not change this!!
 
 
         $tip_query = DB::table('tips')->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')->join('faculty', 'faculty_tips.faculty_id', '=', 'faculty.faculty_id')
@@ -55,7 +55,6 @@ class TipsController extends Controller
                                 })->get();
         // retrieve all existing answers for active tip                        
         $existing_answers = tips_questions::where('tips_id', '=', $tips_id)->get();                        
-        
         return view('tips/index',compact('questions','existing_answers')); 
         
     }
@@ -68,7 +67,7 @@ class TipsController extends Controller
     public function create()
     {
         // replace with auth id when implemented
-        $faculty_id = 3;
+        $faculty_id = 4;
         
         // check if user has an active tip.
         $tip_query = DB::table('tips')->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')->join('faculty', 'faculty_tips.faculty_id', '=', 'faculty.faculty_id')
@@ -86,8 +85,7 @@ class TipsController extends Controller
         $questions = question::whereHas('tips_questions', function ($query) use ($tips_id){
                         $query->where('tips_id', '=', $tips_id);})->get();
         // retrieve all existing answers for active tip                        
-        $existing_answers = tips_questions::where('tips_id', '=', $tips_id)->get();                        
-
+        $existing_answers = tips_questions::where('tips_id', '=', $tips_id)->get();
         return view('tips/create', compact('questions','existing_answers')); // Returns view for tips/create.blade.php
  
     }
@@ -100,9 +98,85 @@ class TipsController extends Controller
      */
     public function store(Request $request)
     {
+        // test id do not change will replace once auth is authenticated
+        $faculty_id = 4;
         
+        // query to find current tip
+        $tip_query = DB::table('tips')->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')->join('faculty', 'faculty_tips.faculty_id', '=', 'faculty.faculty_id')
+                                        ->where('faculty.faculty_id','=',$faculty_id)->where('is_finished','=',0)->select('tips.tips_id')->get();
+        $tip_id = $tip_query[0]->tips_id;
+        
+           // find the tip questions
+        $tip_question = DB::table('tips_questions')->where('tips_id',$tip_id)->select('question_id')->get();
+        // if request is save or continue just update the questio
+        if($request->has('continue')){
+            
+        // update answers according to tip id 
+        // only questions within the create page will be updated
+        foreach($tip_question as $question) {
+                $faculty_answer = request($question->question_id);
+                if($question->question_id < 7){
+                tips_questions::where('tips_id', $tip_id )
+                                ->where('question_id', $question->question_id)
+                                ->update(['question_answer' => $faculty_answer]);
+                }
+                
+        }
+         return redirect('/tip/questions');
+        }
+        else if($request->has('save')){
+            
+        // update answers according to tip id 
+        // only questions within the create page will be updated
+        foreach($tip_question as $question) {
+                $faculty_answer = request($question->question_id);
+                if($question->question_id > 6){
+                tips_questions::where('tips_id', $tip_id )
+                                ->where('question_id', $question->question_id)
+                                ->update(['question_answer' => $faculty_answer]);
+                }
+                
+        }
+         return redirect('/tip/questions');
+        }
+        else if($request->has('submit')){
+            // validate all fields
+            $this->validate($request, [
+            '1'     => 'nullable',
+            '2'     => 'nullable',
+            '3'     => 'nullable',
+            '4'     => 'nullable',
+            '5'     => 'nullable',
+            '6'     => 'nullable',
+            '7'     => 'nullable',
+            '8'     => 'required',
+            '9'     => 'required',
+            '10'    => 'required',
+            '11'    => 'required',
+            '12'    => 'required',
+            '13'    => 'required',
+            '14'    => 'required',
+            '15'    => 'required',
+            '16'    => 'required',
+            '17'    => 'required',
+            '18'    => 'required',
+            '19'    => 'required'
+        ]);
+        // insert into db and switch flag to is finished
+        tip::where('tips_id', $tip_id)
+            ->update(['is_finished' => 'true']);
+        foreach($tip_question as $question) {
+        $faculty_answer = request($question->question_id);
+        tips_questions::where('tips_id', $tip_id )
+                        ->where('question_id', $question->question_id)
+                        ->update(['question_answer' => $faculty_answer]);
+            
+        }
+         return redirect('/');    
+        }
+        
+
         //return view('/tips/index',compact('tip'));
-        
         
     }
 

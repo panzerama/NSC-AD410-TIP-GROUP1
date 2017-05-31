@@ -36,14 +36,20 @@
             <!--start form-->
             <div class="ibox float-e-margins">
                 <div class="ibox-content">
-                    <form class="form-horizontal">
+                    <!--I changed method to post and action to store method-->
+                    <!--I also had to change the name of each attribute to id-->
+                    <!--I also changed the continue from a href to Button that only submit to store method-->
+                    <!--From that method it will redirect to tip/questions anyways-->
+                    <!--I commented out the old code so if theres conflict I can always go back-->
+                    <form class="form-horizontal" method = "post" action = "{{ route('tipStore')}}">
                         {{ csrf_field() }}
                         <br>
                         
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Is this an individual or group TIP?</label>
                                 <div class="col-sm-8">
-                                    <select class="form-control" id="tip-type" name="tip-type">
+                                    <!--<select class="form-control" id="tip-type" name="tip-type">-->
+                                    <select class="form-control" id="tip-type" name="1">
                                         <option selected disabled>Choose here</option>
                                         @foreach($questions as $question) 
                                             @if($question->question_text == 'Is this an individual or group TIP?')
@@ -89,7 +95,8 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Division</label>
                                 <div class="col-sm-8">
-                                    <select class="form-control" name="division">
+                                    <!--<select class="form-control" name="division">-->
+                                    <select class="form-control" name="2">
                                         <option selected disabled>Choose division</option>
                                         @foreach($questions as $question) 
                                             @if($question->question_text == 'Division')
@@ -115,9 +122,11 @@
                                 @if($question->question_text == 'Enter Course Prefix')
                                      <div class="col-sm-8">
                                      @if($existing_answers[$question->question_number - 1]->question_answer)
-                                         <input type="text" class="form-control" name="course-prefix" value="{{ $existing_answers[$question->question_number - 1]->question_answer }}">
+                                         <!--<input type="text" class="form-control" name="course-prefix" value="{{ $existing_answers[$question->question_number - 1]->question_answer }}">-->
+                                        <input type="text" class="form-control" name="3" value="{{ $existing_answers[$question->question_number - 1]->question_answer }}">
                                      @else
-                                        <input type="text" class="form-control" name="course-prefix">
+                                        <!--<input type="text" class="form-control" name="course-prefix">-->
+                                        <input type="text" class="form-control" name="3">
                                      @endIf
                                     </div>
                                 @endIf
@@ -130,9 +139,11 @@
                                 @if($question->question_text == 'Enter Course Number')
                                      <div class="col-sm-8">
                                      @if($existing_answers[$question->question_number - 1]->question_answer)
-                                         <input type="text" class="form-control" name="course-number" value="{{ $existing_answers[$question->question_number - 1]->question_answer }}">
+                                         <!--<input type="text" class="form-control" name="course-number" value="{{ $existing_answers[$question->question_number - 1]->question_answer }}">-->
+                                        <input type="text" class="form-control" name="4" value="{{ $existing_answers[$question->question_number - 1]->question_answer }}">
                                      @else
-                                        <input type="text" class="form-control" name="course-number">
+                                        <!--<input type="text" class="form-control" name="course-number">-->
+                                        <input type="text" class="form-control" name="4">
                                      @endIf
                                     </div>
                                 @endIf
@@ -144,7 +155,8 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Select Quarter</label>
                                 <div class="col-sm-8">
-                                    <select class="form-control" name="quarter">
+                                    <!--<select class="form-control" name="quarter">-->
+                                    <select class="form-control" name="5">
                                         <option selected disabled>Choose quarter</option>
                                          @foreach($questions as $question) 
                                             @if($question->question_text == 'Select Quarter')
@@ -165,7 +177,8 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Select Year</label>
                                 <div class="col-sm-8">
-                                    <select class="form-control" name="year">
+                                    <!--<select class="form-control" name="year">-->
+                                    <select class="form-control" name="6">
                                         <option selected disabled>Choose year</option>
                                         @foreach($questions as $question) 
                                             @if($question->question_text == 'Select Year')
@@ -186,7 +199,8 @@
             <br><br>
            <div class="form-group">
                <div class="col-sm-3 col-md-offset-9">
-                   <a href="{{ url('/tip/questions') }}" class="btn btn-lg btn-block btn-primary" value="continue" name="continue" type="submit">Continue</a>
+                   <!--<a href="{{ url('/tip/questions') }}" class="btn btn-lg btn-block btn-primary" value="continue" name="continue" type="submit">Continue</a>-->
+                    <button class="btn btn-lg btn-block btn-primary" value="continue" name="continue" type="submit">Continue</button>
                </div>
            </div><!--form-group-->
             
