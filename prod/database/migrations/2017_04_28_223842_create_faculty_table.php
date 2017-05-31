@@ -15,7 +15,7 @@ class CreateFacultyTable extends Migration
     {
         Schema::create('faculty', function (Blueprint $table) {
             $table->increments('faculty_id');
-            $table->integer('division_id');
+            $table->integer('division_id')->nullable();
             $table->string('faculty_name');
             $table->string('email');
             $table->string('faculty_canvas_id');

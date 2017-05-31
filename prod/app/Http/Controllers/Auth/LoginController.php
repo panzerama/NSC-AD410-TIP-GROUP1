@@ -102,14 +102,14 @@ class LoginController extends Controller
                 
                 
                 // TODO: store id, email, name into faculty table
-                DB::insert('insert into FACULTY (faculty_name, email, faculty_canvas_id) values(?,?,?)', [$name, $email, $faculty_canvas_id]);
+                DB::insert('insert into FACULTY (division_id, faculty_name, email, faculty_canvas_id, employee_type, is_admin, is_active) values(?,?,?,?,?,?,?)', [null, $name, $email, $faculty_canvas_id, null, false, true]);
                 
                 
                 //create a session for the new user
                 Auth::attempt(['faculty_canvas_id' => $faculty_canvas_id]);
                 
                 //is this right?
-                return redirect ('/');
+                return redirect ('/account');
             }
             
         }
