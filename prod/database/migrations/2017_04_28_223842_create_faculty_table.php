@@ -28,25 +28,7 @@ class CreateFacultyTable extends Migration
             $table->foreign('division_id')->references('division_id')->on('division');
         });
         
-        // Insert faculty test data
-        DB::table('faculty')->insert(array(
-            array(
-                'division_id' => 1,
-                'faculty_name' => 'John Stager',
-                'email' => 'Zhou.Wu@seattlecolleges.edu',
-                'is_admin' => false,
-                'is_active' => true,
-                'employee_type' => 'PARTTIME'
-            ),
-            array(
-                'division_id' => 2,
-                'faculty_name' => 'Paul Wu',
-                'email' => 'John.Stager@seattlecolleges.edu',
-                'is_admin' => true,
-                'is_active' => true,
-                'employee_type' => 'FULLTIME'
-            )
-        ));
+        
     }
 
     /**
