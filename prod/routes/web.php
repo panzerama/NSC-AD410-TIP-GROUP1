@@ -45,11 +45,11 @@ Route::get('/account', 'AccountController@index');
 // Route::post('/account', 'AccountController@update');
 
 // Login Controller Routing
-Route::get('/login' , 'LoginController@index')->name('login'); // Login Auth Form 
+Route::get('/login' , 'Auth\LoginController@index')->name('login'); // Login Auth Form 
 
 // if we implement a logout button somewhere this is the place to use it to 
 // destroy the session.
-// Route::get('/logout', 'LoginController@destroy'); // Log Out
+// Route::get('/logout', 'Auth\LoginController@destroy'); // Log Out
 
 
 
