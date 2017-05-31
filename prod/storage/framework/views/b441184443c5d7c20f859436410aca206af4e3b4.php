@@ -124,7 +124,7 @@
                                         <option>Dynamic Option 4</option>
                                     </select>
                                 <label class="filter-ui-label nav-full-width">Search  By Keyword(s):</label>
-                                    <input type="textarea" class="form-control nav-full-width" style="margin-bottom: 10px;">
+                                    <input type="text" class="form-control nav-full-width" style="margin-bottom: 10px;">
                             </ul>
                         </li>
                         <li>
