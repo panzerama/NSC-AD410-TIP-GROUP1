@@ -37,19 +37,21 @@ Route::post('/tip/edit','EditTipsController@store'); // Save Edit Tips Form
 /***************************
  *  Login and Auth Routing
  ***************************/
-// Create account 
-Route::get('/account/create', 'RegistrationController@create');
-Route::post('/account/create', 'RegistrationController@store');
-
-// First Time User Route
+ // First Time User Route
 Route::get('/account', 'AccountController@index');
-//needs the post to do the update function from the controller so that user details get confirmed
 
-// Login Account
-//Route::get('/account/','SessionsController@index'); 
-Route::get('/login' , 'SessionsController@create')->name('login'); // Login Auth Form 
-Route::post('/login', 'SessionsController@store' ); // Auth and Login User
-Route::get('/logout', 'SessionsController@destroy'); // Log Out
+// needs the post to do the update function from the controller 
+// so that user details get confirmed
+// Route::post('/account', 'AccountController@update');
+
+// Login Controller Routing
+Route::get('/login' , 'LoginController@index')->name('login'); // Login Auth Form 
+
+// if we implement a logout button somewhere this is the place to use it to 
+// destroy the session.
+// Route::get('/logout', 'SessionsController@destroy'); // Log Out
+
+
 
 /***************************
  *  Admin Routing
