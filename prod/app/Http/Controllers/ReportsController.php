@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
 
+use Datatables;
+use Yajra\Datatables\Html\Builder;
+
 class ReportsController extends Controller
 {
     //1. filters for each 'report' data set
@@ -40,6 +43,8 @@ class ReportsController extends Controller
         $base_query = DB::table('tips');
         //pass query and array into reportsDataBuilder
         ReportsController::reportsDataBuilder($reports_array, $base_query);
+        
+        $reports_payload = Datatables::of($reports_array)->make(true); 
         //return view with amended report array
         return view('reports/index', ['data' => $reports_array]);
     }
@@ -49,12 +54,16 @@ class ReportsController extends Controller
         //return all tips with division and faculty, let frontend
         //sort out what's displayed
         $table_query = DB::table('tips')
-            ->select('faculty.faculty_id')
             ->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')
             ->join('faculty', 'faculty_tips.faculty_id', '=', 'faculty.faculty_id');
         
+        //get collection of table info
         $table_array = $table_query->get();
-        return view('reports/table', ['data' => $table_array]);
+        
+        //format the table info so that datatables can use the information
+        $table_payload = Datatables::of($table_array)->make(true);
+        
+        return view('reports/table', ['html' => $table_payload]);
     }
     
     private function reportsDataBuilder(&$reports_array, $base_query){
@@ -202,8 +211,6 @@ class ReportsController extends Controller
                                 ->pluck('abbr')
                                 ->unique();
                                 
-        $tips_by_division = array();
-                                
         foreach($list_of_divisions as $idx => $division){
             $tips_by_division_finished = 
                 $division_collection->where('abbr', '=', $division)
@@ -214,7 +221,7 @@ class ReportsController extends Controller
                 $division_collection->where('abbr', '=', $division)
                                     ->where('is_finished', 0)
                                     ->count();
-                                    
+       
             $tips_by_division[$division] = 
                 array('tips_by_division_finished' => $tips_by_division_finished,
                       'tips_by_division_in_progress' => $tips_by_division_in_progress); 
@@ -223,4 +230,10 @@ class ReportsController extends Controller
         $reports_array[$key] = $tips_by_division;
         
     }
+    
+         public function qareports()
+    {
+        return view('reports/qareports');
+    }
+        
 }

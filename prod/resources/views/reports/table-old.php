@@ -4,52 +4,24 @@
 
 @section('content')
 <div class="row wrapper border-bottom white-bg page-heading">
-        <h2>Reports Dashboard</h2>
+<h2>Reports Dashboard</h2>
     <ol class="breadcrumb">
+        <li>
+            <a href="reports">Reports</a>
+        </li>
         <li class="active">
-            <strong>Summary Reports</strong>
-        </li>
-        <li>
-            <a href="qareports">Q/A Reports</a>
-        </li>
-        <li>
-            <a href="table">Data Table</a>
+            <strong>Data Table</strong>
         </li>
     </ol>
 </div>
 
 
-<div class="wrapper wrapper-content">
-    <div class="row">
-        <!-- debugging -->
-         <!--{{ print_r($data) }} -->
-    </div>    
-<div class="row">
-            <div class="col-lg-6">
-                <div class="col-lg-12">
-                    <!-- Summary Report -->
-                    @include('reports.summary')
-                </div>
-            
-            <div class="col-lg-12">
-                    <!-- Tips By Month Report -->
-                    @include('reports.tips-by-month')
-                </div>
-                </div>
-
-            <div class="col-lg-6">
-                    <!-- Tips By Division Report -->
-                    @include('reports.tips-by-division')
-            </div>  
-</div>        
-</div>
-                
 <div class="wrapper wrapper-content animated fadeInRight">
             <div class="row">
                 <div class="col-lg-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>Recent TIPS</h5>
+                        <h5>All TIPS</h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -70,7 +42,7 @@
                     </div>
                     <div class="ibox-content">
 
-                        <div class="table-responsive">
+                         <div class="table-responsive">
                     <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="html5buttons">
                         <div class="dt-buttons btn-group">
                         <a class="btn btn-default buttons-copy buttons-html5" tabindex="0" aria-controls="DataTables_Table_0" href="#"><span>Copy</span></a>
@@ -178,10 +150,10 @@
                         
 
 
+<!-- DataTables-->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-3.1.3/pdfmake-0.1.27/dt-1.10.15/b-1.3.1/b-colvis-1.3.1/b-html5-1.3.1/b-print-1.3.1/datatables.css"/>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-3.1.3/pdfmake-0.1.27/dt-1.10.15/b-1.3.1/b-colvis-1.3.1/b-html5-1.3.1/b-print-1.3.1/datatables.js"></script>
 
-
-<!-- ChartJS-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>   
-<!--<script type="text/javascript" src="js/charts-demo-data.js"></script>-->
+  
 
 @endsection

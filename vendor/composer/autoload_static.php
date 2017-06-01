@@ -4,12 +4,13 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit5f02f6bd44e3f173e95c96c0bad8d556
+class ComposerStaticInite9e0e950bc30a02e94559e5a867129b9
 {
     public static $files = array (
-        '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
         '72579e7bd17821bb1321b87411366eae' => __DIR__ . '/..' . '/illuminate/support/helpers.php',
+        'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -21,6 +22,7 @@ class ComposerStaticInit5f02f6bd44e3f173e95c96c0bad8d556
         array (
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Component\\Translation\\' => 30,
+            'Symfony\\Component\\Routing\\' => 26,
             'Symfony\\Component\\HttpKernel\\' => 29,
             'Symfony\\Component\\HttpFoundation\\' => 33,
             'Symfony\\Component\\Finder\\' => 25,
@@ -36,6 +38,8 @@ class ComposerStaticInit5f02f6bd44e3f173e95c96c0bad8d556
             'Illuminate\\View\\' => 16,
             'Illuminate\\Support\\' => 19,
             'Illuminate\\Session\\' => 19,
+            'Illuminate\\Routing\\' => 19,
+            'Illuminate\\Pipeline\\' => 20,
             'Illuminate\\Http\\' => 16,
             'Illuminate\\Filesystem\\' => 22,
             'Illuminate\\Events\\' => 18,
@@ -45,6 +49,7 @@ class ComposerStaticInit5f02f6bd44e3f173e95c96c0bad8d556
         ),
         'C' => 
         array (
+            'Collective\\Html\\' => 16,
             'Carbon\\' => 7,
         ),
     );
@@ -53,6 +58,7 @@ class ComposerStaticInit5f02f6bd44e3f173e95c96c0bad8d556
         'Yajra\\Datatables\\' => 
         array (
             0 => __DIR__ . '/..' . '/yajra/laravel-datatables-oracle/src',
+            1 => __DIR__ . '/..' . '/yajra/laravel-datatables-html/src',
         ),
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
@@ -61,6 +67,10 @@ class ComposerStaticInit5f02f6bd44e3f173e95c96c0bad8d556
         'Symfony\\Component\\Translation\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/translation',
+        ),
+        'Symfony\\Component\\Routing\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/routing',
         ),
         'Symfony\\Component\\HttpKernel\\' => 
         array (
@@ -98,6 +108,14 @@ class ComposerStaticInit5f02f6bd44e3f173e95c96c0bad8d556
         array (
             0 => __DIR__ . '/..' . '/illuminate/session',
         ),
+        'Illuminate\\Routing\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/illuminate/routing',
+        ),
+        'Illuminate\\Pipeline\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/illuminate/pipeline',
+        ),
         'Illuminate\\Http\\' => 
         array (
             0 => __DIR__ . '/..' . '/illuminate/http',
@@ -122,6 +140,10 @@ class ComposerStaticInit5f02f6bd44e3f173e95c96c0bad8d556
         array (
             0 => __DIR__ . '/..' . '/illuminate/container',
         ),
+        'Collective\\Html\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravelcollective/html/src',
+        ),
         'Carbon\\' => 
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
@@ -141,9 +163,9 @@ class ComposerStaticInit5f02f6bd44e3f173e95c96c0bad8d556
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit5f02f6bd44e3f173e95c96c0bad8d556::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit5f02f6bd44e3f173e95c96c0bad8d556::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit5f02f6bd44e3f173e95c96c0bad8d556::$prefixesPsr0;
+            $loader->prefixLengthsPsr4 = ComposerStaticInite9e0e950bc30a02e94559e5a867129b9::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInite9e0e950bc30a02e94559e5a867129b9::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInite9e0e950bc30a02e94559e5a867129b9::$prefixesPsr0;
 
         }, null, ClassLoader::class);
     }
