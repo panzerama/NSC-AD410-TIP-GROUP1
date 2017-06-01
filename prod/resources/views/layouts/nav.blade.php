@@ -27,6 +27,5 @@
                 <a href="{{ url('/contact') }}"><i class="fa fa-envelope"></i> <span class="nav-label">Contact Admin</span> </a>
             </li>
         </ul>
-
     </div>
 </nav>

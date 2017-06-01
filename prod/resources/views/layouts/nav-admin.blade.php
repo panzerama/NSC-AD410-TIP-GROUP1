@@ -5,7 +5,8 @@
                 <div class="dropdown profile-element">
                         <span class="clear">
                             <span class="block m-t-xs">
-                                <img src="/images/nsc_logo_t.png" height="64" width="64">&nbsp;&nbsp;&nbsp;
+                                <img src="/images/nsc_logo_t.png" height="64" width="64">
+                                &nbsp;&nbsp;&nbsp;
                                 <strong class="font-bold">Michael Fraser</strong>
                             </span> 
                         </span>
@@ -30,7 +31,6 @@
                 <a href="{{ url('/admin/show') }}"><i class="fa fa-star"></i> <span class="nav-label">Inactivate User</span> </a>
             </li>
         </ul>
-
     </div>
 </nav>
 
