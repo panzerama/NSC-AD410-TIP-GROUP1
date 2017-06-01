@@ -1,0 +1,4 @@
+Continued working on Edit-Tips controller and library functions. 
+Ran in to some issues passing data to subviews or modals. I tried using javascript to dynamically set the data fields which works
+except for displaying the existing question text in the modify modal. 
+Attended meeting with Alissa with Michael and Karen. 
