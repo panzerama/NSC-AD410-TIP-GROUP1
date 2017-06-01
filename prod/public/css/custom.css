@@ -10,3 +10,58 @@ Custom CSS file to override defaults
 .clickable-row:hover {
     cursor: pointer;
 }
+
+/*
+Custom CSS file to override defaults
+*/
+
+/* Set max-width for views */
+#page-wrapper > .wrapper.wrapper-content.animated.fadeInRight {
+    max-width: 1100px;
+}
+
+.clickable-row:hover {
+    cursor: pointer;
+}
+/*
+* Custom CSS for admin left nav filter
+*/
+/* Set height for form group */
+.form-group {
+    height: auto;
+}
+
+.filter-ui-label {
+    width: 20%;
+    font-size: 14px;
+    height: 34px;
+    line-height: 34px;
+}
+.form-control {
+    width: 75%;
+    margin: 2px;
+}
+/* Sets smaller width for select*/
+.filter-ui-select-small {
+    width: 70%;
+}
+.filter-ui-right {
+    float: right;
+}
+.form-group {
+    height: auto;
+}
+.filter-ui-split {
+    line-height: 38px;
+    padding-left: 2px;
+}
+.selected-filter-child {
+    background-color: #adacac;
+}
+.filter-ui-radio {
+   width: 50%;
+   padding-left: 35%;
+}
+.nav-full-width {
+   width: 98%;
+}
