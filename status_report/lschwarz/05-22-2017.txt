@@ -1,0 +1,2 @@
+Auth is working!  There is a rework in progress to get our controllers set up for login and for redirecting the user to the appropriate landing page.  We will need to do a serious amount of reworking in the next few days but we have a working auth so that's good.
+I will probably have to work some with Travis to get sessions set up and working right for the whole app.

@@ -1,0 +1,9 @@
+Status update for Wed 5/24
+
+I've started trying to get session handling going in our app.  
+
+I'd like to have it done by this weekend so that Michael can test it and the rest of the team can help implement it. 
+
+This should be done with code that can just be included in every page that needs it.
+
+If that gets done and the RedirectController gets built than we should be in pretty good shape for demo next week.

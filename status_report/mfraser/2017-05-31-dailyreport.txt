@@ -1,0 +1,37 @@
+Michael Fraser
+Status Report 23
+Date: 5/29/2017
+
+What have you completed since the last report?
+
+1) Class meeting with team
+
+2) Updated prod server to demo to Alissa
+
+3) Meeting with Alissa
+
+4) Worked on auth troubleshooting
+
+5) Edited UI for demo with Alissa
+
+What do you plan to complete by the next report?
+
+1) Committee meeting 
+
+2) Work on CSS, UI, and work to keep project on track to completion 
+
+What is getting in your way?
+
+1) Time, need more hours in the day. =P
+
+
+
+
+
+
+
+
+
+
+
+

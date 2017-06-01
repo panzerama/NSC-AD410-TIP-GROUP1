@@ -5,17 +5,16 @@
                 <div class="dropdown profile-element">
                         <span class="clear">
                             <span class="block m-t-xs">
-                                
-                                <strong class="font-bold">User Name</strong>
+                                <img src="/images/nsc_logo_t.png" height="64" width="64">&nbsp;&nbsp;&nbsp;
+				                <strong class="font-bold">Michael Fraser</strong>
                             </span> 
                         </span>
-                    </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
                         <li><a href="#">Logout</a></li>
                     </ul>
                 </div>
                 <div class="logo-element">
-                    <h3>LOGO</h3>
+                     <img src="/images/nsc_logo.png" height="64" width="64">
                 </div>
             </li>
             <li class="{{ isActiveRoute('tip') }} {{ isActiveRoute('tip/questions') }}">
@@ -28,6 +27,5 @@
                 <a href="{{ url('/contact') }}"><i class="fa fa-envelope"></i> <span class="nav-label">Contact Admin</span> </a>
             </li>
         </ul>
-
     </div>
 </nav>

@@ -1,0 +1,5 @@
+Started testing the LoginController with Michael today.
+
+I worked with Travis to fix all the routing issues I was having because I hadn't fixed them after I deleted the SessionController.php
+
+Tomorrow I hope to work with Michael to hopefully squash the last of the LoginController bugs and then move on to adding more features.

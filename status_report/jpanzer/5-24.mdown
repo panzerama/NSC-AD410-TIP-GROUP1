@@ -1,0 +1,6 @@
+#Status Report
+##5-24
+
+- Completed and tested the Tips by faculty function
+- After Tuesday's meeting, the priority is now database seeding and model factories, followed shortly by search functionality
+- targeting the answers table first at the request of bonnie and mitch

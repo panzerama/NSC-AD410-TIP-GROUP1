@@ -773,15 +773,16 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
   color: #fff;
 }
 
+/* Updated to match canvas button */
 .btn-primary {
-  background-color: #1ab394;
-  border-color: #1ab394;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #2472D1;
+  color: #2472D1;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary, .btn-primary:active:focus, .btn-primary:active:hover, .btn-primary.active:hover, .btn-primary.active:focus {
-  background-color: #18a689;
-  border-color: #18a689;
+  background-color: #2472D1;
+  border-color: #2472D1;
   color: #FFFFFF;
 }
 

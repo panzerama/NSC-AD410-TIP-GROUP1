@@ -6,3 +6,7 @@
 ._*
 *.mp4
 prod/storage/framework/*
+.fuse*
+.idea
+/prod/storage/logs/*
+.web.php.swo
