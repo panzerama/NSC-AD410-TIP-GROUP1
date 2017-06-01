@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
 
+use Datatables;
+use Yajra\Datatables\Html\Builder;
+
 class ReportsController extends Controller
 {
     //1. filters for each 'report' data set
@@ -53,8 +56,13 @@ class ReportsController extends Controller
             ->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')
             ->join('faculty', 'faculty_tips.faculty_id', '=', 'faculty.faculty_id');
         
+        //get collection of table info
         $table_array = $table_query->get();
-        return view('reports/table', ['data' => $table_array]);
+        
+        //format the table info so that datatables can use the information
+        $table_payload = Datatables::of($table_array)->make(true);
+        
+        return view('reports/table', ['html' => $table_payload]);
     }
     
     private function reportsDataBuilder(&$reports_array, $base_query){
