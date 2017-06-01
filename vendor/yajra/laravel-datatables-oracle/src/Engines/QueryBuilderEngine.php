@@ -165,12 +165,12 @@ class QueryBuilderEngine extends BaseEngine
 
                 foreach ($this->request->searchableColumnIndex() as $index) {
                     $columnName = $this->getColumnName($index);
-                    if ($this->isBlacklisted($columnName)) {
+                    if ($this->isBlacklisted($columnName) && ! $this->hasCustomFilter($columnName)) {
                         continue;
                     }
 
                     // check if custom column filtering is applied
-                    if (isset($this->columnDef['filter'][$columnName])) {
+                    if ($this->hasCustomFilter($columnName)) {
                         $columnDef = $this->columnDef['filter'][$columnName];
                         // check if global search should be applied for the specific column
                         $applyGlobalSearch = count($columnDef['parameters']) == 0 || end($columnDef['parameters']) !== false;
@@ -216,6 +216,17 @@ class QueryBuilderEngine extends BaseEngine
                 }
             }
         );
+    }
+
+    /**
+     * Check if column has custom filter handler.
+     *
+     * @param  string $columnName
+     * @return bool
+     */
+    public function hasCustomFilter($columnName)
+    {
+        return isset($this->columnDef['filter'][$columnName]);
     }
 
     /**
@@ -755,5 +766,20 @@ class QueryBuilderEngine extends BaseEngine
     public function results()
     {
         return $this->query->get();
+    }
+
+    /**
+     * Add column in collection.
+     *
+     * @param string $name
+     * @param string|callable $content
+     * @param bool|int $order
+     * @return $this
+     */
+    public function addColumn($name, $content, $order = false)
+    {
+        $this->pushToBlacklist($name);
+
+        return parent::addColumn($name, $content, $order);
     }
 }

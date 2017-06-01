@@ -44,7 +44,7 @@ class ReportsController extends Controller
         //pass query and array into reportsDataBuilder
         ReportsController::reportsDataBuilder($reports_array, $base_query);
         
-        $reports_payload = Datatables::of($reports_array)->make(true) 
+        $reports_payload = Datatables::of($reports_array)->make(true); 
         //return view with amended report array
         return view('reports/index', ['data' => $reports_array]);
     }
@@ -54,7 +54,6 @@ class ReportsController extends Controller
         //return all tips with division and faculty, let frontend
         //sort out what's displayed
         $table_query = DB::table('tips')
-            ->select('faculty.faculty_id')
             ->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')
             ->join('faculty', 'faculty_tips.faculty_id', '=', 'faculty.faculty_id');
         
