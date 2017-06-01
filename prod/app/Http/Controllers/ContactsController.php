@@ -14,11 +14,11 @@ class ContactsController extends Controller
     
     public function sendEmail(){
         
-        $to      = request('email');
+        $email = request('email');
         $topic = request('topic');
         $body = request('body');
         
-        \Mail::to($to)->send(new AdminContact($topic, $body));
+        \Mail::to('tipadmin@seattlecolleges.edu')->send(new AdminContact($email, $topic, $body));
         $result = true;
         return view('contacts/create', compact('result'));
     }

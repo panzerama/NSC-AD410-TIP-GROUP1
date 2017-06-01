@@ -13,6 +13,7 @@ class AdminContact extends Mailable
     
     public $topic;
     public $body;
+    public $email;
     public $subject;
     
     /**
@@ -20,10 +21,11 @@ class AdminContact extends Mailable
      *
      * @return void
      */
-    public function __construct(string $topic, string $body)
+    public function __construct(string $email, string $topic, string $body)
     {
         $this->topic = $topic;
         $this->body = $body;
+        $this->email = $email;
         $this->subject = 'Email from TIP App';
     }
 
@@ -34,6 +36,6 @@ class AdminContact extends Mailable
      */
     public function build()
     {
-        return $this->view('contacts.email');
+        return $this->markdown('contacts.email');
     }
 }

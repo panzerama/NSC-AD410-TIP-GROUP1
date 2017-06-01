@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        
-    </head>
-    <body>
-        <h2>Subject: {{ $topic }}</h2>
-        <p>Mesage: {{ $body }}</p>
-    </body>
-</html>
+@component('mail::message')
+**From:** *{{ $email }}*
+***
+**Subject** *{{ $topic }}*
+***
+<br>
+@component('mail::panel')
+{{ $body }}
+@endcomponent
+
+{{ config('TIP') }}
+@endcomponent
