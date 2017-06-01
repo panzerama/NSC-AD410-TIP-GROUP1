@@ -43,6 +43,8 @@ class ReportsController extends Controller
         $base_query = DB::table('tips');
         //pass query and array into reportsDataBuilder
         ReportsController::reportsDataBuilder($reports_array, $base_query);
+        
+        $reports_payload = Datatables::of($reports_array)->make(true) 
         //return view with amended report array
         return view('reports/index', ['data' => $reports_array]);
     }
