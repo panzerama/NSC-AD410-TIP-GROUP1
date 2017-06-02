@@ -1,0 +1,6 @@
+Mitch Thompson
+Status Report
+5/19/2017
+
+-- [ ] Update nav layout to reflect current routes
+- [ ] On tips-questionnaire update confirmation alert to display full width

@@ -6,8 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class faculty extends Model
 {
-    protected $table = 'faculty';
-    
     protected $fillable = [
         'faculty_id',
         'division_id',
@@ -17,6 +15,8 @@ class faculty extends Model
         'is_admin',
         'is_active'
         ];
+        
+    protected $table = 'faculty';    
         
     //defining a many to many relation between faculty member and tip report models
     public function tips() {
