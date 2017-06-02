@@ -8,10 +8,11 @@
 
     <link rel="stylesheet" href="{!! asset('css/vendor.css', true) !!}" />
     <link rel="stylesheet" href="{!! asset('css/app.css', true) !!}" />
+    <link rel="stylesheet" href="{!! asset('css/plugins/dataTables/dataTables.min.css', true) !!}" />
+    
     
 
-   
-
+  
 </head>
 <body>
 
@@ -28,6 +29,7 @@
             @include('layouts.topnavbar')
 
             <!-- Main view  -->
+            @stack('scripts')
             @yield('content')
 
             <!-- Footer -->

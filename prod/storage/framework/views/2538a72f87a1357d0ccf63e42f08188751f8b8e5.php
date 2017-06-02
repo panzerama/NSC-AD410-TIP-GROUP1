@@ -8,10 +8,11 @@
 
     <link rel="stylesheet" href="<?php echo asset('css/vendor.css', true); ?>" />
     <link rel="stylesheet" href="<?php echo asset('css/app.css', true); ?>" />
+    <link rel="stylesheet" href="<?php echo asset('css/plugins/dataTables/dataTables.min.css', true); ?>" />
+    
     
 
-   
-
+  
 </head>
 <body>
 
@@ -28,6 +29,7 @@
             <?php echo $__env->make('layouts.topnavbar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
             <!-- Main view  -->
+            <?php echo $__env->yieldPushContent('scripts'); ?>
             <?php echo $__env->yieldContent('content'); ?>
 
             <!-- Footer -->
