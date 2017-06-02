@@ -9,9 +9,9 @@
 
             {
                 label: "Submitted",
-                backgroundColor: 'rgba(26,179,148,0.5)',
-                borderColor: "rgba(26,179,148,0.7)",
-                pointBackgroundColor: "rgba(26,179,148,1)",
+                backgroundColor: 'rgba(0,142,226,0.5)',
+                borderColor: "rgba(0,142,226,0.7)",
+                pointBackgroundColor: "rgba(0,142,226,1)",
                 pointBorderColor: "#fff",
                 fill: true,
                 data: [24, 14, 29, 10, 13, 30, 6]
@@ -40,9 +40,9 @@
         datasets: [
             {
                 label: "Submitted",
-                backgroundColor: 'rgba(26,179,148,0.5)',
-                borderColor: 'rgba(26,179,148,0.7)',
-                pointBackgroundColor: "rgba(26,179,148,1)",
+                backgroundColor: 'rgba(0,142,226,0.5)',
+                borderColor: "rgba(0,142,226,0.7)",
+                pointBackgroundColor: "rgba(0,142,226,1)",
                 pointBorderColor: "#fff",
                 data: [65, 48, 29, 19, 13, 6]
             },
@@ -107,9 +107,9 @@
     labels: ["1", "2", "3", "4", "5", "6", "7"],
     datasets: [
         {
-            backgroundColor: 'rgba(26,179,148,0.5)',
-            borderColor: "rgba(26,179,148,0.7)",
-            pointBackgroundColor: "rgba(26,179,148,1)",
+            backgroundColor: 'rgba(0,142,226,0.5)',
+            borderColor: "rgba(0,142,226,0.7)",
+            pointBackgroundColor: "rgba(0,142,226,1)",
             pointBorderColor: "#fff",
             data: [28, 48, 40, 19, 86, 27, 50]
         }
@@ -129,9 +129,9 @@
     labels: ["1", "2", "3", "4", "5", "6"],
     datasets: [
         {
-            backgroundColor: 'rgba(26,179,148,0.5)',
-            borderColor: "rgba(26,179,148,0.7)",
-            pointBackgroundColor: "rgba(26,179,148,1)",
+            backgroundColor: 'rgba(0,142,226,0.5)',
+            borderColor: "rgba(0,142,226,0.7)",
+            pointBackgroundColor: "rgba(0,142,226,1)",
             pointBorderColor: "#fff",
             data: [28, 48, 40, 19, 86, 27]
         }
@@ -151,9 +151,9 @@
     labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
     datasets: [
         {
-            backgroundColor: 'rgba(26,179,148,0.5)',
-            borderColor: "rgba(26,179,148,0.7)",
-            pointBackgroundColor: "rgba(26,179,148,1)",
+            backgroundColor: 'rgba(0,142,226,0.5)',
+            borderColor: "rgba(0,142,226,0.7)",
+            pointBackgroundColor: "rgba(0,142,226,1)",
             pointBorderColor: "#fff",
             data: [28, 48, 40, 19, 86, 27, 15, 65, 21, 47, 32, 8]
         }

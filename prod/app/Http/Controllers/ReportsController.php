@@ -228,4 +228,17 @@ class ReportsController extends Controller
     {
         return view('reports/qareports');
     }
+    
+      public function reportsdemo()
+    {
+        //init array
+        $reports_array = array();
+        //create basic query - for index, this is just 'tips'
+        $base_query = DB::table('tips');
+        //pass query and array into reportsDataBuilder
+        ReportsController::reportsDataBuilder($reports_array, $base_query);
+        //return view with amended report array
+        return view('reports/reports-demo', ['data' => $reports_array]);
+    }
+    
 }
