@@ -1,0 +1,7 @@
+Kip Tatum
+Status Report
+5/31/2017
+
+1)Not sure if a update was required for Monday, but I did not do one.
+2)Worked with Lucas and Rasa on finalizing LoginController
+3)added onDestroy, session work, and get name and email functions.

@@ -1,0 +1,20 @@
+2017-06-01-dailyreport.txt
+
+Rasa Rasiulyte
+Status Report
+
+What have you completed since the last report?
+	- working on adding code to logincontorller for updating values
+
+What do you plan to complete by the next report?
+	- implement functionality in admin controler to deactivate user 
+
+
+What is getting in your way?
+	- No blocking issue at the moment
+	
+
+
+
+
+

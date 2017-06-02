@@ -5,8 +5,8 @@
                 <div class="dropdown profile-element">
                         <span class="clear">
                             <span class="block m-t-xs">
-                                
-                                <strong class="font-bold">User Name</strong>
+				<img src="/images/nsc_logo_t.png" height="64" width="64">&nbsp;&nbsp;&nbsp;
+                                <strong class="font-bold" color="white">Michael Fraser</strong>
                             </span> 
                         </span>
                     </a>
@@ -15,7 +15,7 @@
                     </ul>
                 </div>
                 <div class="logo-element">
-                    <h3>LOGO</h3>
+                    <img src="/images/nsc_logo.png" height="64" width="64"> 
                 </div>
             </li>
             <li class="{{ isActiveRoute('reports') }}">
