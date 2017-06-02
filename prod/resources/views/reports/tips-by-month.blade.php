@@ -30,9 +30,9 @@
 
             {
                 label: "Submitted",
-                backgroundColor: 'rgba(26,179,148,0.5)',
-                borderColor: "rgba(26,179,148,0.7)",
-                pointBackgroundColor: "rgba(26,179,148,1)",
+                backgroundColor: 'rgba(0,142,226,0.5)',
+                borderColor: "rgba(0,142,226,0.7)",
+                pointBackgroundColor: "rgba(0,142,226,1)",
                 pointBorderColor: "#fff",
                 fill: true,
                 data: JSON.parse('<?php echo json_encode($countByMthSubmitted); ?>')

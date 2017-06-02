@@ -10,6 +10,9 @@
         <li>
             <a href="reports">Reports</a>
         </li>
+        <li>
+            <a href="qareports">Q/A Reports</a>
+        </li>
         <li class="active">
             <strong>Data Table</strong>
         </li>
