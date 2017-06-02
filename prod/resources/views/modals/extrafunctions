@@ -1,0 +1,96 @@
+
+<!--  add up to 6 options for a checkbox, radio button (or the first 6 options for a drop down list)  -->               
+                <script type=" text/javascript">
+                function display_answer_option_entry_fields(){
+	var s = document.getElementById('question_type');
+    	var q_type = s.options[s.selectedIndex].value;
+                if (q_type == 'checkbox' || q_type == 'radio_button' || q_type == 'drop_down_list'){
+                document.getElementByClass();
+                document.getElementById('add_edit_modal').innerHTML = "";
+                <div class="form-group">
+                    <div class="row">
+                        <label for="a_options">Answer Options:</label>
+                    </div>    
+                    <div class="row">
+                        <div class="col-lg-12">
+                        <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_text_1"> </textarea>
+                        </div>
+                    </div>    
+                    <div class="row">
+                        <div class="col-lg-12">
+                        <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_text_1"> </textarea>
+                        </div>
+                    </div>    
+                    <div class="row">
+                        <div class="col-lg-12">
+                        <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_text_1"> </textarea>
+                        </div>
+                    </div>    
+                    <div class="row">
+                        <div class="col-lg-12">
+                        <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_text_1"> </textarea>
+                        </div>
+                    </div>    
+                    <div class="row">
+                        <div class="col-lg-12">
+                        <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_text_1"> </textarea>
+                        </div>
+                    </div>    
+                    <div class="row">
+                        <div class="col-lg-12">
+                        <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_text_1"> </textarea>
+                        </div>
+                    </div> "; 
+                }                
+                //  add the next 9 options for a drop down list for a total of 15 dropdown list options  
+                if (q_type == 'drop_down_list'){
+                    document.getElementByClass()
+                    document.getElementById('add_edit_modal').innerHTML = "";
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_text_1"> </textarea>
+                        </div>
+                    </div>    
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_text_1"> </textarea>
+                        </div>
+                    </div>    
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_text_1"> </textarea>
+                        </div>
+                    </div>    
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_text_1"> </textarea>
+                        </div>
+                    </div>    
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_text_1"> </textarea>
+                        </div>
+                    </div>    
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_text_1"> </textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_text_1"> </textarea>
+                        </div>
+                    </div>    
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_text_1"> </textarea>
+                        </div>
+                    </div>    
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_text_1"> </textarea>
+                        </div>
+                    </div> 
+                </div> ";
+                }
+               </script>

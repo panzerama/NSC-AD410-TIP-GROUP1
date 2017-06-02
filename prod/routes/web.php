@@ -51,8 +51,6 @@ Route::get('/login' , 'Auth\LoginController@index')->name('login'); // Login Aut
 // destroy the session.
 Route::get('/logout', 'Auth\LoginController@destroy')->name('logout'); // Log Out
 
-
-
 /***************************
  *  Admin Routing
  ***************************/

@@ -159,3 +159,6 @@ Custom CSS file to override defaults
     margin-top: 6px;
     margin-bottom: 6px;
 }
+    .textarea{
+    font-size: 70px;
+    }
