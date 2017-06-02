@@ -9,12 +9,14 @@
         <li>
             <a href="reports">Reports</a>
         </li>
+        <li>
+            <a href="qareports">Q/A Reports</a>
+        </li>
         <li class="active">
             <strong>Data Table</strong>
         </li>
     </ol>
 </div>
-
 
 <div class="wrapper wrapper-content animated fadeInRight">
             <div class="row">

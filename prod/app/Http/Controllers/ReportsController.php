@@ -223,4 +223,9 @@ class ReportsController extends Controller
         $reports_array[$key] = $tips_by_division;
         
     }
+    
+      public function qareports()
+    {
+        return view('reports/qareports');
+    }
 }

@@ -1939,3 +1939,23 @@ Stack trace:
 #49 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
 #50 /home/ubuntu/workspace/prod/public/index.php(53): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
 #51 {main}  
+[2017-06-02 04:10:17] local.ERROR: Symfony\Component\Console\Exception\CommandNotFoundException: There are no commands defined in the "clear" namespace. in /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php:499
+Stack trace:
+#0 /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php(531): Symfony\Component\Console\Application->findNamespace('clear')
+#1 /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php(186): Symfony\Component\Console\Application->find('clear:cache')
+#2 /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php(120): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(123): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 /home/ubuntu/workspace/prod/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 {main}  
+[2017-06-02 04:10:47] local.ERROR: Symfony\Component\Console\Exception\RuntimeException: Too many arguments, expected arguments "command". in /home/ubuntu/workspace/prod/vendor/symfony/console/Input/ArgvInput.php:184
+Stack trace:
+#0 /home/ubuntu/workspace/prod/vendor/symfony/console/Input/ArgvInput.php(88): Symfony\Component\Console\Input\ArgvInput->parseArgument('cache')
+#1 /home/ubuntu/workspace/prod/vendor/symfony/console/Input/Input.php(63): Symfony\Component\Console\Input\ArgvInput->parse()
+#2 /home/ubuntu/workspace/prod/vendor/symfony/console/Command/Command.php(222): Symfony\Component\Console\Input\Input->bind(Object(Symfony\Component\Console\Input\InputDefinition))
+#3 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Console/Command.php(167): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))
+#4 /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php(826): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php(189): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Foundation\Console\ClearCompiledCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#6 /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php(120): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#7 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(123): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#8 /home/ubuntu/workspace/prod/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#9 {main}  

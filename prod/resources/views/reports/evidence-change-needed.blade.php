@@ -17,9 +17,7 @@
 
 <!-- ChartJS-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>   
-<!-- 
-<script type="text/javascript" src="js/charts-demo-data.js"></script>
--->
+
 <script>
 //----------------------------------------------------------------     
 /* Evidence for change needed */
@@ -28,7 +26,7 @@
         labels: ["Feedback","Behavoir","Performance" ],
         datasets: [{
             data: [300,50,100],
-            backgroundColor: ["#a3e1d4","#dedede","#b5b8cf"]
+            backgroundColor: ["#254284","#008EE2","#91349B"]
         }]
     } ;
     var doughnutOptions = {
