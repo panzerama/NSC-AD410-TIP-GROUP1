@@ -1,0 +1,9 @@
+Khang Quach
+06/02/17
+status update
+
+merged tips controller with master
+working on previous tips index
+working on previous tips show
+working on views and passing data to views
+
