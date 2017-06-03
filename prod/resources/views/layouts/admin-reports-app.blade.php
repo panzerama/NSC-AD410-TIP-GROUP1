@@ -8,10 +8,8 @@
 
     <link rel="stylesheet" href="{!! asset('css/vendor.css', true) !!}" />
     <link rel="stylesheet" href="{!! asset('css/app.css', true) !!}" />
+    <link rel="stylesheet" href="{!! asset('css/custom.css', true) !!}" />
     
-
-   
-
 </head>
 <body>
 

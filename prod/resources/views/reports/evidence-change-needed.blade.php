@@ -28,7 +28,7 @@
         labels: ["Feedback","Behavoir","Performance" ],
         datasets: [{
             data: [300,50,100],
-            backgroundColor: ["#a3e1d4","#dedede","#b5b8cf"]
+            backgroundColor: ["#254284","#008EE2","#91349B"]
         }]
     } ;
     var doughnutOptions = {

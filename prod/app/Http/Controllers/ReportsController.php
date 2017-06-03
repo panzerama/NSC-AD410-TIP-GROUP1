@@ -8,6 +8,7 @@ use Carbon\Carbon;
 
 use Datatables;
 use Yajra\Datatables\Html\Builder;
+use Illuminate\Http\Request;
 
 class ReportsController extends Controller
 {
@@ -49,7 +50,7 @@ class ReportsController extends Controller
         return view('reports/index', ['data' => $reports_array]);
     }
     
-    public function table()
+    public function tabledata(Builder $builder)
     {
         //return all tips with division and faculty, let frontend
         //sort out what's displayed
@@ -61,9 +62,21 @@ class ReportsController extends Controller
         $table_array = $table_query->get();
         
         //format the table info so that datatables can use the information
-        $table_payload = Datatables::of($table_array)->make(true);
-        
-        return view('reports/table', ['html' => $table_payload]);
+       // $table_payload = Datatables::of($table_query)->make(true);
+        return Datatables::of($table_query)->make(true);
+       
+        $html = $builder->columns([
+            ['data' => 'division_id', 'name' => 'division_id', 'title' => 'Division'],
+            ['data' => 'faculty_name', 'name' => 'faculty_name', 'title' => 'Faculty Name'],
+            ['data' => 'course_number', 'name' => 'course_number', 'title' => 'Course Number'],
+        ]);
+        //return view('reports/table', ['html' => $table_payload]);
+        return view('reports/table-data', compact('html'));
+    }
+    
+    public function table()
+    {
+        return view('reports/table');
     }
     
     private function reportsDataBuilder(&$reports_array, $base_query){
