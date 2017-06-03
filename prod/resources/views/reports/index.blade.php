@@ -24,18 +24,18 @@
             <div class="col-lg-6">
                 <div class="col-lg-12">
                     <!-- Summary Report -->
-                    @include('reports.summary')
+                    @include('reports.summary-demo')
                 </div>
             
             <div class="col-lg-12">
                     <!-- Tips By Month Report -->
-                    @include('reports.tips-by-month')
+                    @include('reports.tips-by-month-demo')
                 </div>
                 </div>
 
             <div class="col-lg-6">
                     <!-- Tips By Division Report -->
-                    @include('reports.tips-by-division')
+                    @include('reports.tips-by-division-demo')
             </div>  
 </div>        
 </div>
