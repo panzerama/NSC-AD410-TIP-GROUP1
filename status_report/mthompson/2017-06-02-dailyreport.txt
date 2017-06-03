@@ -1,0 +1,14 @@
+Mitch Thompson
+Status Report
+6/02/2017
+
+-Tweaked UI for markdown email sent from contact admin form
+	-Added faculty email to email sent from contact admin form
+-Merged Contact Admin functionality into master, resolving conflicts & tested master to make sure everything working. 
+-Merged tips-questionnaire into master, resolving conflicts
+-Attended Thursday meeting
+-Working with Rasa and Kip to get Admin Management completed
+
+
+
+
