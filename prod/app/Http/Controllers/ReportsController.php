@@ -47,9 +47,10 @@ class ReportsController extends Controller
         //pass query and array into reportsDataBuilder
         ReportsController::reportsDataBuilder($reports_array, $base_query);
         
-        $reports_payload = Datatables::of($reports_array)->make(true); 
+        //datatables broken
+        //$reports_payload = Datatables::of($reports_array)->make(true); 
         //return view with amended report array
-        return view('reports/index', ['data' => $reports_payload]);
+        return view('reports/index', ['data' => $reports_array]);
     }
     
     public function filter(Request $request){
@@ -60,8 +61,8 @@ class ReportsController extends Controller
         //pass query and array into reportsDataBuilder
         ReportsController::reportsDataBuilder($reports_array, $filtered_query);
         
-        $reports_payload = Datatables::of($reports_array)->make(true); 
-        return view('reports/index', ['data' => $reports_payload]);
+        //$reports_payload = Datatables::of($reports_array)->make(true); 
+        return view('reports/index', ['data' => $reports_array]);
     }
     
     public function tabledata(Builder $builder)
