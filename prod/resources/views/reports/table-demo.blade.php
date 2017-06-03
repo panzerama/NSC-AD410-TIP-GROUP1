@@ -4,79 +4,27 @@
 
 @section('content')
 <div class="row wrapper border-bottom white-bg page-heading">
-        <h2>Reports Dashboard</h2>
+<h2>Reports Dashboard</h2>
     <ol class="breadcrumb">
-        <li class="active">
-            <strong>Reports</strong>
+        <li>
+            <a href="reports-demo">Reports</a>
         </li>
         <li>
-            <a href="table">Data Table</a>
+            <a href="qareports">Q/A Reports</a>
+        </li>
+        <li class="active">
+            <strong>Data Table</strong>
         </li>
     </ol>
 </div>
 
 
-<div class="wrapper wrapper-content">    
-<div class="row">
-            <div class="col-lg-6">
-                <div class="col-lg-12">
-                    <!-- reports summary -->
-                    @include('reports.summary')
-                </div>
-            
-            <div class="col-lg-12">
-                    <!-- Tips By Month Report -->
-                    @include('reports.tips-by-month')
-                </div>
-                </div>
-
-            
-            <div class="col-lg-6">
-                    <!-- Tips By Division Report -->
-                    @include('reports.tips-by-division')
-            </div>  
-</div>        
-    
-            
-<div class="row">
-    <div class="col-lg-6">
-        <div class="col-lg-12">
-            <div class="ibox float-e-margins">  
-                <div class="row">
-                
-                    @include('reports.evidence-change-needed')
-                    
-                    @include('reports.how-impact-assessed')
-
-                </div>
-            </div>
-        </div>
-                
-        
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="ibox float-e-margins">  
-                
-                    @include('reports.type-of-change')
-                    
-                    @include('reports.new-opportunities')
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-
-        <div class="col-lg-6">
-                     @include('reports.primary-elo-added')
-        </div>
-</div>
-                
 <div class="wrapper wrapper-content animated fadeInRight">
             <div class="row">
                 <div class="col-lg-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>Recent TIPS</h5>
+                        <h5>All TIPS</h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -97,7 +45,7 @@
                     </div>
                     <div class="ibox-content">
 
-                        <div class="table-responsive">
+                         <div class="table-responsive">
                     <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="html5buttons">
                         <div class="dt-buttons btn-group">
                         <a class="btn btn-default buttons-copy buttons-html5" tabindex="0" aria-controls="DataTables_Table_0" href="#"><span>Copy</span></a>
@@ -203,8 +151,6 @@
         </div>
                                         
                         
-
-
 
 
 <!-- ChartJS-->
