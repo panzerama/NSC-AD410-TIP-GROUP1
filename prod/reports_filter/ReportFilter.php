@@ -28,7 +28,7 @@ class ReportFilter {
                 $query = $decorator::apply($query, $value);*/
             }
         }
-        return $query;
+        return $query; //Call to 
     }
     
     private static function createFilterDecorator($name) {

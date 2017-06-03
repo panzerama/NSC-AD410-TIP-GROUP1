@@ -73,6 +73,6 @@ Route::get('/logout', 'SessionsController@destroy'); // Log Out
  Route::get('/summary-old','ReportsControllerDev@summaryold'); // testing data display
  Route::get('/tipsbymonth-test','ReportsControllerDev@tipsbymonthtest'); // testing data display
  Route::get('/tipsbydivision-test','ReportsControllerDev@tipsbydivisiontest'); // testing data display
- Route::get('/reports/filter','ReportsController@create'); // Show Reports Filter Form
+ Route::get('/reports/filter','SearchController@index'); // Show Reports Filter Form
  Route::get('/reports/results','ReportsController@show'); // Display Reports
 

@@ -27,10 +27,10 @@
                             <li class="">
                                 <a href="#"><h5>Quarter</h5></a>
                                 <ul class="nav nav-third-level collapse selected-filter-child" style="height: 0px;">
-                                    <form name="report-filter" method="post" action="/report-new">
+                                    <form name="report-filter" method="post" action="/reports/filter">
                                     <!-- By Quarter -->
                                     <label class="filter-ui-label">From:</label>
-                                    <select class="form-control filter-ui-right" name="qtr-start">
+                                    <select class="form-control filter-ui-right" name="quarter-start">
                                         <option>Spring 2017</option>
                                         <option>Summer 2017</option>
                                         <option>Fall 2017</option>
@@ -42,7 +42,7 @@
                                     </select>
                                 
                                     <label class="filter-ui-label">To:</label>
-                                    <select class="form-control filter-ui-right" name="qtr-end">
+                                    <select class="form-control filter-ui-right" name="quarter-end">
                                         <option>Spring 2017</option>
                                         <option>Summer 2017</option>
                                         <option>Fall 2017</option>
@@ -59,12 +59,12 @@
                         <a><h5>Tips</h5></a>
                         <ul class="nav nav-third-level collapse selected-filter-child" style="height: 0px;">
                             <label class="filter-ui-label">Tip:</label>
-                                <select class="form-control filter-ui-right filter-ui-select-small" name="selection-tip">
+                                <select class="form-control filter-ui-right filter-ui-select-small" name="tip">
                                     <option>Spring 2017 Tip</option>
                                     <option>Lorem Ipsum</option>
                                 </select>
                             <label class="filter-ui-label" name="division">Division:</label>
-                                <select class="form-control filter-ui-right filter-ui-select-small" name="selection-division">
+                                <select class="form-control filter-ui-right filter-ui-select-small" name="division">
                                     <option>Div A</option>
                                     <option>Div B</option>
                                     <option>Div C</option>
@@ -72,7 +72,7 @@
                                     <option>Div F</option>
                                 </select>
                             <label class="filter-ui-label">Course:</label>
-                                <select class="form-control filter-ui-right filter-ui-select-small" name="selection-course">
+                                <select class="form-control filter-ui-right filter-ui-select-small" name="course">
                                     <option>Course A</option>
                                     <option>Course B</option>
                                     <option>Course C</option>
@@ -81,15 +81,15 @@
                                 </select>
                             <div class="filter-ui-radio">
                                 <div class="radio radio-info">
-                                    <input type="radio" id="single-tips" value="single-tips" name="tip-type">
+                                    <input type="radio" id="single-tips" value="single-tips" name="type">
                                     <label for="single-tips">Single</label>
                                 </div>
                                 <div class="radio radio-info ">
-                                    <input type="radio" id="group-tips" value="group-tips" name="tip-type" >
+                                    <input type="radio" id="group-tips" value="group-tips" name="type" >
                                     <label for="group-tips">Group</label>
                                 </div>
                                 <div class="radio radio-info">
-                                    <input type="radio" id="all-tips" value="all-tips" name="tip-type" checked="">
+                                    <input type="radio" id="all-tips" value="all-tips" name="type" checked="">
                                     <label for="all-tips">All</label>
                                 </div>
                             </div>
@@ -124,11 +124,11 @@
                                         <option>Dynamic Option 4</option>
                                     </select>
                                 <label class="filter-ui-label nav-full-width">Search  By Keyword(s):</label>
-                                    <input type="text" class="form-control nav-full-width" style="margin-bottom: 10px;">
+                                    <input type="text" class="form-control nav-full-width" style="margin-bottom: 10px;" name="keyword">
                             </ul>
                         </li>
                         <li>
-                           <a><button class="btn btn-primary btn-block">Search</button></a>
+                           <a><button class="btn btn-primary btn-block">Filter Tips</button></a>
                         </li>
                         </form>
                     </ul>

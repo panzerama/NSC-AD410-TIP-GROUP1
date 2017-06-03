@@ -10,6 +10,8 @@ use Datatables;
 use Yajra\Datatables\Html\Builder;
 use Illuminate\Http\Request;
 
+use App\Http\Controllers\SearchController;
+
 class ReportsController extends Controller
 {
     //1. filters for each 'report' data set
@@ -41,13 +43,25 @@ class ReportsController extends Controller
         //init array
         $reports_array = array();
         //create basic query - for index, this is just 'tips'
-        $base_query = DB::table('tips');
+        $base_query = SearchController::base_constructor();
         //pass query and array into reportsDataBuilder
         ReportsController::reportsDataBuilder($reports_array, $base_query);
         
         $reports_payload = Datatables::of($reports_array)->make(true); 
         //return view with amended report array
-        return view('reports/index', ['data' => $reports_array]);
+        return view('reports/index', ['data' => $reports_payload]);
+    }
+    
+    public function filter(Request $request){
+        //init array
+        $reports_array = array();
+        //create basic query - for index, this is just 'tips'
+        $filtered_query = SearchController::filter_constructor($request);
+        //pass query and array into reportsDataBuilder
+        ReportsController::reportsDataBuilder($reports_array, $filtered_query);
+        
+        $reports_payload = Datatables::of($reports_array)->make(true); 
+        return view('reports/index', ['data' => $reports_payload]);
     }
     
     public function tabledata(Builder $builder)
@@ -72,11 +86,6 @@ class ReportsController extends Controller
         ]);
         //return view('reports/table', ['html' => $table_payload]);
         return view('reports/table-data', compact('html'));
-    }
-    
-    public function table()
-    {
-        return view('reports/table');
     }
     
     private function reportsDataBuilder(&$reports_array, $base_query){
@@ -223,6 +232,8 @@ class ReportsController extends Controller
         $list_of_divisions = $division_collection
                                 ->pluck('abbr')
                                 ->unique();
+                                
+        $tips_by_division = array();
                                 
         foreach($list_of_divisions as $idx => $division){
             $tips_by_division_finished = 

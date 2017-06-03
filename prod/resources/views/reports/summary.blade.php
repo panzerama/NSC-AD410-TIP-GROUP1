@@ -9,7 +9,7 @@
                         <div class="row">
 
                             <div class="col-lg-4">
-                                <h2 class="no-margins">{{ $data['tips_summary']['finished_tips'] }}</h2>
+                                <h2 class="no-margins">{{ $data->getData()['tips_summary']['finished_tips'] }}</h2>
                                 <h5>Submitted</h5>
                                 <div class="progress progress-mini">
                                 <div class="progress-bar" style="width: 44%;"></div>
