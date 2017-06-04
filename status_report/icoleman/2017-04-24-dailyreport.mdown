@@ -1,0 +1,11 @@
+Ilsa Coleman
+Status Report
+4/24/2017
+
+- Continued watching Laracast video tutorials to learn about Laracast.
+- Created mockup of admin dashboard UI.
+- To-do:
+  - Continue working on UI mockups.
+  - Continue learning Laravel and WrapBootstrap.
+  - Start creating FE pages of application.
+

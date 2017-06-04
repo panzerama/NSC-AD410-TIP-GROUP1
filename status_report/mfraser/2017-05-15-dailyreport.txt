@@ -1,0 +1,41 @@
+Michael Fraser
+Status Report 16
+Date: 5/15/2017
+
+
+What have you completed since the last report?
+
+1) Follow up with team on updates of code
+
+2) Checked updated branches on GitHub
+
+3) Continued working on prod server setup
+
+4) Updated Powerpoint  
+
+5) Setup SSL on prod with Let’s Encrypt 
+
+
+What do you plan to complete by the next report?
+
+1) Get OAuth working on prod server
+
+2) Functions created for TIPs page
+
+3) Class meeting
+
+What is getting in your way?
+
+1) Time, need more hours in the day. =P
+
+
+
+
+
+
+
+
+
+
+
+

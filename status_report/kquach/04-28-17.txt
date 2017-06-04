@@ -1,0 +1,8 @@
+-Khang Quach
+-04-28-17
+-status updates
+
+-added php artisan tinker
+-made a test migrations for faculties
+-will work on migrating draft #4 into database
+-continue to learn eloquent commands

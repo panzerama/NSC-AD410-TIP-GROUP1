@@ -1,0 +1,11 @@
+Mitch Thompson
+Status Report
+5/3/2017
+
+-Followed up with FE team members on what they are working
+	-Advised them to connect with the BE team members assigned to the same task in Trello
+-Coded UI for Contact Admin Page
+-Coded View for First Time User Verification page
+    -Added Route, and added to HomeController
+-Attended Tuesday stand-up meeting
+-Coded UI for first page of TIPS Questionnaire. 

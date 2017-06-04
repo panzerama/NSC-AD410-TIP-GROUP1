@@ -1,0 +1,12 @@
+2017-04-10-dailyreport.txt
+
+Rasa Rasiulyte
+Status Report
+
+Last Week:
+	- setting up dev environment for the project
+	- reading up on initial project spec
+	- researching available test unit framework for the project
+Today:
+	- set up github
+	- create simple unit test demo using PHPUnit

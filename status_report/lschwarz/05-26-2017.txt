@@ -1,0 +1,1 @@
+Made some major progress on Session creation, using Laravels built in Auth fuctionality.  I'm hoping that we can get that tested by or on Monday, and then move on to adding features for the rest of the app.

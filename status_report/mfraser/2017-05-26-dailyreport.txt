@@ -1,0 +1,42 @@
+Michael Fraser
+Status Report 21
+Date: 5/26/2017
+
+Apologies for late submission, had something come up Friday evening. 
+
+What have you completed since the last report?
+
+1) Went over Auth requirements, discussed with team
+
+2) Reviewed UI code, and talked with Bonnie regarding
+
+3) Working on final presentation for Alissa 
+
+4) Started app documentation 
+
+
+What do you plan to complete by the next report?
+
+1) Continue work on documentation framework 
+
+2) Work on custom CSS and formatting 
+
+3) Finish presentation for Alissa
+
+4) Will not be submitting report on Monday as it is a holiday
+
+What is getting in your way?
+
+1) Time, need more hours in the day. =P
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,41 @@
+Michael Fraser
+Status Report 17
+Date: 5/17/2017
+
+
+What have you completed since the last report?
+
+1) Class meeting with team, went over agenda 
+
+2) Fix issues on app server with permissions
+
+3) Updated server with SSL cert
+
+4) Build workflow for install of Laravel, PHP, and SQL Lite on app server
+
+5) Meeting with Alissa rescheduled as well as committee meeting
+
+
+What do you plan to complete by the next report?
+
+1) Get OAuth working on prod server
+
+2) Functions created for TIPs page
+
+3) Work on UI elements
+
+What is getting in your way?
+
+1) Time, need more hours in the day. =P
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,5 @@
+Build out model relationships for Tips, Questions, Answers and Tip_questions. Waiting for Jason to finish the last 3 to push to master.
+Met with Mitch and Khang to discuss passing database data to the views. 
+Added connections to pass test data to the edit-tips view. 
+Started planning out store functionality for tips/edittips. Due to dynamically building out the forms a much more complex 
+post request controller will be needed. 

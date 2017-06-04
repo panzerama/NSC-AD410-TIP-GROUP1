@@ -1,0 +1,41 @@
+Michael Fraser
+Status Report 15
+Date: 5/12/2017
+
+
+What have you completed since the last report?
+
+1) Talked with team leads about update to the app for each groups features
+
+2) Working on troubleshooting prod server setup. May need to change from NGinx to Apache
+
+3) Reviewed last commits by team
+
+4) Created draft presentation for next week’s committee meeting
+
+5) Worked on OAuth, need to have full prod server up to test
+
+
+What do you plan to complete by the next report?
+
+1) Get OAuth working on prod server
+
+2) Setup SSL on prod with Let’s Encrypt 
+
+3) Functions created for TIPs page
+
+What is getting in your way?
+
+1) Time, need more hours in the day. =P
+
+
+
+
+
+
+
+
+
+
+
+

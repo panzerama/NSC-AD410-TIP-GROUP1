@@ -1,0 +1,36 @@
+Michael Fraser
+Status Report 11
+Date: 5/03/2017
+
+
+What have you completed since the last report?
+
+1) Went over agenda in class
+
+2) Reviewed the UI
+
+3) Discussed database with Lucas
+
+4) Went over prod app deployment 
+
+5) Went over Cloud 9
+
+What do you plan to complete by the next report?
+
+1) Work on app with team, follow up every day via Slack
+
+What is getting in your way?
+
+1) Time, need more hours in the day. =P
+
+
+
+
+
+
+
+
+
+
+
+

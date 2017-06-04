@@ -1,0 +1,13 @@
+Mitch Thompson
+Status Report
+4/21/2017
+
+- Created UI Mockup for header/footer
+- Met with FE team to discuss UI
+    - Divided UI mockup tasks with FE team
+- Met with Bonnie to discuss how to design Faculty View UI
+- Created Intial Mock-ups for:
+    - First Time User View
+    - TIPS HOME
+    - TIPS Returning User
+    - View Previous Tips

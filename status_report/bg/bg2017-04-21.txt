@@ -1,0 +1,11 @@
+Bryson Good
+4-21-17
+Status Report
+
+1: What have you completed since the last report?
+	* Met with a group to discuss wireframes
+	* Started documenting requirements for filters / UX for generating custom reports.
+2: What do you plan to complete by the next report?
+	* completed wireframe of reports UX
+3: What is getting in your way?
+	* Feeling ill on Wednesday effected my ability to work on the project.

@@ -1,0 +1,16 @@
+AD410 Web Application Practicum Status - Karen Petersen 20170414
+
+Have Done
+1. Met with team to discuss meeting about UI Flows - scheduled for Monday at 7pm
+Tax Time - no new status
+
+Issues
+1.  http://www.icoolshow.net/ad410-2017/tip/tip.pdf shows a blank black screen
+
+Next to Do
+1.  Learn Join Me in case we need virtual meetings
+2.  Work with team to determine any UI dev tools to use and how we're going to split out UI flow work.
+3.  Continue learning Github, Google Docs, Trello, 	
+4.  Work with team to create UI flows
+5.  Add more tasks/user stories to Trello
+

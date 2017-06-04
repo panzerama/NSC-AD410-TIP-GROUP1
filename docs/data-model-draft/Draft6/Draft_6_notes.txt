@@ -1,0 +1,18 @@
+Draft 6 notes
+
+'question_desc' row in QUESTIONS table is where the example answer or the helpful description of a question can be stored.  It can also be left blank.
+
+added distinct column names for the different 'name' columns.  so we have faculty_name and division_name instead of 'name' and 'name'
+
+faculty has one primary division, referenced by a foreign key.
+
+added ENUM for DROPDOWN question type, as dropdowns are probably going to be used on the frontend.
+
+ENUMS:
+	FACULTY:
+		employee_type: 'FULLTIME','PARTTIME'
+	TIPS:
+		quarter: 'FALL','WINTER','SPRING','SUMMER'
+	QUESTIONS:
+		question_type: 'TEXT','RADIO','CHECKBOX','DROPDOWN'
+

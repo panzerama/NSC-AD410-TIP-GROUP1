@@ -1,0 +1,17 @@
+2017-05-18-dailyreport.txt
+
+Rasa Rasiulyte
+Status Report
+
+What have you completed since the last report?
+	- Checked in function that redirects admin to initial page for log in controller
+	- Finally have phpunit test sample running
+
+What do you plan to complete by the next report?
+	- work on oauth implementation and test it against production server 
+	- start writting and running unit tests for existing code
+
+What is getting in your way?
+	- No blocking issue at the moment
+
+

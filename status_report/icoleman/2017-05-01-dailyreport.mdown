@@ -1,0 +1,13 @@
+Ilsa Coleman
+Status Report
+5/1/2017
+
+- Coded Admin Reports Dashboard page using our WrapBootstrap theme in the group Cloud9 project.
+- Created a demo data set to test chart functionality.
+- Learned how to work within the Cloud9 project with Github.
+- To-do:
+  - Continue working on coding admin pages:
+    - add overall TIPS statistics near top of dashboard.
+    - add comments for better usability.
+    - update admin user stories and Trello.
+    - start learning how to integrate with backend.

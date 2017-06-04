@@ -1,0 +1,8 @@
+Ilsa Coleman
+Status Report
+5/26/2017
+
+- Worked this week on admin reports tables and functions.
+- Work on moving some reports to another view to simplify reports page.
+
+    

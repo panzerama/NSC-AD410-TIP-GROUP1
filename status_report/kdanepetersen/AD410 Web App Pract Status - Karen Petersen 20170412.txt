@@ -1,0 +1,23 @@
+AD410 Web Application Practicum Status - Karen Petersen 20170405
+
+Have Done
+1. Learned Trello
+2. Set up Trello with Team Backlog, Sprint 1 Backlog, Sprint1 Backlog in progress, Sprint1 Backlog Completed, Team Backlog Completed
+3. Consoloditated question from team for meeting with key stakeholder
+4. Reviewed questions with key stakeholder
+5. Sent out updated Q&A from key stakeholder meeting to team
+6. Updated Trello with initial user stories for requirements from Key Stakeholder Q&A document, and from previously completed tasks 
+7. Sent instructions to team for adding/moving tasks
+8. Learned how to set up Github up on my laptop, push changes, and set up ssl key
+  
+
+Issues
+1.  http://www.icoolshow.net/ad410-2017/tip/tip.pdf shows a blank black screen
+
+Next to Do
+1.  Learn Join Me in case we need virtual meetings
+2.  Work with team to determine any UI dev tools to use and how we're going to split out UI flow work.
+3.  Continue learning Github, Google Docs, Trello, 	
+4.  Work with team to create UI flows
+5.  Add more tasks/user stories to Trello
+
