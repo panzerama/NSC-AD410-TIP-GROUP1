@@ -1,9 +1,0 @@
-Mitch Thompson
-Status Report
-5/10/2017
-
-- Updated UI on contact admin view, added code comments.
-- Added code comments and proper indentation to TIPS Questionnaire views
-- Created custom css file for custom css to override bootstrap
-- Added some test data for questionnaire dropdown/radio selects
-- Merged current TIPS Questionnaire into master

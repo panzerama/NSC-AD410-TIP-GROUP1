@@ -1,4 +1,0 @@
-Built out the switch and about half of the backend logic for the edit tips page.
-So far move up, move down, modify, inactivate all are functional. The remaining will need more robust
-logic statements.
-Built the add group members functionality just waiting for a re migration to apply them. 

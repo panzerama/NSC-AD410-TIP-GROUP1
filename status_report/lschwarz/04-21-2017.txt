@@ -1,3 +1,0 @@
-04-21-2017
-
-Continued learning Laravel framework.

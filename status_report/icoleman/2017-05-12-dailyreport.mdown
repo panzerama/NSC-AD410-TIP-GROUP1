@@ -1,8 +1,0 @@
-Ilsa Coleman
-Status Report
-5/12/2017
-
-- Attended stand-up meeting before class Thursday 5/11/17.
-- Continuing to add features and functionality to admin pages.
-- Working on interface between backend and frontend. 
-- Hoping to have new changes to commit this weekend.

@@ -1,8 +1,0 @@
-Mitch Thompson
-Status Report
-5/15/2017
-
--Coded UI for View Previous TIPs and Previous TIPs
--Coded UI for Admin Management
--Coded UI for Inactivate User
--Modified AdminController to return correct views

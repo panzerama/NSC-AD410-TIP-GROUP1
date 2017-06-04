@@ -1,5 +1,0 @@
--Learning Laravel Eloquent
--setting up database
--learning routes and views
--how to create controllers and models using artisan
--learning about sessions in order to store tokens from authenticated users

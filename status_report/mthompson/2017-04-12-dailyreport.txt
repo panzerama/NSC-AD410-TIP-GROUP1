@@ -1,8 +1,0 @@
-Mitch Thompson
-Status Report
-
-- Completed Front End unit testing research. QUnit being the best option.
-- Played with Trello to familiarize myself with it.
-- Reviewed info/user stories submitted in Trello.
-- Reviewed requirements document created after client Q&A. 
-- Contacted Front End group members to work on meeting times.

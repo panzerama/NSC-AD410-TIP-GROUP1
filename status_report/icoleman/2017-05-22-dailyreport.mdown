@@ -1,8 +1,0 @@
-Ilsa Coleman
-Status Report
-5/22/2017
-
-- Working with Jason to setup db queries and return data to views.
-- Reworking code in views to accept and display data.
-
-    

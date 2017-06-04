@@ -1,6 +1,0 @@
-#Status Report
-##4-26
-
-- Cloud9 dev space available to all
-- Laravel template 'Inspinia' working and available to all
-

@@ -1,7 +1,0 @@
-04-26-2017 status update
-
-Created fourth draft of data model for perusal by group.
-
-Continued learning Laravel using Laracasts.
-
-Planned out time for teaching session on Thursday.

@@ -1,6 +1,0 @@
-#Status Report
-
-- completed ansible playbooks
--tested with a couple of servers
-- next step: ansible play for git clone, for laravel env file, and maybe for npm build?
-

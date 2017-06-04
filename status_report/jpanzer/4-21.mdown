@@ -1,5 +1,0 @@
-4-21-2017
-jd status report
-
-- Cloud9 configuration: challenges are correct versioning and easy replication across team
-- Continued education in backend team on laravel and framework specific features

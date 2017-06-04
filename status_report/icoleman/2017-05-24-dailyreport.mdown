@@ -1,9 +1,0 @@
-Ilsa Coleman
-Status Report
-5/24/2017
-
-- Working with Jason to setup db queries and return data to views.
-- Met with Mitch 5/23/17 to troubleshoot data table function issues.
-- Working on getting table functions up and running.
-
-    

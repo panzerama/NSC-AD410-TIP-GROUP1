@@ -1,7 +1,0 @@
-#Status Report 
-## JD 
-### 4-17-17
-
-- Reviewed requirements and prepared workflow for subgroup meeting
-- Reviewed requirements and confirmed framework choices
-- Meeting of workflow subgroup successful

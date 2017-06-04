@@ -1,9 +1,0 @@
-Bonnie Peterson
-Status Report 5-15-17
-
-1) In the next week, the front-end team should have the TIP form to where we can save TIP form data to the db. 
-
-2) Add functionality that allows TIP user to save a draft to the db. Add functionality to save a finished TIP form (with validation).
-Also add message to show user that a TIP has been canceled, a draft has been saved, or that a TIP has been submitted. 
-
-3) Add warning to TIP form when "submit" button is selected saying that the form cannot be changed once submitted. 

@@ -1,8 +1,0 @@
-Khang Quach
-05-22-17
-Status Report
-
--Edit database according to new changes
--allows tips to have nullable collumns
--entered in more data into the DB
--Created faculty tips and linked them

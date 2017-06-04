@@ -1,3 +1,0 @@
-dev server is up and running, so work is now beginning in earnest on the Oauth piece.
-
-I'll be working on that for the rest of the week probably.  Specifically stitching Paul Wu's security token example together with our own framework to create sessions and redirect the user accordingly.

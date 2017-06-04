@@ -22,13 +22,13 @@ class ReportFilter {
         foreach($filters->all() as $filterName => $value) {
             Log::info('state of request filter: ' . $filterName . " : " . $value);
             
-            /*$decorator = static::createFilterDecorator($filterName);
+            $decorator = static::createFilterDecorator($filterName);
             
             if(static::isValidDecorator($decorator)) {
                 $query = $decorator::apply($query, $value);
-            }*/
+            }
         }
-        return 1; //Call to 
+        return $query; 
     }
     
     private static function createFilterDecorator($name) {

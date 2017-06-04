@@ -1,6 +1,0 @@
-Ilsa Coleman
-Status Report
-5/8/2017
-
-- Working on adding features to admin pages.
-- Working on interface between backend and frontend.

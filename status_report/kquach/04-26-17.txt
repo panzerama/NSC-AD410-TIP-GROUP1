@@ -1,8 +1,0 @@
--Khang Quach
--04-26-17
--status update
-
--Getting Laravel 5.4 to configure
--downloading prod, and continue working on db
--Will start planning backend models and controllers with backend team
--divide tasks along members

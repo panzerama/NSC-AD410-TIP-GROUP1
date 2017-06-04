@@ -1,6 +1,0 @@
-Khang Quach
-04-21-17
--Continue to play with Laravel
--start creating database model for our class
--learn more about models and eloquent
--get c9 setup for development

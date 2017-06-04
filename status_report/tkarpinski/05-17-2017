@@ -1,6 +1,0 @@
-Worked on the logic statements for the create tip and save in progress tip. The processes are pretty similair so 
-I may try to condense or reuse. As is when a new tip is created it pulls the active question list from the database, creates
-a new tip, and then uses a foreach to create the relationships/answer fields in tips_questions. To save it runs a smiliar for each loop
-to process any reponse data in to its accociated answer field. I will try to get enough test data tomorrow to test. 
-Helped Rasa with PHPUnit. 
-

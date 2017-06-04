@@ -10,5 +10,5 @@ Homestead.yaml
 npm-debug.log
 .env
 database/db/*
-storage/logs/laravel.log
-storage/framework/views/*
+/storage/logs/laravel.log
+/storage/framework/views/*

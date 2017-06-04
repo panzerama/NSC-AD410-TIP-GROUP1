@@ -1,8 +1,0 @@
-Mitch Thompson
-Status Report
-4/26/2017
-
-- Completed work on UI/Mock-ups
-- Cloned team workspace into Cloud 9
-- Reviewed Trello user stories, started planning next steps for UI team. Working on assigning tasks.
-- Continuing to explore Laravel

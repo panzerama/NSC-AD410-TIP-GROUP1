@@ -1,7 +1,0 @@
-Worked with Jason to get the Models built up for Laravels Relationships.
-Had to go back and fix a couple of the relationships to account for different naming conventions. 
-Built out a test/demo page to highlight how to pull information from the data being passed to the views.
-
-I did have acouple difficulties establishing far relationships with laravel. It seems like it requres the use of eager loading to 
-preload information for the queries. I just haven't had time to get it working correctly. I opted for a middle ground solution that should 
-work well for the projects requirements. 

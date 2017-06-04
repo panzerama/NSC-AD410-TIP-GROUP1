@@ -1,7 +1,0 @@
-Kip Tatum
-Status Report
-5/19/2017
-
-1) production server is up and running so I have begun working on login code
-2) went through code that had already been pushed to cloud9 for login controller
-3) read up on Oauth and how to get that working using your code as guide

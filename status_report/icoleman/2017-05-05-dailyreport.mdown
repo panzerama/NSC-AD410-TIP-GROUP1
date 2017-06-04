@@ -1,8 +1,0 @@
-Ilsa Coleman
-Status Report
-5/5/2017
-
-- Continued working on adding features to admin pages.
-- To-do:    
-    - Update admin user stories and Trello.
-    - Work on interface between backend and frontend.

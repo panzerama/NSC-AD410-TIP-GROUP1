@@ -1,8 +1,0 @@
-Ilsa Coleman
-Status Report
-5/15/2017
-
-- Added design features to reports UI including data summaries and tables.
-- Created list of db queries needed to populate data in tables and graphs.
-- Met with Jason Monday 5/15/2017 to discuss routing data from backend to view.
-- Now reformatting code to accept data from backend. 

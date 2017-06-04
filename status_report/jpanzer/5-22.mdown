@@ -1,5 +1,0 @@
-Status Report
-
-The big success this weekend was a complete reporting process for Tips Summary, Tips by Month, and the basic reporting pull for tips by faculty. The solution requires some refactoring to allow for searching and filtering, but overcoming the issues in mutability of the query builder is a major personal win.
-
-Next steps are to continue iterating on the solution for each necessary report, to refactor to allow for passing better filtered base queries, and then creating the search filter solution.

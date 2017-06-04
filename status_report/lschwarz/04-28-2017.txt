@@ -1,5 +1,0 @@
-Made a few small changes to the data model and committed draft_5
-
-started building the create table migrations.
-
-Hope to have migrations built by Sunday morning, and backend coding in full swing starting next week.

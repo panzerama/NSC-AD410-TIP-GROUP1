@@ -1,5 +1,0 @@
-#STatus report
-
-- Incremental additions to the database seeding, improving testing for the tips team
-- Early refactoring for the search and filtering functions
-- creating a model factory that enables instant, single-command database seeding by Sunday, full search and filtering by Friday.

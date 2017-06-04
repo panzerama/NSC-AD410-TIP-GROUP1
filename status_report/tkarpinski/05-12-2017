@@ -1,3 +1,0 @@
-Commited a new model update to fix relationships for tips questionnaire. 
-Tried to come up with a more efficient solution but laravel relationships seem to break down after linking though three tables. 
-Will start on creating a new tip and saving an inprocess tip next.

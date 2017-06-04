@@ -1,7 +1,0 @@
-04-24-2017 Luke Schwarz
-
-Messed around with clound9 and github for hours and hours
-
-Made a migration for laravel to create a tips table
-
-made a how-to document for starting a workspace in cloud9

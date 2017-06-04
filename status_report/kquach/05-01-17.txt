@@ -1,9 +1,0 @@
-Khang Quach
-05-01-17
-status updates
-
-Moved migrations
-learn foreign key constraints with laravel
-install tinker
-commit and merge migrations with master
-finish db design

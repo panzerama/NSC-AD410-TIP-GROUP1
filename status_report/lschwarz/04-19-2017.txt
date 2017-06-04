@@ -1,5 +1,0 @@
-04-19-2017
-
-submitted possibly finalized EER data diagram
-
-Began learning Laravel PHP framework by watching laracast tutorials.

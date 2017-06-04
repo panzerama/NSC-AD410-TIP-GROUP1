@@ -1,9 +1,0 @@
-Khang Quach
-05-03-17
-status updates
-
-merge to master with front end
-fixing routes for restful routes
-go over what methods are needed in order to create tips page
-essentially decide whether to user AJAX to update edit questions page
-work on branching issues.

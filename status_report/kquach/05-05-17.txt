@@ -1,7 +1,0 @@
-Khang Quach
-05/05/17
-status update
-
-Get familiar with artisan tinker
-merge tip-questionaire branch with master
-upload test data through tinker.

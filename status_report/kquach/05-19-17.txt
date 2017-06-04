@@ -1,8 +1,0 @@
-Khang Quach
-05-19-17
-status report
-
--Insert data into database
--populate data for edit question
--edit database according to needs of edit question branch 
--start working on update and save method for tips

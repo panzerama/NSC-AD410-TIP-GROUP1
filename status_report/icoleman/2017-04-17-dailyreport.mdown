@@ -1,9 +1,0 @@
-Ilsa Coleman
-Status Report
-4/17/2017
-
-- Created some preliminary mockups for admin pages of application.
-- Attended Monday 4/17/17 night mockups and UI flows meeting.
-- To-do:
-  - Continue working on admin mockups for meeting with front-end group Tuesday 5pm.
-

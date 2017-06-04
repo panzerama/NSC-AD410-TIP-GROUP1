@@ -1,7 +1,0 @@
-04-14-2017
-Lucas Schwarz
-
-Continued mulling over database redesign
-
-Started looking at Laravel framework and what that means
-

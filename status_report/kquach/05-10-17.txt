@@ -1,8 +1,0 @@
-Khang Quach
-05-10-17
-status update
-
-Populate data for questions, answers 
-Populate data for tips and tips_question
-Think of ways to create template table
-Think about working on Edit_tips

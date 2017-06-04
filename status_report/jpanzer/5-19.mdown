@@ -1,7 +1,0 @@
-#Status report
-#5-19
-
-- Built first of dynamic queries
-- Codified data format with Ilsa
-- updates to Travis/Michael
-- design pattern for query builder determined

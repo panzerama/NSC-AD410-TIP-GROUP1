@@ -1,7 +1,0 @@
-Mitch Thompson
-Status Report
-5/1/2017
-
-- Created views/routes/controller for faculty & admin pages with placeholder HTML.
-- Coded Contact Admin page with form. Not currently functional. 
-- Followed up with Bonnie, Bryson, and Ilsa re: their coding tasks. 

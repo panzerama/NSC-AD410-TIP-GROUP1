@@ -1,6 +1,0 @@
-#Status Report
-## 5-17-17
-
-- started in on the first of the queries, making incremental progress
-- Slowed down with the issues in retrieving date, but travis thinks he has a solution
-- finished peer review, handed it in. still waiting on confirmation fo prior peer review

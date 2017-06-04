@@ -1,6 +1,0 @@
-Mitch Thompson
-Status Report
-4/24/2017
-
-- Worked on UI/Mock-ups for Edit Questions on Admin view
-- Watched Laracast videos on Laraval and Blade

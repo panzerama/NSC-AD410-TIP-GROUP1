@@ -1,8 +1,0 @@
-Status report
-JD
-
-- Completed a test of Travis's suggested search method. This is key to the completion of the admin reporting tool.
-- Todo this weekend:
-	-ensure that michael has all the files he needs for a dev instance
-	-integrate the search tool with our required filters
-	-communicate api for search to bryson, ilsa, and aaron

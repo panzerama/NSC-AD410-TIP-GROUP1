@@ -1,2 +1,0 @@
-Not a ton of progress due to holiday weekend, so no new changes to report.
-Testing for the SessionController should happen today or tomorrow.

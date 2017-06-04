@@ -1,5 +1,0 @@
--Learning Laravel
--Creating a Login System
--Start to do mockups
--Workflow of the backend
--MVC components through Laravel
