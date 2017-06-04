@@ -76,4 +76,3 @@ Route::get('/logout', 'SessionsController@destroy'); // Log Out
  Route::get('/tipsbymonth-test','ReportsControllerDev@tipsbymonthtest'); // testing data display
  Route::get('/tipsbydivision-test','ReportsControllerDev@tipsbydivisiontest'); // testing data display
  Route::get('/reports/results','ReportsController@show'); // Display Reports
-

@@ -124,6 +124,7 @@ class ReportsController extends Controller
         
         //building a collection based on the query lets us manipulate the data
         //in a safe way.
+        
         $summary_query
             ->select('tips.*', 'faculty.*')
             ->join('faculty_tips', 

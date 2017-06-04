@@ -15,7 +15,7 @@ class ReportFilter {
         $base_query = DB::table('tips');
         $query = 
             static::applyDecoratorsFromRequest($filters, $base_query);
-            return static::getResults($query);
+            return $query;
     }
     
     private static function applyDecoratorsFromRequest(Request $filters, Builder $query){
