@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use DB;
 
 class AdminController extends Controller
 {
-    //admin
     public function index(){
         return view('admin/index');
     }
@@ -14,7 +14,9 @@ class AdminController extends Controller
     }
     
     public function show(){
-        return view('admin/show');
+        $faculty = DB::table('faculty')->get();
+        
+        return view('admin/show', compact('faculty'));
     }
     
     public function destroy(){

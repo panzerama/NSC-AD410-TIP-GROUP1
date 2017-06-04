@@ -1,15 +1,21 @@
 @extends('layouts.admin-app')
 
-@section('title', 'Inactivate User')
+@section('title', 'Faculty List')
 
 @section('content')
+
+@foreach($faculty as $Singlefaculty)
+Name: {{ $Singlefaculty->faculty_name }}<br>
+Email: {{ $Singlefaculty->email }}
+<br><br>
+@endforeach
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
         <div class="col-lg-12">
-            <h2>Inactivate User</h2>
+            <h2>Faculty List</h2>
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                  <h5>Enter the email address of the user to inactivate</h5>
+                  <h5>Mauris sodales euismod dolor, sit amet ultricies nisl dictum et.</h5>
                 </div>
                 <div class="ibox-content">
                     <form class="form-horizontal">
