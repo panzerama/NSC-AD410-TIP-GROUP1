@@ -9,7 +9,6 @@ use Carbon\Carbon;
 use Datatables;
 use Yajra\Datatables\Html\Builder;
 use Illuminate\Http\Request;
-
 use App\Http\Controllers\SearchController;
 
 class ReportsController extends Controller
@@ -47,21 +46,8 @@ class ReportsController extends Controller
         //pass query and array into reportsDataBuilder
         ReportsController::reportsDataBuilder($reports_array, $base_query);
         
-        //datatables broken
-        //$reports_payload = Datatables::of($reports_array)->make(true); 
+        $reports_payload = Datatables::of($reports_array)->make(true); 
         //return view with amended report array
-        return view('reports/index', ['data' => $reports_array]);
-    }
-    
-    public function filter(Request $request){
-        //init array
-        $reports_array = array();
-        //create basic query - for index, this is just 'tips'
-        $filtered_query = SearchController::filter_constructor($request);
-        //pass query and array into reportsDataBuilder
-        ReportsController::reportsDataBuilder($reports_array, $filtered_query);
-        
-        //$reports_payload = Datatables::of($reports_array)->make(true); 
         return view('reports/index', ['data' => $reports_array]);
     }
     
@@ -87,6 +73,11 @@ class ReportsController extends Controller
         ]);
         //return view('reports/table', ['html' => $table_payload]);
         return view('reports/table-data', compact('html'));
+    }
+    
+    public function table()
+    {
+        return view('reports/table');
     }
     
     private function reportsDataBuilder(&$reports_array, $base_query){

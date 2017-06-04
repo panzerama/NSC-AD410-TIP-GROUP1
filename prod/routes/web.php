@@ -64,7 +64,9 @@ Route::get('/logout', 'SessionsController@destroy'); // Log Out
  *  Reporting Routing
  ***************************/
  
- Route::get('/reports','ReportsController@index'); // Reports Splash Page
+ Route::get('/reports','ReportsController@index'); // Reports with base query
+ Route::get('/reports/filter','ReportsController@show'); // filter form calls this route
+ 
  Route::get('/table','ReportsController@table'); // Display Table
  Route::get('/table-data','ReportsController@tabledata'); // Data for table
  Route::get('/qareports','ReportsController@qareports'); // Display QA Reports
@@ -73,6 +75,5 @@ Route::get('/logout', 'SessionsController@destroy'); // Log Out
  Route::get('/summary-old','ReportsControllerDev@summaryold'); // testing data display
  Route::get('/tipsbymonth-test','ReportsControllerDev@tipsbymonthtest'); // testing data display
  Route::get('/tipsbydivision-test','ReportsControllerDev@tipsbydivisiontest'); // testing data display
- Route::get('/reports/filter','SearchController@index'); // Show Reports Filter Form
  Route::get('/reports/results','ReportsController@show'); // Display Reports
 
