@@ -1,0 +1,8 @@
+Ilsa Coleman
+Status Report
+5/31/2017
+
+- Met with group members and worked on project at 5/30/17 meeting 
+- Moved some reports to another view to simplify reports page.
+- Finally got Datatables libraries installed into Laravel and Cloud9 project.
+- Working on table functionality with Datatables library.

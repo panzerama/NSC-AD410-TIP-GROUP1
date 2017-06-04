@@ -1,0 +1,11 @@
+Mitch Thompson
+Status Report
+5/22/2017
+
+-Simplified buttons code on second page of tips-questionnaire
+	-Tweaked UI a bit as well
+-Updated tips-questionnaire branch from master
+-Met with Travis and Kenny to plan next steps for tips-questionnaire work
+-Created branch for admin contact functionality (admin-contact)
+	-updated view to correctly submit form
+	-added sendEmail function to ContactsController

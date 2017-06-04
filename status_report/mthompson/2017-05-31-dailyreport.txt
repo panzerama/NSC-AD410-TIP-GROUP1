@@ -1,0 +1,15 @@
+Mitch Thompson
+Status Report
+5/31/2017
+
+-Added ‘Back to top’ link/functionality to tips questionnaire
+-Amended form code to save draft on clicking ‘back’ so user doesn’t lose entered info
+-Tweaked previous tip UI. Added table for viewing previous tip.
+-Attended 5/30 standup meeting
+-Worked with Kenny resolving conflicts in tips-questionnaire merge
+-Added markdown for admin-contact email (was a view)
+-Started Google Doc for Documentation for Tips Questionnaire
+
+
+
+
