@@ -5,8 +5,8 @@
                 <div class="dropdown profile-element">
                         <span class="clear">
                             <span class="block m-t-xs">
-				<img src="/images/nsc_logo_t.png" height="64" width="64">&nbsp;&nbsp;&nbsp;
-                                <strong class="font-bold" color="white">Michael Fraser</strong>
+				            <img src="/images/nsc_logo_t.png" height="64" width="64">
+                            <strong class="font-bold" color="white">Michael Fraser</strong>
                             </span> 
                         </span>
                     </a>
