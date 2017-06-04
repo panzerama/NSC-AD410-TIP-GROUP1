@@ -28,6 +28,7 @@
                                 <a href="#"><h5>Quarter</h5></a>
                                 <ul class="nav nav-third-level collapse selected-filter-child" style="height: 0px;">
                                     <form name="report-filter" method="post" action="/reports/filter">
+                                        {{ csrf_field() }}
                                     <!-- By Quarter -->
                                     <label class="filter-ui-label">From:</label>
                                     <select class="form-control filter-ui-right" name="quarter-start">

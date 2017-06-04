@@ -45,8 +45,20 @@ class ReportsController extends Controller
         $base_query = SearchController::base_constructor();
         //pass query and array into reportsDataBuilder
         ReportsController::reportsDataBuilder($reports_array, $base_query);
+
+        //return view with amended report array
+        return view('reports/index', ['data' => $reports_array]);
+    }
+    
+    public function show(Request $request){
         
-        $reports_payload = Datatables::of($reports_array)->make(true); 
+        //init array
+        $reports_array = array();
+        //create basic query - for index, this is just 'tips'
+        $filtered_query = SearchController::filter_constructor($request);
+        //pass query and array into reportsDataBuilder
+        ReportsController::reportsDataBuilder($reports_array, $filtered_query);
+        
         //return view with amended report array
         return view('reports/index', ['data' => $reports_array]);
     }

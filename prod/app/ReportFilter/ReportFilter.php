@@ -2,7 +2,7 @@
 namespace App\ReportFilter;
 
 use Illuminate\Http\Request;
-use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Query\Builder;
 
 //which db models to I need
 use DB;
@@ -25,10 +25,10 @@ class ReportFilter {
             /*$decorator = static::createFilterDecorator($filterName);
             
             if(static::isValidDecorator($decorator)) {
-                $query = $decorator::apply($query, $value);*/
-            }
+                $query = $decorator::apply($query, $value);
+            }*/
         }
-        return $query; //Call to 
+        return 1; //Call to 
     }
     
     private static function createFilterDecorator($name) {
