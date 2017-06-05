@@ -5,8 +5,8 @@
                 <div class="dropdown profile-element">
                         <span class="clear">
                             <span class="block m-t-xs">
-                                
-                                <strong class="font-bold">User Name</strong>
+				<img src="/images/nsc_logo_t.png" height="64" width="64">&nbsp;&nbsp;&nbsp;
+                                <strong class="font-bold" color="white">Michael Fraser</strong>
                             </span> 
                         </span>
                     </a>
@@ -15,15 +15,15 @@
                     </ul>
                 </div>
                 <div class="logo-element">
-                    <h3>LOGO</h3>
+                    <img src="/images/nsc_logo.png" height="64" width="64"> 
                 </div>
             </li>
             <li class="<?php echo e(isActiveRoute('reports')); ?>">
                 <a href="<?php echo e(url('/reports')); ?>"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Reports</span> </a>
                 <ul class="nav nav-second-level collapse in">
-                    <li class="">
+                    <li class="active">
                         <a href="#">Report Filters<span class="fa arrow"></span></a>
-                        <ul class="nav nav-third-level collapse" style="height: 0px;">
+                        <ul class="nav nav-third-level collapse in">
                             <li class="">
                                 <a href="#"><h5>Quarter</h5></a>
                                 <ul class="nav nav-third-level collapse selected-filter-child" style="height: 0px;">
@@ -128,7 +128,7 @@
                             </ul>
                         </li>
                         <li>
-                           <a><button class="btn btn-primary btn-block">Search</button></a>
+                           <a class="report_submit_button"><button class="btn btn-primary btn-block">Search</button></a>
                         </li>
                         </form>
                     </ul>
