@@ -13,9 +13,7 @@
 
 <!-- ChartJS-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>   
-<!-- 
-<script type="text/javascript" src="js/charts-demo-data.js"></script>
--->
+
 <script>
 //----------------------------------------------------------------     
 /* Faculty participation by division */
@@ -25,17 +23,17 @@
         datasets: [
             {
                 label: "Submitted",
-                backgroundColor: 'rgba(26,179,148,0.5)',
-                borderColor: 'rgba(26,179,148,0.7)',
-                pointBackgroundColor: "rgba(26,179,148,1)",
+               backgroundColor: 'rgba(0,142,226,1)',
+                borderColor: 'rgba(0,142,226,1)',
+                pointBackgroundColor: "rgba(0,142,226,1)",
                 pointBorderColor: "#fff",
                 data: [65, 48, 29, 19, 13, 6]
             },
             {
                 label: "In-progress",
-                backgroundColor: 'rgba(220, 220, 220, 0.5)',
-                borderColor: 'rgba(220, 220, 220, 0.7)',
-                backgroundColor: 'rgba(220, 220, 220, 0.5)',
+                backgroundColor: 'rgba(220, 220, 220, 1)',
+                borderColor: 'rgba(220, 220, 220, 1)',
+                backgroundColor: 'rgba(220, 220, 220, 1)',
                 pointBorderColor: "#fff",
                 data: [5, 10, 15, 7, 20, 4]
             }
