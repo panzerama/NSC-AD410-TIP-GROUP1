@@ -224,7 +224,7 @@ class ReportsController extends Controller
         
     }
     
-     public function tabledemo()
+    public function tabledemo()
     {
         return view('reports/table-demo');
     }
@@ -245,5 +245,4 @@ class ReportsController extends Controller
     {
         return view('reports/qareports');
     }
-    
 }

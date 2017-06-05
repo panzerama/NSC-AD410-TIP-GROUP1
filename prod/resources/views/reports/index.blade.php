@@ -10,67 +10,38 @@
             <strong>Reports</strong>
         </li>
         <li>
+            <a href="qareports">Q/A Reports</a>
+        </li>
+        <li>
             <a href="table">Data Table</a>
         </li>
     </ol>
 </div>
 
-
-<div class="wrapper wrapper-content">    
+<div class="wrapper wrapper-content">   
 <div class="row">
             <div class="col-lg-6">
                 <div class="col-lg-12">
-                    <!-- reports summary -->
-                    @include('reports.summary')
+                    <!-- Summary Report -->
+                    @include('reports.summary-demo')
                 </div>
             
             <div class="col-lg-12">
                     <!-- Tips By Month Report -->
-                    @include('reports.tips-by-month')
+
+                    @include('reports.tips-by-month-demo')
+
                 </div>
                 </div>
 
-            
             <div class="col-lg-6">
                     <!-- Tips By Division Report -->
-                    @include('reports.tips-by-division')
+
+                    @include('reports.tips-by-division-demo')
             </div>  
 </div>        
-    
-            
-<div class="row">
-    <div class="col-lg-6">
-        <div class="col-lg-12">
-            <div class="ibox float-e-margins">  
-                <div class="row">
-                
-                    @include('reports.evidence-change-needed')
-                    
-                    @include('reports.how-impact-assessed')
-
-                </div>
-            </div>
-        </div>
-                
-        
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="ibox float-e-margins">  
-                
-                    @include('reports.type-of-change')
-                    
-                    @include('reports.new-opportunities')
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-
-        <div class="col-lg-6">
-                     @include('reports.primary-elo-added')
-        </div>
 </div>
-                
+
 <div class="wrapper wrapper-content animated fadeInRight">
             <div class="row">
                 <div class="col-lg-12">
@@ -169,20 +140,7 @@
                         <td class=""></td>
                     </tr>
                     </tbody>
-                    <tfoot>
-                    <tr>
-                    <th rowspan="1" colspan="1">Division</th>
-                    <th rowspan="1" colspan="1">Faculty Name</th>
-                    <th rowspan="1" colspan="1">Group or Individual</th>
-                    <th rowspan="1" colspan="1">Course Prefix</th>
-                    <th rowspan="1" colspan="1">Course Number</th>
-                    <th rowspan="1" colspan="1">Quarter</th>
-                    <th rowspan="1" colspan="1">Year</th>
-                    <th rowspan="1" colspan="1">Status</th>
-                    <th rowspan="1" colspan="1">Date</th>
-                    <th rowspan="1" colspan="1">View TIP</th>
-                    </tr>
-                    </tfoot>
+                    
                     </table>
                     <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
                         <ul class="pagination">

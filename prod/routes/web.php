@@ -77,7 +77,10 @@ Route::get('/logout', 'SessionsController@destroy'); // Log Out
  Route::get('/tipsbydivision-test','ReportsControllerDev@tipsbydivisiontest'); // testing data display
  Route::get('/reports/filter','ReportsController@create'); // Show Reports Filter Form
  Route::get('/reports/results','ReportsController@show'); // Display Reports
- Route::get('/reports-demo','ReportsController@reportsdemo'); // demo for 2-pg reports
- Route::get('/table-demo','ReportsController@tabledemo'); // demo for 2-pg reports
- Route::get('/qareports','ReportsController@qareports'); // demo for 2-pg reports
+ Route::get('/qareports','ReportsController@qareports'); // Display QA Reports
+ Route::get('/summary-demo','ReportsControllerDev@summarydemo'); // testing data display
+ Route::get('/tipsbymonth-demo','ReportsControllerDev@tipsbymonthdemo'); // testing data display
+ Route::get('/tipsbydivision-demo','ReportsControllerDev@tipsbydivisiondemo'); // testing data display
+ Route::get('/reports-demo','ReportsController@reportsdemo'); // testing data display
+ Route::get('/table-demo','ReportsControllerDev@tabledemo'); // testing data display
 

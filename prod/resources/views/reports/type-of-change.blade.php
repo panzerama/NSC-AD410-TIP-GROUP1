@@ -26,14 +26,15 @@
     labels: ["1", "2", "3", "4", "5", "6", "7"],
     datasets: [
         {
-            backgroundColor: 'rgba(0,142,226,1)',
-            borderColor: "rgba(0,142,226,1)",
+            backgroundColor: 'rgba(0,142,226,0.5)',
+            borderColor: "rgba(0,142,226,0.7)",
             pointBackgroundColor: "rgba(0,142,226,1)",
             pointBorderColor: "#fff",
             data: [28, 48, 40, 19, 86, 27, 50]
         }
     ]
     };
+
     var barOptions2 = {
         legend: { display: false,
             responsive: true, 

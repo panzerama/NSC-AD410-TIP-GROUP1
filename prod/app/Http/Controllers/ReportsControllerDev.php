@@ -94,9 +94,23 @@ class ReportsControllerDev extends Controller
             ->with('countByDivisionInprogress',json_encode($countByDivisionInprogress,JSON_NUMERIC_CHECK));
     }
     
-     public function tabledev()
+     public function summarydemo()
     {
-        return view('reports/table-dev');
+        return view('reports/summary-demo');
+    }
+    
+     public function tipsbymonthdemo()
+    {
+        return view('reports/tips-by-month-demo');
+    }
+    
+     public function tipsbydivisiondemo() {
+        return view('reports/tips-by-division-demo');
+    }
+    
+    
+     public function tabledemo() {
+        return view('reports/table-demo');
     }
     
 }

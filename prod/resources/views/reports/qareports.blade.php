@@ -8,13 +8,13 @@
 <h2>Reports Dashboard</h2>
     <ol class="breadcrumb">
         <li>
-            <a href="reports-demo">Reports</a>
+            <a href="reports">Reports</a>
         </li>
         <li class="active">
             <strong>Q/A Reports</strong>
         </li>
         <li>
-            <a href="table-demo">Data Table</a>
+            <a href="table">Data Table</a>
         </li>
     </ol>
 </div>
@@ -57,5 +57,6 @@
 
 <!-- ChartJS-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>   
+
 
 @endsection

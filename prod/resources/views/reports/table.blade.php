@@ -9,12 +9,14 @@
         <li>
             <a href="reports">Reports</a>
         </li>
+        <li>
+            <a href="qareports">Q/A Reports</a>
+        </li>
         <li class="active">
             <strong>Data Table</strong>
         </li>
     </ol>
 </div>
-
 
 <div class="wrapper wrapper-content animated fadeInRight">
             <div class="row">
@@ -114,20 +116,7 @@
                         <td class=""></td>
                     </tr>
                     </tbody>
-                    <tfoot>
-                    <tr>
-                    <th rowspan="1" colspan="1">Division</th>
-                    <th rowspan="1" colspan="1">Faculty Name</th>
-                    <th rowspan="1" colspan="1">Group or Individual</th>
-                    <th rowspan="1" colspan="1">Course Prefix</th>
-                    <th rowspan="1" colspan="1">Course Number</th>
-                    <th rowspan="1" colspan="1">Quarter</th>
-                    <th rowspan="1" colspan="1">Year</th>
-                    <th rowspan="1" colspan="1">Status</th>
-                    <th rowspan="1" colspan="1">Date</th>
-                    <th rowspan="1" colspan="1">View TIP</th>
-                    </tr>
-                    </tfoot>
+                    
                     </table>
                     <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
                         <ul class="pagination">
