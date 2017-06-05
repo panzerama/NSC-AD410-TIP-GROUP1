@@ -3,6 +3,22 @@
 @section('title', 'TIPS Admin')
 
 @section('content')
+
+<div class="row wrapper border-bottom white-bg page-heading">
+<h2>Reports Dashboard</h2>
+    <ol class="breadcrumb">
+        <li>
+            <a href="reports">Reports</a>
+        </li>
+        <li>
+            <a href="qareports">Q/A Reports</a>
+        </li>
+        <li class="active">
+            <strong>Table</strong>
+        </li>
+    </ol>
+</div>
+
 <div class="row">
         <!-- debugging -->
 <!--{{ print_r($data) }}-->
