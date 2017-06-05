@@ -66,7 +66,6 @@ Route::get('/logout', 'SessionsController@destroy'); // Log Out
  
  Route::get('/reports','ReportsController@index'); // Reports Splash Page
  Route::get('/table','ReportsController@table'); // Display Table
- Route::get('/table-data','ReportsController@tabledata'); // Data for table
  Route::get('/qareports','ReportsController@qareports'); // Display QA Reports
  Route::get('/reports-old','ReportsControllerDev@indexold'); // Reports Splash Page (under development)
  Route::get('/table-dev','ReportsControllerDev@tabledev'); //Display Table (under development)

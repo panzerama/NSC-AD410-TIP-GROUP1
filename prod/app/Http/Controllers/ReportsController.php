@@ -50,7 +50,7 @@ class ReportsController extends Controller
         return view('reports/index', ['data' => $reports_array]);
     }
     
-    public function tabledata(Builder $builder)
+    public function table()
     {
         //return all tips with division and faculty, let frontend
         //sort out what's displayed
@@ -60,24 +60,10 @@ class ReportsController extends Controller
         
         //get collection of table info
         $table_array = $table_query->get();
-        
-        //format the table info so that datatables can use the information
-       // $table_payload = Datatables::of($table_query)->make(true);
-        return Datatables::of($table_query)->make(true);
-       
-        $html = $builder->columns([
-            ['data' => 'division_id', 'name' => 'division_id', 'title' => 'Division'],
-            ['data' => 'faculty_name', 'name' => 'faculty_name', 'title' => 'Faculty Name'],
-            ['data' => 'course_number', 'name' => 'course_number', 'title' => 'Course Number'],
-        ]);
-        //return view('reports/table', ['html' => $table_payload]);
-        return view('reports/table-data', compact('html'));
+
+        return view('reports/table', ['data' => $table_array]);
     }
     
-    public function table()
-    {
-        return view('reports/table');
-    }
     
     private function reportsDataBuilder(&$reports_array, $base_query){
         // aggregator that assembles the various data points for reporting

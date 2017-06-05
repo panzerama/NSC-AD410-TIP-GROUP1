@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="{!! asset('css/app.css', true) !!}" />
     <link rel="stylesheet" href="{!! asset('css/custom.css', true) !!}" />
     
+    @yield('page-style-files')
+    
 </head>
 <body>
 
@@ -43,4 +45,8 @@
 @show
 
 </body>
+
+@yield('page-js-files')
+@yield('page-js-script')
+  
 </html>

@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="<?php echo asset('css/app.css', true); ?>" />
     <link rel="stylesheet" href="<?php echo asset('css/custom.css', true); ?>" />
     
+    <?php echo $__env->yieldContent('page-style-files'); ?>
+    
 </head>
 <body>
 
@@ -43,4 +45,8 @@
 <?php echo $__env->yieldSection(); ?>
 
 </body>
+
+<?php echo $__env->yieldContent('page-js-files'); ?>
+<?php echo $__env->yieldContent('page-js-script'); ?>
+  
 </html>
