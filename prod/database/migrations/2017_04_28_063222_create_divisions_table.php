@@ -21,7 +21,6 @@ class CreateDivisionsTable extends Migration
             $table->boolean('is_active');
             $table->timestamps();
         });
-        
     }
 
     /**
