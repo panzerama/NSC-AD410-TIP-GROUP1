@@ -1,0 +1,13 @@
+Bryson Good
+6-5-17	
+Status Report
+
+1: What have you completed since the last report?
+* Learned what gulp is and how that is used to turn sass files into css.
+* update the app css to have a feel similar to that of canvas.
+
+2: What do you plan to complete by the next report?
+* write documentation and help with any remaining tasks
+
+3: What is getting in your way?
+* Getting ill multiple times over the quarter has affected the amount of time I was able to apply to both this project and other classes.
