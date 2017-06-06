@@ -4,37 +4,67 @@
 
 @section('content')
 
-@foreach($faculty as $Singlefaculty)
-Name: {{ $Singlefaculty->faculty_name }}<br>
-Email: {{ $Singlefaculty->email }}
-<br><br>
-@endforeach
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
         <div class="col-lg-12">
             <h2>Faculty List</h2>
+            <br><br>
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                  <h5>Mauris sodales euismod dolor, sit amet ultricies nisl dictum et.</h5>
+                  <h5>Active Faculty</h5>
                 </div>
                 <div class="ibox-content">
-                    <form class="form-horizontal">
-                        {{ csrf_field() }}
-                        <div class="form-group">
-                               <label class="col-sm-2 control-label">Email</label>
-                               <div class="col-sm-8">
-                                   <input type="email" required class="form-control" name="email">
-                               </div>
-                           </div>
-                           <br><br>
-                           <div class="form-group">
-                               <div class="col-sm-3 col-md-offset-9">
-                                   <button class="btn btn-lg btn-block btn-primary" value="add" name="add" type="submit">Inactivate User</button>
-                               </div>
-                           </div><!--form-group-->
-                    </form>
-                </div>
+                        <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Change Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($faculty as $Singlefaculty)
+                                @if(!$Singlefaculty->is_admin && $Singlefaculty->is_active)
+                                    <tr>
+                                        <td>{{ $Singlefaculty->faculty_name }}</td>
+                                        <td>{{ $Singlefaculty->email }}</td>
+                                        <td><a href="{{ url('/admin/update') }}/{{ $Singlefaculty->faculty_id }}/active" class="btn btn-primary">Make Inactive</button></td>
+                                    </tr>
+                                @endif
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div><!-- ibox -content -->
             </div><!-- ibox -->
+            
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                  <h5>Inactive Faculty</h5>
+                </div>
+                <div class="ibox-content">
+                        <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Change Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($faculty as $Singlefaculty)
+                                @if(!$Singlefaculty->is_admin && !$Singlefaculty->is_active)
+                                    <tr>
+                                        <td>{{ $Singlefaculty->faculty_name }}</td>
+                                        <td>{{ $Singlefaculty->email }}</td>
+                                        <td><a href="{{ url('/admin/update') }}/{{ $Singlefaculty->faculty_id }}/inactive" class="btn btn-primary">Make Active</button></td>
+                                    </tr>
+                                @endif
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div><!-- ibox -content -->
+            </div><!-- ibox -->
+            
         </div><!-- col-lg-12 -->
     </div><!-- row -->
 </div><!-- wrapper -->
