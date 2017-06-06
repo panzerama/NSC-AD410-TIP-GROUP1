@@ -14,8 +14,6 @@ class Division {
      */
     public static function apply($builder, $value) {
         
-        $builder
-            ->join('divisions', 'divisions.division_id', '=', 'tips.division_id');
         return $builder->where('divisions.abbr', $value);
         
     }

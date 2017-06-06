@@ -16,7 +16,7 @@ class Course {
         if($value == 'all') {
             return $builder;
         } else {
-        return $builder->where('tips.course_name', 'like', $value);
+        return $builder->where('tips.course_name', 'like', '%' . $value . '%');
         }
     }
 }

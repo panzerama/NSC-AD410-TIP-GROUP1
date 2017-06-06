@@ -96,6 +96,8 @@
                                     <label for="all-tips">All</label>
                                 </div>
                             </div>
+                            <label class="filter-ui-label nav-full-width">Search Answer By Keyword(s):</label>
+                                    <input type="text" class="form-control nav-full-width" style="margin-bottom: 10px;" name="keyword">
                         </ul>
                     </li>
                         <!--<li>
@@ -126,8 +128,6 @@
                                         <option>Dynamic Option 3</option>
                                         <option>Dynamic Option 4</option>
                                     </select>
-                                <label class="filter-ui-label nav-full-width">Search Answer By Keyword(s):</label>
-                                    <input type="text" class="form-control nav-full-width" style="margin-bottom: 10px;" name="keyword">
                             </ul>
                         </li>-->
                         <li>

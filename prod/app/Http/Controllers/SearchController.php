@@ -15,7 +15,10 @@ class SearchController extends Controller
     //returns the base search query for reporting
     public static function base_constructor(){
         Log::info('state of Search Controller: base_constructor');
-        $base_query = DB::table('tips');
+        $base_query = DB::table('tips')
+            ->join('divisions', 'divisions.division_id', '=', 'tips.division_id')
+            ->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')
+            ->join('faculty', 'faculty_tips.faculty_id', '=', 'faculty.faculty_id');
         return DB::table('tips');
     }
     

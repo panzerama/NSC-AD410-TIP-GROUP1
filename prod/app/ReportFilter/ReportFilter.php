@@ -12,7 +12,10 @@ use Illuminate\Support\Facades\Log;
 class ReportFilter {
     
     public static function apply(Request $filters){
-        $base_query = DB::table('tips');
+        $base_query = DB::table('tips')
+            ->join('divisions', 'divisions.division_id', '=', 'tips.division_id')
+            ->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')
+            ->join('faculty', 'faculty_tips.faculty_id', '=', 'faculty.faculty_id');
         $query = 
             static::applyDecoratorsFromRequest($filters, $base_query);
             return $query;
