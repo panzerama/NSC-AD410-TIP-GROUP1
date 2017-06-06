@@ -1,0 +1,6 @@
+#Status Report
+
+Added in search filter, integrated into site
+Testing continues. The challenge is fine-tuning the queries and how they're fed to reports
+Next Step: generating menu options from the database
+
