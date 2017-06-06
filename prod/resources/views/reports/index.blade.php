@@ -41,6 +41,8 @@
                     <!-- Tips By Division Report -->
                     @include('reports.tips-by-division')
             </div>  
+            
+           
 </div>        
 </div>
                 
@@ -185,3 +187,19 @@
 <!--<script type="text/javascript" src="js/charts-demo-data.js"></script>-->
 
 @endsection
+
+@section('page-js-files')
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-2.2.4/jszip-3.1.3/pdfmake-0.1.27/dt-1.10.15/b-1.3.1/b-flash-1.3.1/b-html5-1.3.1/b-print-1.3.1/datatables.min.js"></script>
+@stop
+
+@section('page-style-files')
+ <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-2.2.4/jszip-3.1.3/pdfmake-0.1.27/dt-1.10.15/b-1.3.1/b-flash-1.3.1/b-html5-1.3.1/b-print-1.3.1/datatables.min.css"/>
+@stop
+
+@section('page-js-script')
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#DataTables_Table_0').DataTable();
+    });
+</script>
+@stop
