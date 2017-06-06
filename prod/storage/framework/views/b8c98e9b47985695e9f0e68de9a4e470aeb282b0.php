@@ -5,7 +5,7 @@
         </div>
         <ul class="nav navbar-top-links navbar-right">
             <li>
-                <button class="btn btn-primary">?</button>
+                <button class="btn btn-primary"><a href="<?php echo e(url('/contact')); ?>">?</a></button>
             </li>
             <li>
                 <a href="#">
