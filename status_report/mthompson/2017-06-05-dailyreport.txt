@@ -1,0 +1,12 @@
+Mitch Thompson
+Status Report
+6/05/2017
+
+-Created small-features branch for work on Admin Management & Faculty List
+-Added logic for AdminController show() function to query the database for faculty then return to view. Faculty List view outputs name & email of each for testing.
+-Updated sidebar nav links and changed inactivate user to faculty list
+
+
+
+
+
