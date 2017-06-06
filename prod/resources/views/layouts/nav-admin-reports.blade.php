@@ -59,11 +59,11 @@
                     <li>
                         <a><h5>Tips</h5></a>
                         <ul class="nav nav-third-level collapse selected-filter-child" style="height: 0px;">
-                            <label class="filter-ui-label">Tip:</label>
+                            <!--<label class="filter-ui-label">Tip:</label>
                                 <select class="form-control filter-ui-right filter-ui-select-small" name="tip">
                                     <option>Spring 2017 Tip</option>
                                     <option>Lorem Ipsum</option>
-                                </select>
+                                </select>-->
                             <label class="filter-ui-label" name="division">Division:</label>
                                 <select class="form-control filter-ui-right filter-ui-select-small" name="division">
                                     <option>Div A</option>
@@ -96,7 +96,7 @@
                             </div>
                         </ul>
                     </li>
-                        <li>
+                        <!--<li>
                             <a href="#"><h5>Question / Response</h5></a>
                             <ul class="nav nav-third-level collapse selected-filter-child" style="height: 0px;">
                                 <label class="filter-ui-label">Question:</label>
@@ -124,10 +124,10 @@
                                         <option>Dynamic Option 3</option>
                                         <option>Dynamic Option 4</option>
                                     </select>
-                                <label class="filter-ui-label nav-full-width">Search  By Keyword(s):</label>
+                                <label class="filter-ui-label nav-full-width">Search Answer By Keyword(s):</label>
                                     <input type="text" class="form-control nav-full-width" style="margin-bottom: 10px;" name="keyword">
                             </ul>
-                        </li>
+                        </li>-->
                         <li>
                            <a><button class="btn btn-primary btn-block">Filter Tips</button></a>
                         </li>

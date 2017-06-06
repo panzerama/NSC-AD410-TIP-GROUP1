@@ -15,9 +15,12 @@ class Type {
      */
     public static function apply($builder, $value) {
         
-        /*$builder
-            ->join('divisions', 'divisions.division_id', '=', 'tips.division_id');
-        return $builder->where('divisions.abbr', $value);*/
-        
+        if($value == "single-tips"){
+            return $builder->where('tips.is_group', 0);
+        } else if ($value == "group-tips"){
+            return $builder->where('tips.is_group', 1);
+        } else {
+            return $builder;   
+        }
     }
 }
