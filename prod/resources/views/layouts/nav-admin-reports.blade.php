@@ -157,7 +157,7 @@
                 <a href="{{ url('/tip/edit') }}"><i class="fa fa-table"></i> <span class="nav-label">TIPS Management</span> </a>
             </li>
             <li class="{{ isActiveRoute('admin/show') }}">
-                <a href="{{ url('/admin/show') }}"><i class="fa fa-star"></i> <span class="nav-label">Inactivate User</span> </a>
+                <a href="{{ url('/admin/show') }}"><i class="fa fa-star"></i> <span class="nav-label">Faculty List</span> </a>
             </li>
             
         </ul>
