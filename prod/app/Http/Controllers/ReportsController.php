@@ -184,8 +184,8 @@ class ReportsController extends Controller
         $by_month_query = clone $base_query;
         $by_month_collection = 
             $by_month_query->select('tips.*')
-                           ->whereDate('updated_at', '>', $school_year_start)
-                           ->whereDate('updated_at', '<', $school_year_end)
+                           ->whereDate('tips.updated_at', '>', $school_year_start)
+                           ->whereDate('tips.updated_at', '<', $school_year_end)
                            ->get();
         
         // build an array of months using the school year start and end

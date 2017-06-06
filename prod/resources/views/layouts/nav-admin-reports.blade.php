@@ -32,7 +32,7 @@
                                     <!-- By Quarter -->
                                     <label class="filter-ui-label">From:</label>
                                     <select class="form-control filter-ui-right" name="quarter-start">
-                                        <option>Spring 2017</option>
+                                        <option selected="selected">Spring 2017</option>
                                         <option>Summer 2017</option>
                                         <option>Fall 2017</option>
                                         <option>Winter 2017</option>
@@ -66,6 +66,7 @@
                                 </select>-->
                             <label class="filter-ui-label" name="division">Division:</label>
                                 <select class="form-control filter-ui-right filter-ui-select-small" name="division">
+                                    <option selected="selected">All</option>
                                     <option>Div A</option>
                                     <option>Div B</option>
                                     <option>Div C</option>
@@ -74,6 +75,7 @@
                                 </select>
                             <label class="filter-ui-label">Course:</label>
                                 <select class="form-control filter-ui-right filter-ui-select-small" name="course">
+                                    <option selected="selected">All</option>
                                     <option>Course A</option>
                                     <option>Course B</option>
                                     <option>Course C</option>
