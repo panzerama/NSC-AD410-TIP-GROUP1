@@ -16,30 +16,24 @@
 
 <!-- ChartJS-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>   
-<!-- 
-<script type="text/javascript" src="js/charts-demo-data.js"></script>
--->
+
 <script>
 //----------------------------------------------------------------     
 /* How impact assessed */
 //----------------------------------------------------------------     
-    var barData2 = {
-    labels: ["1", "2", "3", "4", "5", "6", "7"],
-    datasets: [
-        {
-            backgroundColor: 'rgba(26,179,148,0.5)',
-            borderColor: "rgba(26,179,148,0.7)",
-            pointBackgroundColor: "rgba(26,179,148,1)",
-            pointBorderColor: "#fff",
-            data: [28, 48, 40, 19, 86, 27, 50]
-        }
-    ]
-    };
-    var barOptions2 = {
-        legend: { display: false,
-            responsive: true, 
+    var doughnutData2 = {
+        labels: ["Feedback","Behavoir","Performance" ],
+        datasets: [{
+            data: [100,150,300],
+            backgroundColor: ["#254284","#008EE2","#91349B"]
+        }]
+    } ;
+    var doughnutOptions2 = {
+        responsive: true,
+            legend: { display: false,
+            position: 'right'
         }
     };
-    var ctx5 = document.getElementById("barChart2").getContext("2d");
-    new Chart(ctx5, {type: 'bar', data: barData2, options:barOptions2});
+    var ctx6 = document.getElementById("doughnutChart2").getContext("2d");
+    new Chart(ctx6, {type: 'doughnut', data: doughnutData2, options:doughnutOptions2});
 </script>

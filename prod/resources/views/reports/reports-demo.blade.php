@@ -4,26 +4,79 @@
 
 @section('content')
 <div class="row wrapper border-bottom white-bg page-heading">
-<h2>Reports Dashboard</h2>
+        <h2>Reports Dashboard</h2>
     <ol class="breadcrumb">
-        <li>
-            <a href="reports">Reports</a>
-        </li>
-        <li>
-            <a href="qareports">Q/A Reports</a>
-        </li>
         <li class="active">
-            <strong>Data Table</strong>
+            <strong>Reports</strong>
+        </li>
+        <li>
+            <a href="table-demo">Data Table</a>
         </li>
     </ol>
 </div>
+
+<div class="wrapper wrapper-content">   
+<div class="row">
+            <div class="col-lg-6">
+                <div class="col-lg-12">
+                    <!-- Summary Report -->
+                    @include('reports.summary-demo')
+                </div>
+            
+            <div class="col-lg-12">
+                    <!-- Tips By Month Report -->
+                    @include('reports.tips-by-month-demo')
+                </div>
+                </div>
+
+            <div class="col-lg-6">
+                    <!-- Tips By Division Report -->
+                    @include('reports.tips-by-division-demo')
+            </div>  
+</div>        
+</div>
+
+<div class="wrapper wrapper-content">
+<div class="row">
+    <div class="col-lg-6">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">  
+                <div class="row">
+                
+                    @include('reports.evidence-change-needed')
+                    
+                    @include('reports.how-impact-assessed')
+
+                </div>
+            </div>
+        </div>
+                
+        
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">  
+                
+                    @include('reports.type-of-change')
+                    
+                    @include('reports.new-opportunities')
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="col-lg-6">
+                     @include('reports.primary-elo-added')
+        </div>
+</div>
+</div>  
 
 <div class="wrapper wrapper-content animated fadeInRight">
             <div class="row">
                 <div class="col-lg-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>All TIPS</h5>
+                        <h5>Recent TIPS</h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -44,7 +97,7 @@
                     </div>
                     <div class="ibox-content">
 
-                         <div class="table-responsive">
+                        <div class="table-responsive">
                     <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="html5buttons">
                         <div class="dt-buttons btn-group">
                         <a class="btn btn-default buttons-copy buttons-html5" tabindex="0" aria-controls="DataTables_Table_0" href="#"><span>Copy</span></a>
@@ -116,7 +169,6 @@
                         <td class=""></td>
                     </tr>
                     </tbody>
-                    
                     </table>
                     <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
                         <ul class="pagination">
@@ -139,9 +191,9 @@
                         
 
 
+
+
 <!-- ChartJS-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>   
-<script type="text/javascript" src="js/charts-demo-data.js"></script>
-  
 
 @endsection

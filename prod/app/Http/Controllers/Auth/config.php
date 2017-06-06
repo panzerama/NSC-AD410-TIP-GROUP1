@@ -6,4 +6,4 @@ $config = [
     'redirectUri'=> 'https://dev.mycollege.tips',
     'canvasInstanceUrl'=>'https://north-seattle-college.acme.instructure.com'
 ];
-
+?>

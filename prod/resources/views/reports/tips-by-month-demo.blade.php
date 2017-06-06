@@ -14,16 +14,11 @@
 
 <!-- ChartJS-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>   
-<!-- 
 <script type="text/javascript" src="js/charts-demo-data.js"></script>
--->
 <script>
 //----------------------------------------------------------------       
 /* TIPS by month */
 //----------------------------------------------------------------   
-    var month = <?php echo $month; ?>;
-    var countByMthSubmitted = <?php echo $countByMthSubmitted; ?>;
-    var countByMthInprogress = <?php echo $countByMthInprogress; ?>;
     
     var lineData = {
         labels: month,

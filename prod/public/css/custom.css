@@ -99,7 +99,9 @@ Custom CSS file to override defaults
     color: #2D3B45;
     background-color: #FFF;
 }
-
+.navbar-default .nav > li > .report_submit_button:hover {
+    background-color: transparent;
+}
 /* Set li background-color and border */
 .nav > li.active {
   border-left: 4px solid #008EE2;
@@ -110,7 +112,10 @@ Custom CSS file to override defaults
 .nav > li.active > a {
     color: #000;
 }
-
+.navbar-default .nav > li > .nav-reports-second-level {
+    background-color: transparent;
+    color: #FFF;
+}
 
 /* 
 * Form Control 
@@ -129,16 +134,4 @@ Custom CSS file to override defaults
   background-color: #FFFFFF;
   border-color: #008EE2;
   color: #008EE2;
-}
-
-/*
-* Color Overrides
-*/
-.label-primary, .badge-primary {
-    background-color: #008EE2;
-    color: #FFFFFF;
-}
-
-.progress-bar {
-    background-color: #008EE2;
 }

@@ -7,10 +7,7 @@
 <h2>Reports Dashboard</h2>
     <ol class="breadcrumb">
         <li>
-            <a href="reports">Reports</a>
-        </li>
-        <li>
-            <a href="qareports">Q/A Reports</a>
+            <a href="reports-demo">Reports</a>
         </li>
         <li class="active">
             <strong>Data Table</strong>
@@ -116,7 +113,7 @@
                         <td class=""></td>
                     </tr>
                     </tbody>
-                    
+
                     </table>
                     <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
                         <ul class="pagination">
@@ -141,7 +138,7 @@
 
 <!-- ChartJS-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>   
+
 <script type="text/javascript" src="js/charts-demo-data.js"></script>
-  
 
 @endsection

@@ -223,4 +223,26 @@ class ReportsController extends Controller
         $reports_array[$key] = $tips_by_division;
         
     }
+    
+    public function tabledemo()
+    {
+        return view('reports/table-demo');
+    }
+    
+    public function reportsdemo()
+    {
+        //init array
+        $reports_array = array();
+        //create basic query - for index, this is just 'tips'
+        $base_query = DB::table('tips');
+        //pass query and array into reportsDataBuilder
+        ReportsController::reportsDataBuilder($reports_array, $base_query);
+        //return view with amended report array
+        return view('reports/reports-demo', ['data' => $reports_array]);
+    }
+    
+    public function qareports()
+    {
+        return view('reports/qareports');
+    }
 }
