@@ -1,0 +1,37 @@
+Michael Fraser
+Status Report 25
+Date: 06/05/2017
+
+What have you completed since the last report?
+
+1) Meeting with team on Sat to give committee meeting debrief 
+
+2) Went over where everyone is at with the app
+
+3) Met with Lucas to go over auth, got LoginController working
+
+4) Update some UI elements
+
+5) Working on documentation framework
+
+What do you plan to complete by the next report?
+
+1) Class to go over final week of work
+
+2) Work on CSS, UI, and work to keep project on track to completion 
+
+What is getting in your way?
+
+1) Time, need more hours in the day. =P
+
+
+
+
+
+
+
+
+
+
+
+
