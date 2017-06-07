@@ -25,7 +25,11 @@
                         </thead>
                         <tbody>
                          @foreach($tip_information as $tip)
-                            <tr class='clickable-row' data-href="{{ url('/tip/previous/') }}/{{$tip->tips_id}}">
+                             @if($tip->completed == "in progress")
+                                <tr class='clickable-row' data-href="{{ url('/tip') }}">
+                             @else
+                                 <tr class='clickable-row' data-href="{{ url('/tip/previous/') }}/{{$tip->tips_id}}">
+                            @endif
                                 <td>{{$tip->tips_id}}</td>
                                 <td>{{$tip->quarter}}</td>
                                 <td class="text-navy">{{$tip->year}}</td>

@@ -46,10 +46,11 @@
                  @endif
                 @endforeach          
                 <div class="form-group">
-                <div class="col-md-3">
-                       <a href='{{ url("/tip/previous") }}' class="btn btn-lg btn-block btn-warning" type="submit">Back</a>
+                    <div class="col-md-3">
+                           <a href='{{ url("/tip/previous") }}' class="btn btn-lg btn-block btn-warning" type="submit">Back</a>
+                    </div>
                 </div>
-                </div>
+                <br><br><br><br>
          </div><!-- col-lg-12 -->
     </div><!-- row -->
 </div><!-- wrapper -->
