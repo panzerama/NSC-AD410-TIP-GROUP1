@@ -4,11 +4,12 @@
 
 @section('content')
 
-@php
 
-@endphp
 
 <div class="wrapper wrapper-content animated fadeInRight">
+    @foreach ($previous_tips_query as $tip)
+        <h5> question: {{$tip->question_text}} answer: {{$tip->question_answer}} </h5>
+    @endforeach
     <div class="row">
         <div class="col-lg-12">
             <h2>Previous TIP</h2> 
@@ -25,12 +26,12 @@
                         </thead>
                         <tbody>
                             
-                        @foreach()
+                        
                             <tr>
                                 <td>1</td>
                                 <td>Spring</td>
                             </tr>
-                        @endforeach
+                        
                         </tbody>
                     </table>
                 </div><!-- ibox-content -->

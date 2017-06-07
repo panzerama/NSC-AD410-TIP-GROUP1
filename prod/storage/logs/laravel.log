@@ -1939,3 +1939,470 @@ Stack trace:
 #49 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
 #50 /home/ubuntu/workspace/prod/public/index.php(53): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
 #51 {main}  
+[2017-06-07 01:55:59] local.ERROR: ErrorException: Undefined offset: 0 in /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Support/Collection.php:1456
+Stack trace:
+#0 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Support/Collection.php(1456): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(8, 'Undefined offse...', '/home/ubuntu/wo...', 1456, Array)
+#1 /home/ubuntu/workspace/prod/app/Http/Controllers/TipsController.php(209): Illuminate\Support\Collection->offsetGet(0)
+#2 [internal function]: App\Http\Controllers\TipsController->store(Object(Illuminate\Http\Request))
+#3 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(55): call_user_func_array(Array, Array)
+#4 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(44): Illuminate\Routing\Controller->callAction('store', Array)
+#5 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Route.php(203): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(App\Http\Controllers\TipsController), 'store')
+#6 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Route.php(160): Illuminate\Routing\Route->runController()
+#7 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Router.php(559): Illuminate\Routing\Route->run()
+#8 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\Routing\Router->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#9 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(41): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#10 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Routing\Middleware\SubstituteBindings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#11 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#12 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(65): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#13 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken->handle(Object(Illuminate\Http\Request), Object(Closure))
+#14 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#15 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#16 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\View\Middleware\ShareErrorsFromSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#17 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#18 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#19 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Session\Middleware\StartSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#20 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#21 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#22 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse->handle(Object(Illuminate\Http\Request), Object(Closure))
+#23 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#24 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(59): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#25 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Cookie\Middleware\EncryptCookies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#26 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#27 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(102): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#28 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Router.php(561): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#29 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Router.php(520): Illuminate\Routing\Router->runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#30 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Router.php(498): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#31 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(174): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#32 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#33 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/CheckForMaintenanceMode.php(46): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#34 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode->handle(Object(Illuminate\Http\Request), Object(Closure))
+#35 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#36 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(102): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#37 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#38 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#39 /home/ubuntu/workspace/prod/public/index.php(53): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#40 {main}  
+[2017-06-07 02:06:14] local.ERROR: ErrorException: Undefined offset: 0 in /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Support/Collection.php:1456
+Stack trace:
+#0 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Support/Collection.php(1456): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(8, 'Undefined offse...', '/home/ubuntu/wo...', 1456, Array)
+#1 /home/ubuntu/workspace/prod/app/Http/Controllers/TipsController.php(189): Illuminate\Support\Collection->offsetGet(0)
+#2 [internal function]: App\Http\Controllers\TipsController->store(Object(Illuminate\Http\Request))
+#3 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(55): call_user_func_array(Array, Array)
+#4 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(44): Illuminate\Routing\Controller->callAction('store', Array)
+#5 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Route.php(203): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(App\Http\Controllers\TipsController), 'store')
+#6 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Route.php(160): Illuminate\Routing\Route->runController()
+#7 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Router.php(559): Illuminate\Routing\Route->run()
+#8 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\Routing\Router->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#9 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(41): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#10 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Routing\Middleware\SubstituteBindings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#11 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#12 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(65): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#13 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken->handle(Object(Illuminate\Http\Request), Object(Closure))
+#14 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#15 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#16 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\View\Middleware\ShareErrorsFromSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#17 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#18 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#19 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Session\Middleware\StartSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#20 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#21 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#22 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse->handle(Object(Illuminate\Http\Request), Object(Closure))
+#23 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#24 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(59): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#25 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Cookie\Middleware\EncryptCookies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#26 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#27 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(102): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#28 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Router.php(561): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#29 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Router.php(520): Illuminate\Routing\Router->runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#30 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Router.php(498): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#31 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(174): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#32 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#33 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/CheckForMaintenanceMode.php(46): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#34 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode->handle(Object(Illuminate\Http\Request), Object(Closure))
+#35 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#36 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(102): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#37 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#38 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#39 /home/ubuntu/workspace/prod/public/index.php(53): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#40 {main}  
+[2017-06-07 02:13:01] local.ERROR: ErrorException: Undefined offset: 0 in /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Support/Collection.php:1456
+Stack trace:
+#0 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Support/Collection.php(1456): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(8, 'Undefined offse...', '/home/ubuntu/wo...', 1456, Array)
+#1 /home/ubuntu/workspace/prod/app/Http/Controllers/TipsController.php(188): Illuminate\Support\Collection->offsetGet(0)
+#2 [internal function]: App\Http\Controllers\TipsController->store(Object(Illuminate\Http\Request))
+#3 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(55): call_user_func_array(Array, Array)
+#4 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(44): Illuminate\Routing\Controller->callAction('store', Array)
+#5 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Route.php(203): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(App\Http\Controllers\TipsController), 'store')
+#6 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Route.php(160): Illuminate\Routing\Route->runController()
+#7 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Router.php(559): Illuminate\Routing\Route->run()
+#8 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\Routing\Router->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#9 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(41): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#10 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Routing\Middleware\SubstituteBindings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#11 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#12 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(65): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#13 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken->handle(Object(Illuminate\Http\Request), Object(Closure))
+#14 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#15 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#16 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\View\Middleware\ShareErrorsFromSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#17 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#18 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#19 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Session\Middleware\StartSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#20 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#21 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#22 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse->handle(Object(Illuminate\Http\Request), Object(Closure))
+#23 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#24 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(59): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#25 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Cookie\Middleware\EncryptCookies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#26 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#27 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(102): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#28 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Router.php(561): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#29 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Router.php(520): Illuminate\Routing\Router->runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#30 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Router.php(498): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#31 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(174): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#32 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#33 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/CheckForMaintenanceMode.php(46): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#34 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode->handle(Object(Illuminate\Http\Request), Object(Closure))
+#35 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#36 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(102): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#37 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#38 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#39 /home/ubuntu/workspace/prod/public/index.php(53): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#40 {main}  
+[2017-06-07 02:16:05] local.ERROR: InvalidArgumentException: Route [previousTipsIndex] not defined. in /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/UrlGenerator.php:304
+Stack trace:
+#0 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Redirector.php(154): Illuminate\Routing\UrlGenerator->route('previousTipsInd...', Array)
+#1 /home/ubuntu/workspace/prod/app/Http/Controllers/TipsController.php(276): Illuminate\Routing\Redirector->route('previousTipsInd...')
+#2 [internal function]: App\Http\Controllers\TipsController->store(Object(Illuminate\Http\Request))
+#3 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(55): call_user_func_array(Array, Array)
+#4 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(44): Illuminate\Routing\Controller->callAction('store', Array)
+#5 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Route.php(203): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(App\Http\Controllers\TipsController), 'store')
+#6 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Route.php(160): Illuminate\Routing\Route->runController()
+#7 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Router.php(559): Illuminate\Routing\Route->run()
+#8 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\Routing\Router->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#9 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(41): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#10 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Routing\Middleware\SubstituteBindings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#11 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#12 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(65): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#13 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken->handle(Object(Illuminate\Http\Request), Object(Closure))
+#14 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#15 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#16 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\View\Middleware\ShareErrorsFromSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#17 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#18 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#19 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Session\Middleware\StartSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#20 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#21 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#22 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse->handle(Object(Illuminate\Http\Request), Object(Closure))
+#23 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#24 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(59): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#25 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Cookie\Middleware\EncryptCookies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#26 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#27 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(102): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#28 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Router.php(561): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#29 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Router.php(520): Illuminate\Routing\Router->runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#30 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Router.php(498): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#31 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(174): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#32 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#33 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/CheckForMaintenanceMode.php(46): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#34 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode->handle(Object(Illuminate\Http\Request), Object(Closure))
+#35 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#36 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(102): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#37 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#38 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#39 /home/ubuntu/workspace/prod/public/index.php(53): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#40 {main}  
+[2017-06-07 02:22:48] local.ERROR: Symfony\Component\Console\Exception\RuntimeException: Too many arguments, expected arguments "command". in /home/ubuntu/workspace/prod/vendor/symfony/console/Input/ArgvInput.php:184
+Stack trace:
+#0 /home/ubuntu/workspace/prod/vendor/symfony/console/Input/ArgvInput.php(88): Symfony\Component\Console\Input\ArgvInput->parseArgument('db:seed')
+#1 /home/ubuntu/workspace/prod/vendor/symfony/console/Input/Input.php(63): Symfony\Component\Console\Input\ArgvInput->parse()
+#2 /home/ubuntu/workspace/prod/vendor/symfony/console/Command/Command.php(222): Symfony\Component\Console\Input\Input->bind(Object(Symfony\Component\Console\Input\InputDefinition))
+#3 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Console/Command.php(167): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))
+#4 /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php(826): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php(189): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\MigrateCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#6 /home/ubuntu/workspace/prod/vendor/symfony/console/Application.php(120): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#7 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(123): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#8 /home/ubuntu/workspace/prod/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#9 {main}  
+[2017-06-07 02:23:10] local.INFO: $record id: 1  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 10  
+[2017-06-07 02:23:10] local.INFO: $record id: 2  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 25  
+[2017-06-07 02:23:10] local.INFO: $record id: 3  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 24  
+[2017-06-07 02:23:10] local.INFO: $record id: 4  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 4  
+[2017-06-07 02:23:10] local.INFO: $record id: 5  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 2  
+[2017-06-07 02:23:10] local.INFO: $record id: 6  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 9  
+[2017-06-07 02:23:10] local.INFO: $record id: 7  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 3  
+[2017-06-07 02:23:10] local.INFO: $record id: 8  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 2  
+[2017-06-07 02:23:10] local.INFO: $record id: 9  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 30  
+[2017-06-07 02:23:10] local.INFO: $record id: 10  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 28  
+[2017-06-07 02:23:10] local.INFO: $record id: 11  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 20  
+[2017-06-07 02:23:10] local.INFO: $record id: 12  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 11  
+[2017-06-07 02:23:10] local.INFO: $record id: 13  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 4  
+[2017-06-07 02:23:10] local.INFO: $record id: 14  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 10  
+[2017-06-07 02:23:10] local.INFO: $record id: 15  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 4  
+[2017-06-07 02:23:10] local.INFO: $record id: 16  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 16  
+[2017-06-07 02:23:10] local.INFO: $record id: 17  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 10  
+[2017-06-07 02:23:10] local.INFO: $record id: 18  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 25  
+[2017-06-07 02:23:10] local.INFO: $record id: 19  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 8  
+[2017-06-07 02:23:10] local.INFO: $record id: 20  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 14  
+[2017-06-07 02:23:10] local.INFO: $record id: 21  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 8  
+[2017-06-07 02:23:10] local.INFO: $record id: 22  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 21  
+[2017-06-07 02:23:10] local.INFO: $record id: 23  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 20  
+[2017-06-07 02:23:10] local.INFO: $record id: 24  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 14  
+[2017-06-07 02:23:10] local.INFO: $record id: 25  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 23  
+[2017-06-07 02:23:10] local.INFO: $record id: 26  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 17  
+[2017-06-07 02:23:10] local.INFO: $record id: 27  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 20  
+[2017-06-07 02:23:10] local.INFO: $record id: 28  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 2  
+[2017-06-07 02:23:10] local.INFO: $record id: 29  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 17  
+[2017-06-07 02:23:10] local.INFO: $record id: 30  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 11  
+[2017-06-07 02:23:10] local.INFO: $record id: 31  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 19  
+[2017-06-07 02:23:10] local.INFO: $record id: 32  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 30  
+[2017-06-07 02:23:10] local.INFO: $record id: 33  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 29  
+[2017-06-07 02:23:10] local.INFO: $record id: 34  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 22  
+[2017-06-07 02:23:10] local.INFO: $record id: 35  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 22  
+[2017-06-07 02:23:10] local.INFO: $record id: 36  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 28  
+[2017-06-07 02:23:10] local.INFO: $record id: 37  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 8  
+[2017-06-07 02:23:10] local.INFO: $record id: 38  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 8  
+[2017-06-07 02:23:10] local.INFO: $record id: 39  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 20  
+[2017-06-07 02:23:10] local.INFO: $record id: 40  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 3  
+[2017-06-07 02:23:10] local.INFO: $record id: 41  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 10  
+[2017-06-07 02:23:10] local.INFO: $record id: 42  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 17  
+[2017-06-07 02:23:10] local.INFO: $record id: 43  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 6  
+[2017-06-07 02:23:10] local.INFO: $record id: 44  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 30  
+[2017-06-07 02:23:10] local.INFO: $record id: 45  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 25  
+[2017-06-07 02:23:10] local.INFO: $record id: 46  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 25  
+[2017-06-07 02:23:10] local.INFO: $record id: 47  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 2  
+[2017-06-07 02:23:10] local.INFO: $record id: 48  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 22  
+[2017-06-07 02:23:10] local.INFO: $record id: 49  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 27  
+[2017-06-07 02:23:10] local.INFO: $record id: 50  
+[2017-06-07 02:23:10] local.INFO: $faculty_member object  
+[2017-06-07 02:23:10] local.INFO: $faculty_member id: 8  
+[2017-06-07 02:34:49] local.ERROR: InvalidArgumentException: Route [/tip/previous] not defined. in /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/UrlGenerator.php:304
+Stack trace:
+#0 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Redirector.php(154): Illuminate\Routing\UrlGenerator->route('/tip/previous', Array)
+#1 /home/ubuntu/workspace/prod/app/Http/Controllers/TipsController.php(278): Illuminate\Routing\Redirector->route('/tip/previous')
+#2 [internal function]: App\Http\Controllers\TipsController->store(Object(Illuminate\Http\Request))
+#3 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(55): call_user_func_array(Array, Array)
+#4 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(44): Illuminate\Routing\Controller->callAction('store', Array)
+#5 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Route.php(203): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(App\Http\Controllers\TipsController), 'store')
+#6 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Route.php(160): Illuminate\Routing\Route->runController()
+#7 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Router.php(559): Illuminate\Routing\Route->run()
+#8 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\Routing\Router->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#9 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(41): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#10 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Routing\Middleware\SubstituteBindings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#11 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#12 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(65): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#13 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken->handle(Object(Illuminate\Http\Request), Object(Closure))
+#14 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#15 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#16 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\View\Middleware\ShareErrorsFromSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#17 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#18 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#19 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Session\Middleware\StartSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#20 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#21 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#22 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse->handle(Object(Illuminate\Http\Request), Object(Closure))
+#23 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#24 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(59): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#25 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Cookie\Middleware\EncryptCookies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#26 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#27 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(102): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#28 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Router.php(561): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#29 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Router.php(520): Illuminate\Routing\Router->runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#30 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Router.php(498): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#31 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(174): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#32 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#33 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/CheckForMaintenanceMode.php(46): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#34 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode->handle(Object(Illuminate\Http\Request), Object(Closure))
+#35 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#36 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(102): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#37 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#38 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#39 /home/ubuntu/workspace/prod/public/index.php(53): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#40 {main}  
+[2017-06-07 02:44:28] local.ERROR: ErrorException: Undefined property: stdClass::$updated_at in /home/ubuntu/workspace/prod/storage/framework/views/6099c2a1282926d660fdf837f23f8dcf02cacb80.php:14
+Stack trace:
+#0 /home/ubuntu/workspace/prod/storage/framework/views/6099c2a1282926d660fdf837f23f8dcf02cacb80.php(14): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(8, 'Undefined prope...', '/home/ubuntu/wo...', 14, Array)
+#1 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/View/Engines/PhpEngine.php(42): include('/home/ubuntu/wo...')
+#2 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/View/Engines/CompilerEngine.php(59): Illuminate\View\Engines\PhpEngine->evaluatePath('/home/ubuntu/wo...', Array)
+#3 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/View/View.php(137): Illuminate\View\Engines\CompilerEngine->get('/home/ubuntu/wo...', Array)
+#4 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/View/View.php(120): Illuminate\View\View->getContents()
+#5 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/View/View.php(85): Illuminate\View\View->renderContents()
+#6 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Http/Response.php(38): Illuminate\View\View->render()
+#7 /home/ubuntu/workspace/prod/vendor/symfony/http-foundation/Response.php(225): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#8 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Router.php(602): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#9 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Router.php(559): Illuminate\Routing\Router->prepareResponse(Object(Illuminate\Http\Request), Object(Illuminate\View\View))
+#10 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\Routing\Router->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#11 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(41): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#12 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Routing\Middleware\SubstituteBindings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#13 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#14 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(65): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#15 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken->handle(Object(Illuminate\Http\Request), Object(Closure))
+#16 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#17 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#18 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\View\Middleware\ShareErrorsFromSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#19 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#20 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#21 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Session\Middleware\StartSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#22 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#23 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#24 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse->handle(Object(Illuminate\Http\Request), Object(Closure))
+#25 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#26 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(59): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#27 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Cookie\Middleware\EncryptCookies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#28 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#29 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(102): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#30 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Router.php(561): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#31 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Router.php(520): Illuminate\Routing\Router->runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#32 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Router.php(498): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#33 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(174): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#34 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#35 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/CheckForMaintenanceMode.php(46): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#36 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode->handle(Object(Illuminate\Http\Request), Object(Closure))
+#37 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#38 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(102): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#39 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#40 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#41 /home/ubuntu/workspace/prod/public/index.php(53): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#42 {main}
+
+Next ErrorException: Undefined property: stdClass::$updated_at (View: /home/ubuntu/workspace/prod/resources/views/previoustips/index.blade.php) in /home/ubuntu/workspace/prod/storage/framework/views/6099c2a1282926d660fdf837f23f8dcf02cacb80.php:14
+Stack trace:
+#0 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/View/Engines/PhpEngine.php(44): Illuminate\View\Engines\CompilerEngine->handleViewException(Object(ErrorException), 1)
+#1 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/View/Engines/CompilerEngine.php(59): Illuminate\View\Engines\PhpEngine->evaluatePath('/home/ubuntu/wo...', Array)
+#2 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/View/View.php(137): Illuminate\View\Engines\CompilerEngine->get('/home/ubuntu/wo...', Array)
+#3 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/View/View.php(120): Illuminate\View\View->getContents()
+#4 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/View/View.php(85): Illuminate\View\View->renderContents()
+#5 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Http/Response.php(38): Illuminate\View\View->render()
+#6 /home/ubuntu/workspace/prod/vendor/symfony/http-foundation/Response.php(225): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#7 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Router.php(602): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#8 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Router.php(559): Illuminate\Routing\Router->prepareResponse(Object(Illuminate\Http\Request), Object(Illuminate\View\View))
+#9 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\Routing\Router->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#10 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(41): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#11 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Routing\Middleware\SubstituteBindings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#12 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#13 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(65): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#14 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken->handle(Object(Illuminate\Http\Request), Object(Closure))
+#15 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#16 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#17 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\View\Middleware\ShareErrorsFromSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#18 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#19 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#20 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Session\Middleware\StartSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#21 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#22 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#23 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse->handle(Object(Illuminate\Http\Request), Object(Closure))
+#24 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#25 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(59): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#26 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Cookie\Middleware\EncryptCookies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#27 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#28 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(102): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#29 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Router.php(561): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#30 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Router.php(520): Illuminate\Routing\Router->runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#31 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Router.php(498): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#32 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(174): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#33 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(30): Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#34 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/CheckForMaintenanceMode.php(46): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#35 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(148): Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode->handle(Object(Illuminate\Http\Request), Object(Closure))
+#36 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php(53): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#37 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(102): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#38 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#39 /home/ubuntu/workspace/prod/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#40 /home/ubuntu/workspace/prod/public/index.php(53): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#41 {main}  

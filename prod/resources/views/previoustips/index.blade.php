@@ -8,6 +8,13 @@
 
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
+        @foreach($tip_information as $tip)
+            <h5>tips id: {{$tip->tips_id}}</h5>
+            <h5>quarter: {{$tip->quarter}}</h5>
+            <h5>year: {{$tip->year}}</h5>
+            <h5>question_answer: {{$tip->question_answered}}</h5>
+            <h5>completed: {{$tip->completed}}</h5>
+        @endforeach
         <div class="col-lg-12">
             <h1>Previous TIPs</h1>
             <br>
