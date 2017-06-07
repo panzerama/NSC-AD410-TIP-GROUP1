@@ -16,7 +16,7 @@ class TipsController extends Controller
 
     public function index()
     {   
-        // dd(DB::table('tips')->get());
+        // dd(DB::table('faculty_tips')->get());
         // dd(DB::table('faculty_tips')->get());
         // DB::table('divisions')->insert(array(
         //     // for index view
@@ -40,7 +40,7 @@ class TipsController extends Controller
         //         'abbr' => 'ASL',
         //         'is_active' => true
         //     )
-        //     ));
+        // ));
         $faculty_id =9; // Do not change this!!
 
         
