@@ -57,9 +57,9 @@ Route::get('/login' , 'Auth\LoginController@index')->name('login'); // Login Aut
  *  Admin Routing
  ***************************/
  Route::get('/admin','AdminController@index'); // Splash Page for Admin Functions
- Route::get('/admin/create', 'AdminController@create'); // Create New Admin Form
- Route::post('/admin/create','AdminController@store'); // Submit and Store New Admin Form
- Route::get('/admin/show','AdminController@show'); //show faculty list
+ Route::get('/admin/create', 'AdminController@create');
+ Route::post('/admin/show','AdminController@store')->name('adminStore'); // Submit and Store New Admin Form
+ Route::get('/admin/show','AdminController@show'); //show faculty list // Create New Admin Form
  Route::get('/admin/update/{id}/{status}', 'AdminController@update'); //Change User Status
  
  
