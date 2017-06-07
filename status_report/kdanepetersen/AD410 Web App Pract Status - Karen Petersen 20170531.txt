@@ -1,0 +1,12 @@
+AD410 Web Application Practicum Status - Karen Petersen 20170524
+
+Have Done
+1. worked on modify questions, add/modify modal, edit list 
+2. Michael, Travis and I met with Alissa to review application.  Alissa asked for additional functionality to add new users.
+
+Issues
+1.  having issues with getting the add answer boxes to display when a specific question type is selected in the add modify form.  Need to learn more about javascript and css/html/Laravel.
+
+Next to Do
+1.  Complete button functionality
+2.  testing

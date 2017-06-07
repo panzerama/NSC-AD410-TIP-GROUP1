@@ -16,9 +16,7 @@
 
 <!-- ChartJS-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>   
-<!-- 
-<script type="text/javascript" src="js/charts-demo-data.js"></script>
--->
+
 <script>
 //----------------------------------------------------------------     
 /* New opportunities */
@@ -27,8 +25,8 @@
     labels: ["1", "2", "3", "4", "5", "6"],
     datasets: [
         {
-            backgroundColor: 'rgba(0,142,226,0.5)',
-            borderColor: "rgba(0,142,226,0.7)",
+            backgroundColor: 'rgba(0,142,226,1)',
+            borderColor: "rgba(0,142,226,1)",
             pointBackgroundColor: "rgba(0,142,226,1)",
             pointBorderColor: "#fff",
             data: [28, 48, 40, 19, 86, 27]

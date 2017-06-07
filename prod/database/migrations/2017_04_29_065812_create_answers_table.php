@@ -27,9 +27,8 @@ class CreateAnswersTable extends Migration
                 ->on('questions')
                 ->onDelete('cascade');
         });
-        
-        
-        
+
+        // Insert answers test data
     }
 
     /**

@@ -1,0 +1,15 @@
+Ilsa Coleman
+Status Report
+6/5/2017
+
+- Finally got the data table working! This was major breakthrough and
+    took a long time to troubleshoot.  The trick ended up being getting
+    all of the libraries and dependencies installed and called from the 
+    program correctly.  I tried a Laravel-specific Datatables library but
+    in the end the jQuery Datatables library worked better.
+- With the Datatables library I was able to implement search, filtering, sorting,
+    and export to csv, pdf, and print functions.
+- With Jason's help in getting the queries set up, I have also coded the data 
+    table to accept and display data from the database.
+- I am now working on recoding some data to display text rather than 1/0 for boolean
+    values, default sort by date, and add a column with a link to the actual TIP (view TIP).

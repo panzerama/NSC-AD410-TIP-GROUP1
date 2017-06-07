@@ -1,0 +1,11 @@
+AD410 Web Application Practicum Status - Karen Petersen 20170524
+
+Have Done
+1. Still working on modify questions, add/modify modal, edit list 
+
+Issues
+1.  got the display of fields to work correctly but then noticed that if you enter the data in fields, it didn't clear.  Tried to fix it and it broke the display.  Trying to figure out why.
+
+Next to Do
+1.  Complete all button functionality
+2.  testing

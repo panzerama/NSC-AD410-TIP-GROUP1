@@ -81,7 +81,7 @@ class DatabaseSeeder extends Seeder
         }
         
         //generate answers
-        factory(App\answer::class, 30)->create();
+        $this->call(AnswerSeeder::class);
     }
 }
     

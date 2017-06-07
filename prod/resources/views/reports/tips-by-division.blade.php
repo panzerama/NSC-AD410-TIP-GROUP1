@@ -4,7 +4,7 @@
                         <h5>TIPS by division</h5>
                     </div>
                     <div class="ibox-content">
-                        <div><iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+                        <div><iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 10px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
                             <canvas id="barChart1" height="120" style="display: block; height: 120px;"></canvas>
                         </div>
                     </div>
@@ -31,17 +31,17 @@
         datasets: [
             {
                 label: "Submitted",
-               backgroundColor: 'rgba(0,142,226,0.5)',
-                borderColor: 'rgba(0,142,226,0.7)',
+                backgroundColor: 'rgba(0,142,226,1)',
+                borderColor: 'rgba(0,142,226,1)',
                 pointBackgroundColor: "rgba(0,142,226,1)",
                 pointBorderColor: "#fff",
                 data: JSON.parse('<?php echo json_encode($countByDivisionSubmitted); ?>')
             },
             {
                 label: "In-progress",
-                backgroundColor: 'rgba(220, 220, 220, 0.5)',
-                borderColor: 'rgba(220, 220, 220, 0.7)',
-                backgroundColor: 'rgba(220, 220, 220, 0.5)',
+                backgroundColor: 'rgba(220, 220, 220, 1)',
+                borderColor: 'rgba(220, 220, 220, 1)',
+                backgroundColor: 'rgba(220, 220, 220, 1)',
                 pointBorderColor: "#fff",
                 data: JSON.parse('<?php echo json_encode($countByDivisionInprogress); ?>')
             }

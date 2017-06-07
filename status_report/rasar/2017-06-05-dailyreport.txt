@@ -1,0 +1,19 @@
+
+Rasa Rasiulyte
+Status Report
+
+What have you completed since the last report?
+	- worked on deactivate user functionality
+
+What do you plan to complete by the next report?
+	- work with Mitchell to figure out how can i help with faculty functionality on the inactivate user page 
+
+
+What is getting in your way?
+	- No blocking issue at the moment
+	
+
+
+
+
+
