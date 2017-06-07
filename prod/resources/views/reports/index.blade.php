@@ -10,9 +10,6 @@
             <strong>Reports</strong>
         </li>
         <li>
-            <a href="qareports">Q/A Reports</a>
-        </li>
-        <li>
             <a href="table">Data Table</a>
         </li>
     </ol>
@@ -23,13 +20,13 @@
             <div class="col-lg-6">
                 <div class="col-lg-12">
                     <!-- Summary Report -->
-                    @include('reports.summary-demo')
+                    @include('reports.summary')
                 </div>
             
             <div class="col-lg-12">
                     <!-- Tips By Month Report -->
 
-                    @include('reports.tips-by-month-demo')
+                    @include('reports.tips-by-month')
 
                 </div>
                 </div>
@@ -37,10 +34,46 @@
             <div class="col-lg-6">
                     <!-- Tips By Division Report -->
 
-                    @include('reports.tips-by-division-demo')
+                    @include('reports.tips-by-division')
             </div>  
 </div>        
 </div>
+
+<div class="wrapper wrapper-content">
+<div class="row">
+    <div class="col-lg-6">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">  
+                <div class="row">
+                
+                    @include('reports.evidence-change-needed')
+                    
+                    @include('reports.how-impact-assessed')
+
+                </div>
+            </div>
+        </div>
+                
+        
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">  
+                
+                    @include('reports.type-of-change')
+                    
+                    @include('reports.new-opportunities')
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="col-lg-6">
+                     @include('reports.primary-elo-added')
+        </div>
+</div>
+</div>  
+
 
 <div class="wrapper wrapper-content animated fadeInRight">
             <div class="row">
