@@ -42,7 +42,10 @@ $factory->define(App\faculty::class, function (Faker\Generator $faker) {
                         ->inRandomOrder()->first()->division_id,
         'faculty_name' => $faker->name,
         'email' => $faker->safeEmail,
+        /* 
+        took this out since token is dead to us. --Luke
         'token' => $faker->sha1,
+        */
         'employee_type' => $faker->randomElement(['enum', 'values']),
         'is_admin' => $faker->boolean($chanceOfGettingTrue = 2),
         'is_active' => $faker->boolean($chanceOfGettingTrue = 80)
