@@ -116,5 +116,7 @@ class LoginController extends Controller
         }
     
     }
+    
+    // destroy() go here:
 
 }
