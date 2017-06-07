@@ -30,15 +30,15 @@
 
             {
                 label: "Submitted",
-                backgroundColor: 'rgba(0,142,226,0.5)',
-                borderColor: "rgba(0,142,226,0.7)",
+                backgroundColor: 'rgba(0,142,226,0.7)',
+                borderColor: "rgba(0,142,226,1)",
                 pointBackgroundColor: "rgba(0,142,226,1)",
                 pointBorderColor: "#fff",
                 fill: true,
                 data: JSON.parse('<?php echo json_encode($countByMthSubmitted); ?>')
             },{
                 label: "In-progress",
-                backgroundColor: 'rgba(220, 220, 220, 0.7)',
+                backgroundColor: 'rgba(220, 220, 220, 0.9)',
                 pointBorderColor: "#fff",
                 fill: true,
                 data: JSON.parse('<?php echo json_encode($countByMthInprogress); ?>')

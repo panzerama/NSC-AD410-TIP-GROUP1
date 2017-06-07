@@ -31,8 +31,8 @@
         datasets: [
             {
                 label: "Submitted",
-                backgroundColor: 'rgba(0,142,226,0.5)',
-                borderColor: 'rgba(0,142,226,0.7)',
+                backgroundColor: 'rgba(0,142,226,1)',
+                borderColor: 'rgba(0,142,226,1)',
                 pointBackgroundColor: "rgba(0,142,226,1)",
                 pointBorderColor: "#fff",
                 data: JSON.parse('<?php echo json_encode($countByDivisionSubmitted); ?>')

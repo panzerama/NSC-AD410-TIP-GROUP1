@@ -26,17 +26,17 @@
         datasets: [
             {
                 label: "Submitted",
-                backgroundColor: 'rgba(0,142,226,0.5)',
-                borderColor: "rgba(0,142,226,0.7)",
+                backgroundColor: 'rgba(0,142,226,1)',
+                borderColor: "rgba(0,142,226,1)",
                 pointBackgroundColor: "rgba(0,142,226,1)",
                 pointBorderColor: "#fff",
                 data: countByDivisionSubmitted
             },
             {
                 label: "In-progress",
-                backgroundColor: 'rgba(220, 220, 220, 0.5)',
-                borderColor: 'rgba(220, 220, 220, 0.7)',
-                backgroundColor: 'rgba(220, 220, 220, 0.5)',
+                backgroundColor: 'rgba(220, 220, 220, 1)',
+                borderColor: 'rgba(220, 220, 220, 1)',
+                backgroundColor: 'rgba(220, 220, 220, 1)',
                 pointBorderColor: "#fff",
                 data: countByDivisionInprogress
             }
