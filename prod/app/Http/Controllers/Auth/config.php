@@ -1,9 +1,9 @@
 <?php
 global  $config;
 $config = [
-    'canvasClientId' => '1358940000000000001',
-    'canvasClientSecret' => 'WSAAgWP3kHAFOgbH5q4FpoIF8syLcfjrsTghd1Ybx7NYhcdGNYn9hpGY1VRakHdB',
+    'canvasClientId' => '90000000000384',
+    'canvasClientSecret' => 'jJEgbfvMKyaYO10fXFG6ISyNGKGyzNlszuA37EtAr0C6Gdu52SOBBIxVjEtyO6R0B',
     'redirectUri'=> 'https://dev.mycollege.tips',
-    'canvasInstanceUrl'=>'https://north-seattle-college.acme.instructure.com'
+    'canvasInstanceUrl'=>'https://northseattle.test.instructure.com'
 ];
 ?>
