@@ -5,7 +5,7 @@
                 <div class="dropdown profile-element">
                         <span class="clear">
                             <span class="block m-t-xs">
-				<img src="/images/nsc_logo_t.png" height="64" width="64">&nbsp;&nbsp;&nbsp;
+				<img src="/images/nsc_logo_t.png" height="64" width="64">
                                 <strong class="font-bold" color="white">Michael Fraser</strong>
                             </span> 
                         </span>
@@ -21,9 +21,9 @@
             <li class="{{ isActiveRoute('reports') }}">
                 <a href="{{ url('/reports') }}"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Reports</span> </a>
                 <ul class="nav nav-second-level collapse in">
-                    <li class="">
+                    <li class="active">
                         <a href="#">Report Filters<span class="fa arrow"></span></a>
-                        <ul class="nav nav-third-level collapse" style="height: 0px;">
+                        <ul class="nav nav-third-level collapse in">
                             <li class="">
                                 <a href="#"><h5>Quarter</h5></a>
                                 <ul class="nav nav-third-level collapse selected-filter-child" style="height: 0px;">
@@ -128,7 +128,7 @@
                             </ul>
                         </li>
                         <li>
-                           <a><button class="btn btn-primary btn-block">Search</button></a>
+                           <a class="report_submit_button"><button class="btn btn-primary btn-block">Search</button></a>
                         </li>
                         </form>
                     </ul>
@@ -157,7 +157,7 @@
                 <a href="{{ url('/tip/edit') }}"><i class="fa fa-table"></i> <span class="nav-label">TIPS Management</span> </a>
             </li>
             <li class="{{ isActiveRoute('admin/show') }}">
-                <a href="{{ url('/admin/show') }}"><i class="fa fa-star"></i> <span class="nav-label">Inactivate User</span> </a>
+                <a href="{{ url('/admin/show') }}"><i class="fa fa-star"></i> <span class="nav-label">Faculty List</span> </a>
             </li>
             
         </ul>

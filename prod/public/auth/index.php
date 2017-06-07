@@ -53,5 +53,5 @@ if (!isset($_GET[CODE])) {
     $profile_url = 'https://' . $domain . '/api/v1/users/' . $uid . '/profile?access_token=' . $token;
     $f = @file_get_contents($profile_url);
     $profile = json_decode($f);
-    echo 'This is the profile object:  ', $f;
+    echo 'This is the profile object:  ', $profile;
 }

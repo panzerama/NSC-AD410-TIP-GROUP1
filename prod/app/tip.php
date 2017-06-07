@@ -34,4 +34,9 @@ class tip extends model
     public function question(){
         return $this->belongsToMany(question::class,'tips_questions','tips_id','question_id');   
     }
+    
+    public function faculty()
+    {
+        return $this->belongsToMany('App\faculty');
+    }
 }

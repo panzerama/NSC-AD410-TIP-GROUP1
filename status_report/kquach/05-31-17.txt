@@ -1,0 +1,9 @@
+Khang Quach
+05/31/17
+status update
+
+completed functionality for save
+completed functionality for submit
+changed up questionseeder for question 1-6
+changed up front end for index and create of tips
+will work on edit tips next.

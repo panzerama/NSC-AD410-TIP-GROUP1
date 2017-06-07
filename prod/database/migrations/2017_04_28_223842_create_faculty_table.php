@@ -15,10 +15,10 @@ class CreateFacultyTable extends Migration
     {
         Schema::create('faculty', function (Blueprint $table) {
             $table->increments('faculty_id');
-            $table->integer('division_id');
+            $table->integer('division_id')->nullable();
             $table->string('faculty_name');
             $table->string('email');
-            $table->string('token');
+            $table->string('faculty_canvas_id')->nullable();
             $table->enum('employee_type', ['FULLTIME','PARTTIME'])->nullable();
             $table->boolean('is_admin');
             $table->boolean('is_active');

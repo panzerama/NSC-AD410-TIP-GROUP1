@@ -4,136 +4,124 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
-//config stuff:
-// these settings need to be changed to whatever our actual settings are.
-// redirectUri probably needs to be removed since we redirect depending on what
-// kind of user is coming into our app
-global  $config;
-$config = [
-    'canvasClientId' => '90000000000378',
-    'canvasClientSecret' => 'MTuYbZdJBuapeD0gKnbkA2mHaUMZYwPGHkQb6wvoX01sGcEksnQiBaQ80YyuVtEm',
-    'redirectUri'=> "http://www.icoolshow.net/nsc/tip",
-    'canvasInstanceUrl'=>'https://northseattle.test.instructure.com'
-];
-
-//is this required to use the CanvasLMS and the Guzzle Client?
-require_once "../vendor/autoload.php";
-
-//are these both required for us?
 use smtech\OAuth2\Client\Provider\CanvasLMS;
 use GuzzleHttp\Client;
 
-//start session
-session_start();
-
-// do we need these definitions?
-define('CODE', 'code');
-define('STATE', 'state');
-define('STATE_LOCAL', 'oauth2-state');
-// the above defined CODE gets used in the code of Pauls but do we need the rest?
-// or is this for something else entirely?
-
-// provider is our authentication provider yes/no?
-$provider = new CanvasLMS([
-    'clientId' => $config['canvasClientId'] ,
-    'clientSecret' => $config['canvasClientSecret'],
-    'purpose' => 'tip',
-    'redirectUri' => $config['redirectUri'],
-    'canvasInstanceUrl' => $config['canvasInstanceUrl']
-]);
-
-/* if we don't already have an authorization code, let's get one! */
-// here is where CODE was used. Do we even need this if statement? or do we 
-// want to just assume we have a code and if we don't than we kick them back to 
-// canvas if we don't?
-if (!isset($_GET[CODE])) {
-    $authorizationUrl = $provider->getAuthorizationUrl();
-    $_SESSION[STATE_LOCAL] = $provider->getState();
-    header("Location: $authorizationUrl");
-    exit;
-}
-else {
-    echo $_GET[CODE];
-    /* try to get an access token (using our existing code) */
-    $token = $provider->getAccessToken('authorization_code', [CODE => $_GET[CODE]]);
-    
-    //ownerDetails is just the canvas name and id associated with the token I think...
-    $ownerDetails = $provider->getResourceOwner($token);
-
-    // Use these details to create a new profile
-    $name = $ownerDetails->getName();
-    $uid= $ownerDetails->getId();
-    $domain = 'northseattle.test.instructure.com';
-
-    //use the id and the token to get the full profile from our test canvas setup
-    $profile_url = 'https://' . $domain . '/api/v1/users/' . $uid . '/profile?access_token=' . $token;
-    
-    $userFile = @file_get_contents($profile_url);
-    
-    // php built in JSON decode, 
-    $profile = json_decode($userFile);
-    
-    // now just get our email because that's all we need to check 
-    // against our faculty table
-    $email = $profile->primary_email;
-}
-
+include '/var/www/html/mycollege.tips/prod/vendor/autoload.php';
 
 class LoginController extends Controller
 {
-    
-//TODO: KIP - get the name and email
-
-    //rasar: validateEmail(name, email)
-    //takes name and email and checked against database to see if it is valid
-    public function validateEmail($name, $email)
-    {
-        $bValid = FALSE; 
+    public function index() {
+        error_reporting(E_ALL);
+        ini_set('display_errors', 1);
         
-        $users = DB::table('FACULTY')
-                       ->where('name', $name)
-                       ->where('email', $email)->get();
-                       
-        if(count($users) > 0)
-        {
-           $bValid = TRUE;
-        }
+        
+        
+        include 'config.php';
+        
+        //removed old config info
+        
+        
+        
+        //start session
+        session_start();
+        
+        
+        define('CODE', 'code');
+        define('STATE', 'state');
+        define('STATE_LOCAL', 'oauth2-state');
+        
+        $provider = new CanvasLMS([
+            'clientId' => $config['canvasClientId'] ,
+            'clientSecret' => $config['canvasClientSecret'],
+            'purpose' => 'tip',
+            'redirectUri' => $config['redirectUri'],
+            'canvasInstanceUrl' => $config['canvasInstanceUrl']
+        ]);
+        
+        $c = new Client(['verify'=>false]);
+        $provider->setHttpClient($c);
+        
+        
+        // If we don't already have an authorization code, we will get one
+        if (!isset($_GET[CODE])) {
+            $authorizationUrl = $provider->getAuthorizationUrl();
+            $_SESSION[STATE_LOCAL] = $provider->getState();
+            header("Location: $authorizationUrl");
+            exit;
+        
+        } else {
+            //echo 'This is the authorization code: ', $_GET[CODE], '<br/><br/>';
+            // try to get an access token (using our existing code) 
             
-        return $bValid;    
+            $token = $provider->getAccessToken('authorization_code', [CODE => $_GET[CODE]]);
+            
+            //echo 'The token has been fetched <br/><br/>';
+            // Use the token, and print out info
+            //echo 'This is the user token: ', $token->getToken(), '<br/><br/>';
+            
+            $ownerDetails = $provider->getResourceOwner($token);
+            
+            //echo '<br/><br/>';
+            // Use these details to create a new profile
+            //printf('Your Name: %s ', $ownerDetails->getName());
+            //echo '<br/><br/>';
+            //printf('Your id: %s ', $ownerDetails->getId());
+            //echo '<br/><br/>';
+            
+            $uid = $ownerDetails->getId();
+            $domain = 'north-seattle-college.acme.instructure.com';
+            $profile_url = 'https://' . $domain . '/api/v1/users/' . $uid . '/profile?access_token=' . $token;
+            $f = @file_get_contents($profile_url);
+            //this is object
+            $profile = json_decode($f);
+            //echo 'This is the profile object:  ', $profile;
+            
+            
+            
+            //canvas id from profile object:
+            $faculty_canvas_id = $profile->id;
+            
+            //if user has been here before a session gets created
+            if(Auth::attempt(['faculty_canvas_id' => $faculty_canvas_id])) {
+                //create instance of authenticated user
+                $user = Auth::user();
+                //get admin status
+                $userIsAdmin = $user->isAdmin;
+                
+                if($userIsAdmin) {
+                    return redirect ('/admin');
+                } else {
+                    return redirect ('/tip');
+                }
+            } else {
+                //user hasn't been here before so we'll get the details:
+                
+                // get name and email
+                $email = $profile->primary_email;
+                $name = $profile->name;
+                
+                
+                // TODO: store id, email, name into faculty table
+                DB::insert('insert into FACULTY (division_id, faculty_name, email, faculty_canvas_id, employee_type, is_admin, is_active) values(?,?,?,?,?,?,?)', [null, $name, $email, $faculty_canvas_id, null, false, true]);
+                
+                
+                //create a session for the new user
+                Auth::attempt(['faculty_canvas_id' => $faculty_canvas_id]);
+                
+                //is this right?
+                return redirect ('/account');
+            }
+            
+        }
+    
     }
     
-    public function redirect($email)
-    {
-        $bAdmin = FALSE;
-        $admin = DB::table('FACULTY')
-                    ->where('email', $email)
-                    ->where('is_admin', TRUE )->get(); 
-        
-        if(count($admin) > 0)
-        {
-            $bAdmin = TRUE;
-            //user is admin redirect to the reports index page
-            return view('home/index'); //this gets changed later to point to the correct place.
-        }
-        else
-        {
-            // if user is existing user:
-            // create a session 
-            // redirect user to tips page, only if they aren't an admin
-            if(validateEmail()) {
-                Session::put('name', $name);
-                Session::put('email', $email); 
-                return view('home/index'); //this gets changed later to point to the correct place.
-            }
-            // else:
-            // create a session
-            // direct user to confirm details page
-            else {
-                Session::put('name', $name);
-                Session::put('email', $email); 
-                return view('home/index'); //this gets changed later to point to the correct place.
-            }
-        }
+    // destroy() go here:
+    public function destroy() {
+        Auth::logout();
+        // redirect to canvas homepage or to our index page?
+        // return redirect('canvas.northseattle.edu')
     }
+
 }
