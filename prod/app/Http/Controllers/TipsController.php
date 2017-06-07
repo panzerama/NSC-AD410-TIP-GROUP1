@@ -19,7 +19,7 @@ class TipsController extends Controller
         // replace with auth id when implemented
         $faculty_id =8; // Do not change this!!
 
-
+        $testVariable = "";
         $tip_query = DB::table('tips')->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')->join('faculty', 'faculty_tips.faculty_id', '=', 'faculty.faculty_id')
                                         ->where('faculty.faculty_id','=',$faculty_id)->where('is_finished','=',0)->select('tips.tips_id')->get();
  
