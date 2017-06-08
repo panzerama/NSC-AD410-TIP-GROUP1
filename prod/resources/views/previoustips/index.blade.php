@@ -4,8 +4,6 @@
 
 @section('content')
 
-@php ($id = 1)
-
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
         <div class="col-lg-12">
@@ -26,30 +24,20 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class='clickable-row' data-href="{{ url('/tip/previous/') }}/{{ $id }}">
-                            <td>1</td>
-                            <td>Spring</td>
-                            <td class="text-navy">2016</td>
-                            <td>10</td>
-                            <td class="text-navy">March 2, 2017</td>
-                            <td><span class="fa fa-chevron-right"></span></td>
-                        </tr>
-                        <tr class='clickable-row' data-href="{{ url('/tip/previous/') }}/{{ $id }}">
-                            <td>1</td>
-                            <td>Winter</td>
-                            <td class="text-navy">2015</td>
-                            <td>12</td>
-                            <td class="text-navy">March 2, 2017</td>
-                            <td><span class="fa fa-chevron-right"></span></td>
-                        </tr>
-                        <tr class='clickable-row' data-href="{{ url('/tip/previous/') }}/{{ $id }}">
-                            <td>1</td>
-                            <td>Fall</td>
-                            <td class="text-navy">2015</td>
-                            <td>15</td>
-                            <td class="text-navy">March 2, 2017</td>
-                            <td><span class="fa fa-chevron-right"></span></td>
-                        </tr>
+                         @foreach($tip_information as $tip)
+                             @if($tip->completed == "in progress")
+                                <tr class='clickable-row' data-href="{{ url('/tip') }}">
+                             @else
+                                 <tr class='clickable-row' data-href="{{ url('/tip/previous/') }}/{{$tip->tips_id}}">
+                            @endif
+                                <td>{{$tip->tips_id}}</td>
+                                <td>{{$tip->quarter}}</td>
+                                <td class="text-navy">{{$tip->year}}</td>
+                                <td>{{$tip->question_answered}}</td>
+                                <td class="text-navy">{{$tip->completed}}</td>
+                                <td><span class="fa fa-chevron-right"></span></td>
+                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div><!-- ibox-content -->
