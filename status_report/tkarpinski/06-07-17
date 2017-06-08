@@ -1,0 +1,3 @@
+Continued Working on the Edit List and Edit division functionality. 
+I have the controller and front end logic completed but I can't seem to get the Ajax request to 
+actually ping the server correctly. I will try to find a way to test the request itself tomorrow. 
