@@ -16,7 +16,7 @@ class TipsController extends Controller
 
     public function index()
     {   
-        dd(DB::table('tips')->get());
+        // dd(DB::table('tips')->get());
         // first check db to see if divisions table has these collumns 
         // very important need these division in order for save to work correctly
         // if these division are not in the db insert them ONCE and then comment it out
