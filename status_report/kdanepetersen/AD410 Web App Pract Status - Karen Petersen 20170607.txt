@@ -1,0 +1,15 @@
+AD410 Web Application Practicum Status - Karen Petersen 20170524
+
+Have Done
+1. Still working on modify questions, add/modify modal, edit list 
+
+Issues
+1.  fixed the issue where if you enter the data in fields, it didn't clear when you changed the question type.  
+2.  Tested going from index file to add modal and it is keeping the question and description, but clearing the answer types.
+    Travis and I looked at the index file and he made some changes to the function to clear the question and description but that caused the modify button to no longer display the existing question and description.
+	We are trying to figure out what the issue is. 
+
+Next to Do
+1.  Work with Travis to make Edit List work, fix issues with modify button
+2.  testing
+3. Documentation
