@@ -1,0 +1,6 @@
+I worked over the weekend and on Monday morning to get the loginController going.  It now seems to be working right. 
+
+Next steps is:
+  creating a destroy function in the LoginController so that the logout button on our app works.  
+  creating update() function in accountcontroller to confirm details.
+  

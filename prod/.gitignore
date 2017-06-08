@@ -11,3 +11,4 @@ npm-debug.log
 .env
 database/db/*.sqlite
 storage/logs/*.log
+storage/framework/views/*

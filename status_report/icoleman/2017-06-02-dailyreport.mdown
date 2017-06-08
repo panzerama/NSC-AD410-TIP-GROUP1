@@ -1,0 +1,8 @@
+Ilsa Coleman
+Status Report
+6/2/2017
+
+- Updated reports colors to match new custom css for project.
+- Jason added new query to return data to table, now I am working on 
+  getting Datatables library functions working, which has been a 
+  difficult process.  Hoping to get this solved this weekend.

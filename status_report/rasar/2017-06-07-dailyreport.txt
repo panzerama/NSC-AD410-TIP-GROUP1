@@ -1,0 +1,19 @@
+
+Rasa Rasiulyte
+Status Report
+
+What have you completed since the last report?
+	- checked in update function in accoutn controller
+
+What do you plan to complete by the next report?
+	- add section for documenting authentication in the dev document
+
+
+What is getting in your way?
+	- No blocking issue at the moment
+	
+
+
+
+
+

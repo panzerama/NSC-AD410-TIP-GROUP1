@@ -49,12 +49,34 @@ class ReportsController extends Controller
         //return all tips with division and faculty, let frontend
         //sort out what's displayed
         $table_query = DB::table('tips')
-            ->select('faculty.faculty_id')
             ->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')
+            ->join('divisions', 'tips.division_id', '=', 'divisions.division_id')
             ->join('faculty', 'faculty_tips.faculty_id', '=', 'faculty.faculty_id');
-        
+            
+        //get collection of table info
         $table_array = $table_query->get();
         return view('reports/table', ['data' => $table_array]);
+    }
+    
+    private function indextable(&$reports_array, $base_query)
+    {
+        $key = "table_data";
+        
+        //$base_query should not be operated on directly
+        $table_query = clone $base_query;
+        
+         //building a collection based on the query lets us manipulate the data
+        //in a safe way.
+        $table_query
+            ->select('tips.*', 'faculty.*', 'divisions.*')
+            ->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')
+            ->join('divisions', 'tips.division_id', '=', 'divisions.division_id')
+            ->join('faculty', 'faculty_tips.faculty_id', '=', 'faculty.faculty_id');
+        
+        //get collection of table info
+        $table_array = $table_query->get();
+       
+       $reports_array[$key] = $table_array;
     }
     
     private function reportsDataBuilder(&$reports_array, $base_query){
@@ -62,6 +84,7 @@ class ReportsController extends Controller
         ReportsController::tipsSummary($reports_array, $base_query);
         ReportsController::tipsByMonth($reports_array, $base_query);
         ReportsController::tipsByDivision($reports_array, $base_query);
+        ReportsController::indextable($reports_array, $base_query);
     }
     
     private function reportFilterExample(&$reports_array, $query){
@@ -167,7 +190,7 @@ class ReportsController extends Controller
             $start_month_plus_one->addMonth();
             
             $month[$start_month->format('m-Y')] = 
-                ucfirst($start_month->format('F'));
+                ucfirst($start_month->format('M'));
                 
             $by_month_finished[$start_month->format('m-Y')] 
                 = $by_month_collection
@@ -222,5 +245,27 @@ class ReportsController extends Controller
         
         $reports_array[$key] = $tips_by_division;
         
+    }
+    
+    public function tabledemo()
+    {
+        return view('reports/table-demo');
+    }
+    
+    public function reportsdemo()
+    {
+        //init array
+        $reports_array = array();
+        //create basic query - for index, this is just 'tips'
+        $base_query = DB::table('tips');
+        //pass query and array into reportsDataBuilder
+        ReportsController::reportsDataBuilder($reports_array, $base_query);
+        //return view with amended report array
+        return view('reports/reports-demo', ['data' => $reports_array]);
+    }
+    
+    public function qareports()
+    {
+        return view('reports/qareports');
     }
 }

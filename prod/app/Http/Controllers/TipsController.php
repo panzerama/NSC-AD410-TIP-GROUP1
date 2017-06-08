@@ -45,7 +45,6 @@ class TipsController extends Controller
         //     )
         // ));
         $faculty_id =9; // Do not change this!!
-
         
         $tip_query = DB::table('tips')->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')
                                       ->join('faculty', 'faculty_tips.faculty_id', '=', 'faculty.faculty_id')
