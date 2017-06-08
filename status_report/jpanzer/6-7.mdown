@@ -1,0 +1,4 @@
+#Status Report
+
+- significant delays in testing and releasing search fuctions due to js issues beyond my expertise
+- seeking help from michael, ilsa, bryson, &c.
