@@ -16,8 +16,11 @@ class TipsController extends Controller
 
     public function index()
     {   
-        // dd(DB::table('faculty_tips')->get());
-        // dd(DB::table('faculty_tips')->get());
+        dd(DB::table('tips')->get());
+        // first check db to see if divisions table has these collumns 
+        // very important need these division in order for save to work correctly
+        // if these division are not in the db insert them ONCE and then comment it out
+        // dd(DB::table('divisions')->get());
         // DB::table('divisions')->insert(array(
         //     // for index view
         //     array(
@@ -131,7 +134,6 @@ class TipsController extends Controller
     public function store(Request $request)
     {
         // test id do not change will replace once auth is authenticated
-        // dd(DB::table('divisions')->get());
         $faculty_id = 9;
         
         // query to find current tip
@@ -165,15 +167,15 @@ class TipsController extends Controller
             
         // update answers in tips_questions according to tip id 
         // only questions within the index page will be updated
-            foreach($tips_question as $question) {
-                    // request the answer user has given by requesting the id of the question
-                    $faculty_answer = request($question->question_id);
-                    // update the first six answers in tips_questions
-                    if($question->question_id < 7){
-                    tips_questions::where('tips_id', $tips_id )->where('question_id', $question->question_id)
-                                                              ->update(['question_answer' => $faculty_answer]);
-                    }
-            }
+        foreach($tips_question as $question) {
+                // request the answer user has given by requesting the id of the question
+                $faculty_answer = request($question->question_id);
+                // update the first six answers in tips_questions
+                if($question->question_id < 7){
+                tips_questions::where('tips_id', $tips_id )->where('question_id', $question->question_id)
+                                                          ->update(['question_answer' => $faculty_answer]);
+                }
+        }
         // request individual json to update tips table
         $individual_or_group = request(1);
         $division_name = request(2);
@@ -273,10 +275,11 @@ class TipsController extends Controller
                         ->where('question_id', $question->question_id)
                         ->update(['question_answer' => $faculty_answer]);
         }
-        tip::where('tips_id', $tips_id)
-            ->update(['is_finished' => 1]);
-         return redirect('/tip/previous')->with('status', 'tip submmitted');    
+         
         }
+         tip::where('tips_id', $tips_id)
+            ->update(['is_finished' => 1]);
+         return redirect('/tip/previous')->with('status', 'tip submmitted');  
         }
 
         //return view('/tips/index',compact('tip'));
