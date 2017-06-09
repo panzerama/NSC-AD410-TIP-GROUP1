@@ -10,7 +10,8 @@
         "laravel/tinker": "^1.0",
         "yajra/laravel-datatables-oracle": "^7.0",
         "yajra/laravel-datatables-html": "^1.0",
-        "yajra/laravel-datatables-buttons": "^1.1"
+        "yajra/laravel-datatables-buttons": "^1.1",
+        "onokumus/metismenu": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
