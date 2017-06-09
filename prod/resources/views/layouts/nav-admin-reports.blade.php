@@ -27,9 +27,8 @@
                             <li class="">
                                 <a href="#"><h5>Quarter</h5></a>
                                 <ul class="nav nav-third-level collapse selected-filter-child" style="height: 0px;">
-                                    <form name="report-filter" method="post" action="/reports/filter">
+                                    <!--<form name="report-filter" method="post" action="/reports/filter">
                                         {{ csrf_field() }}
-                                    <!-- By Quarter -->
                                     <label class="filter-ui-label">From:</label>
                                     <select class="form-control filter-ui-right" name="quarter-start">
                                         <option selected="selected">Spring 2017</option>
@@ -63,7 +62,7 @@
                                 <select class="form-control filter-ui-right filter-ui-select-small" name="tip">
                                     <option>Spring 2017 Tip</option>
                                     <option>Lorem Ipsum</option>
-                                </select>-->
+                                </select>
                             <label class="filter-ui-label" name="division">Division:</label>
                                 <select class="form-control filter-ui-right filter-ui-select-small" name="division">
                                     <option selected="selected">All</option>
@@ -100,7 +99,7 @@
                                     <input type="text" class="form-control nav-full-width" style="margin-bottom: 10px;" name="keyword">
                         </ul>
                     </li>
-                        <!--<li>
+                        <li>
                             <a href="#"><h5>Question / Response</h5></a>
                             <ul class="nav nav-third-level collapse selected-filter-child" style="height: 0px;">
                                 <label class="filter-ui-label">Question:</label>
@@ -129,11 +128,11 @@
                                         <option>Dynamic Option 4</option>
                                     </select>
                             </ul>
-                        </li>-->
+                        </li>
                         <li>
                            <a class="report_submit_button"><button class="btn btn-primary btn-block">Search</button></a>
                         </li>
-                        </form>
+                        </form>-->
                     </ul>
                     </li>
                     <li class="">
