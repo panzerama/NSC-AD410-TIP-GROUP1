@@ -13,10 +13,9 @@ class Course {
      * @return Builder $builder
      */
     public static function apply($builder, $value) {
-        if($value == 'all') {
-            return $builder;
-        } else {
-        return $builder->where('tips.course_name', 'like', '%' . $value . '%');
-        }
+        
+        if($value == 'All') { return $builder; } 
+        
+        return $builder->where('tips.course_name', '=', $value);
     }
 }

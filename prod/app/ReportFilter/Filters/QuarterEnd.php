@@ -15,26 +15,12 @@ class QuarterEnd {
      * @return Builder $builder
      */
     public static function apply($builder, $value) {
+        
+        if($value === '---'){ return $builder; }
+        
         $date_parts = explode($value);
         $converted_year = $date_parts[1];
-        
-        switch(strtolower($date_parts[0])){
-            case "spring":
-                $converted_quarter = 3;
-                break;
-                
-            case "summer":
-                $converted_quarter = 4;
-                break;
-                
-            case "fall":
-                $converted_quarter = 1;
-                break;
-                
-            case "winter":
-                $converted_quarter = 2;
-                break;
-        }
+        $converted_quarter = strtoupper($date_parts[0]);
         
         return $builder
             ->where('tips.year', '<=', $converted_year)

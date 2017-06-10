@@ -3,11 +3,11 @@
 @section('title', 'TIPS Admin')
 
 @section('content')
-<div class="row wrapper border-bottom white-bg page-heading">
-    {{ print_r($data) }}
-    <br/>
-    {{ print_r($form_options) }}
-</div>
+<!--<div class="row wrapper border-bottom white-bg page-heading">-->
+<!--    {{ print_r($data) }}-->
+<!--    <br/>-->
+<!--    {{ print_r($form_options) }}-->
+<!--</div>-->
 
 <div class="row wrapper border-bottom white-bg page-heading">
         <h2>Reports Dashboard</h2>
@@ -33,26 +33,34 @@
             
                 <label class="filter-ui-label">From:</label>
                 <select class="form-control filter-ui-right" name="quarter-start">
-                    @foreach ($form_options as $option)
+                        <option selected="selected">---</option>
+                    @foreach ($form_options['date_options'] as $option)
                         <option>{{ $option }}</option>
                     @endforeach
                 </select>
                                             
                 <label class="filter-ui-label">To:</label>
                 <select class="form-control filter-ui-right" name="quarter-end">
-                    @foreach ($form_options as $option)
+                        <option selected="selected">---</option>
+                    @foreach ($form_options['date_options'] as $option)
                         <option>{{ $option }}</option>
                     @endforeach
                 </select>
                 
                 <label class="filter-ui-label" name="division">Division:</label>
                 <select class="form-control filter-ui-right filter-ui-select-small" name="division">
-                    <option selected="selected">All</option>
-                    <option>Div A</option>
-                    <option>Div B</option>
-                    <option>Div C</option>
-                    <option>Div E</option>
-                    <option>Div F</option>
+                        <option selected="selected">All</option>
+                    @foreach ($form_options['division_options'] as $option)
+                        <option>{{ $option }}</option>
+                    @endforeach
+                </select>
+                
+                <label class="filter-ui-label">Course:</label>
+                <select class="form-control filter-ui-right filter-ui-select-small" name="course">
+                        <option selected="selected">All</option>
+                    @foreach ($form_options['course_options'] as $option)
+                        <option>{{ $option }}</option>
+                    @endforeach
                 </select>
                                             
                 <!--<a><h5>Tips</h5></a>
@@ -60,16 +68,6 @@
                 <select class="form-control filter-ui-right filter-ui-select-small" name="tip">
                     <option>Spring 2017 Tip</option>
                     <option>Lorem Ipsum</option>
-                </select>
-            
-                <label class="filter-ui-label">Course:</label>
-                <select class="form-control filter-ui-right filter-ui-select-small" name="course">
-                    <option selected="selected">All</option>
-                    <option>Course A</option>
-                    <option>Course B</option>
-                    <option>Course C</option>
-                    <option>Course E</option>
-                    <option>Course F</option>
                 </select>
             
                 <div class="filter-ui-radio">

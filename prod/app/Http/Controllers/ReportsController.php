@@ -37,7 +37,7 @@ class ReportsController extends Controller
         //pass query and array into reportsDataBuilder
         ReportsController::reportsDataBuilder($reports_array, $base_query);
         
-        $form_options = ReportsController::formOptions();
+        $form_options = ReportsController::formOptions($base_query);
         
         //return view with amended report array
         return view('reports/index', ['data' => $reports_array, 'form_options' => $form_options]);
@@ -52,7 +52,9 @@ class ReportsController extends Controller
         //pass query and array into reportsDataBuilder
         ReportsController::reportsDataBuilder($reports_array, $filtered_query);
         
-        $form_options = ReportsController::formOptions();
+        // the form options should be based on the set of all tips, not the filtered tips
+        // todo: accurate?
+        $form_options = ReportsController::formOptions(SearchController::base_constructor());
         
         //return view with amended report array
         return view('reports/index', ['data' => $reports_array, 'form_options' => $form_options]);
@@ -125,6 +127,8 @@ class ReportsController extends Controller
         
         $summary_collection = $summary_query->get();
         
+        var_dump($summary_collection);
+        
         $num_finished_tips = 
             $summary_collection->where('is_finished', 1)->count();
         
@@ -132,9 +136,8 @@ class ReportsController extends Controller
         $num_in_progress_tips = 
             $summary_collection->where('is_finished', 0)->count();
         
-        //number of faculty, assuming that the faculty table is complete
-        //is there a way to refactor this?
-        $num_faculty = DB::table('faculty')->where('is_active', 1)->count();
+        // todo find a way fo rthis to change based on the filters
+        $num_faculty = $summary_collection->where('is_active', 1)->pluck('faculty_id')->unique()->count();
         
         //$summary_query = $base_query;
         $collect_faculty_with_tips = 
@@ -223,8 +226,6 @@ class ReportsController extends Controller
                                 ->pluck('abbr')
                                 ->unique();
                                 
-        var_dump($list_of_divisions);
-                                
         $tips_by_division = array();
                                 
         foreach($list_of_divisions as $idx => $division){
@@ -269,10 +270,12 @@ class ReportsController extends Controller
         return view('reports/qareports');
     }
     
-    public static function formOptions(){
+    public static function formOptions($base_query){
         $form_options = array();
+        $form_query = clone $base_query;
         
         //start and end date options
+        $key = "date_options";
         $today = Carbon::today();
         $start_date = Carbon::today()->subYears(3)->firstOfQuarter();;
         while($start_date->lte($today)){
@@ -280,23 +283,31 @@ class ReportsController extends Controller
             
             switch($current_quarter) {
                 case '1':
-                    $form_options[] = "Winter " . $start_date->format('Y');
+                    $form_options[$key][] = "Winter " . $start_date->format('Y');
                     break;
                 case '2':
-                    $form_options[] = "Spring " . $start_date->format('Y');
+                    $form_options[$key][] = "Spring " . $start_date->format('Y');
                     break;
                 case '3':
-                    $form_options[] = "Summer " . $start_date->format('Y');
+                    $form_options[$key][] = "Summer " . $start_date->format('Y');
                     break;
                 case '4':
-                    $form_options[] = "Fall " . $start_date->format('Y');
+                    $form_options[$key][] = "Fall " . $start_date->format('Y');
                     break;
             }
 
             $start_date->addMonths(3);
         }
         
-        //
+        //Divisions
+        $key = "division_options";
+        $form_options[$key] = $form_query->pluck('abbr')->unique()->all();
+        
+        //courses
+        $key = "course_options";
+        $form_options[$key] = $form_query->pluck('course_name')->unique()->all();
+        
+        var_dump($form_options);
         
         return $form_options;
     }

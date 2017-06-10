@@ -14,6 +14,8 @@ class Division {
      */
     public static function apply($builder, $value) {
         
+        if($value === 'All'){ return $builder; }
+        
         return $builder->where('divisions.abbr', $value);
         
     }
