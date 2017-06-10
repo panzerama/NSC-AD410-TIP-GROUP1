@@ -20,7 +20,7 @@ class AccountController extends Controller
     
     //called after user confirms details and picks primary division.
     //this function will update users row in the facutly table by udpationg their division id
-    public function update()
+    public function divisionUpdate()
     {
         $division_id = $request('division_id');
         $email = $request('email');
@@ -31,10 +31,10 @@ class AccountController extends Controller
         if(!empty($affected))
         {
             //update succeeded
-             return TRUE; 
+             return true; 
         }
        
             //update failed 
-            return FALSE; 
+            return false; 
     }
 }
