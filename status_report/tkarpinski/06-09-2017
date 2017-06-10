@@ -1,0 +1,8 @@
+Worked with Karen to finish off the Edit Tips page. 
+Set up Async Ajax to handle Edit List and Edit Divisions Modals. This took longer than expected since I had to learn 
+and deal with JQuery and Ajax Get/Post handling. However the result works pretty well and eliminates the need for 
+additional pages. 
+Fixed a few issues with buttons/fields/functionality that stopped working as the page got built out. 
+I am going to run several more full page tests with a fresh database migration now that we are finished with all of the 
+main functionality.
+Started commenting and documentation of Edit Tips. 
