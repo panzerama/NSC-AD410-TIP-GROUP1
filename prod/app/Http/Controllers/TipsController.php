@@ -16,7 +16,8 @@ class TipsController extends Controller
 
     public function index()
     {   
-        
+        // dd(DB::table('faculty')->get());
+        // dd(DB::table('faculty_tips')->get());
         // first check db to see if divisions table has these collumns 
         // very important need these division in order for save to work correctly
         // if these division are not in the db insert them ONCE and then comment it out
@@ -59,7 +60,7 @@ class TipsController extends Controller
         //         'is_active' => true
         //     )
         // ));
-        $faculty_id =9; // Do not change this!!
+        $faculty_id =1; // Do not change this!!
 
         
         $tip_query = DB::table('tips')->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')
@@ -115,7 +116,7 @@ class TipsController extends Controller
     public function create()
     {
         // replace with auth id when implemented
-        $faculty_id = 9;
+        $faculty_id = 1;
         
         // check if user has an active tip.
         $tip_query = DB::table('tips')->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')
@@ -151,7 +152,7 @@ class TipsController extends Controller
     public function store(Request $request)
     {
         // test id do not change will replace once auth is authenticated
-        $faculty_id = 9;
+        $faculty_id = 1;
         
         // query to find current tip
         $tip_query = DB::table('tips')->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')
