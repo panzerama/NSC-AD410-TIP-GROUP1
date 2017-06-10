@@ -15,7 +15,7 @@
  *  Tip Routing
  ***************************/
 //Default Route
-Route::get('/', 'TipsController@index'); // Index page route
+Route::get('/', 'Auth\LoginController@index')->name('login'); // Main page route
 
 // Create Tip
 Route::get('/tip', 'TipsController@index'); // Tips Create Form P.1

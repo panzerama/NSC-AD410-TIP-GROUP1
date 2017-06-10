@@ -1,0 +1,9 @@
+Ilsa Coleman
+Status Report
+6/7/2017
+
+- I recoded some of the data returned to the table to display text rather than 1/0 for boolean
+    values, default sort by date, and recoded one of the reports to display month appreviation 
+    rather than full month so it displays better on the page.
+- Still need to add a column with a link to the actual TIP (view TIP).
+- Also working on individual question/anser reports.
