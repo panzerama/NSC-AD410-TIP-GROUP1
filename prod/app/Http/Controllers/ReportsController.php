@@ -13,15 +13,6 @@ use App\Http\Controllers\SearchController;
 
 class ReportsController extends Controller
 {
-    //1. filters for each 'report' data set
-    //2. tests to confirm that each filter manipulates data correctly
-    //3. consolidate db calls where possible
-    //4. expand by creating a filter-select model so that we can choose which 
-    //   reports to run
-    //5. we'll be dealing with a base query that will be modified by the
-    //   searching
-    //JDP - Flag for refactor
-    
     //Array keys
     // tips_summary => 
         // finished_tips => $num_finished_tips,
@@ -45,9 +36,11 @@ class ReportsController extends Controller
         $base_query = SearchController::base_constructor();
         //pass query and array into reportsDataBuilder
         ReportsController::reportsDataBuilder($reports_array, $base_query);
-
+        
+        $form_options = ReportsController::formOptions();
+        
         //return view with amended report array
-        return view('reports/index', ['data' => $reports_array]);
+        return view('reports/index', ['data' => $reports_array, 'form_options' => $form_options]);
     }
     
     public function show(Request $request){
@@ -87,11 +80,6 @@ class ReportsController extends Controller
         
          //building a collection based on the query lets us manipulate the data
         //in a safe way.
-        $table_query
-            ->select('tips.*', 'faculty.*', 'divisions.*')
-            ->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')
-            ->join('divisions', 'tips.division_id', '=', 'divisions.division_id')
-            ->join('faculty', 'faculty_tips.faculty_id', '=', 'faculty.faculty_id');
         
         //get collection of table info
         $table_array = $table_query->get();
@@ -132,19 +120,6 @@ class ReportsController extends Controller
         
         //building a collection based on the query lets us manipulate the data
         //in a safe way.
-        
-        //todo precondition needed here to ensure that I'm not doubling up on 
-        //joins
-        $summary_query
-            ->select('tips.*', 'faculty.*')
-            ->join('faculty_tips', 
-                   'tips.tips_id', 
-                   '=', 
-                   'faculty_tips.tips_id')
-            ->join('faculty', 
-                   'faculty_tips.faculty_id', 
-                   '=', 
-                   'faculty.faculty_id');
         
         $summary_collection = $summary_query->get();
         
@@ -240,9 +215,7 @@ class ReportsController extends Controller
         
         $division_query = clone $base_query;
         
-        $division_collection = $division_query
-            ->join('divisions', 'divisions.division_id', '=', 'tips.division_id')
-            ->get();
+        $division_collection = $division_query->get();
             
         $list_of_divisions = $division_collection
                                 ->pluck('abbr')
@@ -290,5 +263,34 @@ class ReportsController extends Controller
     public function qareports()
     {
         return view('reports/qareports');
+    }
+    
+    public static function formOptions(){
+        $form_options = array();
+        
+        $today = Carbon::today();
+        $start_date = Carbon::today()->subYears(3)->firstOfQuarter();;
+        while($start_date->lte($today)){
+            $current_quarter = $start_date->quarter;
+            
+            switch($current_quarter) {
+                case '1':
+                    $form_options[] = "Winter " . $start_date->format('Y');
+                    break;
+                case '2':
+                    $form_options[] = "Spring " . $start_date->format('Y');
+                    break;
+                case '3':
+                    $form_options[] = "Summer " . $start_date->format('Y');
+                    break;
+                case '4':
+                    $form_options[] = "Fall " . $start_date->format('Y');
+                    break;
+            }
+
+            $start_date->addMonths(3);
+        }
+        
+        return $form_options;
     }
 }

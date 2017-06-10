@@ -27,35 +27,18 @@
             
                 <label class="filter-ui-label">From:</label>
                 <select class="form-control filter-ui-right" name="quarter-start">
-                    <option selected="selected">Spring 2017</option>
-                    <option>Summer 2017</option>
-                    <option>Fall 2017</option>
-                    <option>Winter 2017</option>
-                    <option>Spring 2018</option>
-                    <option>Summer 2018</option>
-                    <option>Fall 2018</option>
-                    <option>Winter 2018</option>
+                    @foreach ($form_options as $option)
+                        <option>{{ $option }}</option>
+                    @endforeach
                 </select>
                                             
                 <label class="filter-ui-label">To:</label>
                 <select class="form-control filter-ui-right" name="quarter-end">
-                    <option>Spring 2017</option>
-                    <option>Summer 2017</option>
-                    <option>Fall 2017</option>
-                    <option>Winter 2017</option>
-                    <option>Spring 2018</option>
-                    <option>Summer 2018</option>
-                    <option>Fall 2018</option>
-                    <option>Winter 2018</option>
+                    @foreach ($form_options as $option)
+                        <option>{{ $option }}</option>
+                    @endforeach
                 </select>
-                                            
-                <a><h5>Tips</h5></a>
-                <label class="filter-ui-label">Tip:</label>
-                <select class="form-control filter-ui-right filter-ui-select-small" name="tip">
-                    <option>Spring 2017 Tip</option>
-                    <option>Lorem Ipsum</option>
-                </select>
-            
+                
                 <label class="filter-ui-label" name="division">Division:</label>
                 <select class="form-control filter-ui-right filter-ui-select-small" name="division">
                     <option selected="selected">All</option>
@@ -64,6 +47,13 @@
                     <option>Div C</option>
                     <option>Div E</option>
                     <option>Div F</option>
+                </select>
+                                            
+                <!--<a><h5>Tips</h5></a>
+                <label class="filter-ui-label">Tip:</label>
+                <select class="form-control filter-ui-right filter-ui-select-small" name="tip">
+                    <option>Spring 2017 Tip</option>
+                    <option>Lorem Ipsum</option>
                 </select>
             
                 <label class="filter-ui-label">Course:</label>
@@ -118,7 +108,7 @@
                     <option>Dynamic Option 2</option>
                     <option>Dynamic Option 3</option>
                     <option>Dynamic Option 4</option>
-                </select>
+                </select>-->
             
                <a class="report_submit_button"><button class="btn btn-primary btn-block">Search</button></a>
             </form>
@@ -289,7 +279,7 @@ $(document).ready(function() {
      "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
    "data": theData.data,
         "columns": [
-            {"data": "abbr" },
+            /*{"data": "abbr" }, failed during search-branch build - jd*/
             {"data": "faculty_name" },
             {"data": "email" },
             {"data": "employee_type" },
