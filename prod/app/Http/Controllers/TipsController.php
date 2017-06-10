@@ -16,7 +16,7 @@ class TipsController extends Controller
 
     public function index()
     {   
-        // dd(DB::table('tips')->get());
+        
         // first check db to see if divisions table has these collumns 
         // very important need these division in order for save to work correctly
         // if these division are not in the db insert them ONCE and then comment it out
@@ -24,32 +24,49 @@ class TipsController extends Controller
         // DB::table('divisions')->insert(array(
         //     // for index view
         //     array(
-        //         'division_name' => 'Accounting',
-        //         'abbr' => 'ACCT',
+        //         'division_name' => 'Arts, Humanities, and Social Sciences',
+        //         'abbr' => 'AHSS',
         //         'is_active' => true
         //     ),
         //     array(
-        //         'division_name' => 'Adult Basic Education',
-        //         'abbr' => 'ABE',
+        //         'division_name' => 'Business Engineering and Information Technology',
+        //         'abbr' => 'BEIT',
         //         'is_active' => true
         //     ),
         //     array(
-        //         'division_name' => 'American Ethnic and Race Relations',
-        //         'abbr' => 'AME',
+        //         'division_name' => 'Business and Transitional Studies',
+        //         'abbr' => 'BTS',
         //         'is_active' => true
         //     ),
         //     array(
-        //         'division_name' => 'American Sign Language',
-        //         'abbr' => 'ASL',
+        //         'division_name' => 'Health and Humanities',
+        //         'abbr' => 'HHS',
+        //         'is_active' => true
+        //     ),
+        //     array(
+        //         'division_name' => 'Library',
+        //         'abbr' => 'LIB',
+        //         'is_active' => true
+        //     ),
+        //     array(
+        //         'division_name' => 'Math and Science',
+        //         'abbr' => 'M&S',
+        //         'is_active' => true
+        //     ),
+        //     array(
+        //         'division_name' => 'Work Force Instruction',
+        //         'abbr' => 'WFI',
         //         'is_active' => true
         //     )
         // ));
         $faculty_id =9; // Do not change this!!
+
         
         $tip_query = DB::table('tips')->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')
                                       ->join('faculty', 'faculty_tips.faculty_id', '=', 'faculty.faculty_id')
                                       ->where('faculty.faculty_id','=',$faculty_id)
                                       ->where('is_finished','=',0)
+                                      ->where('is_author', '=', 1)
                                       ->select('tips.tips_id')->get();
  
  
@@ -61,7 +78,8 @@ class TipsController extends Controller
                         ));
                    
             // create entry in linking table
-            DB::table('faculty_tips')->insert(array('faculty_id' => $faculty_id,'tips_id' => $tips_id)); 
+            // insert is author when in db
+            DB::table('faculty_tips')->insert(array('faculty_id' => $faculty_id,'tips_id' => $tips_id, 'is_author' => 1)); 
             
             // create questions template
             $create_questions = DB::table('questions')
@@ -80,13 +98,12 @@ class TipsController extends Controller
              $tips_id = $tip_query[0]->tips_id; 
         }
 
-        // retrieve all questions for active tip
         $questions = question::whereHas('tips_questions', function ($query) use ($tips_id) {
                         $query->where('tips_id', '=', $tips_id);
                                 })->get();
         // retrieve all existing answers for active tip                        
         $existing_answers = tips_questions::where('tips_id', '=', $tips_id)->get();                        
-        return view('tips/index',compact('questions','existing_answers')); 
+        return view('tips/index',compact('questions','existing_answers', 'members')); 
         
     }
 
@@ -105,6 +122,7 @@ class TipsController extends Controller
                                       ->join('faculty', 'faculty_tips.faculty_id', '=', 'faculty.faculty_id')
                                       ->where('faculty.faculty_id','=',$faculty_id)
                                       ->where('is_finished','=',0)
+                                      ->where('is_author', '=', 1)
                                       ->select('tips.tips_id')->get();
   
         if(!isset($tip_query[0])) {
@@ -146,8 +164,8 @@ class TipsController extends Controller
         $tips_id = $tip_query[0]->tips_id;
         
            // find the tip questions
-        $tips_question = DB::table('tips_questions')->where('tips_id',$tips_id)
-                                                   ->select('question_id')->get();
+        $tips_question = question::whereHas('tips_questions', function ($query) use ($tips_id){
+                            $query->where('tips_id', '=', $tips_id);})->get();
 
         // if request is continue update tips_question table and store required information into tips table
         if($request->has('continue')){
@@ -166,14 +184,18 @@ class TipsController extends Controller
             
         // update answers in tips_questions according to tip id 
         // only questions within the index page will be updated
+        // keep count for requesting question from $request data
+        $count = 1; 
         foreach($tips_question as $question) {
+                
                 // request the answer user has given by requesting the id of the question
-                $faculty_answer = request($question->question_id);
+                $faculty_answer = request($count);
                 // update the first six answers in tips_questions
-                if($question->question_id < 7){
+                if($count < 7){
                 tips_questions::where('tips_id', $tips_id )->where('question_id', $question->question_id)
                                                           ->update(['question_answer' => $faculty_answer]);
                 }
+            $count++;
         }
         // request individual json to update tips table
         $individual_or_group = request(1);
@@ -200,21 +222,24 @@ class TipsController extends Controller
         // still update tips but change is group to true and update faculty tips for each staff members
         else if($individual_or_group == "Group"){
             $members = request('tip-members');
-            foreach ($members as $faculty) {
-                // get member name
-                // get id based on name
-                // check to see if faculty has tip
-                // if not insert faculty and tip id into faculty_tips
-                // TODO validate faculty name make sure the name matches database
-                $faculty = trim($faculty);
-                $faculty_array = DB::table('faculty')->select('faculty_id')
-                                                     ->where('faculty_name', $faculty)->get();
-                $faculty_id = $faculty_array[0]->faculty_id;
-                $faculty_tip_query = DB::table('faculty_tips')->where('faculty_id', $faculty_id)
-                                                              ->where('tips_id',$tips_id)->get();
-                
-                if(!isset($faculty_tip_query[0])){
-                    DB::table('faculty_tips')->insert(array('faculty_id' => $faculty_id,'tips_id' => $tips_id));
+            if(!empty($members[0])){
+                foreach ($members as $faculty) {
+                    // get member name
+                    // get id based on name
+                    // check to see if faculty has tip
+                    // if not insert faculty and tip id into faculty_tips
+                    // TODO validate faculty name make sure the name matches database
+                    $faculty = trim($faculty);
+                    $faculty_array = DB::table('faculty')->select('faculty_id')
+                                                         ->where('faculty_name', $faculty)->get();
+                    $faculty_id = $faculty_array[0]->faculty_id;
+                    $faculty_tip_query = DB::table('faculty_tips')->where('faculty_id', $faculty_id)
+                                                                  ->where('tips_id',$tips_id)->get();
+                    
+                    if(!isset($faculty_tip_query[0])){
+                        // insert is_author when implemented
+                        DB::table('faculty_tips')->insert(array('faculty_id' => $faculty_id,'tips_id' => $tips_id, 'is_author' => 0));
+                    }
                 }
             }
             // update tips with is_group set to true
@@ -229,18 +254,18 @@ class TipsController extends Controller
          return redirect('/tip/questions');
         }
         else if($request->has('save')){
-            
+        $count = 1;
         // update answers according to tip id 
         // only questions within the create page will be updated
         foreach($tips_question as $question) {
-                if($question->question_id > 6){
-                    $faculty_answer = request($question->question_id);
+                if($count > 6){
+                    $faculty_answer = request($count);
                     
                     tips_questions::where('tips_id', $tips_id )
-                                    ->where('question_id', $question->question_id)
+                                    ->where('question_id',$question->question_id)
                                     ->update(['question_answer' => $faculty_answer]);
                 }
-                
+                $count++;
         }
          return redirect('/tip/questions');
         }
@@ -267,14 +292,15 @@ class TipsController extends Controller
             '18'    => 'required',
         ]);
         // insert into db and switch flag to is finished
+        $count = 1;
         foreach($tips_question as $question) {
-            if($question->question_id > 6){
-        $faculty_answer = request($question->question_id);
+            if($count > 6){
+        $faculty_answer = request($count);
         tips_questions::where('tips_id', $tips_id )
                         ->where('question_id', $question->question_id)
                         ->update(['question_answer' => $faculty_answer]);
         }
-         
+         $count++;
         }
          tip::where('tips_id', $tips_id)
             ->update(['is_finished' => 1]);
