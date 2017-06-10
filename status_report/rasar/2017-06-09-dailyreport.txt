@@ -1,0 +1,19 @@
+2017-06-09
+Rasa Rasiulyte
+Status Report
+
+What have you completed since the last report?
+	- added section to document authentication in the dev document
+
+What do you plan to complete by the next report?
+	- final integration testing
+
+
+What is getting in your way?
+	- No blocking issue at the moment
+	
+
+
+
+
+
