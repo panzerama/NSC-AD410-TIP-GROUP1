@@ -52,8 +52,10 @@ class ReportsController extends Controller
         //pass query and array into reportsDataBuilder
         ReportsController::reportsDataBuilder($reports_array, $filtered_query);
         
+        $form_options = ReportsController::formOptions();
+        
         //return view with amended report array
-        return view('reports/index', ['data' => $reports_array]);
+        return view('reports/index', ['data' => $reports_array, 'form_options' => $form_options]);
     }
     
     public function table()
@@ -221,6 +223,8 @@ class ReportsController extends Controller
                                 ->pluck('abbr')
                                 ->unique();
                                 
+        var_dump($list_of_divisions);
+                                
         $tips_by_division = array();
                                 
         foreach($list_of_divisions as $idx => $division){
@@ -268,6 +272,7 @@ class ReportsController extends Controller
     public static function formOptions(){
         $form_options = array();
         
+        //start and end date options
         $today = Carbon::today();
         $start_date = Carbon::today()->subYears(3)->firstOfQuarter();;
         while($start_date->lte($today)){
@@ -290,6 +295,8 @@ class ReportsController extends Controller
 
             $start_date->addMonths(3);
         }
+        
+        //
         
         return $form_options;
     }

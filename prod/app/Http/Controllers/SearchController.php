@@ -19,7 +19,7 @@ class SearchController extends Controller
             ->join('divisions', 'divisions.division_id', '=', 'tips.division_id')
             ->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')
             ->join('faculty', 'faculty_tips.faculty_id', '=', 'faculty.faculty_id');
-        return DB::table('tips');
+        return $base_query;
     }
     
     //parses the filter request and returns the filtered query

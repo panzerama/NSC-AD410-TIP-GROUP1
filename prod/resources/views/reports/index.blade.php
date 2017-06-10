@@ -4,6 +4,12 @@
 
 @section('content')
 <div class="row wrapper border-bottom white-bg page-heading">
+    {{ print_r($data) }}
+    <br/>
+    {{ print_r($form_options) }}
+</div>
+
+<div class="row wrapper border-bottom white-bg page-heading">
         <h2>Reports Dashboard</h2>
     <ol class="breadcrumb">
         <li class="active">
