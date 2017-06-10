@@ -18,5 +18,23 @@ class AccountController extends Controller
         return view('first_time/index');
     }
     
-    //needs a update() function for storing confirmed details
+    //called after user confirms details and picks primary division.
+    //this function will update users row in the facutly table by udpationg their division id
+    public function divisionUpdate()
+    {
+        $division_id = $request('division_id');
+        $email = $request('email');
+        
+        $affected = DB::where('email', $email)
+            ->update(['division_id' => $division_id]);
+            
+        if(!empty($affected))
+        {
+            //update succeeded
+             return true; 
+        }
+       
+            //update failed 
+            return false; 
+    }
 }
