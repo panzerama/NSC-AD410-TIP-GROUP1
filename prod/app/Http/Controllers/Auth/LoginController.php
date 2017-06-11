@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Contracts\Auth\Authenticatable;
 use smtech\OAuth2\Client\Provider\CanvasLMS;
 use GuzzleHttp\Client;
 
@@ -56,7 +57,7 @@ class LoginController extends Controller
             
             $token = $provider->getAccessToken('authorization_code', [CODE => $_GET[CODE]]);
             Log::info($token);
-            
+
             $ownerDetails = $provider->getResourceOwner($token);
             
             $uid = $ownerDetails->getId();
