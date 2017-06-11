@@ -42,7 +42,7 @@ Route::get('/account', 'AccountController@index');
 
 // needs the post to do the update function from the controller 
 // so that user details get confirmed
-// Route::post('/account', 'AccountController@update');
+Route::post('/account', 'AccountController@updateFirstTime')->name('firstTimeStore');
 
 // Login Controller Routing
 Route::get('/login' , 'Auth\LoginController@index')->name('login'); // Login Auth Form 
