@@ -59,7 +59,7 @@ class LoginController extends Controller
             $ownerDetails = $provider->getResourceOwner($token);
             
             $uid = $ownerDetails->getId();
-            $domain = 'north-seattle-college.acme.instructure.com';
+            $domain = 'northseattle.test.instructure.com';
             $profile_url = 'https://' . $domain . '/api/v1/users/' . $uid . '/profile?access_token=' . $token;
             $f = @file_get_contents($profile_url);
             //this is object
