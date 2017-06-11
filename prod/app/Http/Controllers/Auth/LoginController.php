@@ -55,6 +55,7 @@ class LoginController extends Controller
             Log::info('We are in the else');
             
             $token = $provider->getAccessToken('authorization_code', [CODE => $_GET[CODE]]);
+            Log::info($token);
             
             $ownerDetails = $provider->getResourceOwner($token);
             
