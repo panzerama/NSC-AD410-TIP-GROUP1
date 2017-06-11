@@ -44,7 +44,7 @@ class LoginController extends Controller
             exit;
         
         } else {
-            echo 'We are in the else and this is the authorization code: ', $_GET[CODE], '<br/><br/>';
+            Log::info('We are in the else and this is the authorization code: ', $_GET[CODE], '<br/><br/>');
             // try to get an access token (using our existing code) 
             
             $token = $provider->getAccessToken('authorization_code', [CODE => $_GET[CODE]]);
