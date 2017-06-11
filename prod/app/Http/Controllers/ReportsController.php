@@ -307,6 +307,10 @@ class ReportsController extends Controller
         $key = "course_options";
         $form_options[$key] = $form_query->pluck('course_name')->unique()->all();
         
+        //questions
+        $key = "question_options";
+        $form_options[$key] = DB::table('questions')->pluck('question_text')->all();
+        
         var_dump($form_options);
         
         return $form_options;

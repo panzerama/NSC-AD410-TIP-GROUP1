@@ -62,14 +62,7 @@
                         <option>{{ $option }}</option>
                     @endforeach
                 </select>
-                                            
-                <!--<a><h5>Tips</h5></a>
-                <label class="filter-ui-label">Tip:</label>
-                <select class="form-control filter-ui-right filter-ui-select-small" name="tip">
-                    <option>Spring 2017 Tip</option>
-                    <option>Lorem Ipsum</option>
-                </select>
-            
+                
                 <div class="filter-ui-radio">
                     <div class="radio radio-info">
                         <input type="radio" id="single-tips" value="single-tips" name="type">
@@ -84,35 +77,17 @@
                         <label for="all-tips">All</label>
                     </div>
                 </div>
-            
-                <label class="filter-ui-label nav-full-width">Search Answer By Keyword(s):</label>
-                <input type="text" class="form-control nav-full-width" style="margin-bottom: 10px;" name="keyword">
-            
-                <a href="#"><h5>Question / Response</h5></a>
+                
                 <label class="filter-ui-label">Question:</label>
                 <select class="form-control nav-full-width" name="question">
-                    <option>What is the problem or lesson that you identified and will be discussing in this TIP? No topic is too big or too small. All are welcomed!</option>
-                    <option>What is the course-level objective that this TIP best addresses?</option>
-                    <option>Which of the college-wide Essential Learning Outcomes does your TIP most closely address? (select one)</option>
-                    <option>Which of the following best describes the evidence you found for the problem. (select one)</option>
-                    <option>Please describe more specifically how you identified the problem.</option>
-                    <option>Please select the change that best fits what you did to try to address the problem.  (select one)</option>
-                    <option>Specifically, what did you do to address the problem?</option>
-                    <option>Please select the evidence that best fits how you assessed the impact of the change you made. (select one)</option>
-                    <option>Please describe more fully how you assessed the impact of the change you made.</option>
-                    <option>What new opportunities did you consider as a result of identifying this problem and making this change?</option>
-                    <option>What else would you like to share about the teaching improvement process you engaged in this quarter?</option>
-                    <option>TIP data will be shared de-identified and in aggregate. Would you like to share specifics?</option>
+                        <option selected="selected">All</option>
+                    @foreach ($form_options['question_options'] as $option)
+                        <option>{{ substr($option, 0, 60) . "..." }}</option>
+                    @endforeach
                 </select>
-                                                
-                <label class="filter-ui-label">Response:</label>
-                <select class="form-control nav-full-width" name="selection-division">
-                    <option>- Text -</option>
-                    <option>Dynamic Option 1</option>
-                    <option>Dynamic Option 2</option>
-                    <option>Dynamic Option 3</option>
-                    <option>Dynamic Option 4</option>
-                </select>-->
+                
+                <label class="filter-ui-label nav-full-width">Search Answer By Keyword(s):</label>
+                <input type="text" class="form-control nav-full-width" style="margin-bottom: 10px;" name="keyword">
             
                <a class="report_submit_button"><button class="btn btn-primary btn-block">Search</button></a>
             </form>
