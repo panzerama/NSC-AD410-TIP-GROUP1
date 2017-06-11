@@ -43,9 +43,7 @@
                     @include('reports.tips-by-division')
             </div>  
 </div>        
-</div>
 
-<div class="wrapper wrapper-content">
 <div class="row">
     <div class="col-lg-6">
         <div class="col-lg-12">
@@ -78,7 +76,6 @@
                      @include('reports.primary-elo-added')
         </div>
 </div>
-</div>  
 
 <div class="ibox float-e-margins">
                     <div class="ibox-title">
@@ -126,6 +123,7 @@
 
         </div>
     </div>
+</div>
 </div>
 
 <?php
