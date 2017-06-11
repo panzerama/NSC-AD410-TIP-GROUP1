@@ -15,17 +15,10 @@ class LoginController extends Controller
         error_reporting(E_ALL);
         ini_set('display_errors', 1);
         
-        
-        
         include 'config.php';
-        
-        //removed old config info
-        
-        
         
         //start session
         session_start();
-        
         
         define('CODE', 'code');
         define('STATE', 'state');
@@ -51,7 +44,7 @@ class LoginController extends Controller
             exit;
         
         } else {
-            //echo 'This is the authorization code: ', $_GET[CODE], '<br/><br/>';
+            echo 'We are in the else and this is the authorization code: ', $_GET[CODE], '<br/><br/>';
             // try to get an access token (using our existing code) 
             
             $token = $provider->getAccessToken('authorization_code', [CODE => $_GET[CODE]]);
