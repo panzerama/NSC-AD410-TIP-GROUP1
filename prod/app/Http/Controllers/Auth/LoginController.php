@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Facades\Log;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use smtech\OAuth2\Client\Provider\CanvasLMS;
 use GuzzleHttp\Client;
