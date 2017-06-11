@@ -258,7 +258,7 @@ $(document).ready(function() {
      "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
    "data": theData.data,
         "columns": [
-            /*{"data": "abbr" }, failed during search-branch build - jd*/
+            {"data": "abbr" },
             {"data": "faculty_name" },
             {"data": "email" },
             {"data": "employee_type" },

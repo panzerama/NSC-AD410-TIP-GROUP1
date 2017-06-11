@@ -54,7 +54,7 @@ class ReportsController extends Controller
         
         // the form options should be based on the set of all tips, not the filtered tips
         // todo: accurate?
-        $form_options = ReportsController::formOptions(SearchController::base_constructor());
+        $form_options = ReportsController::formOptions(SearchController::base_constructor(), $request);
         
         //return view with amended report array
         return view('reports/index', ['data' => $reports_array, 'form_options' => $form_options]);
@@ -270,11 +270,13 @@ class ReportsController extends Controller
         return view('reports/qareports');
     }
     
-    public static function formOptions($base_query){
+    public static function formOptions($base_query, Request $request){
         $form_options = array();
         $form_query = clone $base_query;
         
         //start and end date options
+        $selection_start_date = $request['quarter-start'];
+        $selection_end_date = $request['quarter-end'];
         $key = "date_options";
         $today = Carbon::today();
         $start_date = Carbon::today()->subYears(3)->firstOfQuarter();;
