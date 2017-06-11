@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use smtech\OAuth2\Client\Provider\CanvasLMS;
 use GuzzleHttp\Client;
@@ -15,29 +16,27 @@ class LoginController extends Controller
         error_reporting(E_ALL);
         ini_set('display_errors', 1);
         
-        
-        
         include 'config.php';
-        
-        //removed old config info
-        
-        
         
         //start session
         session_start();
-        
         
         define('CODE', 'code');
         define('STATE', 'state');
         define('STATE_LOCAL', 'oauth2-state');
         
-        $provider = new CanvasLMS([
-            'clientId' => $config['canvasClientId'] ,
-            'clientSecret' => $config['canvasClientSecret'],
-            'purpose' => 'tip',
-            'redirectUri' => $config['redirectUri'],
-            'canvasInstanceUrl' => $config['canvasInstanceUrl']
-        ]);
+        $LMSinfo = [
+        'clientId' => $config['canvasClientId'] ,
+        'clientSecret' => $config['canvasClientSecret'],
+        'purpose' => 'tip',
+        'redirectUri' => $config['redirectUri'],
+        'canvasInstanceUrl' => $config['canvasInstanceUrl']
+        ];
+
+        $provider = new CanvasLMS($LMSinfo);
+
+        $LMSinfo1 = json_encode($LMSinfo);
+        Log::info($LMSinfo1);
         
         $c = new Client(['verify'=>false]);
         $provider->setHttpClient($c);
@@ -51,23 +50,11 @@ class LoginController extends Controller
             exit;
         
         } else {
-            //echo 'This is the authorization code: ', $_GET[CODE], '<br/><br/>';
-            // try to get an access token (using our existing code) 
+            Log::info('We are in the else');
             
             $token = $provider->getAccessToken('authorization_code', [CODE => $_GET[CODE]]);
             
-            //echo 'The token has been fetched <br/><br/>';
-            // Use the token, and print out info
-            //echo 'This is the user token: ', $token->getToken(), '<br/><br/>';
-            
             $ownerDetails = $provider->getResourceOwner($token);
-            
-            //echo '<br/><br/>';
-            // Use these details to create a new profile
-            //printf('Your Name: %s ', $ownerDetails->getName());
-            //echo '<br/><br/>';
-            //printf('Your id: %s ', $ownerDetails->getId());
-            //echo '<br/><br/>';
             
             $uid = $ownerDetails->getId();
             $domain = 'north-seattle-college.acme.instructure.com';
