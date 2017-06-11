@@ -2,15 +2,20 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model as Eloquent;
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Auth\Authenticatable as AuthenticableTrait;
 
-class faculty extends Model
+class faculty extends Eloquent implements Authenticatable
 {
+    use AuthenticableTrait;
+    
     protected $fillable = [
         'faculty_id',
         'division_id',
         'faculty_name',
         'email',
+        'faculty_canvas_id',
         'employee_type',
         'is_admin',
         'is_active'
