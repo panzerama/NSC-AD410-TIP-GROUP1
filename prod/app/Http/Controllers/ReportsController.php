@@ -34,8 +34,9 @@ class ReportsController extends Controller
         $reports_array = array();
         //create basic query - for index, this is just 'tips'
         $base_query = SearchController::base_constructor();
+        $department_code = "";
         //pass query and array into reportsDataBuilder
-        ReportsController::reportsDataBuilder($reports_array, $base_query);
+        ReportsController::reportsDataBuilder($reports_array, $base_query, $department_code);
         
         $form_options = ReportsController::formOptions($base_query);
         
@@ -49,8 +50,9 @@ class ReportsController extends Controller
         $reports_array = array();
         //create basic query - for index, this is just 'tips'
         $filtered_query = SearchController::filter_constructor($request);
+        $department_code = $request['division'];
         //pass query and array into reportsDataBuilder
-        ReportsController::reportsDataBuilder($reports_array, $filtered_query);
+        ReportsController::reportsDataBuilder($reports_array, $filtered_query, $department_code);
         
         // the form options should be based on the set of all tips, not the filtered tips
         // todo: accurate?
@@ -91,9 +93,9 @@ class ReportsController extends Controller
        $reports_array[$key] = $table_array;
     }
     
-    private function reportsDataBuilder(&$reports_array, $base_query){
+    private function reportsDataBuilder(&$reports_array, $base_query, $division_code){
         // aggregator that assembles the various data points for reporting
-        ReportsController::tipsSummary($reports_array, $base_query);
+        ReportsController::tipsSummary($reports_array, $base_query, $division_code);
         ReportsController::tipsByMonth($reports_array, $base_query);
         ReportsController::tipsByDivision($reports_array, $base_query);
         ReportsController::indextable($reports_array, $base_query);
@@ -116,7 +118,7 @@ class ReportsController extends Controller
         }
     }
     
-    private function tipsSummary(&$reports_array, $base_query){
+    private function tipsSummary(&$reports_array, $base_query, $division_code){
         $key = "tips_summary";
         
         //$base_query should not be operated on directly
@@ -127,7 +129,7 @@ class ReportsController extends Controller
         
         $summary_collection = $summary_query->get();
         
-        var_dump($summary_collection);
+        //var_dump($summary_collection);
         
         $num_finished_tips = 
             $summary_collection->where('is_finished', 1)->count();
@@ -136,8 +138,20 @@ class ReportsController extends Controller
         $num_in_progress_tips = 
             $summary_collection->where('is_finished', 0)->count();
         
-        // todo find a way fo rthis to change based on the filters
-        $num_faculty = $summary_collection->where('is_active', 1)->pluck('faculty_id')->unique()->count();
+        if($division_code === ""){
+            $num_faculty = DB::table('faculty')->select('faculty_id')->count();
+        } else {
+            $num_faculty = DB::table('faculty')
+                ->join('divisions', 'faculty.division_id', '=', 'divisions.division_id')
+                ->select('faculty.faculty_id')
+                ->where('divisions.abbr', $division_code)
+                ->count();
+        }
+                
+        
+        
+            
+        var_dump($num_faculty);
         
         //$summary_query = $base_query;
         $collect_faculty_with_tips = 
@@ -153,6 +167,8 @@ class ReportsController extends Controller
             */
             
         $num_faculty_no_tip = $num_faculty - $collect_faculty_with_tips;
+        
+        var_dump($num_faculty_no_tip);
         
         $reports_array[$key] = array(
             'finished_tips' => $num_finished_tips,
@@ -270,36 +286,14 @@ class ReportsController extends Controller
         return view('reports/qareports');
     }
     
-    public static function formOptions($base_query, Request $request){
+    public static function formOptions($base_query, Request $request = null){
         $form_options = array();
         $form_query = clone $base_query;
         
-        //start and end date options
-        $selection_start_date = $request['quarter-start'];
-        $selection_end_date = $request['quarter-end'];
-        $key = "date_options";
-        $today = Carbon::today();
-        $start_date = Carbon::today()->subYears(3)->firstOfQuarter();;
-        while($start_date->lte($today)){
-            $current_quarter = $start_date->quarter;
-            
-            switch($current_quarter) {
-                case '1':
-                    $form_options[$key][] = "Winter " . $start_date->format('Y');
-                    break;
-                case '2':
-                    $form_options[$key][] = "Spring " . $start_date->format('Y');
-                    break;
-                case '3':
-                    $form_options[$key][] = "Summer " . $start_date->format('Y');
-                    break;
-                case '4':
-                    $form_options[$key][] = "Fall " . $start_date->format('Y');
-                    break;
-            }
-
-            $start_date->addMonths(3);
-        }
+        ReportsController::startDateOptions($form_options, $request);
+        ReportsController::endDateOptions($form_options, $request);
+        
+        var_dump($form_options);
         
         //Divisions
         $key = "division_options";
@@ -313,8 +307,84 @@ class ReportsController extends Controller
         $key = "question_options";
         $form_options[$key] = DB::table('questions')->pluck('question_text')->all();
         
-        var_dump($form_options);
+        //var_dump($form_options);
         
         return $form_options;
+    }
+    
+    public static function startDateOptions(&$form_options, $request){
+        //start date options
+        if($request != null){
+            $selection_start_date = $request['quarter-start'];
+        } else {
+            $selection_start_date = "";
+        }
+        
+        $key = "start_date_options";
+        $today = Carbon::today();
+        $start_date = Carbon::today()->subYears(3)->firstOfQuarter();;
+        while($start_date->lte($today)){
+            $current_quarter = $start_date->quarter;
+            $next_date_option = "";
+            $is_selected = false;
+            
+            switch($current_quarter) {
+                case '1':
+                    $next_date_option = "Winter " . $start_date->format('Y');
+                    break;
+                case '2':
+                    $next_date_option = "Spring " . $start_date->format('Y');
+                    break;
+                case '3':
+                    $next_date_option = "Summer " . $start_date->format('Y');
+                    break;
+                case '4':
+                    $next_date_option = "Fall " . $start_date->format('Y');
+                    break;
+            }
+            
+            if($next_date_option === $selection_start_date){ $is_selected = true; }
+            
+            $form_options[$key][] = array($next_date_option, $is_selected);
+            $start_date->addMonths(3);
+        }
+    }
+    
+    public static function endDateOptions(&$form_options, $request){
+        //end date options
+        if($request != null){
+            $selection_end_date = $request['quarter-end'];
+        } else {
+            $selection_end_date = "";
+        }
+        
+        $key = "end_date_options";
+        $today = Carbon::today();
+        $start_date = Carbon::today()->subYears(3)->firstOfQuarter();;
+        while($start_date->lte($today)){
+            $current_quarter = $start_date->quarter;
+            $next_date_option = "";
+            $is_selected = false;
+            
+            switch($current_quarter) {
+                case '1':
+                    $next_date_option = "Winter " . $start_date->format('Y');
+                    break;
+                case '2':
+                    $next_date_option = "Spring " . $start_date->format('Y');
+                    break;
+                case '3':
+                    $next_date_option = "Summer " . $start_date->format('Y');
+                    break;
+                case '4':
+                    $next_date_option = "Fall " . $start_date->format('Y');
+                    break;
+            }
+            
+            if($next_date_option === $selection_end_date){ $is_selected = true; }
+            
+            $form_options[$key][] = array($next_date_option, $is_selected);
+            $start_date->addMonths(3);
+        }
     }
 }

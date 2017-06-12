@@ -34,16 +34,24 @@
                 <label class="filter-ui-label">From:</label>
                 <select class="form-control filter-ui-right" name="quarter-start">
                         <option selected="selected">---</option>
-                    @foreach ($form_options['date_options'] as $option)
-                        <option>{{ $option }}</option>
+                    @foreach ($form_options['start_date_options'] as $option)
+                        @if ($option[1])
+                            <option selected>{{ $option[0] }}</option>
+                        @else
+                            <option>{{ $option[0] }}</option>
+                        @endif
                     @endforeach
                 </select>
                                             
                 <label class="filter-ui-label">To:</label>
                 <select class="form-control filter-ui-right" name="quarter-end">
                         <option selected="selected">---</option>
-                    @foreach ($form_options['date_options'] as $option)
-                        <option>{{ $option }}</option>
+                    @foreach ($form_options['end_date_options'] as $option)
+                        @if ($option[1])
+                            <option selected>{{ $option[0] }}</option>
+                        @else
+                            <option>{{ $option[0] }}</option>
+                        @endif
                     @endforeach
                 </select>
                 
