@@ -12,7 +12,10 @@
                 </div>
 
                     
-         
+<?php
+    $answer = array_keys($data['how_impact_assessed']);
+    $countByImpactAssessed = array_column($data['how_impact_assessed'],'countByImpactAssessed');
+?>           
 
 <!-- ChartJS-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>   
@@ -20,11 +23,18 @@
 <script>
 //----------------------------------------------------------------     
 /* How impact assessed */
-//----------------------------------------------------------------     
+//----------------------------------------------------------------  
+var answers = JSON.parse('<?php echo json_encode($answer); ?>');
+
+var answers_trunc = answers.map(function(e) { 
+  e = e.substr(0, 30)+"...";//truncate+ellipses
+  return e;
+});
+
     var doughnutData2 = {
-        labels: ["Feedback","Behavoir","Performance" ],
+        labels: answers_trunc,
         datasets: [{
-            data: [100,150,300],
+            data: JSON.parse('<?php echo json_encode($countByImpactAssessed); ?>'),
             backgroundColor: ["#254284","#008EE2","#91349B"]
         }]
     } ;
