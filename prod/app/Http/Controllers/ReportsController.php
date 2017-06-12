@@ -121,20 +121,12 @@ class ReportsController extends Controller
     private function tipsSummary(&$reports_array, $base_query, $division_code){
         $key = "tips_summary";
         
-        //$base_query should not be operated on directly
         $summary_query = clone $base_query;
-        
-        //building a collection based on the query lets us manipulate the data
-        //in a safe way.
-        
         $summary_collection = $summary_query->get();
-        
-        //var_dump($summary_collection);
         
         $num_finished_tips = 
             $summary_collection->where('is_finished', 1)->count();
         
-        //$summary_query = $base_query;
         $num_in_progress_tips = 
             $summary_collection->where('is_finished', 0)->count();
         
@@ -147,26 +139,15 @@ class ReportsController extends Controller
                 ->where('divisions.abbr', $division_code)
                 ->count();
         }
-                
-        
-        
             
         var_dump($num_faculty);
-        
-        //$summary_query = $base_query;
+
         $collect_faculty_with_tips = 
             $summary_collection->pluck('faculty_name')->unique()->count();
         
-        /*DB::table('tips')
-            ->select('faculty.faculty_id')
-            ->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')
-            ->join('faculty', 'faculty_tips.faculty_id', '=', 'faculty.faculty_id')
-            ->where('tips.is_finished', 1)
-            ->distinct()
-            ->get();
-            */
-            
         $num_faculty_no_tip = $num_faculty - $collect_faculty_with_tips;
+        
+        if($num_faculty_no_tip < 0){ $num_faculty_no_tip = 0; }
         
         var_dump($num_faculty_no_tip);
         
@@ -292,20 +273,10 @@ class ReportsController extends Controller
         
         ReportsController::startDateOptions($form_options, $request);
         ReportsController::endDateOptions($form_options, $request);
-        
-        var_dump($form_options);
-        
-        //Divisions
-        $key = "division_options";
-        $form_options[$key] = $form_query->pluck('abbr')->unique()->all();
-        
-        //courses
-        $key = "course_options";
-        $form_options[$key] = $form_query->pluck('course_name')->unique()->all();
-        
-        //questions
-        $key = "question_options";
-        $form_options[$key] = DB::table('questions')->pluck('question_text')->all();
+        ReportsController::divisionOptions($form_query, $form_options, $request);
+        ReportsController::courseOptions($form_query, $form_options, $request);
+        ReportsController::questionOptions($form_query, $form_options, $request);
+        $form_options['keyword'] = $request['keyword'];
         
         //var_dump($form_options);
         
@@ -385,6 +356,49 @@ class ReportsController extends Controller
             
             $form_options[$key][] = array($next_date_option, $is_selected);
             $start_date->addMonths(3);
+        }
+    }
+    
+    public static function divisionOptions($form_query, &$form_options, $request){
+        //Divisions
+        $key = "division_options";
+        
+        $divisions_list = $form_query->pluck('abbr')->unique()->all();
+        
+        foreach($divisions_list as $division){
+            if($division == $request['division']){
+                $form_options[$key][] = array($division, true);
+            } else {
+                $form_options[$key][] = array($division, false);
+            }
+        }
+    }
+    
+    public static function courseOptions($form_query, &$form_options, $request){
+        //courses
+        $key = "course_options";
+        $course_list = $form_query->pluck('course_name')->unique()->all();
+        
+        foreach($course_list as $course){
+            if($course == $request['course']){
+                $form_options[$key][] = array($course, true);
+            } else {
+                $form_options[$key][] = array($course, false);
+            }
+        }
+    }
+    
+    public static function questionOptions($form_query, &$form_options, $request){
+        //questions
+        $key = "question_options";
+        $question_list = DB::table('questions')->pluck('question_text')->all();
+        
+        foreach($question_list as $question){
+            if($question == $request['question']){
+                $form_options[$key][] = array($question, true);
+            } else {
+                $form_options[$key][] = array($question, false);
+            }
         }
     }
 }

@@ -33,7 +33,7 @@
             
                 <label class="filter-ui-label">From:</label>
                 <select class="form-control filter-ui-right" name="quarter-start">
-                        <option selected="selected">---</option>
+                        <option>---</option>
                     @foreach ($form_options['start_date_options'] as $option)
                         @if ($option[1])
                             <option selected>{{ $option[0] }}</option>
@@ -45,7 +45,7 @@
                                             
                 <label class="filter-ui-label">To:</label>
                 <select class="form-control filter-ui-right" name="quarter-end">
-                        <option selected="selected">---</option>
+                        <option>---</option>
                     @foreach ($form_options['end_date_options'] as $option)
                         @if ($option[1])
                             <option selected>{{ $option[0] }}</option>
@@ -57,17 +57,25 @@
                 
                 <label class="filter-ui-label" name="division">Division:</label>
                 <select class="form-control filter-ui-right filter-ui-select-small" name="division">
-                        <option selected="selected">All</option>
+                        <option>All</option>
                     @foreach ($form_options['division_options'] as $option)
-                        <option>{{ $option }}</option>
+                        @if ($option[1])
+                            <option selected>{{ $option[0] }}</option>
+                        @else
+                            <option>{{ $option[0] }}</option>
+                        @endif
                     @endforeach
                 </select>
                 
                 <label class="filter-ui-label">Course:</label>
                 <select class="form-control filter-ui-right filter-ui-select-small" name="course">
-                        <option selected="selected">All</option>
+                        <option>All</option>
                     @foreach ($form_options['course_options'] as $option)
-                        <option>{{ $option }}</option>
+                        @if ($option[1])
+                            <option selected>{{ $option[0] }}</option>
+                        @else
+                            <option>{{ $option[0] }}</option>
+                        @endif
                     @endforeach
                 </select>
                 
@@ -88,14 +96,19 @@
                 
                 <label class="filter-ui-label">Question:</label>
                 <select class="form-control nav-full-width" name="question">
-                        <option selected="selected">All</option>
+                        <option>All</option>
                     @foreach ($form_options['question_options'] as $option)
-                        <option>{{ substr($option, 0, 60) . "..." }}</option>
+                        @if ($option[1])
+                            <option selected>{{ $option[0] }}</option>
+                        @else
+                            <option>{{ $option[0] }}</option>
+                        @endif
                     @endforeach
                 </select>
                 
                 <label class="filter-ui-label nav-full-width">Search Answer By Keyword(s):</label>
-                <input type="text" class="form-control nav-full-width" style="margin-bottom: 10px;" name="keyword">
+                <input type="text" class="form-control nav-full-width" style="margin-bottom: 10px;" name="keyword"
+                    placeholder="{{ $form_options['keyword'] }}">
             
                <a class="report_submit_button"><button class="btn btn-primary btn-block">Search</button></a>
             </form>
