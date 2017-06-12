@@ -18,7 +18,6 @@
 <div class="row">
         <!-- debugging -->
 <!--{{ print_r(array_column($data['type_of_change'],'countByTypeChange')) }}-->
-{{ print_r(array_column($data['new_opportunities'],'countByNewOpp')) }}
 </div> 
 
 

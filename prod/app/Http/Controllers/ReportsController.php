@@ -271,14 +271,17 @@ class ReportsController extends Controller
                                 ->pluck('answer_text')
                                 ->unique();
         
-        foreach($list_of_answers as $idx => $answer){
-            $countByChangeNeeded =
-                  $answer_collection->where('is_finished', 1)
-                                    ->count();
+        $evidence_change_needed = array();
         
+       foreach($list_of_answers as $idx => $answer){
+            $countByChangeNeeded =
+                  $answer_collection->where('answer_text', '=', $answer)
+                                    ->where('is_finished', 1)
+                                    ->count();
+       
         $evidence_change_needed[$answer] = 
                 array('countByChangeNeeded' => $countByChangeNeeded); 
-        }
+       }
        
        $reports_array[$key] = $evidence_change_needed;
         
@@ -305,9 +308,10 @@ class ReportsController extends Controller
         
         foreach($list_of_answers as $idx => $answer){
             $countByImpactAssessed =
-                  $answer_collection->where('is_finished', 1)
-                                    ->count();
-       
+                  $answer_collection->where('answer_text', '=', $answer)
+                                    ->where('is_finished', 1)
+                                    ->count('tips.tips_id');
+                                    
         $how_impact_assessed[$answer] = 
                 array('countByImpactAssessed' => $countByImpactAssessed); 
         }
@@ -337,9 +341,9 @@ class ReportsController extends Controller
         
         foreach($list_of_answers as $idx => $answer){
             $countByTypeChange =
-                  $answer_collection->where('is_finished', 1)
-                                    ->count();
-       
+                  $answer_collection->where('answer_text', '=', $answer)
+                                    ->where('is_finished', 1)
+                                    ->count('tips.tips_id');
         $type_of_change[$answer] = 
                 array('countByTypeChange' => $countByTypeChange); 
         }
@@ -369,11 +373,13 @@ class ReportsController extends Controller
         
         foreach($list_of_answers as $idx => $answer){
             $countByNewOpp =
-                  $answer_collection->where('is_finished', 1)
+                 $answer_collection->where('answer_text', '=', $answer)
+                                    ->where('is_finished', 1)
                                     ->count();
        
         $new_opportunities[$answer] = 
                 array('countByNewOpp' => $countByNewOpp); 
+      
         }
         
         $reports_array[$key] = $new_opportunities;
@@ -401,7 +407,8 @@ class ReportsController extends Controller
         
         foreach($list_of_answers as $idx => $answer){
             $countByELO =
-                  $answer_collection->where('is_finished', 1)
+                  $answer_collection->where('answer_text', '=', $answer)
+                                    ->where('is_finished', 1)
                                     ->count();
        
         $primary_ELO[$answer] = 
