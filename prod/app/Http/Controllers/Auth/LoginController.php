@@ -92,15 +92,29 @@ class LoginController extends Controller
                 $email = $profile->primary_email;
                 $name = $profile->name;
                 
+                // check if the name and email is already in the database
+                // this would happen if an admin entered them earlier.
+                $count = DB::select('select * from faculty where faculty_name = ? and email = ?', [$name, $email]);
                 
-                // TODO: store id, email, name into faculty table
-                DB::insert('insert into FACULTY (division_id, faculty_name, email, faculty_canvas_id, employee_type, is_admin, is_active) values(?,?,?,?,?,?,?)', [null, $name, $email, $faculty_canvas_id, null, false, true]);
-                
-                
+                if($count) //it's alredy there 
+                {
+                    // update the row to store the canvas_id
+                    DB::table('faculty')->where('email', $email)->update(['faculty_canvas_id' => $faculty_canvas_id]);
+                }
+                else {
+                // create a new row and store id, email, name into faculty table
+                DB::insert('insert into FACULTY (division_id, faculty_name, email, 
+                    faculty_canvas_id, employee_type, is_admin, is_active) 
+                    values(?,?,?,?,?,?,?)', [null, $name, $email, 
+                    $faculty_canvas_id, null, false, true]);
+                }
                 //create a session for the new user
                 Auth::attempt(['faculty_canvas_id' => $faculty_canvas_id]);
+                //create instance of authenticated user
+                $user = Auth::user();
                 
-                //is this right?
+                // redirect them to the account page so they get routed to the 
+                // blade to confirm their details
                 return redirect ('/account');
             }
             
