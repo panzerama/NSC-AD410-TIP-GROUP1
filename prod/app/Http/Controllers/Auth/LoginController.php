@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Contracts\Auth\Authenticatable;
 use smtech\OAuth2\Client\Provider\CanvasLMS;
 use GuzzleHttp\Client;
 
@@ -53,11 +56,12 @@ class LoginController extends Controller
             Log::info('We are in the else');
             
             $token = $provider->getAccessToken('authorization_code', [CODE => $_GET[CODE]]);
-            
+            Log::info($token);
+
             $ownerDetails = $provider->getResourceOwner($token);
             
             $uid = $ownerDetails->getId();
-            $domain = 'north-seattle-college.acme.instructure.com';
+            $domain = 'northseattle.test.instructure.com';
             $profile_url = 'https://' . $domain . '/api/v1/users/' . $uid . '/profile?access_token=' . $token;
             $f = @file_get_contents($profile_url);
             //this is object
