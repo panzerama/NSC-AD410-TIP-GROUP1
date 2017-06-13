@@ -1,0 +1,8 @@
+Khang Quach
+06-12-17
+status report
+
+-Added autocomplete
+-fixed validation
+-added jquery library
+-added flash message for validation

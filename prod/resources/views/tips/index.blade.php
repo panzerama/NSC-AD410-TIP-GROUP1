@@ -7,6 +7,10 @@
 <!-- First TIP Questionnaire page - url 'tip' -->
 
 <div class="wrapper wrapper-content animated fadeInRight">
+    @if (Session::has('message'))
+       <div class="alert alert-info">{{ Session::get('message') }}</div>
+    @endif
+
     <div class="row">
         <div class="col-lg-12">
  
@@ -79,7 +83,7 @@
                             <div class="form-group">
                                 <div class="col-md-12 add-member-field-div">
                                     <div class="col-sm-5">
-                                        <input type="text" class="form-control" name="tip-members[]">
+                                        <input type="text" class="form-control autocomplete" name="tip-members[]">
                                     </div>
                                     <div class="col-md-7">
                                         <a href="#" class="add-tip-member"><span class="glyphicon glyphicon-plus"></span> Add Another Member</a>
@@ -203,6 +207,15 @@
                     <button class="btn btn-lg btn-block btn-primary" value="continue" name="continue" type="submit">Continue</button>
                </div>
            </div><!--form-group-->
+                        @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             
         </form><!-- end form -->
         <br><br><br><br>
@@ -213,12 +226,12 @@
            
             
 @endsection
-
 @section('scripts')
-
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
 <script>
     $(document).ready(function(){
-        
+
         //TIP Questionnaire            
         // hide or show TIP instructions based on user clicks
         $(".hide-instructions").click(function(){
@@ -245,11 +258,23 @@
     var wrapper         = $(".add-member-field-div"); //Fields wrapper
     var add_member      = $(".add-tip-member"); //Add button ID
     var x = 1; //initlal text box count
+    var faculty_names = {!! json_encode($faculty_names->toArray()) !!};
+    names = [];
+    $.each( faculty_names, function( key, val1 ) {
+                    names.push(val1.faculty_name);    
+                });
+    $( ".autocomplete" ).autocomplete({
+            source: names
+        });
     $(add_member).click(function(e){ //on add input button click
         e.preventDefault();
         if(x < max_fields){ //max input box allowed
             x++; //text box increment
-            $(wrapper).append('<div class="col-sm-5 field"><br><input class="form-control type="text" name="tip-members[]"/><a href="#" class="remove_field"><br><span class="glyphicon glyphicon-minus"></span>  Remove</a></div>'); //add input box
+            $(wrapper).append('<div class="col-sm-5 field"><br><input class="form-control autocomplete type="text" name="tip-members[]"/><a href="#" class="remove_field"><br><span class="glyphicon glyphicon-minus"></span>  Remove</a></div>'); //add input box
+            $( ".autocomplete" ).autocomplete({
+            source: names
+        });
+            
         }
     });
     $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
@@ -257,7 +282,6 @@
         $(this).parent('div').remove();
         x--;
     });
-    
 </script>
 
 @endsection
