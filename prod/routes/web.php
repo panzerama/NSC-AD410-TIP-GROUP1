@@ -76,17 +76,9 @@ Route::get('/login' , 'Auth\LoginController@index')->name('login'); // Login Aut
  
  Route::get('/reports','ReportsController@index'); // Reports Splash Page
  Route::get('/table','ReportsController@table'); // Display Table
- Route::get('/reports-dev','ReportsControllerDev@indexdev'); // Reports Splash Page (under development)
- Route::get('/table-dev','ReportsControllerDev@tabledev'); //Display Table (under development)
- Route::get('/summary-test','ReportsControllerDev@summarytest'); // testing data display
- Route::get('/tipsbymonth-test','ReportsControllerDev@tipsbymonthtest'); // testing data display
- Route::get('/tipsbydivision-test','ReportsControllerDev@tipsbydivisiontest'); // testing data display
  Route::get('/reports/filter','ReportsController@create'); // Show Reports Filter Form
  Route::get('/reports/results','ReportsController@show'); // Display Reports
- Route::get('/qareports','ReportsController@qareports'); // Display QA Reports
- Route::get('/summary-demo','ReportsControllerDev@summarydemo'); // testing data display
- Route::get('/tipsbymonth-demo','ReportsControllerDev@tipsbymonthdemo'); // testing data display
- Route::get('/tipsbydivision-demo','ReportsControllerDev@tipsbydivisiondemo'); // testing data display
- Route::get('/reports-demo','ReportsController@reportsdemo'); // testing data display
- Route::get('/table-demo','ReportsControllerDev@tabledemo'); // testing data display
+ Route::get('/reports/tip/{id}','ReportsController@showTip'); // Display Specific Previous Tip
+
+
 

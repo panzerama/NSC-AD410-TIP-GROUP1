@@ -271,8 +271,6 @@ class ReportsController extends Controller
                                 ->pluck('answer_text')
                                 ->unique();
         
-        $evidence_change_needed = array();
-        
        foreach($list_of_answers as $idx => $answer){
             $countByChangeNeeded =
                   $answer_collection->where('answer_text', '=', $answer)
@@ -419,25 +417,15 @@ class ReportsController extends Controller
         
     }
     
-    public function tabledemo()
-    {
-        return view('reports/table-demo');
+    public function showTip($id){
+        // will get not only answer text but also question id
+        
+        $previous_tips_query = DB::table('tips_questions')->join('questions', 'tips_questions.question_id', '=', 'questions.question_id')
+                                                           ->where('tips_questions.tips_id', $id)->get();
+        // dd($previous_tips_query);
+        return view('reports/show', compact('previous_tips_query'));
+        // ->with('previous_tips_query',$previous_tips_query);
     }
     
-    public function reportsdemo()
-    {
-        //init array
-        $reports_array = array();
-        //create basic query - for index, this is just 'tips'
-        $base_query = DB::table('tips');
-        //pass query and array into reportsDataBuilder
-        ReportsController::reportsDataBuilder($reports_array, $base_query);
-        //return view with amended report array
-        return view('reports/reports-demo', ['data' => $reports_array]);
-    }
-    
-    public function qareports()
-    {
-        return view('reports/qareports');
-    }
+   
 }
