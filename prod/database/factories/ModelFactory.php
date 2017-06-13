@@ -61,8 +61,8 @@ $factory->define(App\tip::class, function (Faker\Generator $faker) {
         'course_name' => $faker->words($nb = 3, $asText = true) ,
         'course_number' => 
             implode($faker->unique()->randomElements($array = array('A', 'B', 'C', 'D', 'E', 'F'), $count=3)) . $faker->randomDigitNotNull,
-        'quarter' => $faker->randomElement($array = array ('1', '2', '3', '4')),
-        'year' => $faker->year($max = 'now'),
+        'quarter' => $faker->randomElement($array = array ('FALL', 'WINTER', 'SPRING', 'SUMMER')),
+        'year' => $faker->randomElement($array = array ('2014', '2015', '2016', '2017')),
         'is_finished' => $faker->boolean($chanceOfGettingTrue = 70),
         'is_active' => true,
         'is_group' => $faker->boolean($chanceOfGettingTrue = 10),

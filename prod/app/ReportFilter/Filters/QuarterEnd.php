@@ -18,12 +18,25 @@ class QuarterEnd {
         
         if($value === '---'){ return $builder; }
         
-        $date_parts = explode($value);
-        $converted_year = $date_parts[1];
+        $date_parts = explode(' ', $value);
+        $converted_year = (int)$date_parts[1];
         $converted_quarter = strtoupper($date_parts[0]);
         
+        if($converted_quarter === "WINTER"){
+            $possible_quarters = array("WINTER");
+        } elseif ($converted_quarter === "SPRING") {
+            $possible_quarters = array("WINTER", "SPRING");
+        } elseif ($converted_quarter === "SUMMER") {
+            $possible_quarters = array("WINTER", "SPRING", "SUMMER");
+        } else {
+            $possible_quarters = array("WINTER", "SPRING", "SUMMER", "FALL");
+        }
+        
         return $builder
-            ->where('tips.year', '<=', $converted_year)
-            ->where('tips.quarter', '<=', $converted_quarter);
+            ->where('tips.year', '<=', $converted_year);
+            /*->orWhere(function ($query) use ($possible_quarters, $converted_year) {
+                $query->where('tips.year', '=', $converted_year)
+                      ->whereIn('tips.quarter', $possible_quarters);
+            });*/
     }
 }

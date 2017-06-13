@@ -89,8 +89,10 @@ class ReportsController extends Controller
         
         //get collection of table info
         $table_array = $table_query->get();
+        
+        //var_dump($table_array);
        
-       $reports_array[$key] = $table_array;
+        $reports_array[$key] = $table_array;
     }
     
     private function reportsDataBuilder(&$reports_array, $base_query, $division_code){
@@ -101,28 +103,13 @@ class ReportsController extends Controller
         ReportsController::indextable($reports_array, $base_query);
     }
     
-    private function reportFilterExample(&$reports_array, $query){
-        //the report key
-        $key = "thing";
-        
-        // amend the query if needed
-        $query = $query->thing();
-        
-        //manipulate records and data
-        
-        //add the key to the array
-        if(array_key_exists ($key, $reports_array)){
-            //set key to query values
-        } else {
-            //add key-value pair
-        }
-    }
-    
     private function tipsSummary(&$reports_array, $base_query, $division_code){
         $key = "tips_summary";
         
         $summary_query = clone $base_query;
         $summary_collection = $summary_query->get();
+        
+        var_dump($summary_collection);
         
         $num_finished_tips = 
             $summary_collection->where('is_finished', 1)->count();
@@ -139,8 +126,6 @@ class ReportsController extends Controller
                 ->where('divisions.abbr', $division_code)
                 ->count();
         }
-            
-        var_dump($num_faculty);
 
         $collect_faculty_with_tips = 
             $summary_collection->pluck('faculty_name')->unique()->count();
@@ -148,8 +133,6 @@ class ReportsController extends Controller
         $num_faculty_no_tip = $num_faculty - $collect_faculty_with_tips;
         
         if($num_faculty_no_tip < 0){ $num_faculty_no_tip = 0; }
-        
-        var_dump($num_faculty_no_tip);
         
         $reports_array[$key] = array(
             'finished_tips' => $num_finished_tips,
@@ -277,8 +260,6 @@ class ReportsController extends Controller
         ReportsController::courseOptions($form_query, $form_options, $request);
         ReportsController::questionOptions($form_query, $form_options, $request);
         $form_options['keyword'] = $request['keyword'];
-        
-        //var_dump($form_options);
         
         return $form_options;
     }

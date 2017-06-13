@@ -3,6 +3,7 @@
 namespace App\ReportFilter\Filters;
 
 use Illuminate\Database\Query\Builder;
+use Illuminate\Support\Facades\Log;
 
 class QuarterStart {
     
@@ -18,13 +19,28 @@ class QuarterStart {
         
         if($value === '---'){ return $builder; }
         
-        $date_parts = explode($value);
-        $converted_year = $date_parts[1];
+        $date_parts = explode(' ', $value);
+        $converted_year = (int)$date_parts[1];
         $converted_quarter = strtoupper($date_parts[0]);
         
+        if($converted_quarter === "WINTER"){
+            $possible_quarters = array("WINTER", "SPRING", "SUMMER", "FALL");
+        } elseif ($converted_quarter === "SPRING") {
+            $possible_quarters = array("SPRING", "SUMMER", "FALL");
+        } elseif ($converted_quarter === "SUMMER") {
+            $possible_quarters = array("SUMMER", "FALL");
+        } else {
+            $possible_quarters = array("FALL");
+        }
+        
+        Log::info('QuarterStart: ' . $date_parts[1]);
+        
         return $builder
-            ->where('tips.year', '>=', $converted_year)
-            ->where('tips.quarter', '>=', $converted_quarter);
+            ->where('tips.year', '>=', $converted_year);
+            /*->orWhere(function ($query) use ($possible_quarters, $converted_year) {
+                $query->where('tips.year', '=', $converted_year)
+                      ->whereIn('tips.quarter', $possible_quarters);
+            });*/
         
     }
 }

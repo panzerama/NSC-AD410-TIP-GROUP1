@@ -3,11 +3,10 @@ namespace App\ReportFilter;
 
 use Illuminate\Http\Request;
 use Illuminate\Database\Query\Builder;
+use Illuminate\Support\Facades\Log;
 
 //which db models to I need
 use DB;
-
-use Illuminate\Support\Facades\Log;
 
 class ReportFilter {
     
@@ -28,6 +27,7 @@ class ReportFilter {
             $decorator = static::createFilterDecorator($filterName);
             
             if(static::isValidDecorator($decorator)) {
+                Log::info('isValidDecorator: ' . $decorator);
                 $query = $decorator::apply($query, $value);
             }
         }
@@ -37,7 +37,7 @@ class ReportFilter {
     private static function createFilterDecorator($name) {
         return __NAMESPACE__ . '\\Filters\\' . 
                             str_replace(' ', '', ucwords(
-                                str_replace('_', ' ', $name))); 
+                                str_replace('-', ' ', $name))); 
     }
     
     private static function isValidDecorator($decorator) {
