@@ -10,7 +10,7 @@
                             </span> 
                         </span>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                        <li><a href="#">Logout</a></li>
+                        <li><a href="{{ url('logout') }}">Logout</a></li>
                     </ul>
                 </div>
                 <div class="logo-element">

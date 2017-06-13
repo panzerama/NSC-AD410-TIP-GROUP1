@@ -1,0 +1,4 @@
+continued working trying to get the LoginController to work correctly.
+
+Worked over the weekend to finalize the last things that needed to be done.
+Worked on the update() function in AccountController with the help of Rasa and Mitchell.
