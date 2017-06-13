@@ -1,63 +1,170 @@
-
-<!-- Edit an answer list Modal -->
 <div class="modal fade" id="editAnswerListModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Add Before:</h4>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Answers List</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12">
+              </div>
             </div>
-            <div class="modal-body">
-                <div class="wrapper wrapper-content animated fadeInRight">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="ibox float-e-margins">
-                                <div class="ibox-title">
-                                    <h2>Answer Management</h2>  
-                                </div>
-                                <div class="ibox-title">
-                                    <h3>Edit List<br> </h3>
-                                </div> <!-- end ibox  title-->
-                            </div> <!-- end ibox title -->   
-                        </div>    <!-- end col lg 12 -->
-                    </div>    <!-- end row -->
-                </div>     <!-- wrapper -->
-                <div class="panel panel-body" align="left">
-                    @foreach($answers as $answer)
-                        @if ($question->question_id == $answer->question_id)
-                            <!-- when submit the form, send it to route tip/edit, which will send it to the applicable function     -->
-                            <form method="post" action="/tip/edit">
-                            <!--  send a token with the form for Laravel to validate - to confirm this is the form that is on the server for the website to prevent people to make forms and inject forms/data    -->
-                            {{ csrf_field() }}
-                            <!-- begin row -->
-                            <div class="row">
-                            <!-- col 1 -->
-                                <div class="col-lg-6">
-                                    <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_text" readonly> {{ $answer->answer_text}} </textarea>
-                                </div>
-                                <div class="col-lg-6">
-                                    <button type="button" class="btn btn-outline btn-default" value="" name="addbefore" data-toggle="modal" data-target="#addBeforeModal">Add New Before</button>
-                                    <button type="button" class="btn btn-outline btn-primary" value="" name="addafter" data-toggle="modal" data-target="#addAfterModal">Add New After</button>
-                                    <button type="button" class="btn btn-outline btn-warning" value="" name="modify" data-toggle="modal" data-target="#modifyModal">Modify</button>
-                                    @include('modals/add_modify_question')
-                                    <button type="submit" class="btn btn-outline btn-success" value="" name="moveup">Move Up</button>
-                                    <button type="submit" class="btn btn-outline btn-info" value="" name="movedown">Move Down</button>
-                                    @if ($answer->is_active == 1)
-                                        <button type="submit" class="btn btn-outline btn-danger" value="" name="inactivate">Inactivate</button>
-                                    @else
-                                        <button type="submit" class="btn btn-outline btn-primary" value="" name="activate">Activate</button>
-                                    @endif
-                                </div>  <!-- end col lg 6 -->
-                            </div>   <!-- end row -->
-                            <br>
-                        @endif    
-                    @endforeach   
-                    <br>
-                </div>      <!-- end panel body -->        
-            </div> <!-- end modal body -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-            </div>  <!-- end div class modal footer  -->
-        </div>  <!-- end div class modal fade -->
-    </div>   <!-- end div class modal dialog  -->
-</div>   <!--  end div class modal fade  -->
+          <div id="answer_area">
+          </div> 
+          <hr>
+          <div id='new_answer_area'>
+            <div class="row">
+              <div class="col-lg-8">
+                <label for="new_answer">Add a new answer</label>
+                <textarea style="width:100%" id="new_answer" style="font-weight:bold" style="font-size =lg" class="text-area" value=""></textarea>
+              </div>
+                <div id="new_answer_button">
+                <div class="col-lg-4">
+                <br>  
+                  <button type="button" class="btn btn-outline btn-success" id="save-answer" value="">Save</button>
+                </div>
+              </div>  
+            </div>
+            <br>
+          </div>
+         
+
+        </div>   
+      </div>
+      <div class="modal-footer" id="buttonarea">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+                            
+<!-- JQuery Handlers for the Edit List Modal -->
+<!-- Uses Ajax to provide asynchronous handling of the look up and modification of the edit -->
+<!-- list modal. Each function will refresh the list after the desired function has finished. -->
+
+<script type="text/javascript">
+// Handles onClick for "Save" on the modification list. 
+$(document).ready(function(){
+  $('body').unbind().on('click','.btn.btn-outline.btn-success.save', function(){
+    var answerid = $(this).val();   
+    var response_data; 
+    var questionid = $("#edit_list").val();
+    var answer_el = "#a"+answerid;
+    var answertext = $(answer_el).val();
+$.when( 
+    $.post("/tip/edit/modify",
+        {question_id: questionid, answer_id: answerid, answer_text: answertext},
+        function(post_data, textStatus, jqXHR)
+        {
+        
+        }),
+      $.getJSON("/tip/edit/"+questionid, function(get_data, status){
+      response_data = get_data;
+      })    
+
+).done(function(){
+
+    $("#answer_area").empty();
+      $.each(response_data, function(key, value) {
+      
+        var add =  '<div class="row"><div class="col-lg-8"><textarea style="width:100%" id="a'+this.answer_id+'" style="font-weight:bold" style="font-size =lg" class="text-area" >'+this.answer_text+'</textarea></div><div class="col-lg-4"><button type="button" class="btn btn-outline btn-success save" value="'+this.answer_id+'" name="save" >Save</button>  <button type="button" class="btn btn-outline btn-danger delete" value="'+this.answer_id+'" name="inactivate">Delete</button></div></div><br>';
+          $("#answer_area").append(add);
+       
+    });  
+  
+});
+});
+});
+// Handles onClick for the Delete button. 
+$(document).ready(function(){
+   $("#answer_area").unbind().on("click",'.btn.btn-outline.btn-danger.delete',function(){
+    var answerid = $(this).val();
+    var questionid = $("#edit_list").val();
+$.when( 
+    $.post("/tip/edit/inactivate",
+        {question_id: questionid, answer_id: answerid},
+        function(post_data, textStatus, jqXHR)
+        {
+        
+        }),
+      $.getJSON("/tip/edit/"+questionid, function(get_data, status){
+      response_data = get_data;
+      })    
+
+).done(function(){
+
+    $("#answer_area").empty();
+      $.each(response_data, function(key, value) {
+      
+        var add =  '<div class="row"><div class="col-lg-8"><textarea style="width:100%" id="a'+this.answer_id+'" style="font-weight:bold" style="font-size =lg" class="text-area" >'+this.answer_text+'</textarea></div><div class="col-lg-4"><button type="button" class="btn btn-outline btn-success save" value="'+this.answer_id+'" name="save" >Save</button>  <button type="button" class="btn btn-outline btn-danger delete" value="'+this.answer_id+'" name="inactivate">Delete</button></div></div><br>';
+          $("#answer_area").append(add);
+       
+    });  
+  
+});
+
+});    
+});
+
+// Handles onClick for Save a new list item. 
+$(document).ready(function(){
+    $("#new_answer_button").unbind().on("click",'#save-answer',function(){
+      var questionid = $("#edit_list").val();
+      var new_answer_text = $("#new_answer").val();
+     $.when( 
+        $.post("/tip/edit/add",
+            {question_id: questionid, answer_text: new_answer_text},
+            function(post_data, textStatus, jqXHR)
+            {
+            
+            }),
+          $.getJSON("/tip/edit/"+questionid, function(get_data, status){
+          response_data = get_data;
+          })    
+    
+    ).done(function(){
+        
+        $("#answer_area").empty();
+          $.each(response_data, function(key, value) {
+          
+            var add = '<div class="row"><div class="col-lg-8"><textarea style="width:100%" id="a'+this.answer_id+'" style="font-weight:bold" style="font-size =lg" class="text-area" >'+this.answer_text+'</textarea></div><div class="col-lg-4"><button type="button" class="btn btn-outline btn-success save" value="'+this.answer_id+'" name="save" >Save</button>  <button type="button" class="btn btn-outline btn-danger delete" value="'+this.answer_id+'" name="inactivate">Delete</button></div></div><br>';
+              $("#answer_area").append(add);
+           
+        });  
+      $("#new_answer").val("");
+    });
+           
+    });
+  
+});
+// Provides the initial list lookup when the modal is opened.
+$(document).ready(function(){
+    $("#editAnswerListModal").unbind().on("show.bs.modal",function(e){
+            var question_id = e.relatedTarget.value;
+            
+            if(question_id) {
+                 $.ajax({
+                    url: '/tip/edit/'+question_id,
+                    type: "GET",
+                    dataType: "json",
+                    success:function(data) {
+      
+                      $("#answer_area").empty();
+                        $.each(data, function(key, value) {
+                        var add = '<div class="row"><div class="col-lg-8"><textarea style="width:100%" id="a'+this.answer_id+'" style="font-weight:bold" style="font-size =lg" class="text-area" >'+this.answer_text+'</textarea></div><div class="col-lg-4"><button type="button" class="btn btn-outline btn-success save" value="'+this.answer_id+'" name="save" >Save</button>  <button type="button" class="btn btn-outline btn-danger delete" value="'+this.answer_id+'" name="inactivate">Delete</button></div></div><br>';
+                        $("#answer_area").append(add);
+                        });
+                    }
+                });
+            }else{
+                $('#answer_area').append("Connection Error. Please reload Page");
+                
+            }
+    });
+});
+</script>

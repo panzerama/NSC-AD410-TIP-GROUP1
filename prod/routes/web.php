@@ -20,7 +20,7 @@ Route::get('/', 'Auth\LoginController@index')->name('login'); // Main page route
 // Create Tip
 Route::get('/tip', 'TipsController@index'); // Tips Create Form P.1
 Route::get('tip/questions', 'TipsController@create'); // Tips Create Form P.2
-Route::post('/tip', 'TipsController@store')->name('tipStore'); // Submit and Store Tips Page
+Route::post('/tip', 'TipsController@store'); // Submit and Store Tips Page
 Route::get('/tip/test', 'TipsController@show');
 
 
@@ -33,6 +33,19 @@ Route::get('/tip/previous/{id}','PreviousTipsController@show'); // Display Speci
 Route::get('/tip/edit','EditTipsController@index');
 Route::get('/tip/edit/form','EditTipsController@create'); // Display Edit Tips Form
 Route::post('/tip/edit','EditTipsController@store'); // Save Edit Tips Form
+
+
+// Edit Tips Ajax
+Route::get('/tip/edit/{id}','EditTipsAjaxController@index');
+Route::post('/tip/edit/modify','EditTipsAjaxController@update');
+Route::post('/tip/edit/add','EditTipsAjaxController@store');
+Route::post('/tip/edit/inactivate','EditTipsAjaxController@destroy');
+
+//Edit Division Ajax
+Route::get('/division/edit','EditDivisionAjaxController@index');
+Route::post('/division/edit/modify','EditDivisionAjaxController@update');
+Route::post('/division/edit/add','EditDivisionAjaxController@store');
+Route::post('/division/edit/inactivate','EditDivisionAjaxController@destroy');
 
 /***************************
  *  Login and Auth Routing
@@ -50,6 +63,7 @@ Route::get('/login' , 'Auth\LoginController@index')->name('login'); // Login Aut
 // if we implement a logout button somewhere this is the place to use it to 
 // destroy the session.
 Route::get('/logout', 'Auth\LoginController@destroy')->name('logout'); // Log Out
+
 
 /***************************
  *  Admin Routing

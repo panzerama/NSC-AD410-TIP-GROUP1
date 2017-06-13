@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Log;
+
 
 class DatabaseSeeder extends Seeder
 {
