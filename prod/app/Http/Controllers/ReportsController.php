@@ -26,7 +26,7 @@ class ReportsController extends Controller
         // month => $month,
         // tips_by_month_finished => $by_month_finished,
         // tips_by_month_in_progress => $by_month_in_progress
-    //tips_by_divition =>
+    //tips_by_division =>
         // division abbreviation =>
             // 'tips_by_division_finished'
             // 'tips_by_division_in_progress'
@@ -84,6 +84,11 @@ class ReportsController extends Controller
         ReportsController::tipsSummary($reports_array, $base_query);
         ReportsController::tipsByMonth($reports_array, $base_query);
         ReportsController::tipsByDivision($reports_array, $base_query);
+        ReportsController::evidenceChangeNeeded($reports_array, $base_query);
+        ReportsController::howImpactAssessed($reports_array, $base_query);
+        ReportsController::typeOfChange($reports_array, $base_query);
+        ReportsController::newOpportunities($reports_array, $base_query);
+        ReportsController::primaryELOadded($reports_array, $base_query);
         ReportsController::indextable($reports_array, $base_query);
     }
     
@@ -247,25 +252,180 @@ class ReportsController extends Controller
         
     }
     
-    public function tabledemo()
-    {
-        return view('reports/table-demo');
+    private function evidenceChangeNeeded(&$reports_array, $base_query){
+
+        $key = "evidence_change_needed";
+        
+        $qa_query = clone $base_query;
+        
+        $qa_query
+            ->select('tips.*', 'questions.*', 'answers.*')
+            ->join('tips_questions', 'tips.tips_id', '=', 'tips_questions.tips_id')
+            ->join('questions', 'tips_questions.question_id', '=', 'questions.question_id')
+            ->join('answers', 'questions.question_id', '=', 'answers.question_id')
+            ->where('questions.question_number', 10);
+
+        $answer_collection = $qa_query->get();
+        
+        $list_of_answers = $answer_collection
+                                ->pluck('answer_text')
+                                ->unique();
+        
+       foreach($list_of_answers as $idx => $answer){
+            $countByChangeNeeded =
+                  $answer_collection->where('answer_text', '=', $answer)
+                                    ->where('is_finished', 1)
+                                    ->count();
+       
+        $evidence_change_needed[$answer] = 
+                array('countByChangeNeeded' => $countByChangeNeeded); 
+       }
+       
+       $reports_array[$key] = $evidence_change_needed;
+        
     }
     
-    public function reportsdemo()
-    {
-        //init array
-        $reports_array = array();
-        //create basic query - for index, this is just 'tips'
-        $base_query = DB::table('tips');
-        //pass query and array into reportsDataBuilder
-        ReportsController::reportsDataBuilder($reports_array, $base_query);
-        //return view with amended report array
-        return view('reports/reports-demo', ['data' => $reports_array]);
+    private function howImpactAssessed(&$reports_array, $base_query){
+
+        $key = "how_impact_assessed";
+        
+        $qa_query = clone $base_query;
+        
+        $qa_query
+            ->select('tips.*', 'questions.*', 'answers.*')
+            ->join('tips_questions', 'tips.tips_id', '=', 'tips_questions.tips_id')
+            ->join('questions', 'tips_questions.question_id', '=', 'questions.question_id')
+            ->join('answers', 'questions.question_id', '=', 'answers.question_id')
+            ->where('question_number', 14);
+        
+        $answer_collection = $qa_query->get();
+                                
+        $list_of_answers = $answer_collection
+                                ->pluck('answer_text')
+                                ->unique();
+        
+        foreach($list_of_answers as $idx => $answer){
+            $countByImpactAssessed =
+                  $answer_collection->where('answer_text', '=', $answer)
+                                    ->where('is_finished', 1)
+                                    ->count('tips.tips_id');
+                                    
+        $how_impact_assessed[$answer] = 
+                array('countByImpactAssessed' => $countByImpactAssessed); 
+        }
+        
+        $reports_array[$key] = $how_impact_assessed;
+        
     }
     
-    public function qareports()
-    {
-        return view('reports/qareports');
+     private function typeOfChange(&$reports_array, $base_query){
+
+        $key = "type_of_change";
+        
+        $qa_query = clone $base_query;
+        
+        $qa_query
+            ->select('tips.*', 'questions.*', 'answers.*')
+            ->join('tips_questions', 'tips.tips_id', '=', 'tips_questions.tips_id')
+            ->join('questions', 'tips_questions.question_id', '=', 'questions.question_id')
+            ->join('answers', 'questions.question_id', '=', 'answers.question_id')
+            ->where('question_number', 12);  #12
+            
+        $answer_collection = $qa_query->get();
+                                
+        $list_of_answers = $answer_collection
+                                ->pluck('answer_text')
+                                ->unique();
+        
+        foreach($list_of_answers as $idx => $answer){
+            $countByTypeChange =
+                  $answer_collection->where('answer_text', '=', $answer)
+                                    ->where('is_finished', 1)
+                                    ->count('tips.tips_id');
+        $type_of_change[$answer] = 
+                array('countByTypeChange' => $countByTypeChange); 
+        }
+        
+        $reports_array[$key] = $type_of_change;
+        
     }
+    
+    private function newOpportunities(&$reports_array, $base_query){
+
+        $key = "new_opportunities";
+        
+        $qa_query = clone $base_query;
+        
+        $qa_query
+            ->select('tips.*', 'questions.*', 'answers.*')
+            ->join('tips_questions', 'tips.tips_id', '=', 'tips_questions.tips_id')
+            ->join('questions', 'tips_questions.question_id', '=', 'questions.question_id')
+            ->join('answers', 'questions.question_id', '=', 'answers.question_id')
+            ->where('question_number', 16);
+            
+        $answer_collection = $qa_query->get();
+                                
+        $list_of_answers = $answer_collection
+                                ->pluck('answer_text')
+                                ->unique();
+        
+        foreach($list_of_answers as $idx => $answer){
+            $countByNewOpp =
+                 $answer_collection->where('answer_text', '=', $answer)
+                                    ->where('is_finished', 1)
+                                    ->count();
+       
+        $new_opportunities[$answer] = 
+                array('countByNewOpp' => $countByNewOpp); 
+      
+        }
+        
+        $reports_array[$key] = $new_opportunities;
+        
+    }
+    
+    private function primaryELOadded(&$reports_array, $base_query){
+
+        $key = "primary_ELO";
+        
+        $qa_query = clone $base_query;
+        
+        $qa_query
+            ->select('tips.*', 'questions.*', 'answers.*')
+            ->join('tips_questions', 'tips.tips_id', '=', 'tips_questions.tips_id')
+            ->join('questions', 'tips_questions.question_id', '=', 'questions.question_id')
+            ->join('answers', 'questions.question_id', '=', 'answers.question_id')
+            ->where('question_number', 9);
+            
+        $answer_collection = $qa_query->get();
+                                
+        $list_of_answers = $answer_collection
+                                ->pluck('answer_text')
+                                ->unique();
+        
+        foreach($list_of_answers as $idx => $answer){
+            $countByELO =
+                  $answer_collection->where('answer_text', '=', $answer)
+                                    ->where('is_finished', 1)
+                                    ->count();
+       
+        $primary_ELO[$answer] = 
+                array('countByELO' => $countByELO); 
+        }
+        
+        $reports_array[$key] = $primary_ELO;
+        
+    }
+    
+    public function showTip($id){
+        // will get not only answer text but also question id
+        
+        $previous_tips_query = DB::table('tips_questions')->join('questions', 'tips_questions.question_id', '=', 'questions.question_id')
+                                                           ->where('tips_questions.tips_id', $id)->get();
+        // dd($previous_tips_query);
+        return view('reports/show', compact('previous_tips_query'));
+        // ->with('previous_tips_query',$previous_tips_query);
+    }
+    
+   
 }

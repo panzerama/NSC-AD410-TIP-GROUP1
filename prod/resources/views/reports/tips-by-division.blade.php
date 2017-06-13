@@ -1,21 +1,20 @@
 
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>TIPS by division</h5>
-                    </div>
-                    <div class="ibox-content">
-                        <div><iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 10px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
-                            <canvas id="barChart1" height="120" style="display: block; height: 120px;"></canvas>
-                        </div>
-                    </div>
-                </div>
+<div class="ibox float-e-margins">
+    <div class="ibox-title">
+        <h5>TIPS by division</h5>
+    </div>
+    <div class="ibox-content">
+        <div><iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 10px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+            <canvas id="barChart1" height="120" style="display: block; height: 120px;"></canvas>
+        </div>
+    </div>
+</div>
 
 <?php
     
     $division = array_keys($data['tips_by_division']);
     $countByDivisionSubmitted = array_column($data['tips_by_division'], 'tips_by_division_finished');
     $countByDivisionInprogress = array_column($data['tips_by_division'], 'tips_by_division_in_progress');
-
 ?>         
 
 <!-- ChartJS-->

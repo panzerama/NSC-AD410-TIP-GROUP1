@@ -1,0 +1,137 @@
+/*
+Custom CSS file to override defaults
+*/
+
+/* Set max-width for views */
+#page-wrapper > .wrapper.wrapper-content.animated.fadeInRight {
+    max-width: 1100px;
+}
+
+.clickable-row:hover {
+    cursor: pointer;
+}
+
+/*
+Custom CSS file to override defaults
+*/
+
+/* Set max-width for views */
+#page-wrapper > .wrapper.wrapper-content.animated.fadeInRight {
+    max-width: 1100px;
+}
+
+.clickable-row:hover {
+    cursor: pointer;
+}
+/*
+* Custom CSS for admin left nav filter
+*/
+/* Set height for form group */
+.form-group {
+    height: auto;
+}
+
+.filter-ui-label {
+    width: 20%;
+    font-size: 14px;
+    height: 34px;
+    line-height: 34px;
+    margin-left: 2px;
+}
+.form-control {
+    width: 75%;
+    margin: 2px;
+}
+/* Sets smaller width for select*/
+.filter-ui-select-small {
+    width: 70%;
+}
+.filter-ui-right {
+    float: right;
+}
+.form-group {
+    height: auto;
+}
+.filter-ui-split {
+    line-height: 38px;
+    padding-left: 2px;
+}
+.selected-filter-child {
+    background-color: #FFFFFF;
+    color: #2D3B45;
+}
+.filter-ui-radio {
+   width: 50%;
+   padding-left: 35%;
+}
+.nav-full-width {
+   width: 98%;
+}
+.nav-second-level li:last-child {
+    margin-bottom: 0px;
+}
+
+
+/*
+* App CSS to make application look like canvas
+*/
+/* Site background color */
+.gray-bg, .bg-muted {
+    background-color: #F3F3F4;
+}
+
+/* Override app background color */
+.pace-done {
+    background-color: #2E3B46;
+}
+
+/*
+* Navigation
+*/
+/* Override navigation color */
+.nav-header {
+    background-color: #2E3B46;
+    color: #FFF;
+}
+
+/* Hover state for navigation li */
+.navbar-default .nav > li > a:hover, .navbar-default .nav > li > a:focus /*, .navbar-default .nav > li > a:active */{
+    color: #2D3B45;
+    background-color: #FFF;
+}
+.navbar-default .nav > li > .report_submit_button:hover {
+    background-color: transparent;
+}
+/* Set li background-color and border */
+.nav > li.active {
+  border-left: 4px solid #008EE2;
+  background-color: #FFF;
+}
+
+/* Set active li a color in navigation to black */
+.nav > li.active > a {
+    color: #000;
+}
+.navbar-default .nav > li > .nav-reports-second-level {
+    background-color: transparent;
+    color: #FFF;
+}
+
+/* 
+* Form Control 
+*/
+/* Chang form-control to match canvas */
+.form-control:focus, .single-line:focus {
+    border-color: #008EE2;
+}
+
+
+/*
+* Button Styles
+*/
+/* Updated to match canvas button */
+.btn-primary {
+  background-color: #FFFFFF;
+  border-color: #008EE2;
+  color: #008EE2;
+}

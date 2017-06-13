@@ -17,7 +17,7 @@
 
 <div class="row">
         <!-- debugging -->
-<!--{{ print_r($data) }}-->
+<!--{{ print_r(array_column($data['type_of_change'],'countByTypeChange')) }}-->
 </div> 
 
 
@@ -43,9 +43,7 @@
                     @include('reports.tips-by-division')
             </div>  
 </div>        
-</div>
 
-<div class="wrapper wrapper-content">
 <div class="row">
     <div class="col-lg-6">
         <div class="col-lg-12">
@@ -78,37 +76,18 @@
                      @include('reports.primary-elo-added')
         </div>
 </div>
-</div>  
 
 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>Recent TIPS</h5>
-                        <div class="ibox-tools">
-                            <a class="collapse-link">
-                                <i class="fa fa-chevron-up"></i>
-                            </a>
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                <i class="fa fa-wrench"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-user">
-                                <li><a href="#">Config option 1</a>
-                                </li>
-                                <li><a href="#">Config option 2</a>
-                                </li>
-                            </ul>
-                            <a class="close-link">
-                                <i class="fa fa-times"></i>
-                            </a>
-                        </div>
+                        <h5>TIPS Data</h5>
                     </div>
-                    <div class="ibox-content">
-
-                        <div class="table-responsive">
-
-
-        <table id="tips_data" class="table table-striped table-bordered table-hover dataTable" cellspacing="0" width="100%">
+    
+    <div class="ibox-content">
+        <div class="table-responsive">
+            <table id="tips_data" class="table table-striped table-bordered table-hover dataTable" cellspacing="0" width="100%">
                 <thead>
                     <tr>
+                        <th>Tips ID</th>
                         <th>Division</th>
                         <th>Faculty Name</th>
                         <th>Email</th>
@@ -123,10 +102,8 @@
                     </tr>
                 </thead>
             </table>
-
         </div>
     </div>
-</div>
 
 <?php
     $tableData = $data['table_data'];
@@ -171,13 +148,20 @@ var theData = {"data": <?php echo json_encode($tableData); ?> };
 
 <script type="text/javascript">
 $(document).ready(function() {
-    $('#tips_data').DataTable({
+    var t = $('#tips_data').DataTable({
          "order": [[ 10, "desc" ]],
         dom: '<"pull-left"l><"pull-right"B><f>rtip',
-     "buttons": ['colvis', 'copy', 'csv', 'excel', 'pdf', 'print'   ],
-     "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
-   "data": theData.data,
+        "buttons": ['colvis', 'copy', 'csv', 'excel', 'pdf', 'print'   ],
+        "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+        "data": theData.data,
+        "columnDefs": [
+            {
+                "targets": [0],
+                "visible": false,
+                "searchable": false
+            }],
         "columns": [
+            {"data": "tips_id"},
             {"data": "abbr" },
             {"data": "faculty_name" },
             {"data": "email" },
@@ -187,18 +171,27 @@ $(document).ready(function() {
             {"data": "year" },
             {"data": "is_group",
             "render": function (data, type, row) {
-                if (data.is_group == 1) {
+                if (data > 0) {
                     return "group";
-                } return "individual";}},
+                } return "individual" }},
             {"data": "is_finished",
             "render": function (data, type, row) {
-                if (data.is_finished == 1) {
+                if (data > 0) {
                     return "completed";
                 } return "in-progress";}},
             {"data": "created_at" },
             {"data": "updated_at" },
         ]
     });
-} );
+    $("#tips_data tbody").on('click', 'tr', function () {
+        var completed = t.cell(this, 9).data();
+        var id = t.cell(this, 0).data();
+        if (completed > 0) {
+            window.open('reports/tip/'+id);
+        } else {
+        alert("TIP not yet completed.");
+        }
+});
+});
 </script>
 @stop

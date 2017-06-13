@@ -18,30 +18,61 @@
 <!-- ChartJS-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>   
 
+<?php
+    $answer = array_keys($data['primary_ELO']);
+    $countByELO = array_column($data['primary_ELO'],'countByELO');
+?>                      
+
 <script>
 //----------------------------------------------------------------     
 /* Primary ELO added by TIP */
-//----------------------------------------------------------------            
+//---------------------------------------------------------------- 
+var answers = JSON.parse('<?php echo json_encode($answer); ?>');
+
+var answers_trunc = answers.map(function(e) { 
+  e = e.substr(0, 40)+"...";//truncate+ellipses
+  return e;
+});
+ 
     var barData4 = {
-    labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+    labels: answers_trunc,
     datasets: [
         {
             backgroundColor: 'rgba(0,142,226,1)',
             borderColor: "rgba(0,142,226,1)",
             pointBackgroundColor: "rgba(0,142,226,1)",
             pointBorderColor: "#fff",
-            data: [28, 48, 40, 19, 86, 27, 15, 65, 21, 47, 32, 8]
+            data: JSON.parse('<?php echo json_encode($countByELO); ?>'),
         }
     ]
     };
-    var barOptions4 = {
-        responsive: true,
-            legend: { display: false,
-            position: 'right'
+    var barOptions4 =  {
+        legend: { display: false,
+            responsive: true, 
+        },
+         tooltips: {
+            mode: 'index',
+            intersect: true,
+            callbacks: {
+              title: function(tooltipItem, data) {
+                return data["labels"][tooltipItem[0]["index"]];
+              }
             }
+          },
+        scales: {
+            xAxes: [{
+                ticks: {
+            userCallback: function(value, index, values) {
+              return value.replace(value,index+1);
+            }
+          }
+            }],
+            yAxes: [{}]
+        }
     };
+
     var ctx8 = document.getElementById("barChart4").getContext("2d");
-    new Chart(ctx8, {type: 'bar', data: barData4, options:barOptions4});
+    new Chart(ctx8, {type: 'bar', data: barData4, options: barOptions4});
 //----------------------------------------------------------------      
 </script>
 

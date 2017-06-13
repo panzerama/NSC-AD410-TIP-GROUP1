@@ -11,8 +11,11 @@
             </div>
         </div>
 
-                    
-         
+
+<?php
+    $answer = array_keys($data['new_opportunities']);
+    $countByNewOpp = array_column($data['new_opportunities'],'countByNewOpp');
+?>                      
 
 <!-- ChartJS-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>   
@@ -20,24 +23,51 @@
 <script>
 //----------------------------------------------------------------     
 /* New opportunities */
-//----------------------------------------------------------------     
+//----------------------------------------------------------------   
+var answers = JSON.parse('<?php echo json_encode($answer); ?>');
+
+var answers_trunc = answers.map(function(e) { 
+  e = e.substr(0, 40)+"...";//truncate+ellipses
+  return e;
+});
+
     var barData3 = {
-    labels: ["1", "2", "3", "4", "5", "6"],
+    labels: answers_trunc,
     datasets: [
         {
             backgroundColor: 'rgba(0,142,226,1)',
             borderColor: "rgba(0,142,226,1)",
             pointBackgroundColor: "rgba(0,142,226,1)",
             pointBorderColor: "#fff",
-            data: [28, 48, 40, 19, 86, 27]
+            data: JSON.parse('<?php echo json_encode($countByNewOpp); ?>'),
         }
     ]
     };
-    var barOptions3 = {
+    var barOptions3 =  {
         legend: { display: false,
             responsive: true, 
+        },
+         tooltips: {
+            mode: 'index',
+            intersect: true,
+            callbacks: {
+              title: function(tooltipItem, data) {
+                return data["labels"][tooltipItem[0]["index"]];
+              }
+            }
+          },
+        scales: {
+            xAxes: [{
+                ticks: {
+            userCallback: function(value, index, values) {
+              return value.replace(value,index+1);
+            }
+          }
+            }],
+            yAxes: [{}]
         }
     };
+
     var ctx7 = document.getElementById("barChart3").getContext("2d");
     new Chart(ctx7, {type: 'bar', data: barData3, options:barOptions3});
 </script>
