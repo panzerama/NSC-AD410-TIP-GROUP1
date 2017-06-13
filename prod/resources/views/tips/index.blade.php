@@ -82,10 +82,10 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12 add-member-field-div">
-                                    <div class="col-sm-5">
+                                    <div class="col-sm-6">
                                         <input type="text" class="form-control autocomplete" name="tip-members[]">
                                     </div>
-                                    <div class="col-md-7">
+                                    <div class="col-md-6">
                                         <a href="#" class="add-tip-member"><span class="glyphicon glyphicon-plus"></span> Add Another Member</a>
                                     </div>
                                     <br><br><br>
@@ -270,7 +270,7 @@
         e.preventDefault();
         if(x < max_fields){ //max input box allowed
             x++; //text box increment
-            $(wrapper).append('<div class="col-sm-5 field"><br><input class="form-control autocomplete type="text" name="tip-members[]"/><a href="#" class="remove_field"><br><span class="glyphicon glyphicon-minus"></span>  Remove</a></div>'); //add input box
+            $(wrapper).append('<div class="col-sm-6 field"><br><input class="form-control autocomplete type="text" name="tip-members[]"/><a href="#" class="remove_field"><br><span class="glyphicon glyphicon-minus"></span>  Remove</a></div>'); //add input box
             $( ".autocomplete" ).autocomplete({
             source: names
         });
