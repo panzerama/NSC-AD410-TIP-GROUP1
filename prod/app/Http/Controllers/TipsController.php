@@ -13,6 +13,11 @@ use App\division;
 use DB;
 class TipsController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     **/
 
     public function index()
     {   

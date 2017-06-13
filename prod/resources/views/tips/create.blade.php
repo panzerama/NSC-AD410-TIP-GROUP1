@@ -111,7 +111,7 @@
                                     @endIf
                                 @endforeach
                             </div><!-- form-check-->
-                @endIf
+                @endif
                 
                 </div><!-- answer div -->
                 </div><!-- form-group -->
