@@ -1,0 +1,16 @@
+Mitch Thompson
+Status Report
+6/07/2017
+
+-Updated ? link in top nav bar to redirect user to admin contact page.
+-Added update function to AdminController to change faculty status to active or inactive. Also displays faculty list in a table with a button for changing faculty status.
+-Added tabs (active/inactive) to UI of faculty list view.
+-Combined admin management and faculty list. Added functionality to s a faculty member (and the option to make them admin). Also added functionality to change admin status of current faculty members. 
+-Updated sidebar nav links to reflect changes
+-Merged small-features work into master. Deleted old branches no longer in use.
+
+
+
+
+
+
