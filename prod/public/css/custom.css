@@ -135,3 +135,27 @@ Custom CSS file to override defaults
   border-color: #008EE2;
   color: #008EE2;
 }
+
+
+/*
+* Tips questionnaire autocomplete faculty styling
+*/
+.ui-autocomplete .ui-front .ui-menu .ui-widget .ui-widget-content .ui-corner-all {
+    width:10%;
+}
+
+.ui-widget-content {
+    border: 1px solid #676a6c;
+    width: 10%;
+    background-color: white;
+    font-size: 1.2em;
+}
+.ui-helper-hidden-accessible {
+    display:none;
+}
+
+.ui-widget-content li {
+    list-style-type: none;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
