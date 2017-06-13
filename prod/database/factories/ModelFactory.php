@@ -46,7 +46,7 @@ $factory->define(App\faculty::class, function (Faker\Generator $faker) {
         took this out since token is dead to us. --Luke
         'token' => $faker->sha1,
         */
-        'employee_type' => $faker->randomElement(['enum', 'values']),
+        'employee_type' => $faker->randomElement($array = array ('FULLTIME', 'PARTTIME')),
         'is_admin' => $faker->boolean($chanceOfGettingTrue = 2),
         'is_active' => $faker->boolean($chanceOfGettingTrue = 80)
        ]; 
@@ -61,7 +61,7 @@ $factory->define(App\tip::class, function (Faker\Generator $faker) {
         'course_name' => $faker->words($nb = 3, $asText = true) ,
         'course_number' => 
             implode($faker->unique()->randomElements($array = array('A', 'B', 'C', 'D', 'E', 'F'), $count=3)) . $faker->randomDigitNotNull,
-        'quarter' => $faker->randomElement($array = array ('1', '2', '3', '4')),
+        'quarter' => $faker->randomElement($array = array ('FALL','WINTER','SPRING','SUMMER')),
         'year' => $faker->year($max = 'now'),
         'is_finished' => $faker->boolean($chanceOfGettingTrue = 70),
         'is_active' => true,

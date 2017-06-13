@@ -1,0 +1,11 @@
+Ilsa Coleman
+Status Report
+6/9/2017
+
+- Worked with group members Tuesday 6/6 to troubleshoot and plan.
+This weekend:
+- Working on adding a link to the actual TIP from admin-reports table.
+- Working on individual question/answer reports.
+- Add export options for reports charts (.jpg, .tiff, etc.)
+- Recode css to add grey background to reports page.
+- Add filter options into reports instead of nav bar based on functions Jason is building in controller.

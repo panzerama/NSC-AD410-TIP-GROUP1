@@ -1,0 +1,35 @@
+Michael Fraser
+Status Report 27
+Date: 06/09/2017
+
+What have you completed since the last report?
+
+1) Meeting with team in class to go over updates
+
+2) Worked on auth workflow and troubleshooting
+
+3) Updated server and tested config
+
+4) Continued working on dev guide framework
+
+What do you plan to complete by the next report?
+
+1) Meeting with team members to go over status and updates
+
+2) Work on CSS, UI, and work to keep project on track to completion 
+
+What is getting in your way?
+
+1) Time, need more hours in the day. =P
+
+
+
+
+
+
+
+
+
+
+
+

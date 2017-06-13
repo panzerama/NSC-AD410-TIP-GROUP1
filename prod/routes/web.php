@@ -42,14 +42,14 @@ Route::get('/account', 'AccountController@index');
 
 // needs the post to do the update function from the controller 
 // so that user details get confirmed
-// Route::post('/account', 'AccountController@update');
+Route::post('/account', 'AccountController@updateFirstTime')->name('firstTimeStore');
 
 // Login Controller Routing
 Route::get('/login' , 'Auth\LoginController@index')->name('login'); // Login Auth Form 
 
 // if we implement a logout button somewhere this is the place to use it to 
 // destroy the session.
-// Route::get('/logout', 'Auth\LoginController@destroy'); // Log Out
+Route::get('/logout', 'Auth\LoginController@destroy')->name('logout'); // Log Out
 
 
 

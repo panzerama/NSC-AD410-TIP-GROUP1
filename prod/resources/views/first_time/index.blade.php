@@ -10,77 +10,66 @@
                         <div class="ibox float-e-margins">
                                 <div class="ibox-title">
                                   <h4>Please verify your infomation</h4> 
-                                  <p>If this information is incorrect, please contact the admin <a href="#">HERE</a>.</p>
+                                  <p>If this information is incorrect, please contact the admin <a href="{{ url('/contact') }}">HERE</a>.</p>
                                 </div>
+                                
+                            @foreach($faculty as $fac)
+                                 
+                            @endforeach
                         
                             <div class="ibox-content">
-                                <form class="form-horizontal">
-                                        <div class="form-group">
-                                           <label class="col-sm-2 control-label">First Name</label>
-                                           <div class="col-sm-8">
-                                               <input type="email" readonly="readonly" class="form-control" name="firstname">
-                                           </div>
+                                <form class="form-horizontal" method="POST" action="{{ route('firstTimeStore')}}">
+                                    {{ csrf_field() }}
+                                    
+                                    <input type="hidden" name="faculty_id" value="{{ $fac->faculty_id }}">
+                                    
+                                    <div class="form-group">
+                                       <label class="col-sm-2 control-label">Name</label>
+                                       <div class="col-sm-8">
+                                           <input type="text" readonly="readonly" class="form-control" name="name" value="{{ $fac->faculty_name }}">
                                        </div>
-                                       
-                                       <div class="form-group">
-                                           <label class="col-sm-2 control-label">Last Name</label>
-                                           <div class="col-sm-8">
-                                               <input type="email" readonly="readonly" class="form-control" name="lastname">
-                                           </div>
-                                       </div>
+                                   </div>
+                                      
                                        
                                    
                                    <div class="form-group">
                                        <label class="col-sm-2 control-label">Email</label>
                                            <div class="col-sm-8">
-                                               <input type="email" readonly="readonly" class="form-control" name="email">
+                                               <input type="email" readonly="readonly" class="form-control" name="email" value="{{ $fac->email }}">
+                                               
                                            </div>
                                    </div>
-                                    
-                                    
-                                    
-                                    <div class="ibox-title">
-                                        
-                                    </div>
                                     
                                     <!--TO DO: populate divisions with list-->
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">Division</label>
                                             <div class="col-sm-8">
-                                                <select class="form-control" name="division">
-                                                    <option>ACCT</option>
-                                                    <option>ABE</option>
-                                                    <option>AME</option>
-                                                    <option>ASL</option>
+                                                <select class="form-control" name="division_id">
+                                                    <option selected disabled>Choose one..</option>
+                                                    @foreach($divisions as $division) 
+                                                        <option value="{{ $division->division_id }}">{{ $division->abbr }}</option>
+                                                    @endforeach
                                                 </select>
                                             </div><!--col-sm-8-->
                                     </div><!--form-group-->
                                     
                         
-                                      <br>
-                                    <div class="form-group">
-                                      <div class="col-sm-12">
-                                        <div class="form-check col-sm-offset-3 col-sm-3">
-                                          <label class="form-check-label">
-                                            <input class="form-check-input" type="radio" name="full-time" value="full-time">
-                                            Full-time
-                                          </label>
-                                        </div>
-                                        <div class="form-check col-sm-3">
-                                          <label class="form-check-label">
-                                            <input class="form-check-input" type="radio" name="part-time" value="part-time">
-                                            Part-time
-                                          </label>
-                                        </div>
-                                      </div>
-                                    </div>
+                                <div class="form-group">
+                                <label class="col-sm-2 control-label">Employee Type</label>
+                                    <div class="col-sm-8">
+                                        <select required class="form-control" name="employee_type">
+                                            <option selected disabled>Choose one..</option>
+                                            <option value="FULLTIME">Full-Time</option>
+                                            <option value="PARTTIME">Part-Time</option>
+                                        </select>
+                                    </div><!--col-sm-8-->
+                                </div><!--form-group-->
                                     
                                     
                                     <div class="form-group">
                                        <div class="col-sm-offset-9">
-                                           <button class="btn btn-lg btn-white" type="submit">Continue</button>
+                                           <button class="btn btn-block btn-lg btn-primary" name="submit" value="submit" type="submit">Continue</button>
                                        </div>
-                                       
                                    </div>
                                     
                                 </form>
