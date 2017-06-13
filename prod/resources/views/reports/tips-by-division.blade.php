@@ -49,7 +49,7 @@
     var barOptions = {
         responsive: true,
             legend: { display: true,
-            position: 'right'
+            position: 'top'
         }
     };
     var ctx2 = document.getElementById("barChart1").getContext("2d");

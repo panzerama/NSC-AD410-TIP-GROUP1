@@ -7,7 +7,7 @@
                  </div>
                   <div class="ibox-content">
                 <iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
-                <canvas id="barChart3" width="50" height="15" style="margin: 0px auto 0px; display: block; width: 50px; height: 10px;"></canvas>
+                <canvas id="barChart3" width="500" height="150" style="margin: 0px auto 0px; display: block; width: 50px; height: 10px;"></canvas>
             </div>
         </div>
 
@@ -35,10 +35,15 @@ var answers_trunc = answers.map(function(e) {
     labels: answers_trunc,
     datasets: [
         {
-            backgroundColor: 'rgba(0,142,226,1)',
-            borderColor: "rgba(0,142,226,1)",
-            pointBackgroundColor: "rgba(0,142,226,1)",
-            pointBorderColor: "#fff",
+             backgroundColor: [
+                "#2ecc71",
+                "#008ee2",
+                "#95a5a6",
+                "#91349B",
+                "#f1c40f",
+                "#e74c3c",
+                "#254284"
+              ],
             data: JSON.parse('<?php echo json_encode($countByNewOpp); ?>'),
         }
     ]
@@ -51,7 +56,7 @@ var answers_trunc = answers.map(function(e) {
             mode: 'index',
             intersect: true,
             callbacks: {
-              title: function(tooltipItem, data) {
+             title: function(tooltipItem, data) {
                 return data["labels"][tooltipItem[0]["index"]];
               }
             }
@@ -64,10 +69,12 @@ var answers_trunc = answers.map(function(e) {
             }
           }
             }],
-            yAxes: [{}]
+            yAxes: [{
+                ticks: { beginAtZero: true }
+            }]
         }
     };
-
+    
     var ctx7 = document.getElementById("barChart3").getContext("2d");
     new Chart(ctx7, {type: 'bar', data: barData3, options:barOptions3});
 </script>
