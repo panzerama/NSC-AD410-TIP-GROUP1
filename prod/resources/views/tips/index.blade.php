@@ -40,15 +40,9 @@
             <!--start form-->
             <div class="ibox float-e-margins">
                 <div class="ibox-content">
-                    <!--I changed method to post and action to store method-->
-                    <!--I also had to change the name of each attribute to id-->
-                    <!--I also changed the continue from a href to Button that only submit to store method-->
-                    <!--From that method it will redirect to tip/questions anyways-->
-                    <!--I commented out the old code so if theres conflict I can always go back-->
                     <form class="form-horizontal" method = "post" action = "{{ route('tipStore')}}">
                         {{ csrf_field() }}
                         <br>
-                        
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Is this an individual or group TIP?</label>
                                 <div class="col-sm-8">
@@ -258,14 +252,17 @@
     var wrapper         = $(".add-member-field-div"); //Fields wrapper
     var add_member      = $(".add-tip-member"); //Add button ID
     var x = 1; //initlal text box count
+    // get faculty names and turn it into json array
     var faculty_names = {!! json_encode($faculty_names->toArray()) !!};
     names = [];
+    // store json properties into names array and call autocomplete function
     $.each( faculty_names, function( key, val1 ) {
                     names.push(val1.faculty_name);    
                 });
     $( ".autocomplete" ).autocomplete({
             source: names
         });
+    // also call auto complete once field is added
     $(add_member).click(function(e){ //on add input button click
         e.preventDefault();
         if(x < max_fields){ //max input box allowed
