@@ -187,7 +187,7 @@ $(document).ready(function() {
         var completed = t.cell(this, 9).data();
         var id = t.cell(this, 0).data();
         if (completed > 0) {
-            window.open('tip/previous/'+id);
+            window.open('reports/tip/'+id);
         } else {
         alert("TIP not yet completed.");
         }

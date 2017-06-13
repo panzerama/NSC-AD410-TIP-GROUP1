@@ -7,7 +7,7 @@
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
         <div class="col-lg-12">
-            <h2>Previous TIP</h2> 
+            <h2>Completed TIP</h2> 
             <br><br>
                 <table class="table">
                     <thead>
