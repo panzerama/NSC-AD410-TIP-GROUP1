@@ -329,7 +329,7 @@ class ReportsController extends Controller
             ->join('tips_questions', 'tips.tips_id', '=', 'tips_questions.tips_id')
             ->join('questions', 'tips_questions.question_id', '=', 'questions.question_id')
             ->join('answers', 'questions.question_id', '=', 'answers.question_id')
-            ->where('question_number', 12);  #12
+            ->where('question_number', 12);  
             
         $answer_collection = $qa_query->get();
                                 
@@ -341,7 +341,7 @@ class ReportsController extends Controller
             $countByTypeChange =
                   $answer_collection->where('answer_text', '=', $answer)
                                     ->where('is_finished', 1)
-                                    ->count('tips.tips_id');
+                                    ->count();
         $type_of_change[$answer] = 
                 array('countByTypeChange' => $countByTypeChange); 
         }
