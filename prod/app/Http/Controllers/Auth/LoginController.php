@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\faculty as Faculty;
+use App\User as User;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -57,7 +58,7 @@ class LoginController extends Controller
             Log::info('We are in the else');
             
             $token = $provider->getAccessToken('authorization_code', [CODE => $_GET[CODE]]);
-            Log::info($token);
+            Log::info('Token ' . $token);
 
             $ownerDetails = $provider->getResourceOwner($token);
             
@@ -74,22 +75,34 @@ class LoginController extends Controller
             //canvas id from profile object:
             $faculty_canvas_id = $profile->id;
             
-            $is_faculty = Faculty::select('faculty_id')->where('faculty_canvas_id', $faculty_canvas_id)->count();
+            Log::info('Faculty canvas id ' . $faculty_canvas_id);
+            
+            $faculty_id = Faculty::select('faculty_id')->where('faculty_canvas_id', $faculty_canvas_id)->count();
+            
+            Log::info('Is faculty ' . $faculty_id)
             
             //if user has been here before a session gets created
-            if(!empty($is_faculty)) {
-                //create instance of authenticated user
-                $user = Auth::user();
+            if(!empty($faculty_id)) {
+                
+                //find user_id
+                $user_id = User::select('users.user_id')
+                    ->join('faculty', 'users.email', '=', 'faculty.email')
+                    ->where('faculty.faculty_id', $faculty_id);
+                
                 //get admin status
-                //$userIsAdmin = $user->isAdmin;
+                $user_is_admin = User::select('faculty.is_admin')
+                    ->join('faculty', 'users.email', '=', 'faculty.email')
+                    ->where('faculty.faculty_id', $faculty_id);
+                    
+                //create instance of authenticated user
+                $user = Auth::loginUsingId($user_id);
                 
-                // if($userIsAdmin) {
-                //     return redirect ('/admin');
-                // } else {
-                   
-                // }
-                
-                 return redirect ('/tip');
+                if($user_is_admin) {
+                    return redirect ('/admin');
+                } else {
+                   return redirect ('/tip');
+                }
+                 
             } else {
                 //user hasn't been here before so we'll get the details:
                 
@@ -133,7 +146,7 @@ class LoginController extends Controller
         Auth::logout();
         // redirect to canvas homepage upon logout
         $url = 'canvas.northseattle.edu';
-        return Redirect::away($url);
+        return redirect($url);
     }
 
 }
