@@ -114,26 +114,31 @@ class LoginController extends Controller
                 
                 // check if the name and email is already in the database
                 // this would happen if an admin entered them earlier.
-                $count = DB::select('select * from faculty where faculty_name = ? and email = ?', [$name, $email]);
+		$count = DB::table('faculty')->select('*')->where('faculty_name', $name)->where('email', $email)->count();
                 
+		Log::info('Value of $count ' . $count);
+		 
                 if($count) //it's alredy there 
                 {
                     // update the row to store the canvas_id
                     DB::table('faculty')->where('email', $email)->update(['faculty_canvas_id' => $faculty_canvas_id]);
                 }
                 else {
-                // create a new row and store id, email, name into faculty table
-                DB::insert('insert into FACULTY (division_id, faculty_name, email, 
-                    faculty_canvas_id, employee_type, is_admin, is_active) 
-                    values(?,?,?,?,?,?,?)', [null, $name, $email, 
-                    $faculty_canvas_id, null, false, true]);
+                	// create a new row and store id, email, name into faculty table
+                	DB::insert('insert into FACULTY (division_id, faculty_name, email, 
+                    		faculty_canvas_id, employee_type, is_admin, is_active) 
+                    		values(?,?,?,?,?,?,?)', [null, $name, $email, 
+                    		$faculty_canvas_id, null, false, true]);
                 }
-                //create instance of authenticated user
-                $user = Auth::user();
-                //create a session for the new user
-                Auth::login($user);
+
+                //find user_id
+                $user_id = User::select('users.id')
+                    ->join('faculty', 'users.email', '=', 'faculty.email')
+                    ->where('faculty.faculty_id', $faculty_id)
+                    ->get();
                 
-                
+                $user = Auth::loginUsingId($user_id);
+
                 // redirect them to the account page so they get routed to the 
                 // blade to confirm their details
                 return redirect ('/account');
