@@ -108,7 +108,11 @@ class TipsController extends Controller
         $existing_answers = tips_questions::where('tips_id', '=', $tips_id)->get(); 
         // retrieve all faculty names
         $faculty_names = DB::table('faculty')->select('faculty_name')->get();
-        return view('tips/index',compact('questions','existing_answers', 'faculty_names')); 
+        // get answer to first question, if not empty string hide the first question
+        $question_one = DB::table('tips_questions')
+                        ->where('tips_id',$tips_id)
+                        ->where('question_id', 1)->get();
+        return view('tips/index',compact('questions','existing_answers', 'faculty_names','question_one')); 
         
     }
 
@@ -143,6 +147,7 @@ class TipsController extends Controller
                         $query->where('tips_id', '=', $tips_id);})->get();
         // retrieve all existing answers for active tip                        
         $existing_answers = tips_questions::where('tips_id', '=', $tips_id)->get();
+        
         return view('tips/create', compact('questions','existing_answers')); // Returns view for tips/create.blade.php
  
     }
@@ -295,17 +300,17 @@ class TipsController extends Controller
             '5'     => 'nullable',
             '6'     => 'nullable',
             '7'     => 'nullable',
-            '8'     => 'required|max:140',
-            '9'     => 'required|max:140',
+            '8'     => 'required|max:2000',
+            '9'     => 'required|max:2000',
             '10'    => 'required',
             '11'    => 'required',
-            '12'    => 'required|max:140',
+            '12'    => 'required|max:2000',
             '13'    => 'required',
-            '14'    => 'required|max:140',
+            '14'    => 'required|max:2000',
             '15'    => 'required',
-            '16'    => 'required|max:140',
+            '16'    => 'required|max:2000',
             '17'    => 'required',
-            '18'    => 'required|max:140',
+            '18'    => 'required|max:2000',
             '19'    => 'required'
         ]);
         // insert into db and switch flag to is finished
