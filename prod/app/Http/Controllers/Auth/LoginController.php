@@ -74,7 +74,7 @@ class LoginController extends Controller
             $faculty_canvas_id = $profile->id;
             
             //if user has been here before a session gets created
-            if(Auth::attempt(['faculty_canvas_id' => $faculty_canvas_id])) {
+            if(Auth::login(['faculty_canvas_id' => $faculty_canvas_id])) {
                 //create instance of authenticated user
                 $user = Auth::user();
                 //get admin status
@@ -109,7 +109,7 @@ class LoginController extends Controller
                     $faculty_canvas_id, null, false, true]);
                 }
                 //create a session for the new user
-                Auth::attempt(['faculty_canvas_id' => $faculty_canvas_id]);
+                Auth::login(['faculty_canvas_id' => $faculty_canvas_id]);
                 //create instance of authenticated user
                 $user = Auth::user();
                 
