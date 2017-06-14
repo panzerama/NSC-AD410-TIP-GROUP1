@@ -87,31 +87,40 @@ class LoginController extends Controller
             if(!empty($faculty_id)) {
                 
                 //find user_id
-                $user_id = User::select('users.id')
+                $db_user = DB::table('users')
+                    ->select('id')
                     ->join('faculty', 'users.email', '=', 'faculty.email')
                     ->where('faculty.faculty_id', $faculty_id)
-                    ->pluck('id');
+                    ->first();
                     
-                
-                //get admin status
-                $user_is_admin = User::select('faculty.is_admin')
-                    ->join('faculty', 'users.email', '=', 'faculty.email')
-                    ->where('faculty.faculty_id', $faculty_id)
-                    ->get();
+                if(isset($db_user)) {
+                    $user_id = $db_user->id;
+                    Log::info((string)$user_id);
+                    /*
+                    $user_id = User::select('users.id')
+                        ->join('faculty', 'users.email', '=', 'faculty.email')
+                        ->where('faculty.faculty_id', $faculty_id)
+                        ->pluck('id');
+                    */
+                    //get admin status
+                    $user_is_admin = User::select('faculty.is_admin')
+                        ->join('faculty', 'users.email', '=', 'faculty.email')
+                        ->where('faculty.faculty_id', $faculty_id)
+                        ->get();
+                        
+                    //create instance of authenticated user
+                    $user = Auth::loginUsingId($user_id, true);
+                    Log::info(var_export($user_id, true));
+                    Log::info('Auth::check() ' . var_export(Auth::check(), true));
+                    Log::info('Auth::user() ' . var_export(Auth::user(), true));
+                    Log::info('User is:'. var_export($user, true));
                     
-                //create instance of authenticated user
-                $user = Auth::loginUsingId($user_id, true);
-                Log::info(var_export($user_id, true));
-                Log::info('Auth::check() ' . var_export(Auth::check(), true));
-                Log::info('Auth::user() ' . var_export(Auth::user(), true));
-                Log::info('User is:'. var_export($user, true));
-                
-                if($user_is_admin == true) {
-                    return redirect ('/admin');
-                } else {
-                   return redirect ('/tip');
+                    if($user_is_admin == true) {
+                        return redirect ('/admin');
+                    } else {
+                       return redirect ('/tip');
+                    }
                 }
-                 
             } else {
                 //user hasn't been here before so we'll get the details:
                 
