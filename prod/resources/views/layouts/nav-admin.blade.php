@@ -3,9 +3,9 @@
         <ul class="nav metismenu" id="side-menu">
             <li class="nav-header">
                 <div class="dropdown profile-element">
-                        <span class="clear">
+                        <span class="clear text-center">
                             <span class="block m-t-xs">
-                                <img src="/images/nsc_logo_t.png" height="128" width="128">
+                                <img src="/images/nsc_logo_t.png" height="96" width="96">
                             </span> 
                             <strong class="font-bold">
                             @if( Auth::check() )
