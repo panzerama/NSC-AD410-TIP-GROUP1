@@ -100,6 +100,7 @@ class LoginController extends Controller
                     
                 //create instance of authenticated user
                 $user = Auth::loginUsingId($user_id, true);
+                log::info(var_dump($user));
                 
                 if($user_is_admin == true) {
                     return redirect ('/admin');
