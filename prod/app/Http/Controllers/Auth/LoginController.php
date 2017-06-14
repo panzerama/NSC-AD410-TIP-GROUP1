@@ -85,7 +85,7 @@ class LoginController extends Controller
             
             //if user has been here before a session gets created
             if(isset($faculty_id)) {
-        
+            
                 //find user_id
                 $db_user = DB::table('users')
                     ->select('id')
@@ -142,7 +142,7 @@ class LoginController extends Controller
                 }
                 else {
                     // create a new row in users table, insert name and email
-                    DB::insert('insert into users (name, email) values(?,?)', [$name, $email]);
+                    DB::insert('insert into users (name, email, password) values(?,?,?)', [$name, $email, null]);
                     
                 	// create a new row and store id, email, name into faculty table
                 	DB::insert('insert into FACULTY (division_id, faculty_name, email, 
