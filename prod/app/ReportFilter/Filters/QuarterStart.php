@@ -34,13 +34,15 @@ class QuarterStart {
         }
         
         Log::info('QuarterStart: ' . $date_parts[1]);
+        Log::info('Possible Quarters: ' . implode(" ", $possible_quarters));
+        
         
         return $builder
-            ->where('tips.year', '>=', $converted_year);
-            /*->orWhere(function ($query) use ($possible_quarters, $converted_year) {
+            ->where('tips.year', '>=', $converted_year)
+            ->orWhere(function ($query) use ($possible_quarters, $converted_year) {
                 $query->where('tips.year', '=', $converted_year)
                       ->whereIn('tips.quarter', $possible_quarters);
-            });*/
+            });
         
     }
 }

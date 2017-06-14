@@ -109,7 +109,7 @@ class ReportsController extends Controller
         $summary_query = clone $base_query;
         $summary_collection = $summary_query->get();
         
-        var_dump($summary_collection);
+        //var_dump($summary_collection);
         
         $num_finished_tips = 
             $summary_collection->where('is_finished', 1)->count();
