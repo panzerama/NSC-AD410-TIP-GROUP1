@@ -6,15 +6,20 @@ use DB;
 
 class AdminController extends Controller {
     
-    /**
-     * Update the user's profile.
-     *
-     * @param  Request  $request
-     * @return Response
-     */
-    public function update(Request $request) {
-        //returns an instance of the authenticated user...
-        $request->user();
+    // authenticated user.protected
+    protected $user;
+
+    //Is user signedIn?
+    protected $signedIn;
+
+    public function __construct() {
+
+        $this->middleware(function ($request, $next) {
+
+            $this->user = $this->signedIn = Auth::user();
+
+            return $next($request);
+        });
     }
     
     public function index() {
