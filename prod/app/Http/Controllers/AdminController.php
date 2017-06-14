@@ -1,20 +1,28 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Controllers\Auth\LoginController;
 use DB;
 
-class AdminController extends Controller
-{
-    public function index(){
+class AdminController extends Controller {
+    
+    // this __construct() function will need to be at the top
+    // of all controllers doing any storing stuff.
+    public function __construct() {
+        $this->middleware('auth');
+    }
+    //TODO - need logic to check session 
+    
+    public function index() {
         return redirect()->action('AdminController@show');
     }
     
-    public function create(){
+    public function create() {
     
         return redirect()->action('AdminController@show');
     }
     
-    public function store(){
+    public function store() {
         
          $faculty_name = request('name');
          $email = request('email');
@@ -43,14 +51,14 @@ class AdminController extends Controller
         return redirect()->action('AdminController@show');  
     }
     
-    public function show(){
+    public function show() {
         $faculty = DB::table('faculty')->get();
         $divisions = DB::table('divisions')->get();
         
         return view('admin/show', compact('faculty', 'divisions'));
     }
     
-    public function update($id, $status){
+    public function update($id, $status) {
         $faculty = DB::table('faculty')->get();
         
         if($status == "active"){

@@ -8,8 +8,8 @@
                                 <img src="/images/nsc_logo_t.png" height="64" width="64">
                                 <strong class="font-bold">
                                 @if( Auth::check() )
-                                Current user: {{ Auth::user()->name }}
-                                @else Test User
+                                {{ Auth::user()->name }}
+                                @else Unauthenticated User
                                 @endif
 				                </strong>
                             </span> 
