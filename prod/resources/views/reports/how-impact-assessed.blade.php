@@ -7,7 +7,7 @@
                          </div>
                           <div class="ibox-content">
                         <iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
-                    <canvas id="doughnutChart2" width="50" height="10" style="margin: 0px auto 0px; display: block; width: 50px; height: 10px;"></canvas>
+                    <canvas id="doughnutChart2" width="500" height="150" style="margin: 0px auto 0px; display: block; width: 50px; height: 10px;"></canvas>
                     </div>
                 </div>
 
@@ -18,7 +18,7 @@
 ?>           
 
 <!-- ChartJS-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>  
 
 <script>
 //----------------------------------------------------------------     
@@ -27,7 +27,7 @@
 var answers = JSON.parse('<?php echo json_encode($answer); ?>');
 
 var answers_trunc = answers.map(function(e) { 
-  e = e.substr(0, 30)+"...";//truncate+ellipses
+  e = e.substr(0, 20)+"...";//truncate+ellipses
   return e;
 });
 
@@ -41,9 +41,15 @@ var answers_trunc = answers.map(function(e) {
     var doughnutOptions2 = {
         responsive: true,
             legend: { display: false,
-            position: 'right'
+            position: 'right',
+            labels: {
+                padding: 0,
+                fontSize: 10,
+                boxWidth: 10,
+            }
         }
     };
     var ctx6 = document.getElementById("doughnutChart2").getContext("2d");
     new Chart(ctx6, {type: 'doughnut', data: doughnutData2, options:doughnutOptions2});
+
 </script>

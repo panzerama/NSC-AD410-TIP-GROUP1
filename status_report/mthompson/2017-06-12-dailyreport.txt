@@ -6,7 +6,8 @@ Status Report
 -Updated UI view to display data correctly and submit form correctly
 -Worked with Luke to add logic to AdminController to store correct data about faculty
 -Merged this work into master
--Added custom styling to Kenny’s awesome implementation of autocomplete for faculty input on tips questionnaire
+-Added custom styling to Kenny’s awesome implementation of autocomplete for faculty input on tips questionnaire.
+
 
 
 
