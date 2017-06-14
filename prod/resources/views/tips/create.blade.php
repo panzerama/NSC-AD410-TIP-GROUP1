@@ -37,6 +37,20 @@
             <!--Added route for when user saves or submit-->
             <form id="tip" class="form-horizontal" method = "post" action = "{{ route('tipStore')}}">
                 {{ csrf_field() }}
+                <!--if statement to show validation errors-->
+            @if (count($errors) > 0)
+            <div class="ibox float-e-margins"> 
+                <div class="alert alert-danger text-center">
+                    <h3>All questions are required. Please fill out all fields. Thank you!</h3>
+                    <!--<ul>-->
+                    <!--    @foreach ($errors->all() as $error)-->
+                    <!--    <li>{{ $error }}</li>-->
+                    <!--    @endforeach-->
+                    <!--</ul>-->
+                </div>
+            </div>
+            @endif
+            
             
             <!-- start foreach loop through questions -->
             @foreach($questions as $question)
@@ -57,8 +71,8 @@
     
                 <!-- start if/else block that outputs different HTML based on question_type (TEXT, DROPDOWN, RADIO, CHECKBOX) -->
                 @if ($question->question_type == "TEXT")
-                        <div class="col-lg-8 col-sm-12">
-                        <textarea class="form-control" name="{{ $question->question_id }}" value="{{ $question->question_id }}" rows="4" cols="60">{{ $existing_answers[$question->question_number - 1]->question_answer }}</textarea>
+                        <div class="col-lg-12 col-sm-12">
+                        <textarea class="form-control" name="{{ $question->question_id }}" value="{{ $question->question_id }}" rows="4" cols="100">{{ $existing_answers[$question->question_number - 1]->question_answer }}</textarea>
                 <!-- character counter -->
                         <span class="characters" style="color:#999;">2000</span> <span style="color:#999;">Characters left</span>
                 @elseif ( $question->question_type == "DROPDOWN")       
@@ -154,16 +168,6 @@
                
                
             </div> <!-- form-group --> 
-            <!--if statement to show validation errors-->
-            @if (count($errors) > 0)
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
         </form>
         <br><br><br><br>
         <div class="text-center">

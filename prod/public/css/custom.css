@@ -81,8 +81,8 @@ Custom CSS file to override defaults
 }
 
 /* Override app background color */
-.pace-done {
-    background-color: #2E3B46;
+.gray-bg, .bg-muted {
+    background-color: #f3f3f4;
 }
 
 /*

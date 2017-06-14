@@ -8,9 +8,9 @@
 
 <div class="wrapper wrapper-content animated fadeInRight">
     <!--if question one is not filled out will be empty-->
-    @foreach ($question_one as $one)
-        {{$one->question_answer}}
-    @endforeach
+    <!--@foreach ($question_one as $one)-->
+    <!--    {{$one->question_answer}}-->
+    <!--@endforeach-->
     @if (Session::has('message'))
        <div class="alert alert-info">{{ Session::get('message') }}</div>
     @endif
@@ -44,10 +44,25 @@
             <!--start form-->
             <div class="ibox float-e-margins">
                 <div class="ibox-content">
+                    @if (count($errors) > 0)
+                <div class="alert alert-danger text-center">
+                    <h3>All questions are required. Please fill out all fields. Thank you!</h3>
+                    <!--<ul>-->
+                    <!--    @foreach ($errors->all() as $error)-->
+                    <!--    <li>{{ $error }}</li>-->
+                    <!--    @endforeach-->
+                    <!--</ul>-->
+                </div>
+            @endif
+                    
                     <form class="form-horizontal" method = "post" action = "{{ route('tipStore')}}">
                         {{ csrf_field() }}
                         <br>
-                        <div class="form-group">
+                        @if(!$one->question_answer == '')
+                            <div style="display:none" class="form-group">
+                        @else 
+                            <div class="form-group">
+                        @endIf
                             <label class="col-sm-2 control-label">Is this an individual or group TIP?</label>
                                 <div class="col-sm-8">
                                     <!--<select class="form-control" id="tip-type" name="tip-type">-->
@@ -91,14 +106,17 @@
                              </div>
                          </div>
                 
-                         
-                        <div class="hr-line-dashed"></div>
+                         @if(!$one->question_answer == '')
+                            <div style="display:none" class="hr-line-dashed"></div>
+                        @else 
+                            <div class="hr-line-dashed"></div>
+                        @endIf
                         
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Division</label>
                                 <div class="col-sm-8">
                                     <!--<select class="form-control" name="division">-->
-                                    <select class="form-control" name="2">
+                                    <select required class="form-control" name="2">
                                         <option selected disabled>Choose division</option>
                                         @foreach($questions as $question) 
                                             @if($question->question_text == 'Division')
@@ -205,15 +223,8 @@
                     <button class="btn btn-lg btn-block btn-primary" value="continue" name="continue" type="submit">Continue</button>
                </div>
            </div><!--form-group-->
-                        @if (count($errors) > 0)
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+           <br><br><br>
+        
             
         </form><!-- end form -->
         <br><br><br><br>
