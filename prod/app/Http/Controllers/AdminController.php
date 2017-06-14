@@ -16,11 +16,11 @@ class AdminController extends Controller {
 
     //Is user signedIn?
     protected $signedIn;
-
+    
     public function __construct() {
 
         $this->middleware(function ($request, $next) {
-
+            Log::info('We are in the admin controller');
             $this->user = $this->signedIn = Auth::user();
             Log::info(json_encode($this->user));
             return $next($request);
