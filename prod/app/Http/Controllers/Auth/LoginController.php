@@ -83,11 +83,13 @@ class LoginController extends Controller
                 //get admin status
                 //$userIsAdmin = $user->isAdmin;
                 
-                if($userIsAdmin) {
-                    return redirect ('/admin');
-                } else {
-                    return redirect ('/tip');
-                }
+                // if($userIsAdmin) {
+                //     return redirect ('/admin');
+                // } else {
+                   
+                // }
+                
+                 return redirect ('/tip');
             } else {
                 //user hasn't been here before so we'll get the details:
                 
