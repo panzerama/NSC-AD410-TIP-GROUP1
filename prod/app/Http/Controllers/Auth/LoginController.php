@@ -99,7 +99,7 @@ class LoginController extends Controller
                 //create instance of authenticated user
                 $user = Auth::loginUsingId($user_id);
                 
-                if($user_is_admin) {
+                if($user_is_admin == true) {
                     return redirect ('/admin');
                 } else {
                    return redirect ('/tip');
