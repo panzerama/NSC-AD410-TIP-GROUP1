@@ -81,7 +81,7 @@ class LoginController extends Controller
                 //create instance of authenticated user
                 $user = Auth::user();
                 //get admin status
-                $userIsAdmin = $user->isAdmin;
+                //$userIsAdmin = $user->isAdmin;
                 
                 if($userIsAdmin) {
                     return redirect ('/admin');
