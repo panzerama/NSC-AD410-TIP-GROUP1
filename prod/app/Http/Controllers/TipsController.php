@@ -108,7 +108,11 @@ class TipsController extends Controller
         $existing_answers = tips_questions::where('tips_id', '=', $tips_id)->get(); 
         // retrieve all faculty names
         $faculty_names = DB::table('faculty')->select('faculty_name')->get();
-        return view('tips/index',compact('questions','existing_answers', 'faculty_names')); 
+        // get answer to first question, if not empty string hide the first question
+        $question_one = DB::table('tips_questions')
+                        ->where('tips_id',$tips_id)
+                        ->where('question_id', 1)->get();
+        return view('tips/index',compact('questions','existing_answers', 'faculty_names','question_one')); 
         
     }
 
@@ -143,6 +147,7 @@ class TipsController extends Controller
                         $query->where('tips_id', '=', $tips_id);})->get();
         // retrieve all existing answers for active tip                        
         $existing_answers = tips_questions::where('tips_id', '=', $tips_id)->get();
+        
         return view('tips/create', compact('questions','existing_answers')); // Returns view for tips/create.blade.php
  
     }
