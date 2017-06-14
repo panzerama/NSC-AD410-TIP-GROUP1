@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-// use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth;
 use DB;
 
 class AdminController extends Controller {
