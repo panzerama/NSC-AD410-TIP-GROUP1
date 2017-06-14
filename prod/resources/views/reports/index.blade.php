@@ -15,12 +15,6 @@
     </ol>
 </div>
 
-<div class="row">
-        <!-- debugging -->
-<!--{{ print_r(array_column($data['type_of_change'],'countByTypeChange')) }}-->
-</div> 
-
-
 <div class="wrapper wrapper-content">   
 <div class="row">
             <div class="col-lg-6">
@@ -59,24 +53,25 @@
         </div>
                 
         
-        <div class="row">
             <div class="col-lg-12">
                 <div class="ibox float-e-margins">  
-                
+                    <div class="row">
                     @include('reports.type-of-change')
                     
                     @include('reports.new-opportunities')
-                    
+                    </div>
                 </div>
             </div>
-        </div>
     </div>
 
         <div class="col-lg-6">
+            <div class="ibox float-e-margins">  
                      @include('reports.primary-elo-added')
+        </div>
         </div>
 </div>
 
+ <div class="row">
 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <h5>TIPS Data</h5>
@@ -104,6 +99,9 @@
             </table>
         </div>
     </div>
+</div>
+</div>
+</div>
 
 <?php
     $tableData = $data['table_data'];

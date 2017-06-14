@@ -24,6 +24,9 @@
 //----------------------------------------------------------------     
 /* Faculty participation by division */
 //---------------------------------------------------------------- 
+var theData = JSON.parse('<?php echo json_encode($countByDivisionSubmitted); ?>');
+theData.sort();
+theData.reverse();
     
     var barData1 = {
         labels: JSON.parse('<?php echo json_encode($division); ?>'),
@@ -34,7 +37,7 @@
                 borderColor: 'rgba(0,142,226,1)',
                 pointBackgroundColor: "rgba(0,142,226,1)",
                 pointBorderColor: "#fff",
-                data: JSON.parse('<?php echo json_encode($countByDivisionSubmitted); ?>')
+                data: theData
             },
             {
                 label: "In-progress",
@@ -49,7 +52,7 @@
     var barOptions = {
         responsive: true,
             legend: { display: true,
-            position: 'right'
+            position: 'top'
         }
     };
     var ctx2 = document.getElementById("barChart1").getContext("2d");

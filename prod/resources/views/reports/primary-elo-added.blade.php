@@ -33,18 +33,17 @@ var answers_trunc = answers.map(function(e) {
   e = e.substr(0, 40)+"...";//truncate+ellipses
   return e;
 });
+
+var theData = JSON.parse('<?php echo json_encode($countByELO); ?>');
+theData.sort();
+theData.reverse();
  
     var barData4 = {
-    labels: answers_trunc,
-    datasets: [
-        {
-            backgroundColor: 'rgba(0,142,226,1)',
-            borderColor: "rgba(0,142,226,1)",
-            pointBackgroundColor: "rgba(0,142,226,1)",
-            pointBorderColor: "#fff",
-            data: JSON.parse('<?php echo json_encode($countByELO); ?>'),
-        }
-    ]
+        labels: answers,
+         datasets: [{
+           data: theData,
+            backgroundColor: "#008ee2",
+             }]
     };
     var barOptions4 =  {
         legend: { display: false,
@@ -67,7 +66,9 @@ var answers_trunc = answers.map(function(e) {
             }
           }
             }],
-            yAxes: [{}]
+            yAxes: [{
+                ticks: { beginAtZero: true }
+            }]
         }
     };
 
