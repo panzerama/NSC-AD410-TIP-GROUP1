@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Auth;
 use DB;
 
@@ -21,7 +22,7 @@ class AdminController extends Controller {
         $this->middleware(function ($request, $next) {
 
             $this->user = $this->signedIn = Auth::user();
-
+            Log::info(json_encode($this->user));
             return $next($request);
         });
     }
