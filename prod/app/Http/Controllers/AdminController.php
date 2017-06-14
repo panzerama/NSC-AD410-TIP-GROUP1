@@ -19,14 +19,10 @@ class AdminController extends Controller {
     
     public function __construct() {
 
-        $this->middleware(function ($request, $next) {
-            Log::info('We are in the admin controller');
-            //$u = Auth::loginUsingId(1);
-            //Log::info(var_export($u, true));
-            $this->user = $this->signedIn = Auth::user();
-            Log::info(var_export($this->user, true));
-            return $next($request);
-        });
+        //$this->middleware(function ($request, $next) {
+        //$this->user = $this->signedIn = Auth::user();
+        //return $next($request);
+        //});
     }
     
     public function index() {
