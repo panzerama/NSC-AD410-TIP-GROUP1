@@ -85,7 +85,7 @@ class LoginController extends Controller
             if(!empty($faculty_id)) {
                 
                 //find user_id
-                $user_id = User::select('users.user_id')
+                $user_id = User::select('users.id')
                     ->join('faculty', 'users.email', '=', 'faculty.email')
                     ->where('faculty.faculty_id', $faculty_id)
                     ->get();
