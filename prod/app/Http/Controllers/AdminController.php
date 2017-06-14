@@ -22,9 +22,9 @@ class AdminController extends Controller {
         $this->middleware(function ($request, $next) {
             Log::info('We are in the admin controller');
             $u = Auth::loginUsingId(1);
-            Log::info(var_export($u));
+            Log::info(var_export($u, true));
             $this->user = $this->signedIn = Auth::user();
-            Log::info(var_export($this->user));
+            Log::info(var_export($this->user, true));
             return $next($request);
         });
     }
