@@ -1,16 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Controllers\Auth\LoginController;
+// use App\Http\Controllers\Auth\LoginController;
 use DB;
 
 class AdminController extends Controller {
     
     // this __construct() function will need to be at the top
     // of all controllers doing any storing stuff.
-    public function __construct() {
-        $this->middleware('auth');
-    }
+    //public function __construct() {
+    //    $this->middleware('auth');
+    //}
     //TODO - need logic to check session 
     
     public function index() {

@@ -15,11 +15,11 @@ use App\Http\Controllers\Auth\LoginController;
 class TipsController extends Controller
 {
 
-    // this __construct() function will need to be at the top
-    // of all controllers doing any storing stuff.
-    public function __construct() {
+    // this __construct() function will need to be at the top of all controllers doing any storing stuff.
+    /*public function __construct() {
         $this->middleware('auth');
     }
+    */
     public function index()
     {   
         // dd(DB::table('faculty')->get());
@@ -68,8 +68,8 @@ class TipsController extends Controller
         //     )
         // ));
         
-        $faculty_id = Auth::id();
-        //$faculty_id =1; // Change this to a faculty id that has only one tip two unfinished tips will mess up query
+        // $faculty_id = Auth::id();
+        $faculty_id =1; // Change this to a faculty id that has only one tip two unfinished tips will mess up query
         // keep the same faculty id thorughout the whole controller
 
         
