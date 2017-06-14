@@ -100,6 +100,7 @@ class LoginController extends Controller
                     
                 //create instance of authenticated user
                 $user = Auth::loginUsingId($user_id, true);
+                Log::info($user_id);
                 Log::info('Auth::check() ' . var_export(Auth::check(), true));
                 Log::info('Auth::user() ' . var_export(Auth::user(), true));
                 Log::info('User is:'. var_export($user, true));
@@ -145,7 +146,7 @@ class LoginController extends Controller
                     ->where('faculty.faculty_id', $faculty_id)
                     ->get();
                 
-                $user = Auth::loginUsingId($user_id);
+                $user = Auth::loginUsingId($user_id, true);
 
                 // redirect them to the account page so they get routed to the 
                 // blade to confirm their details
