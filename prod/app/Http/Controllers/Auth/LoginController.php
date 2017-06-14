@@ -118,12 +118,15 @@ class LoginController extends Controller
                 
 		Log::info('Value of $count ' . $count);
 		 
-                if($count) //it's alredy there 
+                if($count > 0) //it's already there 
                 {
                     // update the row to store the canvas_id
                     DB::table('faculty')->where('email', $email)->update(['faculty_canvas_id' => $faculty_canvas_id]);
                 }
                 else {
+                    // create a new row in users table, insert name and email
+                    DB::insert('insert into users (name, email) values(?,?)', [$name, $email]);
+                    
                 	// create a new row and store id, email, name into faculty table
                 	DB::insert('insert into FACULTY (division_id, faculty_name, email, 
                     		faculty_canvas_id, employee_type, is_admin, is_active) 
