@@ -21,7 +21,8 @@ class AdminController extends Controller {
 
         $this->middleware(function ($request, $next) {
             Log::info('We are in the admin controller');
-            Auth::loginUsingId(1);
+            $u = Auth::loginUsingId(1);
+            Log::info(json_encode($u));
             $this->user = $this->signedIn = Auth::user();
             Log::info(json_encode($this->user));
             return $next($request);
