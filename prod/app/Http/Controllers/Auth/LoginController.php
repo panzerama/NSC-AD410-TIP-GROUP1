@@ -100,8 +100,8 @@ class LoginController extends Controller
                     
                 //create instance of authenticated user
                 $user = Auth::loginUsingId($user_id, true);
-                Log::info('Auth::check() ' . Auth::check());
-                Log::info('Auth::user() ' . Auth::user());
+                Log::info('Auth::check() ' . var_export(Auth::check(), true));
+                Log::info('Auth::user() ' . var_export(Auth::user(), true));
                 Log::info('User is:'. var_export($user, true));
                 
                 if($user_is_admin == true) {
