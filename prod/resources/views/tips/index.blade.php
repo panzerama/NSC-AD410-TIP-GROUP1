@@ -250,7 +250,6 @@
           }
         });
     });
-    
     //Adds field to when user clicks 'Add Another Member' / Removes field when user clicks 'remove'
     var max_fields      = 10; //maximum input boxes allowed
     var wrapper         = $(".add-member-field-div"); //Fields wrapper

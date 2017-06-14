@@ -300,17 +300,17 @@ class TipsController extends Controller
             '5'     => 'nullable',
             '6'     => 'nullable',
             '7'     => 'nullable',
-            '8'     => 'required|max:140',
-            '9'     => 'required|max:140',
+            '8'     => 'required|max:2000',
+            '9'     => 'required|max:2000',
             '10'    => 'required',
             '11'    => 'required',
-            '12'    => 'required|max:140',
+            '12'    => 'required|max:2000',
             '13'    => 'required',
-            '14'    => 'required|max:140',
+            '14'    => 'required|max:2000',
             '15'    => 'required',
-            '16'    => 'required|max:140',
+            '16'    => 'required|max:2000',
             '17'    => 'required',
-            '18'    => 'required|max:140',
+            '18'    => 'required|max:2000',
             '19'    => 'required'
         ]);
         // insert into db and switch flag to is finished

@@ -59,6 +59,8 @@
                 @if ($question->question_type == "TEXT")
                         <div class="col-lg-8 col-sm-12">
                         <textarea class="form-control" name="{{ $question->question_id }}" value="{{ $question->question_id }}" rows="4" cols="60">{{ $existing_answers[$question->question_number - 1]->question_answer }}</textarea>
+                <!-- character counter -->
+                        <span class="characters" style="color:#999;">2000</span> <span style="color:#999;">Characters left</span>
                 @elseif ( $question->question_type == "DROPDOWN")       
                         <div class="col-sm-4">
                         <select class="form-control" name="{{ $question->question_id }}">
@@ -207,6 +209,13 @@
             $("#first-click-submit").slideDown("slow");
             $('html, body').animate({scrollTop: $("#form-buttons").offset().top}, 2000);
          });
+        // character counter
+        $('textarea').keyup(updateCount);
+        $('textarea').keydown(updateCount);
+        function updateCount() {
+        var cs = [2000- $(this).val().length];
+        $('.characters').text(cs);
+        }
      });
 </script>
 
