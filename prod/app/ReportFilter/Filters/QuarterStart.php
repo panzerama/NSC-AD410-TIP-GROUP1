@@ -26,17 +26,13 @@ class QuarterStart {
         if($converted_quarter === "WINTER"){
             $possible_quarters = array("WINTER", "SPRING", "SUMMER", "FALL");
         } elseif ($converted_quarter === "SPRING") {
-            $possible_quarters = array("SPRING", "SUMMER", "FALL");
+            $possible_quarters = array('SPRING', 'SUMMER', 'FALL');
         } elseif ($converted_quarter === "SUMMER") {
             $possible_quarters = array("SUMMER", "FALL");
         } else {
             $possible_quarters = array("FALL");
         }
-        
-        Log::info('QuarterStart: ' . $date_parts[1]);
-        Log::info('Possible Quarters: ' . implode(" ", $possible_quarters));
-        
-        
+
         return $builder
             ->where('tips.year', '>=', $converted_year)
             ->orWhere(function ($query) use ($possible_quarters, $converted_year) {
