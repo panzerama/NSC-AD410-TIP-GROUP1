@@ -73,7 +73,7 @@ class LoginController extends Controller
             //canvas id from profile object:
             $faculty_canvas_id = $profile->id;
             
-            $faculty_user = DB::table('faculty')->where('faculty_canvas_id', $faculty_canvas_id)->get();
+            $faculty_user = App\faculty::where('faculty_canvas_id', $faculty_canvas_id)->get();
             
             //if user has been here before a session gets created
             if(Auth::login($faculty_user)) {
