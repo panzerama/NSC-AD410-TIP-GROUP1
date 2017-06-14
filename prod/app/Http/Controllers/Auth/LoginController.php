@@ -79,7 +79,7 @@ class LoginController extends Controller
             
             $faculty_id = Faculty::select('faculty_id')->where('faculty_canvas_id', $faculty_canvas_id)->count();
             
-            Log::info('Is faculty ' . $faculty_id)
+            Log::info('Is faculty ' . $faculty_id);
             
             //if user has been here before a session gets created
             if(!empty($faculty_id)) {
