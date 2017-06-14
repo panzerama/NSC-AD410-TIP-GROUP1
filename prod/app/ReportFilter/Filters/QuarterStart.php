@@ -3,7 +3,6 @@
 namespace App\ReportFilter\Filters;
 
 use Illuminate\Database\Query\Builder;
-use Illuminate\Support\Facades\Log;
 
 class QuarterStart {
     
@@ -34,7 +33,7 @@ class QuarterStart {
         }
 
         return $builder
-            ->where('tips.year', '>=', $converted_year)
+            ->where('tips.year', '>', $converted_year)
             ->orWhere(function ($query) use ($possible_quarters, $converted_year) {
                 $query->where('tips.year', '=', $converted_year)
                       ->whereIn('tips.quarter', $possible_quarters);
