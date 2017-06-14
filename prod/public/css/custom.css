@@ -42,23 +42,11 @@ Custom CSS file to override defaults
     width: 75%;
     margin: 2px;
 }
-/* Sets smaller width for select*/
-.filter-ui-select-small {
-    width: 70%;
-}
 .filter-ui-right {
     float: right;
 }
 .form-group {
     height: auto;
-}
-.filter-ui-split {
-    line-height: 38px;
-    padding-left: 2px;
-}
-.selected-filter-child {
-    background-color: #FFFFFF;
-    color: #2D3B45;
 }
 .filter-ui-radio {
    width: 50%;
@@ -99,9 +87,7 @@ Custom CSS file to override defaults
     color: #2D3B45;
     background-color: #FFF;
 }
-.navbar-default .nav > li > .report_submit_button:hover {
-    background-color: transparent;
-}
+
 /* Set li background-color and border */
 .nav > li.active {
   border-left: 4px solid #008EE2;
@@ -134,4 +120,78 @@ Custom CSS file to override defaults
   background-color: #FFFFFF;
   border-color: #008EE2;
   color: #008EE2;
+}
+
+/* 
+* New Report Filter UI Styles 
+*/
+#filter-question {
+   clear:both;
+}
+#filter-quarter  {
+    text-align: right;
+    width:30%;
+}
+#filter-faculty {
+    text-align: right;
+    width:50%;
+}
+#filter-radio {
+    width: 20%;
+}
+.thirds {
+    padding: 10px;
+}
+.float {
+    float:left;
+}
+.report-filter-radio  {
+    margin-top:5px;
+    margin-bottom: 5px;
+}
+.full-width {
+    width:100%;
+}
+#filter-header h2 {
+    width: 120px;
+}
+#filter-display-controls {
+    color: #008EE2;
+    cursor: pointer;
+}
+
+@media (max-width:1024px) {
+    .float{
+        clear: both;
+    }
+    #filter-quarter  {
+        text-align: left;
+        width:100%;
+    }
+    #filter-faculty {
+        text-align: left;
+        width:100%;
+    }
+    #filter-radio {
+        margin-left: 12%;
+    }
+    .filter-ui-label {
+        width:10%;
+    }
+    .form-control {
+        width:86%;
+    }
+    .thirds {
+        padding:0px;   
+    }
+}
+
+@media (max-width:768px) {
+    .filter-ui-right {
+        float: none;
+    }
+    .form-control {
+        width:100%;
+    }
+    
 }
