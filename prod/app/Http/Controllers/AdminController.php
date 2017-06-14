@@ -24,7 +24,7 @@ class AdminController extends Controller {
             if(isset($this->user)) {
                  return $next($request);
             } else {
-                return redirect()->action('LoginController@index');
+                return redirect('/login');
             }
         });
     }
