@@ -90,7 +90,8 @@ class LoginController extends Controller
                 $user_id = User::select('users.id')
                     ->join('faculty', 'users.email', '=', 'faculty.email')
                     ->where('faculty.faculty_id', $faculty_id)
-                    ->get();
+                    ->pluck('id');
+                    
                 
                 //get admin status
                 $user_is_admin = User::select('faculty.is_admin')
