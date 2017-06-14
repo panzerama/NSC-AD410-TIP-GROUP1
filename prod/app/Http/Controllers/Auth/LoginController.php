@@ -87,12 +87,14 @@ class LoginController extends Controller
                 //find user_id
                 $user_id = User::select('users.user_id')
                     ->join('faculty', 'users.email', '=', 'faculty.email')
-                    ->where('faculty.faculty_id', $faculty_id);
+                    ->where('faculty.faculty_id', $faculty_id)
+                    ->get();
                 
                 //get admin status
                 $user_is_admin = User::select('faculty.is_admin')
                     ->join('faculty', 'users.email', '=', 'faculty.email')
-                    ->where('faculty.faculty_id', $faculty_id);
+                    ->where('faculty.faculty_id', $faculty_id)
+                    ->get();
                     
                 //create instance of authenticated user
                 $user = Auth::loginUsingId($user_id);
