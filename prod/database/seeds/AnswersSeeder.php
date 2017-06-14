@@ -211,7 +211,7 @@ class AnswerSeeder extends Seeder
             ),
             array(
                 'question_id' => 12,
-                'answer_text' => 'Reapportioned time/effort devoted to topics',
+                'answer_text' => 'Reapportioned time & effort devoted to topics',
                 'is_active' => true
             ),
             array(

@@ -18,6 +18,7 @@ class TipsController extends Controller
     {   
         // dd(DB::table('faculty')->get());
         // dd(DB::table('faculty_tips')->get());
+        // dd(DB::table('tips'->get());
         // first check db to see if divisions table has these collumns 
         // very important need these division in order for save to work correctly
         // if these division are not in the db insert them ONCE and then comment it out
@@ -60,7 +61,8 @@ class TipsController extends Controller
         //         'is_active' => true
         //     )
         // ));
-        $faculty_id =1; // Do not change this!!
+        $faculty_id =1; // Change this to a faculty id that has only one tip two unfinished tips will mess up query
+        // keep the same faculty id thorughout the whole controller
 
         
         $tip_query = DB::table('tips')->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')
@@ -103,8 +105,10 @@ class TipsController extends Controller
                         $query->where('tips_id', '=', $tips_id);
                                 })->get();
         // retrieve all existing answers for active tip                        
-        $existing_answers = tips_questions::where('tips_id', '=', $tips_id)->get();                        
-        return view('tips/index',compact('questions','existing_answers', 'members')); 
+        $existing_answers = tips_questions::where('tips_id', '=', $tips_id)->get(); 
+        // retrieve all faculty names
+        $faculty_names = DB::table('faculty')->select('faculty_name')->get();
+        return view('tips/index',compact('questions','existing_answers', 'faculty_names')); 
         
     }
 
@@ -153,7 +157,6 @@ class TipsController extends Controller
     {
         // test id do not change will replace once auth is authenticated
         $faculty_id = 1;
-        
         // query to find current tip
         $tip_query = DB::table('tips')->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')
                                       ->join('faculty', 'faculty_tips.faculty_id', '=', 'faculty.faculty_id')
@@ -227,12 +230,21 @@ class TipsController extends Controller
                 foreach ($members as $faculty) {
                     // get member name
                     // get id based on name
-                    // check to see if faculty has tip
+                    // check to see if faculty exist
+                    // if not redirect back with flash message
+                    // if faculty exist check to see if faculty has tip
                     // if not insert faculty and tip id into faculty_tips
-                    // TODO validate faculty name make sure the name matches database
                     $faculty = trim($faculty);
                     $faculty_array = DB::table('faculty')->select('faculty_id')
                                                          ->where('faculty_name', $faculty)->get();
+                    // if $faculty id is not set redirect back with error
+                    if(count($faculty_array) < 1){
+                        \Session::flash('message', "one or more faculties does not exist");
+                        return redirect('/tip/');
+                        
+                    }
+                    
+                    else{
                     $faculty_id = $faculty_array[0]->faculty_id;
                     $faculty_tip_query = DB::table('faculty_tips')->where('faculty_id', $faculty_id)
                                                                   ->where('tips_id',$tips_id)->get();
@@ -240,6 +252,7 @@ class TipsController extends Controller
                     if(!isset($faculty_tip_query[0])){
                         // insert is_author when implemented
                         DB::table('faculty_tips')->insert(array('faculty_id' => $faculty_id,'tips_id' => $tips_id, 'is_author' => 0));
+                    }
                     }
                 }
             }
@@ -272,6 +285,8 @@ class TipsController extends Controller
         }
         else if($request->has('submit')){
             // validate all fields
+            // keep first seven nullable
+            // change validation based on questions
             $this->validate($request, [
             '1'     => 'nullable',
             '2'     => 'nullable',
@@ -280,17 +295,18 @@ class TipsController extends Controller
             '5'     => 'nullable',
             '6'     => 'nullable',
             '7'     => 'nullable',
-            '8'     => 'required',
-            '9'     => 'required',
+            '8'     => 'required|max:140',
+            '9'     => 'required|max:140',
             '10'    => 'required',
             '11'    => 'required',
-            '12'    => 'required',
+            '12'    => 'required|max:140',
             '13'    => 'required',
-            '14'    => 'required',
+            '14'    => 'required|max:140',
             '15'    => 'required',
-            '16'    => 'required',
+            '16'    => 'required|max:140',
             '17'    => 'required',
-            '18'    => 'required',
+            '18'    => 'required|max:140',
+            '19'    => 'required'
         ]);
         // insert into db and switch flag to is finished
         $count = 1;
@@ -307,66 +323,7 @@ class TipsController extends Controller
             ->update(['is_finished' => 1]);
          return redirect('/tip/previous')->with('status', 'tip submmitted');  
         }
-
-        //return view('/tips/index',compact('tip'));
-        
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show()
-    {
-       dd($questions = question::where('is_active',1)->get());
-        return view('tips/show');
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update()
-    {
-        /*
-        $is_finished = request('is_finished');
-        $tip_id = request('tip_id');
-        
-        // get question ids for all active questions. 
-        $questions = DB::table('questions')->where('is_active',1)->select('question_id')->get();
-        foreach ($questions as $question) {
-            tips_questions::create([
-                'tip_id' => $tip_id,
-                'question_id' => $question->question_id,
-                'answer_text' => request($question->question_id)
-            ]);    
-        if($is_finished) {
-            // set tips->is finished to true and redirect to dashboard?
-        } else {
-            // redirect to tips page. 
-        }
-        */
-        
-    }
-    
-    public function destroy($id)
-    {
-        //
-    }
 }

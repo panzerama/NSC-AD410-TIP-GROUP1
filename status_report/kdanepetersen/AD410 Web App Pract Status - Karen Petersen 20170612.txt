@@ -1,0 +1,13 @@
+AD410 Web Application Practicum Status - Karen Petersen 20170524
+
+Have Done
+1. Testing and fixing bugs for Tips Management screens - Moved Question type to in line, commented out scrolling text box type, worked with Travis to fix button functions.  
+2. Updated Tips Management section, TOC, and added authors for Admin document
+3. Updated Tips Management section, TOC, and added authors for Programmer document  
+
+Issues
+
+
+Next to Do
+1.  Work with Travis on testing and debugging, and programmer document
+2.  Activate still not working

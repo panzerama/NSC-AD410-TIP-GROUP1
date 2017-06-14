@@ -13,7 +13,10 @@
 
 
                     
-         
+<?php
+   $answer = array_keys($data['evidence_change_needed']);
+   $countByChangeNeeded = array_column($data['evidence_change_needed'],'countByChangeNeeded');
+?>         
 
 <!-- ChartJS-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>   
@@ -21,11 +24,18 @@
 <script>
 //----------------------------------------------------------------     
 /* Evidence for change needed */
-//----------------------------------------------------------------        
+//----------------------------------------------------------------    
+var answers = JSON.parse('<?php echo json_encode($answer); ?>');
+
+var answers_trunc = answers.map(function(e) { 
+  e = e.substr(0, 30)+"...";//truncate+ellipses
+  return e;
+});
+
     var doughnutData1 = {
-        labels: ["Feedback","Behavoir","Performance" ],
+        labels: answers_trunc,
         datasets: [{
-            data: [300,50,100],
+            data: JSON.parse('<?php echo json_encode($countByChangeNeeded); ?>'),
             backgroundColor: ["#254284","#008EE2","#91349B"]
         }]
     } ;
