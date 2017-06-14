@@ -1,0 +1,2 @@
+Finalzing Auth work is happening tonight and tomorrow morning.  We ran into some problems with how Laravel handles it's built in Auth stuff.  Because we aren't using passwords and using a trusted provider from canvas Laravel is having a hard time with it.
+I'll work to finish this up tonight and tomorrow and then we'll present on Thursday and be done!

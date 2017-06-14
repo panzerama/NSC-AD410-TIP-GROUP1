@@ -23,6 +23,7 @@ class TipsController extends Controller
     {   
         // dd(DB::table('faculty')->get());
         // dd(DB::table('faculty_tips')->get());
+        // dd(DB::table('tips'->get());
         // first check db to see if divisions table has these collumns 
         // very important need these division in order for save to work correctly
         // if these division are not in the db insert them ONCE and then comment it out
@@ -65,7 +66,8 @@ class TipsController extends Controller
         //         'is_active' => true
         //     )
         // ));
-        $faculty_id =1; // Do not change this!!
+        $faculty_id =1; // Change this to a faculty id that has only one tip two unfinished tips will mess up query
+        // keep the same faculty id thorughout the whole controller
 
         
         $tip_query = DB::table('tips')->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')
@@ -326,66 +328,7 @@ class TipsController extends Controller
             ->update(['is_finished' => 1]);
          return redirect('/tip/previous')->with('status', 'tip submmitted');  
         }
-
-        //return view('/tips/index',compact('tip'));
-        
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show()
-    {
-       dd($questions = question::where('is_active',1)->get());
-        return view('tips/show');
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update()
-    {
-        /*
-        $is_finished = request('is_finished');
-        $tip_id = request('tip_id');
-        
-        // get question ids for all active questions. 
-        $questions = DB::table('questions')->where('is_active',1)->select('question_id')->get();
-        foreach ($questions as $question) {
-            tips_questions::create([
-                'tip_id' => $tip_id,
-                'question_id' => $question->question_id,
-                'answer_text' => request($question->question_id)
-            ]);    
-        if($is_finished) {
-            // set tips->is finished to true and redirect to dashboard?
-        } else {
-            // redirect to tips page. 
-        }
-        */
-        
-    }
-    
-    public function destroy($id)
-    {
-        //
-    }
 }
