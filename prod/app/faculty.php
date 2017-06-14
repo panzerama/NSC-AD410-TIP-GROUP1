@@ -4,14 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Contracts\Auth\Authenticatable;
-// use Illuminate\Auth\Authenticatable as AuthenticableTrait;
+use Illuminate\Auth\Authenticatable as AuthenticableTrait;
 use Illuminate\Auth\UserTrait;
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class faculty extends Eloquent implements RemindableInterface, UserInterface
+class faculty extends Eloquent implements Authenticatable, RemindableInterface, UserInterface
 {
+    use AuthenticableTrait;
     use UserTrait;
     use RemindableTrait;
     
