@@ -47,7 +47,7 @@
     var lineOptions = {
         responsive: true,
             legend: { display: true,
-            position: 'top'
+            position: 'right'
             }
     };
     var ctx = document.getElementById("lineChart").getContext("2d");
