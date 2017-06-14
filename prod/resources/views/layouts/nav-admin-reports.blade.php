@@ -4,10 +4,15 @@
             <li class="nav-header">
                 <div class="dropdown profile-element">
                         <span class="clear">
-                            <span class="block m-t-xs">
-				<img src="/images/nsc_logo_t.png" height="64" width="64">
-                                <strong class="font-bold" color="white">Michael Fraser</strong>
-                            </span> 
+                           <span class="block m-t-xs">
+                                <img src="/images/nsc_logo_t.png" height="64" width="64">
+                                <strong class="font-bold">
+                                @if( Auth::check() )
+                                Current user: {{ Auth::user()->name }}
+                                @else Unauthenticated User
+                                @endif
+				                </strong>
+                            </span>  
                         </span>
                     </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
