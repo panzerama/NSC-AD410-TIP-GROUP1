@@ -77,7 +77,9 @@ class LoginController extends Controller
             
             Log::info('Faculty canvas id ' . $faculty_canvas_id);
             
-            $faculty_id = Faculty::select('faculty_id')->where('faculty_canvas_id', $faculty_canvas_id)->count();
+            $faculty_id = DB::table('faculty')->where('faculty_canvas_id', $faculty_canvas_id)->pluck('faculty_id');
+            
+            // $faculty_id = Faculty::select('faculty_id')->where('faculty_canvas_id', $faculty_canvas_id)->count();
             
             Log::info('Is faculty ' . $faculty_id);
             
