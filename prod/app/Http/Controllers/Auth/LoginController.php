@@ -95,7 +95,7 @@ class LoginController extends Controller
                     
                 if(isset($db_user)) {
                     $user_id = $db_user->id;
-                    Log::info((string)$user_id);
+                    Log::info($user_id);
                     /*
                     $user_id = User::select('users.id')
                         ->join('faculty', 'users.email', '=', 'faculty.email')
