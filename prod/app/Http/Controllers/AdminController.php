@@ -6,12 +6,16 @@ use DB;
 
 class AdminController extends Controller {
     
-    // this __construct() function will need to be at the top
-    // of all controllers doing any storing stuff.
-    //public function __construct() {
-    //    $this->middleware('auth');
-    //}
-    //TODO - need logic to check session 
+    /**
+     * Update the user's profile.
+     *
+     * @param  Request  $request
+     * @return Response
+     */
+    public function update(Request $request) {
+        //returns an instance of the authenticated user...
+        $request->user();
+    }
     
     public function index() {
         return redirect()->action('AdminController@show');
