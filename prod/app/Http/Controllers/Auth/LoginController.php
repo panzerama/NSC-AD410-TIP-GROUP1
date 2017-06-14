@@ -92,6 +92,7 @@ class LoginController extends Controller
                     ->join('faculty', 'users.email', '=', 'faculty.email')
                     ->where('faculty.faculty_id', $faculty_id)
                     ->first();
+                    Log::info($db_user);
                     
                 if(isset($db_user)) {
                     $user_id = $db_user->id;
