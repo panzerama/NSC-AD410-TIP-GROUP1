@@ -147,7 +147,7 @@ class LoginController extends Controller
     public function destroy() {
         Auth::logout();
         // redirect to canvas homepage upon logout
-        $url = 'canvas.northseattle.edu';
+        $url = 'http://canvas.northseattle.edu';
         return redirect($url);
     }
 
