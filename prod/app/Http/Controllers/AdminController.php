@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Controllers\Auth;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Contracts\Auth\Authenticatable;
 use DB;
 
 class AdminController extends Controller {
