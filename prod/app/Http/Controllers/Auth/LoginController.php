@@ -77,7 +77,7 @@ class LoginController extends Controller
             $is_faculty = Faculty::select('faculty_id')->where('faculty_canvas_id', $faculty_canvas_id)->count();
             
             //if user has been here before a session gets created
-            if($is_faculty) {
+            if(!empty($is_faculty)) {
                 //create instance of authenticated user
                 $user = Auth::user();
                 //get admin status
