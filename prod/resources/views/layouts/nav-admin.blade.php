@@ -6,13 +6,13 @@
                         <span class="clear">
                             <span class="block m-t-xs">
                                 <img src="/images/nsc_logo_t.png" height="64" width="64">
-                                <strong class="font-bold">
-                                @if( Auth::check() )
-                                {{ Auth::user()->name }}
-                                @else Unauthenticated User
-                                @endif
-				                </strong>
                             </span> 
+                            <strong class="font-bold">
+                            @if( Auth::check() )
+                            {{ Auth::user()->name }}
+                            @else Unauthenticated User
+                            @endif
+			                </strong>
                         </span>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
                         <li><a href="{{ url('logout') }}">Logout</a></li>
