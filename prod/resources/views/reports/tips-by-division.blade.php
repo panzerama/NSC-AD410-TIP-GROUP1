@@ -1,21 +1,20 @@
 
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>TIPS by division</h5>
-                    </div>
-                    <div class="ibox-content">
-                        <div><iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 10px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
-                            <canvas id="barChart1" height="120" style="display: block; height: 120px;"></canvas>
-                        </div>
-                    </div>
-                </div>
+<div class="ibox float-e-margins">
+    <div class="ibox-title">
+        <h5>TIPS by division</h5>
+    </div>
+    <div class="ibox-content">
+        <div><iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 10px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+            <canvas id="barChart1" height="120" style="display: block; height: 120px;"></canvas>
+        </div>
+    </div>
+</div>
 
 <?php
     
     $division = array_keys($data['tips_by_division']);
     $countByDivisionSubmitted = array_column($data['tips_by_division'], 'tips_by_division_finished');
     $countByDivisionInprogress = array_column($data['tips_by_division'], 'tips_by_division_in_progress');
-
 ?>         
 
 <!-- ChartJS-->
@@ -25,6 +24,9 @@
 //----------------------------------------------------------------     
 /* Faculty participation by division */
 //---------------------------------------------------------------- 
+var theData = JSON.parse('<?php echo json_encode($countByDivisionSubmitted); ?>');
+theData.sort();
+theData.reverse();
     
     var barData1 = {
         labels: JSON.parse('<?php echo json_encode($division); ?>'),
@@ -35,7 +37,7 @@
                 borderColor: 'rgba(0,142,226,1)',
                 pointBackgroundColor: "rgba(0,142,226,1)",
                 pointBorderColor: "#fff",
-                data: JSON.parse('<?php echo json_encode($countByDivisionSubmitted); ?>')
+                data: theData
             },
             {
                 label: "In-progress",
@@ -50,7 +52,7 @@
     var barOptions = {
         responsive: true,
             legend: { display: true,
-            position: 'right'
+            position: 'top'
         }
     };
     var ctx2 = document.getElementById("barChart1").getContext("2d");
