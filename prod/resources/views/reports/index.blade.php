@@ -160,7 +160,8 @@
   <!--Export table button CSS-->
 
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.3.1/css/buttons.dataTables.min.css">
+<!--<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.3.1/css/buttons.dataTables.css">-->
+ <link rel="stylesheet" href="{!! asset('css/buttons.dataTables.css', true) !!}" />
 
 @stop
 
@@ -174,7 +175,7 @@ $(document).ready(function() {
     $('#tips_data').DataTable({
          "order": [[ 10, "desc" ]],
         dom: '<"pull-left"l><"pull-right"B><f>rtip',
-     "buttons": ['colvis', 'copy', 'csv', 'excel', 'pdf', 'print'   ],
+    "buttons": ['colvis', 'copy', 'csv', 'excel', 'pdf', 'print'   ],
      "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
    "data": theData.data,
         "columns": [
