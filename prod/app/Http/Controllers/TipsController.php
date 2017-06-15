@@ -21,9 +21,9 @@ class TipsController extends Controller
 
     public function index()
     {   
-// **********************  DEBUGGING   ******************************************
-//        dd(DB::table('faculty_tips')->get());
-// ******************************************************************************
+        // **********************  DEBUGGING   ******************************************
+        //        dd(DB::table('faculty_tips')->get());
+        // ******************************************************************************
 
         // replace with auth id when implemented
         $faculty_id =8; // Do not change this!!
