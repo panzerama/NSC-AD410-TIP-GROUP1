@@ -92,7 +92,7 @@ class LoginController extends Controller
                 $is_admin = $faculty->is_admin;
                 
                 //Log admin status
-                Log::info('Is this user_an admin? ' . var_export($is_admin, true));
+                Log::info('Is this user_an admin? ' . var_export($is_admin, true) . gettype($is_admin));
                 
                 if($is_admin === 1) {
                     return redirect ('/admin');
