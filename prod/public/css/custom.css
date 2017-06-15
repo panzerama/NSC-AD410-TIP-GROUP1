@@ -11,9 +11,21 @@ Custom CSS file to override defaults
     cursor: pointer;
 }
 
+.textarea{
+    font-size: 70px;
+}
+
+.rowhidden {
+    
+visibility: hidden;
+display: none;
+}
+
+
 /*
 Custom CSS file to override defaults
 */
+
 
 /* Set max-width for views */
 #page-wrapper > .wrapper.wrapper-content.animated.fadeInRight {
@@ -81,8 +93,8 @@ Custom CSS file to override defaults
 }
 
 /* Override app background color */
-.pace-done {
-    background-color: #2E3B46;
+.gray-bg, .bg-muted {
+    background-color: #f3f3f4;
 }
 
 /*
@@ -99,7 +111,9 @@ Custom CSS file to override defaults
     color: #2D3B45;
     background-color: #FFF;
 }
-
+.navbar-default .nav > li > .report_submit_button:hover {
+    background-color: transparent;
+}
 /* Set li background-color and border */
 .nav > li.active {
   border-left: 4px solid #008EE2;
@@ -110,7 +124,10 @@ Custom CSS file to override defaults
 .nav > li.active > a {
     color: #000;
 }
-
+.navbar-default .nav > li > .nav-reports-second-level {
+    background-color: transparent;
+    color: #FFF;
+}
 
 /* 
 * Form Control 
@@ -131,14 +148,29 @@ Custom CSS file to override defaults
   color: #008EE2;
 }
 
+
 /*
-* Color Overrides
+* Tips questionnaire autocomplete faculty styling
 */
-.label-primary, .badge-primary {
-    background-color: #008EE2;
-    color: #FFFFFF;
+.ui-autocomplete .ui-front .ui-menu .ui-widget .ui-widget-content .ui-corner-all {
+    width:10%;
 }
 
-.progress-bar {
-    background-color: #008EE2;
+.ui-widget-content {
+    border: 1px solid #676a6c;
+    width: 10%;
+    background-color: white;
+    font-size: 1.2em;
 }
+.ui-helper-hidden-accessible {
+    display:none;
+}
+
+.ui-widget-content li {
+    list-style-type: none;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+    .textarea{
+    font-size: 70px;
+    }

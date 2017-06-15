@@ -9,12 +9,12 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&lang=en");
 
 // Variables, Mixins
-@import "import/variables";
+@import "import/_variables.scss";
 @import "import/mixins";
 
 // INSPINIA Theme Elements
 @import "import/typography";
-@import "import/navigation";
+@import "import/_navigation.scss";
 @import "import/top_navigation";
 @import "import/buttons";
 @import "import/badges_labels";
@@ -44,7 +44,7 @@
 
 // Custom style
 // Your custom style to override base style
-@import "import/custom";
+//@import "import/custom";
 
 // Clear layout on print mode
 @media print {

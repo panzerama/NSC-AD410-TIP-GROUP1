@@ -8,7 +8,10 @@
 
     <link rel="stylesheet" href="{!! asset('css/vendor.css', true) !!}" />
     <link rel="stylesheet" href="{!! asset('css/app.css', true) !!}" />
-    <link rel="stylesheet" href="{!! asset('css/custom.css', true) !!}" />
+    <link rel="stylesheet" href="{!! asset('css/reports.css', true) !!}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
+    
+    @yield('page-style-files')
     
 </head>
 <body>
@@ -17,7 +20,7 @@
     <div id="wrapper">
 
         <!-- Navigation -->
-        @include('layouts.nav-admin-reports')
+        @include('layouts.nav-admin')
 
         <!-- Page wraper -->
         <div id="page-wrapper" class="gray-bg">
@@ -43,4 +46,8 @@
 @show
 
 </body>
+
+@yield('page-js-files')
+@yield('page-js-script')
+  
 </html>

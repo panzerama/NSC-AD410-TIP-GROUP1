@@ -1,5 +1,6 @@
 const elixir = require('laravel-elixir');
 
+
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -11,8 +12,13 @@ const elixir = require('laravel-elixir');
  |
  */
 
+
+elixir(function(mix)  {
+     mix.sass('app.scss')
+});
+
+
 elixir(mix => {
-    mix.sass('app.scss');
     mix.copy('resources/assets/vendor/bootstrap/fonts', 'public/fonts');
     mix.copy('resources/assets/vendor/font-awesome/fonts', 'public/fonts')
     mix.styles([
@@ -30,3 +36,9 @@ elixir(mix => {
     ], 'public/js/app.js', './');
 
 });
+
+/*
+elixir(function(mix) {
+    mix.browserSync();
+});
+*/

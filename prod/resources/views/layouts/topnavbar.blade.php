@@ -5,10 +5,10 @@
         </div>
         <ul class="nav navbar-top-links navbar-right">
             <li>
-                <button class="btn btn-primary">?</button>
+                <button class="btn btn-primary"><a href="{{ url('/contact') }}">?</a></button>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ url('logout') }}">
                     <i class="fa fa-sign-out"></i> Log out
                 </a>
             </li>

@@ -16,7 +16,7 @@ class tip extends model
         'year',
         'is_finished',
         'is_group'];
-    
+        
     protected $primaryKey = 'tips_id'; 
        
     public function tips_questions(){
@@ -33,5 +33,10 @@ class tip extends model
     
     public function question(){
         return $this->belongsToMany(question::class,'tips_questions','tips_id','question_id');   
+    }
+    
+    public function faculty()
+    {
+        return $this->belongsToMany('App\faculty');
     }
 }

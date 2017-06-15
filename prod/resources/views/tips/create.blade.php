@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
-@section('title', 'TIPS Submission')
+@section('title', 'TIP Submission')
 
 @section('content')
 
 <!-- Second TIP Questionnaire page - url 'tip/questions' -->
 
 <div class="wrapper wrapper-content animated fadeInRight">
-    <div class="row">
+    <div id="top" class="row">
         <div class="col-sm-12">
             
             <!-- Start TIP instructions -->
@@ -34,11 +34,27 @@
             
             
             <!-- Start TIP questions form -->
-            <form id="tip" class="form-horizontal">
+            <!--Added route for when user saves or submit-->
+            <form id="tip" class="form-horizontal" method = "post" action = "{{ route('tipStore')}}">
                 {{ csrf_field() }}
+                <!--if statement to show validation errors-->
+            @if (count($errors) > 0)
+            <div class="ibox float-e-margins"> 
+                <div class="alert alert-danger text-center">
+                    <h3>All questions are required. Please fill out all fields. Thank you!</h3>
+                    <!--<ul>-->
+                    <!--    @foreach ($errors->all() as $error)-->
+                    <!--    <li>{{ $error }}</li>-->
+                    <!--    @endforeach-->
+                    <!--</ul>-->
+                </div>
+            </div>
+            @endif
+            
             
             <!-- start foreach loop through questions -->
             @foreach($questions as $question)
+            @if($question->question_number > 6)
                 <div class="ibox float-e-margins">
                     
                  <!-- output question_text and then question_desc (example answer) in '?' popover--->   
@@ -55,25 +71,40 @@
     
                 <!-- start if/else block that outputs different HTML based on question_type (TEXT, DROPDOWN, RADIO, CHECKBOX) -->
                 @if ($question->question_type == "TEXT")
-                        <div class="col-lg-8 col-sm-12">
-                        <textarea class="form-control" name="{{ $question->question_id }}" value="{{ $question->question_id }}" rows="4" cols="60"></textarea>
+                        <div class="col-lg-12 col-sm-12">
+                        <textarea class="form-control" name="{{ $question->question_id }}" value="{{ $question->question_id }}" rows="4" cols="100">{{ $existing_answers[$question->question_number - 1]->question_answer }}</textarea>
+                <!-- character counter -->
+                        <span class="characters" style="color:#999;">2000</span> <span style="color:#999;">Characters left</span>
                 @elseif ( $question->question_type == "DROPDOWN")       
                         <div class="col-sm-4">
                         <select class="form-control" name="{{ $question->question_id }}">
-                            <option selected disabled>Choose here</option>
+                            <!--option value to 0 for validation purposes KQ-->
+                            <option selected disabled value = "0">Choose here</option>
                             @foreach ($question->answer as $answer)
-                            <option select="{{$answer->answer_text}}">{{$answer->answer_text}}</option>
+                                @if($answer->answer_text == $existing_answers[$question->question_number - 1]->question_answer) 
+                                    <option selected select="{{$answer->answer_text}}">{{$answer->answer_text}}</option>
+                                @else
+                                    <option select="{{$answer->answer_text}}">{{$answer->answer_text}}</option>
+                                @endIf
                             @endforeach
                         </select>
                  @elseif ($question->question_type == "RADIO")       
                        <div class="col-sm-8">
                             <div class="form-check">
                                 @foreach ($question->answer as $answer)
-                                <div class="col-sm-12">
-                                    <label class="form-check-label">
-                                        <input type="radio" name="{{ $question->question_id }}" value="{{ $answer->answer_text }}" class="form-check-input">   {{ $answer->answer_text }}
-                                    </label>
-                                </div>
+                                    @if($answer->answer_text == $existing_answers[$question->question_number - 1]->question_answer)
+                                        <div class="col-sm-12">
+                                            <label class="form-check-label">
+                                                <input checked="checked" type="radio" name="{{ $question->question_id }}" value="{{ $answer->answer_text }}" class="form-check-input">   {{ $answer->answer_text }}
+                                            </label>
+                                        </div>
+                                    @else
+                                        <div class="col-sm-12">
+                                            <label class="form-check-label">
+                                                <input type="radio" name="{{ $question->question_id }}" value="{{ $answer->answer_text }}" class="form-check-input">   {{ $answer->answer_text }}
+                                            </label>
+                                        </div>
+                                    @endIf
                                 @endforeach
     
                             </div><!-- form-check-->
@@ -81,66 +112,80 @@
                        <div class="col-sm-8">
                             <div class="form-check">
                                 @foreach ($question->answer as $answer)
-                                <div class="col-sm-12">
-                                    <label class="form-check-label">
-                                        <input type="checkbox" class="form-check-input" name="{{ $question->question_id }}" value="{{ $answer->answer_text }}">   {{ $answer->answer_text }}
-                                    </label>
-                                </div>
+                                    @if($answer->answer_text == $existing_answers[$question->question_number - 1]->question_answer)
+                                        <div class="col-sm-12">
+                                            <label class="form-check-label">
+                                                <input checked="checked" type="checkbox" class="form-check-input" name="question[checkbox][{{ $question->question_id }}]" value="{{ $answer->answer_text }}">   {{ $answer->answer_text }}
+                                            </label>
+                                        </div>
+                                    @else
+                                        <div class="col-sm-12">
+                                            <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input" name="{{ $question->question_id }}" value="{{ $answer->answer_text }}">   {{ $answer->answer_text }}
+                                            </label>
+                                        </div>
+                                    @endIf
                                 @endforeach
                             </div><!-- form-check-->
-                @endIf
+                @endif
                 
                 </div><!-- answer div -->
                 </div><!-- form-group -->
                 
                 </div><!-- ibox-content -->
                 </div><!-- ibox -->
-            
+            @endif
             @endforeach
                     
                         
                         
                         
             <!-- start form buttons -->            
-           <br><br>
+          
+           <hr>
            <div class="form-group">
                <div id="form-buttons">
-                   <div class="col-md-3">
-                       <a href="{{ url('/tip') }}" class="btn btn-lg btn-block btn-warning">Back</a>
+                   <div style="display:none" class="confirm-submit alert alert-danger col-md-10 col-md-offset-1 text-center" role="alert">
+                           <h3>Once you submit this TIP you will not be able to edit it again. Select 'Save Draft' to save and resume later.</h3> 
+                           <h3><strong>Are you sure you want to submit now? If so, click submit again.</strong></h3>
                    </div>
                    <div class="col-md-3">
+                       <a href='{{ url("/tip") }}' class="btn btn-lg btn-block btn-warning" type="submit">Back</a>
+                   </div>
+                   <div class="col-md-3">
+                       <a style="display:none" href="#" class="confirm-submit btn btn-lg btn-block btn-primary" id="not-now">Not Now</a>
                     </div>
                    <div class="col-md-3">
                        <button class="btn btn-lg btn-block btn-secondary" value="save" name="save" type="submit">Save Draft</button>
                    </div>
                    <div class="col-md-3">
-                       <a href="#" class="btn btn-lg btn-block btn-primary" id="submit">Submit</a>
+                        <!-- first click brings up alert, second click (on button) submits form --> 
+                       <a href="#"  class="btn btn-lg btn-block btn-primary" id="first-click-submit">Submit</a>
+                       <button style="display:none" class="confirm-submit btn btn-lg btn-block btn-primary" value="submit" name="submit" type="submit">Submit</button>
                    </div>
+                   
                </div><!-- form-buttons -->
                
-               <!-- Display when user clicks submit. Displays alert asking user to confirm submission -->
-               <div id="confirm-submit" style="display:none">
-                       <div class="alert alert-danger col-md-6 col-md-offset-3 text-center" role="alert">
-                           <h3>Once you submit this TIP you will not be able to edit it again.</h3> 
-                           <h3><strong>Are you sure? </strong></h3>
-                       </div>
-                         <br><br>
-                   <div class="col-md-6">
-                       <a href="#" class="btn btn-lg btn-block btn-primary" id="not-now">Not Now</a>
-                   </div>
-                   <div class="col-md-6">
-                       <button class="btn btn-lg btn-block btn-primary" value="submit" name="submit" type="submit">Submit</button>
-                   </div>
-               </div><!-- confirm-submit -->
+               
             </div> <!-- form-group --> 
         </form>
         <br><br><br><br>
+        <div class="text-center">
+            <a href="#top"><i class="fa fa-arrow-up fa-1x"></i>  Back to top</a>
+        </div>
+        <br>
                 
         
         </div><!--col-lg-12-->
     </div><!--row-->
 </div><!--wrapper-->
         
+    
+    
+@endsection
+
+@section('scripts')
+
 <script>
     $(document).ready(function(){
             
@@ -158,18 +203,24 @@
         $('[data-toggle="popover"]').popover();
         
         //When submit is clicked - show alert for user to confirm form submission
-        $("#submit").click(function() {
-            $("#form-buttons").hide();
-            $("#confirm-submit").slideDown("slow");
-            $('html, body').animate({scrollTop: $("#confirm-submit").offset().top}, 2000);
-         });
-         $("#not-now").click(function() {
-            $("#confirm-submit").hide();
-            $("#form-buttons").slideDown("slow");
+        $("#first-click-submit").click(function() {
+            $("#first-click-submit").hide();
+            $(".confirm-submit").slideDown("slow");
             $('html, body').animate({scrollTop: $("#form-buttons").offset().top}, 2000);
          });
+         $("#not-now").click(function() {
+            $(".confirm-submit").slideUp("slow");
+            $("#first-click-submit").slideDown("slow");
+            $('html, body').animate({scrollTop: $("#form-buttons").offset().top}, 2000);
+         });
+        // character counter
+        $('textarea').keyup(updateCount);
+        $('textarea').keydown(updateCount);
+        function updateCount() {
+        var cs = [2000- $(this).val().length];
+        $('.characters').text(cs);
+        }
      });
 </script>
-    
-    
+
 @endsection

@@ -1,0 +1,5 @@
+#Status Report
+
+- added database pull to filter form
+- search filters working
+- refactoring form data functions

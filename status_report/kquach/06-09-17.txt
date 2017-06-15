@@ -1,0 +1,8 @@
+Khang Quach
+06-10-17
+Status update
+
+-fix inserting into tip
+-fix previous tip
+-implemented is_author
+-update divisions

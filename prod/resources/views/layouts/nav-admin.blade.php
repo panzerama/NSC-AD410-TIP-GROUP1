@@ -3,15 +3,19 @@
         <ul class="nav metismenu" id="side-menu">
             <li class="nav-header">
                 <div class="dropdown profile-element">
-                        <span class="clear">
+                        <span class="clear text-center">
                             <span class="block m-t-xs">
-                                <img src="/images/nsc_logo_t.png" height="64" width="64">
-                                &nbsp;&nbsp;&nbsp;
-                                <strong class="font-bold">Michael Fraser</strong>
+                               <img src="/images/nsc_logo_t.png" height="96" width="96">
                             </span> 
+                            <strong class="font-bold">
+                            @if( Auth::check() )
+                            {{ Auth::user()->name }}
+                            @else Unauthenticated User
+                            @endif
+			                </strong>
                         </span>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                        <li><a href="#">Logout</a></li>
+                        <li><a href="{{ url('logout') }}">Logout</a></li>
                     </ul>
                 </div>
                 <div class="logo-element">
@@ -21,14 +25,11 @@
             <li class="{{ isActiveRoute('reports') }}">
                 <a href="{{ url('/reports') }}"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Reports</span> </a>
             </li>
-            <li class="{{ isActiveRoute('admin/create') }}">
-                <a href="{{ url('/admin/create') }}"><i class="fa fa-th"></i> <span class="nav-label">Admin Management</span></a>
+            <li class="{{ isActiveRoute('admin/show') }}">
+                <a href="{{ url('/admin/show') }}"><i class="fa fa-th"></i> <span class="nav-label">Admin Management</span></a>
             </li>
             <li class="{{ isActiveRoute('tip/edit') }}">
                 <a href="{{ url('/tip/edit') }}"><i class="fa fa-table"></i> <span class="nav-label">TIPS Management</span> </a>
-            </li>
-            <li class="{{ isActiveRoute('admin/show') }}">
-                <a href="{{ url('/admin/show') }}"><i class="fa fa-star"></i> <span class="nav-label">Inactivate User</span> </a>
             </li>
         </ul>
     </div>

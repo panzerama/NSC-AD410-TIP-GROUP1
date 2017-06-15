@@ -16,15 +16,13 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th>First Name</th>
-                            <th>Last Name</th>
+                            <th>Name</th>
                             <th>Email</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
-                            <td>Jane</td>
-                            <td>Doe</td>
+                            <td>Jane Doe</td>
                             <td class="text-navy">JaneDoe@seattlecolleges.edu</td>
                         </tr>
                         </tbody>
@@ -37,28 +35,26 @@
                   <h5>Add Admin</h5>  
                 </div>
                 <div class="ibox-content">
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" action="{{ route('adminStore')}}" method="POST">
+                        
                         {{ csrf_field() }}
                         
                         <div class="form-group">
-                           <label class="col-sm-2 control-label">First Name</label>
+                           <label class="col-sm-2 control-label">Name</label>
                            <div class="col-sm-8">
-                               <input type="text" required class="form-control" name="first-name">
+                               <input type="text" required class="form-control" name="name">
                            </div>
                        </div>
                        
-                       <div class="form-group">
-                           <label class="col-sm-2 control-label">Last Name</label>
-                           <div class="col-sm-8">
-                               <input type="text" required class="form-control" name="last-name">
-                           </div>
-                       </div>
                        <div class="form-group">
                            <label class="col-sm-2 control-label">Email</label>
                            <div class="col-sm-8">
                                <input type="email" required class="form-control" name="email">
                            </div>
                        </div>
+                       <br><br>
+                       
+                
                        <br><br>
                        <div class="form-group">
                            <div class="col-sm-3 col-md-offset-9">
