@@ -412,7 +412,7 @@ class ReportsController extends Controller
     
     public function qareports()
     {
-        return view('reports/qareports');
+        return view('reports/qareports', ['data' => $reports_array]);
     }
     
     public static function formOptions($base_query, Request $request = null){
