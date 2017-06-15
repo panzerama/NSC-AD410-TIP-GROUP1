@@ -77,51 +77,26 @@ class LoginController extends Controller
             
             Log::info('Faculty canvas id ' . $faculty_canvas_id);
             
-            $faculty_id = DB::table('faculty')->where('faculty_canvas_id', $faculty_canvas_id)->pluck('faculty_id')->first();
-            
-            // $faculty_id = Faculty::select('faculty_id')->where('faculty_canvas_id', $faculty_canvas_id)->count();
-            
-            Log::info('Is faculty ' . $faculty_id);
+            $faculty = DB::table('faculty')->where('faculty_canvas_id', $faculty_canvas_id)->first();
             
             //if user has been here before a session gets created
-            if(isset($faculty_id)) {
+            if(isset($faculty)) {
             
                 //find user_id
-                $db_user = DB::table('users')
-                    ->select('id')
-                    ->join('faculty', 'users.email', '=', 'faculty.email')
-                    ->where('faculty.faculty_id', $faculty_id)
-                    ->first();
-                    Log::info(var_export($db_user, true));
+                $db_user = DB::table('users')->select('id')->join('faculty', 'users.email', '=', 'faculty.email')->where('faculty.faculty_id', $faculty->id)->first();
                     
-                if(isset($db_user)) {
-                    $user_id = $db_user->id;
-                    Log::info($user_id);
-                    /*
-                    $user_id = User::select('users.id')
-                        ->join('faculty', 'users.email', '=', 'faculty.email')
-                        ->where('faculty.faculty_id', $faculty_id)
-                        ->pluck('id');
-                    */
-                    //get admin status
-                    $user_is_admin = User::select('faculty.is_admin')
-                        ->join('faculty', 'users.email', '=', 'faculty.email')
-                        ->where('faculty.faculty_id', $faculty_id)
-                        ->get();
-                        Log::info(var_export($user_is_admin, true));
-                        
-                    //create instance of authenticated user
-                    $user = Auth::loginUsingId($user_id, true);
-                    Log::info(var_export($user_id, true));
-                    Log::info('Auth::check() ' . var_export(Auth::check(), true));
-                    Log::info('Auth::user() ' . var_export(Auth::user(), true));
-                    Log::info('User is:'. var_export($user, true));
-                    
-                    if($user_is_admin === true) {
-                        return redirect ('/admin');
-                    } else {
-                       return redirect ('/tip');
-                    }
+                //create instance of authenticated user
+                $user = Auth::loginUsingId($db_user->id, true);
+                
+                $is_admin = $faculty->is_admin;
+                
+                //Log admin status
+                Log::info('Is this user_an admin? ' . var_export($is_admin, true));
+                
+                if($is_admin === true) {
+                    return redirect ('/admin');
+                } else {
+                   return redirect ('/tip');
                 }
             } else {
                 //user hasn't been here before so we'll get the details:
@@ -132,24 +107,19 @@ class LoginController extends Controller
                 
                 // check if the name and email is already in the database
                 // this would happen if an admin entered them earlier.
-		$count = DB::table('faculty')->select('*')->where('faculty_name', $name)->where('email', $email)->count();
+		        $count = DB::table('faculty')->select('*')->where('faculty_name', $name)->where('email', $email)->count();
                 
-		Log::info('Value of $count ' . $count);
+	            Log::info('Value of $count ' . $count);
 		 
-                if($count > 0) //it's already there 
-                {
+                if($count > 0) {
                     // update the row to store the canvas_id
                     DB::table('faculty')->where('email', $email)->update(['faculty_canvas_id' => $faculty_canvas_id]);
-                }
-                else {
+                } else {
                     // create a new row in users table, insert name and email
                     DB::insert('insert into users (name, email, password) values(?,?,?)', [$name, $email, null]);
                     
                 	// create a new row and store id, email, name into faculty table
-                	DB::insert('insert into FACULTY (division_id, faculty_name, email, 
-                    		faculty_canvas_id, employee_type, is_admin, is_active) 
-                    		values(?,?,?,?,?,?,?)', [null, $name, $email, 
-                    		$faculty_canvas_id, null, false, true]);
+                	DB::insert('insert into FACULTY (division_id, faculty_name, email, faculty_canvas_id, employee_type, is_admin, is_active) values(?,?,?,?,?,?,?)', [null, $name, $email, $faculty_canvas_id, null, false, true]);
                 }
 
                 //find user_id
