@@ -1,16 +1,16 @@
 
 
-
-        <div class="col-lg-6">
+<div class="ibox float-e-margins">
             <div class="ibox-title">
              <h5 class = "no-margins">Evidence for change needed</h5>
+             <a id="download4" download="evidence_change_needed.jpg"><button type="button" class="label label-primary pull-right" onClick="download4()">jpg</button></a>
              </div>
               <div class="ibox-content">
                 <iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
-                <canvas id="doughnutChart1"  width="500" height="150" style="margin: 0px auto 0px; display: block; width: 50px; height: 10px;"></canvas>
+                 <canvas id="doughnutChart1" height="100" style="display: block; height: 100px;"></canvas>
             </div>
-        </div>
-                    
+</div>
+       
 <?php
    $answer = array_keys($data['evidence_change_needed']);
    $countByChangeNeeded = array_column($data['evidence_change_needed'],'countByChangeNeeded');
@@ -28,7 +28,7 @@
 var answers = JSON.parse('<?php echo json_encode($answer); ?>');
 
 var answers_trunc = answers.map(function(e) { 
-  e = e.substr(0, 30)+"...";//truncate+ellipses
+  e = e.substr(0, 20)+"...";//truncate+ellipses
   return e;
 });
 
@@ -41,13 +41,23 @@ var answers_trunc = answers.map(function(e) {
     } ;
     var doughnutOptions = {
         responsive: true,
-            legend: { display: false,
-            position: 'right'
+            legend: { display: true,
+            position: 'right',
+            labels: {
+                padding: 5,
+                boxWidth: 10,
+            }
         }
     };
     var ctx4 = document.getElementById("doughnutChart1").getContext("2d");
     new Chart(ctx4, {type: 'doughnut', data: doughnutData1, options:doughnutOptions});
-  
+    
+    function download4(){
+        var download = document.getElementById("download4");
+        var image = document.getElementById("doughnutChart1").toDataURL("image/jpg", 1.0)
+                    .replace("image/jpg", "image/octet-stream");
+        download.setAttribute("href", image);
+    }  
 </script>
 
 
