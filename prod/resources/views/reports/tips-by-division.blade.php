@@ -1,14 +1,15 @@
 
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>TIPS by division</h5>
-                    </div>
-                    <div class="ibox-content">
-                        <div><iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 10px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
-                            <canvas id="barChart1" height="120" style="display: block; height: 120px;"></canvas>
-                        </div>
-                    </div>
-                </div>
+<div class="ibox float-e-margins">
+    <div class="ibox-title">
+        <h5>TIPS by division</h5>
+        <a id="download2" download="tips_by_division.jpg"><button type="button" class="label label-primary pull-right" onClick="download2()">jpg</button></a>
+    </div>
+    <div class="ibox-content">
+        <div><iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 10px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+            <canvas id="barChart1" height="100" style="display: block; height: 100px;"></canvas>
+        </div>
+    </div>
+</div>
 
 <?php
     
@@ -25,6 +26,9 @@
 //----------------------------------------------------------------     
 /* Faculty participation by division */
 //---------------------------------------------------------------- 
+var theData = JSON.parse('<?php echo json_encode($countByDivisionSubmitted); ?>');
+theData.sort();
+theData.reverse();
     
     var barData1 = {
         labels: JSON.parse('<?php echo json_encode($division); ?>'),
@@ -35,7 +39,7 @@
                 borderColor: 'rgba(0,142,226,1)',
                 pointBackgroundColor: "rgba(0,142,226,1)",
                 pointBorderColor: "#fff",
-                data: JSON.parse('<?php echo json_encode($countByDivisionSubmitted); ?>')
+                data: theData
             },
             {
                 label: "In-progress",
@@ -50,9 +54,19 @@
     var barOptions = {
         responsive: true,
             legend: { display: true,
-            position: 'right'
+            position: 'top'
         }
     };
     var ctx2 = document.getElementById("barChart1").getContext("2d");
     new Chart(ctx2, {type: 'bar', data: barData1, options:barOptions});
+    
+    function download2(){
+        var download = document.getElementById("download2");
+        var image = document.getElementById("barChart1").toDataURL("image/jpg", 1.0)
+                    .replace("image/jpg", "image/octet-stream");
+        download.setAttribute("href", image);
+    }
+    
+  
+    
 </script>

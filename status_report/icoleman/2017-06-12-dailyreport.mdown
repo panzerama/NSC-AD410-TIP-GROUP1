@@ -1,0 +1,10 @@
+Ilsa Coleman
+Status Report
+6/12/2017
+
+- Added a link to the completed TIP from admin-reports table (on row-click)
+- Added question-specific queries and recodes question-specific reports to accept data.
+- Recoded css to add grey background to reports page.
+To-do:
+- Add export options for reports charts (.jpg, .tiff, etc.)
+- Add filter options into reports instead of nav bar based on functions Jason is building in controller.

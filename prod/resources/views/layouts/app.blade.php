@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title') </title>
 
-
+    
     <link rel="stylesheet" href="{!! asset('css/vendor.css', true) !!}" type="text/css" />
     <link rel="stylesheet" href="{!! asset('css/app.css', true) !!}" type="text/css" />
     <link rel="stylesheet" href="{!! asset('css/custom.css', true) !!}" type="text/css" />
-    
+    <script src="jquery-3.2.1.min.js"></script>    
     
 </head>
 <body>

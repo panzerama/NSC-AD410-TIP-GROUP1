@@ -3,7 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\faculty as Faculty;
+use App\User as User;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Contracts\Auth\Authenticatable;
 use smtech\OAuth2\Client\Provider\CanvasLMS;
 use GuzzleHttp\Client;
 
@@ -15,29 +21,28 @@ class LoginController extends Controller
         error_reporting(E_ALL);
         ini_set('display_errors', 1);
         
-        
-        
         include 'config.php';
         
-        //removed old config info
-        
-        
+        if(Auth::check()) {
+            return redirect ('/tip');
+        }
         
         //start session
         session_start();
-        
         
         define('CODE', 'code');
         define('STATE', 'state');
         define('STATE_LOCAL', 'oauth2-state');
         
-        $provider = new CanvasLMS([
-            'clientId' => $config['canvasClientId'] ,
-            'clientSecret' => $config['canvasClientSecret'],
-            'purpose' => 'tip',
-            'redirectUri' => $config['redirectUri'],
-            'canvasInstanceUrl' => $config['canvasInstanceUrl']
-        ]);
+        $LMSinfo = [
+        'clientId' => $config['canvasClientId'] ,
+        'clientSecret' => $config['canvasClientSecret'],
+        'purpose' => 'tip',
+        'redirectUri' => $config['redirectUri'],
+        'canvasInstanceUrl' => $config['canvasInstanceUrl']
+        ];
+
+        $provider = new CanvasLMS($LMSinfo);
         
         $c = new Client(['verify'=>false]);
         $provider->setHttpClient($c);
@@ -51,77 +56,62 @@ class LoginController extends Controller
             exit;
         
         } else {
-            //echo 'This is the authorization code: ', $_GET[CODE], '<br/><br/>';
-            // try to get an access token (using our existing code) 
-            
             $token = $provider->getAccessToken('authorization_code', [CODE => $_GET[CODE]]);
-            
-            //echo 'The token has been fetched <br/><br/>';
-            // Use the token, and print out info
-            //echo 'This is the user token: ', $token->getToken(), '<br/><br/>';
-            
             $ownerDetails = $provider->getResourceOwner($token);
-            
-            //echo '<br/><br/>';
-            // Use these details to create a new profile
-            //printf('Your Name: %s ', $ownerDetails->getName());
-            //echo '<br/><br/>';
-            //printf('Your id: %s ', $ownerDetails->getId());
-            //echo '<br/><br/>';
-            
             $uid = $ownerDetails->getId();
-            $domain = 'north-seattle-college.acme.instructure.com';
+            $domain = 'northseattle.test.instructure.com';
             $profile_url = 'https://' . $domain . '/api/v1/users/' . $uid . '/profile?access_token=' . $token;
             $f = @file_get_contents($profile_url);
-            //this is object
             $profile = json_decode($f);
-            //echo 'This is the profile object:  ', $profile;
-            
-            
-            
-            //canvas id from profile object:
+        
             $faculty_canvas_id = $profile->id;
             
+            $faculty = DB::table('faculty')->where('faculty_canvas_id', $faculty_canvas_id)->first();
+            
             //if user has been here before a session gets created
-            if(Auth::attempt(['faculty_canvas_id' => $faculty_canvas_id])) {
-                //create instance of authenticated user
-                $user = Auth::user();
-                //get admin status
-                $userIsAdmin = $user->isAdmin;
+            if(isset($faculty)) {
+                $db_user = DB::table('users')->select('id')->join('faculty', 'users.email', '=', 'faculty.email')->where('faculty.faculty_id', $faculty->faculty_id)->first();
+                    
+                $user = Auth::loginUsingId($db_user->id, true);
                 
-                if($userIsAdmin) {
+                if($faculty->is_admin === '1') {
                     return redirect ('/admin');
                 } else {
-                    return redirect ('/tip');
+                   return redirect ('/tip');
                 }
             } else {
-                //user hasn't been here before so we'll get the details:
-                
-                // get name and email
+    
                 $email = $profile->primary_email;
                 $name = $profile->name;
                 
+                // check if the name and email is already in the database
+		        $count = DB::table('faculty')->select('*')->where('faculty_name', $name)->where('email', $email)->count();
+		 
+                if($count > 0) {
+                    DB::table('faculty')->where('email', $email)->update(['faculty_canvas_id' => $faculty_canvas_id]);
+                } else {
+                    DB::insert('insert into users (name, email, password) values(?,?,?)', [$name, $email, null]);
+                	DB::insert('insert into FACULTY (division_id, faculty_name, email, faculty_canvas_id, employee_type, is_admin, is_active) values(?,?,?,?,?,?,?)', [null, $name, $email, $faculty_canvas_id, null, false, true]);
+                }
+                //find user_id
+                $user_id = User::select('users.id')
+                    ->join('faculty', 'users.email', '=', 'faculty.email')
+                    ->where('faculty.faculty_id', $faculty)
+                    ->get();
                 
-                // TODO: store id, email, name into faculty table
-                DB::insert('insert into FACULTY (division_id, faculty_name, email, faculty_canvas_id, employee_type, is_admin, is_active) values(?,?,?,?,?,?,?)', [null, $name, $email, $faculty_canvas_id, null, false, true]);
-                
-                
-                //create a session for the new user
-                Auth::attempt(['faculty_canvas_id' => $faculty_canvas_id]);
-                
-                //is this right?
+                $user = Auth::loginUsingId($user_id, true);
+
+                // redirect them to the account page so they get routed to the 
+                // blade to confirm their details
                 return redirect ('/account');
             }
-            
         }
-    
     }
-    
-    // destroy() go here:
+    // destroy() session
     public function destroy() {
         Auth::logout();
-        // redirect to canvas homepage or to our index page?
-        // return redirect('canvas.northseattle.edu')
+        // redirect to canvas homepage upon logout
+        $url = 'https://northseattle.test.instructure.com';
+        return redirect($url);
     }
-
 }

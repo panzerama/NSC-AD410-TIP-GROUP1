@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-@foreach($answers as $question)
+@foreach($questions as $question)
     {{ $question->question_number }}
     {{ $question->question_text }} </br>
     @if ($question->question_type == "TEXT")

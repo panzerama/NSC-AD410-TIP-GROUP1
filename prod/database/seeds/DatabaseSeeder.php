@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Log;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,7 +21,8 @@ class DatabaseSeeder extends Seeder
         factory(App\User::class, 30)->create();
         
         //divisions
-        factory(App\division::class, 10)->create();
+        //factory(App\division::class, 10)->create();
+        $this->call(DivisionSeeder::class);
         
         //generate 30 faculty. faculty are randomly assigned to a department.
         //Coverage may not be equal.

@@ -30,19 +30,20 @@ $provider->setHttpClient($c);
 // If we don't already have an authorization code, we will get one
 if (!isset($_GET[CODE])) {
     $authorizationUrl = $provider->getAuthorizationUrl();
+    echo $authorizationUrl;
     $_SESSION[STATE_LOCAL] = $provider->getState();
     header("Location: $authorizationUrl");
     exit;
 
 } else {
     echo 'This is the authorization code: ', $_GET[CODE], '<br/><br/>';
+    /*
     // try to get an access token (using our existing code) 
     $token = $provider->getAccessToken('authorization_code', [CODE => $_GET[CODE]]);
-    echo 'The token has been fetched <br/><br/>';
+    // echo 'The token has been fetched <br/><br/>';
     // Use the token, and print out info
-    echo 'This is the user token: ', $token->getToken(), '<br/><br/>';
-    $ownerDetails = $provider->getResourceOwner($token);
-    echo '<br/><br/>';
+    // echo 'This is the user token: ', $token->getToken(), '<br/><br/>';
+    // $ownerDetails = $provider->getResourceOwner($token);
     // Use these details to create a new profile
     printf('Your Name: %s ', $ownerDetails->getName());
     echo '<br/><br/>';
@@ -53,5 +54,6 @@ if (!isset($_GET[CODE])) {
     $profile_url = 'https://' . $domain . '/api/v1/users/' . $uid . '/profile?access_token=' . $token;
     $f = @file_get_contents($profile_url);
     $profile = json_decode($f);
-    echo 'This is the profile object:  ', $profile;
+    print_r($profile);
+    */
 }

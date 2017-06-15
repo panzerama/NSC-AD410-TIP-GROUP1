@@ -46,7 +46,7 @@ $factory->define(App\faculty::class, function (Faker\Generator $faker) {
         took this out since token is dead to us. --Luke
         'token' => $faker->sha1,
         */
-        'employee_type' => $faker->randomElement(['enum', 'values']),
+        'employee_type' => $faker->randomElement($array = array ('FULLTIME', 'PARTTIME')),
         'is_admin' => $faker->boolean($chanceOfGettingTrue = 2),
         'is_active' => $faker->boolean($chanceOfGettingTrue = 80)
        ]; 
