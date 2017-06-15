@@ -11,6 +11,7 @@ use App\faculty;
 use App\faculty_tip;
 use App\division;
 use DB;
+use App\Http\Controllers\Auth\LoginController;
 class TipsController extends Controller
 {
     /**
@@ -19,6 +20,11 @@ class TipsController extends Controller
      * @return \Illuminate\Http\Response
      **/
 
+    // this __construct() function will need to be at the top of all controllers doing any storing stuff.
+    /*public function __construct() {
+        $this->middleware('auth');
+    }
+    */
     public function index()
     {   
         // **********************  DEBUGGING   ******************************************
@@ -26,9 +32,57 @@ class TipsController extends Controller
         // ******************************************************************************
 
         // replace with auth id when implemented
-        $faculty_id =8; // Do not change this!!
+        // $faculty_id =8; // Do not change this!!
 
-
+        // dd(DB::table('faculty')->get());
+        // dd(DB::table('faculty_tips')->get());
+        // dd(DB::table('tips'->get());
+        // first check db to see if divisions table has these collumns 
+        // very important need these division in order for save to work correctly
+        // if these division are not in the db insert them ONCE and then comment it out
+        // dd(DB::table('divisions')->get());
+        // DB::table('divisions')->insert(array(
+        //     // for index view
+        //     array(
+        //         'division_name' => 'Arts, Humanities, and Social Sciences',
+        //         'abbr' => 'AHSS',
+        //         'is_active' => true
+        //     ),
+        //     array(
+        //         'division_name' => 'Business Engineering and Information Technology',
+        //         'abbr' => 'BEIT',
+        //         'is_active' => true
+        //     ),
+        //     array(
+        //         'division_name' => 'Business and Transitional Studies',
+        //         'abbr' => 'BTS',
+        //         'is_active' => true
+        //     ),
+        //     array(
+        //         'division_name' => 'Health and Humanities',
+        //         'abbr' => 'HHS',
+        //         'is_active' => true
+        //     ),
+        //     array(
+        //         'division_name' => 'Library',
+        //         'abbr' => 'LIB',
+        //         'is_active' => true
+        //     ),
+        //     array(
+        //         'division_name' => 'Math and Science',
+        //         'abbr' => 'M&S',
+        //         'is_active' => true
+        //     ),
+        //     array(
+        //         'division_name' => 'Work Force Instruction',
+        //         'abbr' => 'WFI',
+        //         'is_active' => true
+        //     )
+        // ));
+        
+        // $faculty_id = Auth::id();
+        $faculty_id =1; // Change this to a faculty id that has only one tip two unfinished tips will mess up query
+        // keep the same faculty id thorughout the whole controller
         
         $tip_query = DB::table('tips')->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')
                                       ->join('faculty', 'faculty_tips.faculty_id', '=', 'faculty.faculty_id')

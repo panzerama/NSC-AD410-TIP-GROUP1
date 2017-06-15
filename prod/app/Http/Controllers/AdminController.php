@@ -1,20 +1,45 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Support\Facades\Log;
+
 use DB;
 
-class AdminController extends Controller
-{
-    public function index(){
+class AdminController extends Controller {
+    
+    // authenticated user.protected
+    protected $user;
+
+    //Is user signedIn?
+    protected $signedIn;
+    
+    public function __construct() {
+       /* 
+       $this->middleware(function ($request, $next) {
+            $this->user = $this->signedIn = Auth::user();
+            if(isset($this->user)) {
+                 return $next($request);
+            } else {
+                return redirect('/login');
+            }
+        }); 
+        */
+    }
+    
+    public function index() {
         return redirect()->action('AdminController@show');
     }
     
-    public function create(){
+    public function create() {
     
         return redirect()->action('AdminController@show');
     }
     
-    public function store(){
+    public function store() {
         
          $faculty_name = request('name');
          $email = request('email');
@@ -43,14 +68,14 @@ class AdminController extends Controller
         return redirect()->action('AdminController@show');  
     }
     
-    public function show(){
+    public function show() {
         $faculty = DB::table('faculty')->get();
         $divisions = DB::table('divisions')->get();
         
         return view('admin/show', compact('faculty', 'divisions'));
     }
     
-    public function update($id, $status){
+    public function update($id, $status) {
         $faculty = DB::table('faculty')->get();
         
         if($status == "active"){
