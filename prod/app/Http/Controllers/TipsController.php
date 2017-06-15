@@ -11,12 +11,13 @@ use App\faculty;
 use App\faculty_tip;
 use App\division;
 use DB;
+use App\Mail\TipConfirm;
 class TipsController extends Controller
 {
 
     public function index()
     {   
-        // dd(DB::table('faculty')->get());
+        //dd(DB::table('faculty')->get());
         // dd(DB::table('faculty_tips')->get());
         // dd(DB::table('tips'->get());
         // first check db to see if divisions table has these collumns 
@@ -124,7 +125,7 @@ class TipsController extends Controller
     public function create()
     {
         // replace with auth id when implemented
-        $faculty_id = 1;
+        $faculty_id = 31;
         
         // check if user has an active tip.
         $tip_query = DB::table('tips')->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')
@@ -326,9 +327,25 @@ class TipsController extends Controller
         }
          tip::where('tips_id', $tips_id)
             ->update(['is_finished' => 1]);
+        
+        //send email to user on submit
+        TipsController::sendEmail();
+        
          return redirect('/tip/previous')->with('status', 'tip submmitted');  
         }
     }
-
+    
+    public function sendEmail(){
+        
+        //TO DO: update $faculty_id to use auth/login
+        $faculty_id =1;
+        
+        $faculty = DB::table('faculty')->where('faculty_id', $faculty_id)->first();
+        $email = $faculty->email;
+        $name = $faculty->faculty_name;
+        
+        \Mail::to($email)->send(new TipConfirm($email, $name));
+        
+    }
 
 }
