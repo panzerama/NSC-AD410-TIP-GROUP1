@@ -99,6 +99,5 @@ Route::get('/logout', 'Auth\LoginController@destroy')->name('logout'); // Log Ou
 
  Route::get('/reports/results','ReportsController@show'); // Display Reports
  Route::get('/reports/tip/{id}','ReportsController@showTip'); // Display Specific Previous Tip
-
-
-
+ 
+ Route::get('/qareports','ReportsController@qareports'); // Display QA Reports
