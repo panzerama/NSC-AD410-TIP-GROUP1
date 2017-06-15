@@ -108,6 +108,7 @@ class LoginController extends Controller
                         ->join('faculty', 'users.email', '=', 'faculty.email')
                         ->where('faculty.faculty_id', $faculty_id)
                         ->get();
+                        Log::info(var_export($user_is_admin, true));
                         
                     //create instance of authenticated user
                     $user = Auth::loginUsingId($user_id, true);
@@ -116,7 +117,7 @@ class LoginController extends Controller
                     Log::info('Auth::user() ' . var_export(Auth::user(), true));
                     Log::info('User is:'. var_export($user, true));
                     
-                    if($user_is_admin == true) {
+                    if($user_is_admin === true) {
                         return redirect ('/admin');
                     } else {
                        return redirect ('/tip');
