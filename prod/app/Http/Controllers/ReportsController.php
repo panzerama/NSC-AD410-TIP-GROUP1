@@ -410,6 +410,11 @@ class ReportsController extends Controller
         
     }
     
+    public function qareports()
+    {
+        return view('reports/qareports');
+    }
+    
     public static function formOptions($base_query, Request $request = null){
         $form_options = array();
         $form_query = clone $base_query;
