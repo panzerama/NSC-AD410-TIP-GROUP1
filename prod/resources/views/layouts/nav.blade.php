@@ -5,7 +5,7 @@
                 <div class="dropdown profile-element">
                         <span class="clear text-center">
                             <span class="block m-t-xs">
-                               <img src="/images/nsc_logo_t.png" height="90" width="195">
+                               <img src="/images/nsc_logo_t.png" height="96" width="96">
                             </span> 
                             <strong class="font-bold">
                             @if( Auth::check() )
