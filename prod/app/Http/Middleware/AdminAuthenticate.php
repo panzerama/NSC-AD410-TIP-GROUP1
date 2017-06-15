@@ -4,7 +4,7 @@ use Closure;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Support\Facades\Log;
 
-class Authenticate {
+class AdminAuthenticate {
 
 	/**
 	 * The Guard implementation.
@@ -32,11 +32,15 @@ class Authenticate {
 	 */
 	public function handle($request, Closure $next) { 
 	    $user = $this->auth->user();
-	    Log::info('This is a sweet function');
-        if(isset($user)) {
-             return $next($request);
-        } else {
-            return redirect('/login');
-        }
+	    if(isset($user)) {
+	        $faculty = DB::table('faculty')->select('*')->join('users', 'faculty.email', '=', 'users.email')->where('users.id', $user->id)->first();
+	        if($faculty->is_admin) {
+	            return $next($request);
+	        } else {
+	            return redirect ('/');
+	        }
+	    } else {
+	        return redirect ('/login');
+	    }
 	}
 }

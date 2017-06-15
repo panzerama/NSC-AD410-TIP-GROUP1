@@ -89,13 +89,7 @@ class LoginController extends Controller
                 //create instance of authenticated user
                 $user = Auth::loginUsingId($db_user->id, true);
                 
-                $is_admin = $faculty->is_admin;
-                
-                //Log admin status
-                Log::info('Is this user_an admin? ' . var_export($is_admin, true) . gettype($is_admin));
-                Log::info(var_dump($is_admin === '1'));
-                
-                if($is_admin === '1') {
+                if($faculty->is_admin === '1') {
                     return redirect ('/admin');
                 } else {
                    return redirect ('/tip');
