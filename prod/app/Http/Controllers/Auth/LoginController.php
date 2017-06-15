@@ -81,7 +81,8 @@ class LoginController extends Controller
             
             //if user has been here before a session gets created
             if(isset($faculty)) {
-            
+                Log::info('This is faculty ' . var_export($faculty, true));
+                
                 //find user_id
                 $db_user = DB::table('users')->select('id')->join('faculty', 'users.email', '=', 'faculty.email')->where('faculty.faculty_id', $faculty->id)->first();
                     
@@ -111,7 +112,7 @@ class LoginController extends Controller
                 
 	            Log::info('Value of $count ' . $count);
 		 
-                if($count > 0) {
+                if($count > 0)  {
                     // update the row to store the canvas_id
                     DB::table('faculty')->where('email', $email)->update(['faculty_canvas_id' => $faculty_canvas_id]);
                 } else {
