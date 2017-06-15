@@ -14,9 +14,12 @@
 /***************************
  *  Tip Routing
  ***************************/
+<<<<<<< HEAD
 //Default Route
 Route::get('/', 'Auth\LoginController@index')->name('login'); // Main page route
 
+=======
+>>>>>>> search-func
 // Create Tip
 Route::get('/tip', 'TipsController@index'); // Tips Create Form P.1
 Route::get('tip/questions', 'TipsController@create'); // Tips Create Form P.2
@@ -86,9 +89,16 @@ Route::get('/logout', 'Auth\LoginController@destroy')->name('logout'); // Log Ou
  *  Reporting Routing
  ***************************/
  
- Route::get('/reports','ReportsController@index'); // Reports Splash Page
+ Route::get('/reports','ReportsController@index'); // Reports with base query
+ Route::post('/reports/filter','ReportsController@show'); // filter form calls this route
+ 
  Route::get('/table','ReportsController@table'); // Display Table
- Route::get('/reports/filter','ReportsController@create'); // Show Reports Filter Form
+ Route::get('/reports-old','ReportsControllerDev@indexold'); // Reports Splash Page (under development)
+ Route::get('/table-dev','ReportsControllerDev@tabledev'); //Display Table (under development)
+ Route::get('/summary-old','ReportsControllerDev@summaryold'); // testing data display
+ Route::get('/tipsbymonth-test','ReportsControllerDev@tipsbymonthtest'); // testing data display
+ Route::get('/tipsbydivision-test','ReportsControllerDev@tipsbydivisiontest'); // testing data display
+
  Route::get('/reports/results','ReportsController@show'); // Display Reports
  Route::get('/reports/tip/{id}','ReportsController@showTip'); // Display Specific Previous Tip
 

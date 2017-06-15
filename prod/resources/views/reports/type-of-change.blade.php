@@ -68,6 +68,7 @@ theData.reverse();
                 ticks: { beginAtZero: true }
             }]
         }
+    ]
     };
 
     var ctx5 = document.getElementById("barChart2").getContext("2d");

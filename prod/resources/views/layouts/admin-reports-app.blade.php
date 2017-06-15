@@ -13,6 +13,8 @@
     
     @yield('page-style-files')
     
+    @yield('page-style-files')
+    
 </head>
 <body>
 

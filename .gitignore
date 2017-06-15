@@ -10,3 +10,5 @@ prod/storage/framework/*
 .idea
 /prod/storage/logs/*
 .web.php.swo
+prod/vendor/
+vendor/

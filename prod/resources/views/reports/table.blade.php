@@ -3,14 +3,18 @@
 @section('title', 'TIPS Admin')
 
 @section('content')
+
 <div class="row wrapper border-bottom white-bg page-heading">
 <h2>Reports Dashboard</h2>
     <ol class="breadcrumb">
         <li>
             <a href="reports">Reports</a>
         </li>
+        <li>
+            <a href="qareports">Q/A Reports</a>
+        </li>
         <li class="active">
-            <strong>Data Table</strong>
+            <strong>Table</strong>
         </li>
     </ol>
 </div>
@@ -22,7 +26,24 @@
 
 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>TIPS Data</h5>
+                        <h5>Recent TIPS</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="#">Config option 1</a>
+                                </li>
+                                <li><a href="#">Config option 2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
                     </div>
     
     <div class="ibox-content">

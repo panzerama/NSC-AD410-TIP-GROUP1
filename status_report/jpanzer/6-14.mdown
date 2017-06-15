@@ -1,0 +1,4 @@
+# Status Report
+
+We're on our last leg, and the week has all been about merging, merging, merging and patching. I've learned more about resolving conflicts now than I ever thought I would have.
+

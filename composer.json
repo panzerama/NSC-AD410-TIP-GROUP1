@@ -1,3 +1,10 @@
 {
+<<<<<<< HEAD
+    "require": {
+        "yajra/laravel-datatables-oracle": "^7.0",
+        "yajra/laravel-datatables-html": "^1.0"
+    }
+=======
 
+>>>>>>> master
 }
