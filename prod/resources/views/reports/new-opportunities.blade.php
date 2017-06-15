@@ -1,15 +1,15 @@
 
 
-
-        <div class="col-lg-6">
+<div class="ibox float-e-margins">
             <div class="ibox-title">
                  <h5 class = "no-margins">New opportunities</h5>
+                 <a id="download7" download="new_opportunities.jpg"><button type="button" class="label label-primary pull-right" onClick="download7()">jpg</button></a>
                  </div>
                   <div class="ibox-content">
                 <iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
-                <canvas id="barChart3" width="500" height="150" style="margin: 0px auto 0px; display: block; width: 50px; height: 10px;"></canvas>
+                <canvas id="barChart3" height="100" style="display: block; height: 100px;"></canvas>
             </div>
-        </div>
+</div>
 
 
 <?php
@@ -39,14 +39,20 @@ theData.reverse();
     labels: answers_trunc,
     datasets: [
         {
-             backgroundColor: "#008ee2",
+             backgroundColor: 'rgba(0,142,226,1)',
+                borderColor: 'rgba(0,142,226,1)',
+                pointBackgroundColor: "rgba(0,142,226,1)",
             data: theData,
         }
     ]
     };
     var barOptions3 =  {
-        legend: { display: false,
-            responsive: true, 
+        responsive: true,
+            legend: { display: false,
+            position: 'right',
+            labels: {
+                boxWidth: 10,
+            }
         },
          tooltips: {
             mode: 'index',
@@ -73,4 +79,11 @@ theData.reverse();
     
     var ctx7 = document.getElementById("barChart3").getContext("2d");
     new Chart(ctx7, {type: 'bar', data: barData3, options:barOptions3});
+    
+    function download7(){
+        var download = document.getElementById("download7");
+        var image = document.getElementById("barChart3").toDataURL("image/jpg", 1.0)
+                    .replace("image/jpg", "image/octet-stream");
+        download.setAttribute("href", image);
+    }
 </script>

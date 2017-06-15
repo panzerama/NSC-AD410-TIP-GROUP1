@@ -5,12 +5,11 @@
 @section('content')
 
 <!-- First TIP Questionnaire page - url 'tip' -->
-
 <div class="wrapper wrapper-content animated fadeInRight">
     <!--if question one is not filled out will be empty-->
-    <!--@foreach ($question_one as $one)-->
-    <!--    {{$one->question_answer}}-->
-    <!--@endforeach-->
+    @foreach ($question_one as $one)
+        <!--{{$one->question_answer}}-->
+    @endforeach
     @if (Session::has('message'))
        <div class="alert alert-info">{{ Session::get('message') }}</div>
     @endif

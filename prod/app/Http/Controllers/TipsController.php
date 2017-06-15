@@ -11,7 +11,9 @@ use App\faculty;
 use App\faculty_tip;
 use App\division;
 use DB;
+use App\Mail\TipConfirm;
 use App\Http\Controllers\Auth\LoginController;
+
 class TipsController extends Controller
 {
     /**
@@ -26,8 +28,7 @@ class TipsController extends Controller
     }
     */
     public function index()
-    {
-        //dd(DB::table('faculty_tips')->get());
+    {   
         // **********************  DEBUGGING   ******************************************
         //        dd(DB::table('faculty_tips')->get());
         // ******************************************************************************
@@ -346,9 +347,26 @@ class TipsController extends Controller
         }
          tip::where('tips_id', $tips_id)
             ->update(['is_finished' => 1]);
+        
+        //send email to user on submit
+        TipsController::sendEmail();
+        
          return redirect('/tip/previous')->with('status', 'tip submmitted');  
         }
     }
-
+    
+    public function sendEmail(){
+        
+        //TO DO: update $faculty_id to use auth/login
+        //$faculty_id = Auth::id();
+        $faculty_id =1;
+        
+        $faculty = DB::table('faculty')->where('faculty_id', $faculty_id)->first();
+        $email = $faculty->email;
+        $name = $faculty->faculty_name;
+        
+        \Mail::to($email)->send(new TipConfirm($email, $name));
+        
+    }
 
 }
