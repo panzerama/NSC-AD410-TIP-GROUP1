@@ -77,6 +77,14 @@ class ReportsController extends Controller
         return view('reports/table', ['data' => $table_array]);
     }
     
+    private function reportsDataBuilder(&$reports_array, $base_query, $division_code){
+        // aggregator that assembles the various data points for reporting
+        ReportsController::tipsSummary($reports_array, $base_query, $division_code);
+        ReportsController::tipsByMonth($reports_array, $base_query);
+        ReportsController::tipsByDivision($reports_array, $base_query);
+        ReportsController::indextable($reports_array, $base_query);
+    }
+    
     private function indextable(&$reports_array, $base_query)
     {
         $key = "table_data";
@@ -93,14 +101,6 @@ class ReportsController extends Controller
         //var_dump($table_array);
        
         $reports_array[$key] = $table_array;
-    }
-    
-    private function reportsDataBuilder(&$reports_array, $base_query, $division_code){
-        // aggregator that assembles the various data points for reporting
-        ReportsController::tipsSummary($reports_array, $base_query, $division_code);
-        ReportsController::tipsByMonth($reports_array, $base_query);
-        ReportsController::tipsByDivision($reports_array, $base_query);
-        ReportsController::indextable($reports_array, $base_query);
     }
     
     private function tipsSummary(&$reports_array, $base_query, $division_code){

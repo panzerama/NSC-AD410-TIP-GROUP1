@@ -3,6 +3,7 @@
 @section('title', 'TIPS Admin')
 
 @section('content')
+<!-- {{ var_dump($data['table_data']) }} -->
 <!--<div class="row wrapper border-bottom white-bg page-heading">-->
 <!--    {{ print_r($data) }}-->
 <!--    <br/>-->
