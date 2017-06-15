@@ -70,7 +70,7 @@ class LoginController extends Controller
                     
                 $user = Auth::loginUsingId($db_user->id, true);
                 
-                if($faculty->is_admin === '0') {
+                if($faculty->is_admin === '1') {
                     return redirect ('/admin');
                 } else {
                    return redirect ('/tip');
