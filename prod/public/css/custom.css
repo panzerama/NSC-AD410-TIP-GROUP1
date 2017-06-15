@@ -11,9 +11,21 @@ Custom CSS file to override defaults
     cursor: pointer;
 }
 
+.textarea{
+    font-size: 70px;
+}
+
+.rowhidden {
+    
+visibility: hidden;
+display: none;
+}
+
+
 /*
 Custom CSS file to override defaults
 */
+
 
 /* Set max-width for views */
 #page-wrapper > .wrapper.wrapper-content.animated.fadeInRight {
@@ -159,3 +171,6 @@ Custom CSS file to override defaults
     margin-top: 6px;
     margin-bottom: 6px;
 }
+    .textarea{
+    font-size: 70px;
+    }

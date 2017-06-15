@@ -1,0 +1,3 @@
+Auth is modestly working. Michael put a ton of work into it, as well as Jason and I put some time into it as well.
+
+We'll have some more work to do to implement Authorization stuff across all the Controllers for our app. Once that is done we'll be in good shape!

@@ -1,0 +1,1424 @@
+
+<!-- *********************************************************************************** -->
+<!-- *** Begin of - this works!!!!!!!!!! *********************************************** -->
+<!-- *********************************************************************************** -->
+
+<!-- Add/Modify a Question Modal -->
+<div class="modal fade" id="addBeforeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            
+            <div class="modal-header">
+                <form name="add_mod_form" method="post" action="/tip/edit">
+                <!--  send a token with the form for Laravel to validate - to confirm this is the form that is on the server for the website to prevent people to make forms and inject forms/data    -->
+                {{ csrf_field() }}
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="add_edit_modal"></h4>
+            </div>   <!-- end div class modal header  -->
+            
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="question_text">Question:</label>
+                    <textarea style="width:100%" style="font-weight:bold" style="font-size=lg" class="text-area" id="question_text" name="question_text" > </textarea>
+                </div>
+                <div class="form-group">
+                    <label for="question_desc">Example:</label>
+                    <textarea style="width:100%" style="font-weight:bold" style="font-size=lg" class="text-area" id="question_desc" name="question_desc"> </textarea>
+                </div>
+                <div class="form-group">
+                    <label for="q_type">Question Type:</label>
+                    <select name="q_type" id="q_type" class="form-control" style="width:200px" onchange="java_script_:change_options(this.options[this.selectedIndex].value)">
+                        <option value="text_box">TEXT-BOX</option>
+                        <option value="scrolling_text_box">SCROLLING TEXT-BOX</option>
+                        <option value="drop_down_list">DROPDOWN LIST</option>
+                        <option value="check_box">CHECKBOXES</option>
+                        <option value="radio_button">RADIO BUTTONS</option>
+                    </select>
+                </div>  <!-- end of form-group for question type drop down   -->
+<!--  ********************************************************************************* -->
+                <div class="form-group">  
+                    <label id="a_rb_label" for="a_rb_options" style="width:100%"></label>
+                    <div id="a_rb_options" style="display: none;">  
+                                <textarea id="a_rb0" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_rb1" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_rb2" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_rb3" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_rb4" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_rb5" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                    </div>           <!-- end of a_options -->
+                    <label id="a_cb_label" for="a_cb_options" style="width:100%"></label>
+                    <div id="a_cb_options" style="display: none;">  
+                                <textarea id="a_cb0" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_cb1" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_cb2" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_cb3" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_cb4" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_cb5" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                    </div>           <!-- end of a_options -->
+                    
+<!--                </div> -->  <!-- end of form-group for a_options -->
+<!--                <div class="form-group">    -->         
+                    <label id="a_ddl_label" for="a_ddl_options" style="width:100%"></label>
+                    <div id="a_ddl_options" style="display: none;"> 
+                                <textarea id="a_ddl0" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_ddl1" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_ddl2" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_ddl3" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_ddl4" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_ddl5" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_ddl6" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_ddl7" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_ddl8" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_ddl9" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_ddl10" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_ddl11" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_ddl12" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_ddl13" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_ddl14" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                    </div>   <!-- end of div for a-more-options -->
+                </div>  <!-- end of form-group for a_more_options   -->
+            </div>  <!-- end div modal body -->
+
+            <!-- ********** begin script to display additional text boxes depending on question type option selected ********** -->
+                <script language = "javascript">
+                function change_options(q_type_selected)
+                   {
+                      
+                    // var q_type_selected = document.getElementById('q_type').options[document.getElementById(add_mod_form.q_type).selectedIndex].value');
+                    // get the value of the question type selected from the add mod form
+        // var selectvariable = formname.selectname;
+        // var printvar = document.getElementById('firstP');
+        // store selectvariable index in printvar:   printvar.innerHTML = selectvariable.selectedIndex;
+        // store selectvariable value in printvar:   printvar.innerHTML = selectvariable[selectvariable.selectedIndex].value);
+        // store selectvariable text in printvar:   printvar.innerHTML = selectvariable[selectvariable.selectedIndex].text);
+                    // var q_type_selected = document.add_mod_form.q_type.value;
+
+                    // the question type selected is passed in to the function
+                    // get the label and option div's for dropdown list, checkbox and radio button
+                    var ddl_l = document.getElementById('a_ddl_label');
+                    var ddl_o = document.getElementById('a_ddl_options');
+
+                    var cb_l = document.getElementById('a_cb_label');
+                    var cb_o = document.getElementById('a_cb_options');
+
+                    var rb_l = document.getElementById('a_rb_label');
+                    var rb_o = document.getElementById('a_rb_options');
+
+                    // determine the question type selected and display accordingly                
+                    switch(q_type_selected){
+                        case 'drop_down_list':
+                            // hide radio buttons label div
+                            rb_l.style.display='none';
+                            // hide radio button options div
+                            rb_o.style.display='none';
+                            // hide checkbox label div
+                            cb_l.style.display = 'none';
+                            // hide checkbox options div
+                            cb_o.style.display = 'none';
+                            // clear radio button label text
+                            document.getElementById('a_rb_label').innerHTML="";
+                            // clear checkbox label text
+                            document.getElementById('a_cb_label').innerHTML="";
+
+                            // display drop down label div
+                            ddl_l.style.display='inline-block';
+                            // display drop down label text
+                            document.getElementById('a_ddl_label').innerHTML="Input up to 15 Drop-Down List Options:";
+//                          document.getElementById('a_ddl_label').innerHTML = "Input up to 15 Drop-Down List Options:";
+
+                            // display drop down options div
+                            ddl_o.style.display='inline-block';
+
+                            // clear the options textboxes from any previous entries
+//                            document.getElementById('a_text').innerHTML="";
+                            // clear the options textboxes from any previous entries
+                            document.getElementById('a_cb0').value = "";
+                            document.getElementById('a_cb1').value = "";
+                            document.getElementById('a_cb2').value = "";
+                            document.getElementById('a_cb3').value = "";
+                            document.getElementById('a_cb4').value = "";
+                            document.getElementById('a_cb5').value = "";
+        
+                            document.getElementById('a_rb0').value = "";
+                            document.getElementById('a_rb1').value = "";
+                            document.getElementById('a_rb2').value = "";
+                            document.getElementById('a_rb3').value = "";
+                            document.getElementById('a_rb4').value = "";
+                            document.getElementById('a_rb5').value = "";
+        
+                            document.getElementById('a_ddl0').value = "";
+                            document.getElementById('a_ddl1').value = "";
+                            document.getElementById('a_ddl2').value = "";
+                            document.getElementById('a_ddl3').value = "";
+                            document.getElementById('a_ddl4').value = "";
+                            document.getElementById('a_ddl5').value = "";
+                            document.getElementById('a_ddl6').value = "";
+                            document.getElementById('a_ddl7').value = "";
+                            document.getElementById('a_ddl8').value = "";
+                            document.getElementById('a_ddl9').value = "";
+                            document.getElementById('a_ddl10').value = "";
+                            document.getElementById('a_ddl11').value = "";
+                            document.getElementById('a_ddl12').value = "";
+                            document.getElementById('a_ddl13').value = "";
+                            document.getElementById('a_ddl14').value = "";
+                            break;
+                        case 'check_box':
+                            // hide radio buttons label div
+                            rb_l.style.display='none';
+                            // hide radio button options div
+                            rb_o.style.display='none';
+                            // hide dropdown list label div
+                            ddl_l.style.display = 'none';
+                            // hide dropdown list options div
+                            ddl_o.style.display = 'none';
+                            // clear radio button label text
+                            document.getElementById('a_rb_label').innerHTML="";
+                            // clear dropdown list label text
+                            document.getElementById('a_ddl_label').innerHTML="";
+
+                            // display check box label div
+                            cb_l.style.display='inline-block';
+                            // display the checkbox label text
+                            document.getElementById('a_cb_label').innerHTML="Input up to 6 Check Box Options:";
+//                          document.getElementById('a_cb_label').innerHTML = "Input up to 6 Check Box Options:";
+
+                            // display checkbox options div
+                            cb_o.style.display='inline-block';
+
+                            // clear the options textboxes from any previous entries
+//                            document.getElementById('a_text').innerHTML="";
+                            // clear the options textboxes from any previous entries
+                            document.getElementById('a_cb0').value = "";
+                            document.getElementById('a_cb1').value = "";
+                            document.getElementById('a_cb2').value = "";
+                            document.getElementById('a_cb3').value = "";
+                            document.getElementById('a_cb4').value = "";
+                            document.getElementById('a_cb5').value = "";
+        
+                            document.getElementById('a_rb0').value = "";
+                            document.getElementById('a_rb1').value = "";
+                            document.getElementById('a_rb2').value = "";
+                            document.getElementById('a_rb3').value = "";
+                            document.getElementById('a_rb4').value = "";
+                            document.getElementById('a_rb5').value = "";
+        
+                            document.getElementById('a_ddl0').value = "";
+                            document.getElementById('a_ddl1').value = "";
+                            document.getElementById('a_ddl2').value = "";
+                            document.getElementById('a_ddl3').value = "";
+                            document.getElementById('a_ddl4').value = "";
+                            document.getElementById('a_ddl5').value = "";
+                            document.getElementById('a_ddl6').value = "";
+                            document.getElementById('a_ddl7').value = "";
+                            document.getElementById('a_ddl8').value = "";
+                            document.getElementById('a_ddl9').value = "";
+                            document.getElementById('a_ddl10').value = "";
+                            document.getElementById('a_ddl11').value = "";
+                            document.getElementById('a_ddl12').value = "";
+                            document.getElementById('a_ddl13').value = "";
+                            document.getElementById('a_ddl14').value = "";
+                            break;
+                        case 'radio_button':
+                            // hide checkbox label div
+                            cb_l.style.display='none';
+                            // hide checkbox options div
+                            cb_o.style.display='none';
+                            // hide dropdown list label div
+                            ddl_l.style.display = 'none';
+                            // hide dropdown list options div
+                            ddl_o.style.display = 'none';
+                            // clear checkbox label text
+                            document.getElementById('a_cb_label').innerHTML="";
+                            // clear dropdown list label text
+                            document.getElementById('a_ddl_label').innerHTML="";
+
+                            // display radio button label div
+                            rb_l.style.display='inline-block';
+                            // display radio button label text
+                            document.getElementById('a_rb_label').innerHTML="Input up to 6 Radio Button Options:";
+//                          document.getElementById('a_rb_label').innerHTML = "Input up to 6 Radio Button Options:";
+
+                            // display radio button options div
+                            rb_o.style.display='inline-block';
+
+                            // clear the options textboxes from any previous entries
+//                            document.getElementById('a_text').innerHTML="";
+                          // clear the options textboxes from any previous entries
+                            document.getElementById('a_cb0').value = "";
+                            document.getElementById('a_cb1').value = "";
+                            document.getElementById('a_cb2').value = "";
+                            document.getElementById('a_cb3').value = "";
+                            document.getElementById('a_cb4').value = "";
+                            document.getElementById('a_cb5').value = "";
+        
+                            document.getElementById('a_rb0').value = "";
+                            document.getElementById('a_rb1').value = "";
+                            document.getElementById('a_rb2').value = "";
+                            document.getElementById('a_rb3').value = "";
+                            document.getElementById('a_rb4').value = "";
+                            document.getElementById('a_rb5').value = "";
+        
+                            document.getElementById('a_ddl0').value = "";
+                            document.getElementById('a_ddl1').value = "";
+                            document.getElementById('a_ddl2').value = "";
+                            document.getElementById('a_ddl3').value = "";
+                            document.getElementById('a_ddl4').value = "";
+                            document.getElementById('a_ddl5').value = "";
+                            document.getElementById('a_ddl6').value = "";
+                            document.getElementById('a_ddl7').value = "";
+                            document.getElementById('a_ddl8').value = "";
+                            document.getElementById('a_ddl9').value = "";
+                            document.getElementById('a_ddl10').value = "";
+                            document.getElementById('a_ddl11').value = "";
+                            document.getElementById('a_ddl12').value = "";
+                            document.getElementById('a_ddl13').value = "";
+                            document.getElementById('a_ddl14').value = "";  
+  
+                            break;    
+                        default:
+                            // clear the options textboxes
+//                            document.getElementById('a_text').innerHTML="";
+                            // hide drop down label div
+                            ddl_l.style.display='none';
+                            // hide drop down options div
+                            ddl_o.style.display='none';
+                            // hide radio buttons label div
+                            rb_l.style.display='none';
+                            // hide radio button options div
+                            rb_o.style.display='none';
+                            // hide checkbox label div
+                            cb_l.style.display = 'none';
+                            // hide checkbox options div
+                            cb_o.style.display = 'none';
+                            // clear drop down label text
+                            document.getElementById('a_ddl_label').innerHTML="";
+                            // clear radio button label text
+                            document.getElementById('a_rb_label').innerHTML="";
+                            // clear checkbox label text
+                            document.getElementById('a_cb_label').innerHTML="";
+                            // clear the options textboxes from any previous entries
+                            document.getElementById('a_cb0').value = "";
+                            document.getElementById('a_cb1').value = "";
+                            document.getElementById('a_cb2').value = "";
+                            document.getElementById('a_cb3').value = "";
+                            document.getElementById('a_cb4').value = "";
+                            document.getElementById('a_cb5').value = "";
+        
+                            document.getElementById('a_rb0').value = "";
+                            document.getElementById('a_rb1').value = "";
+                            document.getElementById('a_rb2').value = "";
+                            document.getElementById('a_rb3').value = "";
+                            document.getElementById('a_rb4').value = "";
+                            document.getElementById('a_rb5').value = "";
+        
+                            document.getElementById('a_ddl0').value = "";
+                            document.getElementById('a_ddl1').value = "";
+                            document.getElementById('a_ddl2').value = "";
+                            document.getElementById('a_ddl3').value = "";
+                            document.getElementById('a_ddl4').value = "";
+                            document.getElementById('a_ddl5').value = "";
+                            document.getElementById('a_ddl6').value = "";
+                            document.getElementById('a_ddl7').value = "";
+                            document.getElementById('a_ddl8').value = "";
+                            document.getElementById('a_ddl9').value = "";
+                            document.getElementById('a_ddl10').value = "";
+                            document.getElementById('a_ddl11').value = "";
+                            document.getElementById('a_ddl12').value = "";
+                            document.getElementById('a_ddl13').value = "";
+                            document.getElementById('a_ddl14').value = "";
+                            break;
+                    }
+                }
+                </script> 
+            <!-- ********** end of script to display additional text boxes depending on question type option selected ********** -->
+
+            <div class="modal-footer">
+                <input type="hidden" id="add_edit_info" name="" value="">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary"> Save changes</button>
+            </form>    
+
+            </div>  <!-- end modal footer -->
+        </div>   <!-- end div class="modal-content"  -->
+    </div>  <!-- end div class="modal-dialog"  -->
+</div>  <!-- end div class="modal fade"  -->
+
+<!-- *********************************************************************************** -->
+<!-- ***** end of - this works!!!!!!!!!! *********************************************** -->
+<!-- *********************************************************************************** -->
+
+
+
+
+
+
+
+<!-- *********************************************************************************** -->
+<!-- ************** this doesn't drop down the answer textareas - after change per Travis to try to clear textarea data -->
+<!-- *********************************************************************************** -->
+
+<!-- Add/Modify a Question Modal -->
+<div class="modal fade" id="addBeforeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            
+            <div class="modal-header">
+                <form name="add_mod_form" method="post" action="/tip/edit">
+                <!--  send a token with the form for Laravel to validate - to confirm this is the form that is on the server for the website to prevent people to make forms and inject forms/data    -->
+                {{ csrf_field() }}
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="add_edit_modal"></h4>
+            </div>   <!-- end div class modal header  -->
+            
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="question_text">Question:</label>
+                    <textarea style="width:100%" style="font-weight:bold" style="font-size=lg" class="text-area" id="question_text" name="question_text" > </textarea>
+                </div>
+                <div class="form-group">
+                    <label for="question_desc">Example:</label>
+                    <textarea style="width:100%" style="font-weight:bold" style="font-size=lg" class="text-area" id="question_desc" name="question_desc"> </textarea>
+                </div>
+                <div class="form-group">
+                    <label for="q_type">Question Type:</label>
+                    <select name="q_type" id="q_type" class="form-control" style="width:200px" onchange="java_script_:change_options(this.options[this.selectedIndex].value)">
+                        <option value="text_box">TEXT-BOX</option>
+                        <option value="scrolling_text_box">SCROLLING TEXT-BOX</option>
+                        <option value="drop_down_list">DROPDOWN LIST</option>
+                        <option value="check_box">CHECKBOXES</option>
+                        <option value="radio_button">RADIO BUTTONS</option>
+                    </select>
+                </div>  <!-- end of form-group for question type drop down   -->
+<!--  ********************************************************************************* -->
+                <div class="form-group">  
+                    <label id="a_rb_label" for="a_rb_options" style="width:100%"></label>
+                    <div id="a_rb_options" style="display: none;">  
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area answers" name="a_d[]"> </textarea>
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area answers" name="a_d[]"> </textarea>
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area answers" name="a_d[]"> </textarea>
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area answers" name="a_d[]"> </textarea>
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area answers" name="a_d[]"> </textarea>
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area answers" name="a_d[]"> </textarea>
+                    </div>           <!-- end of a_options -->
+                    <label id="a_cb_label" for="a_cb_options" style="width:100%"></label>
+                    <div id="a_cb_options" style="display: none;">  
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area answers" name="a_d[]"> </textarea>
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area answers" name="a_d[]"> </textarea>
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area answers" name="a_d[]"> </textarea>
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area answers" name="a_d[]"> </textarea>
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area answers" name="a_d[]"> </textarea>
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area answers" name="a_d[]"> </textarea>
+                    </div>           <!-- end of a_options -->
+                    
+<!--                </div> -->  <!-- end of form-group for a_options -->
+<!--                <div class="form-group">    -->         
+                    <label id="a_ddl_label" for="a_ddl_options" style="width:100%"></label>
+                    <div id="a_ddl_options" style="display: none;"> 
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area answers" name="a_d[]"> </textarea>
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area answers" name="a_d[]"> </textarea>
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area answers" name="a_d[]"> </textarea>
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area answers" name="a_d[]"> </textarea>
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area answers" name="a_d[]"> </textarea>
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area answers" name="a_d[]"> </textarea>
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area answers" name="a_d[]"> </textarea>
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area answers" name="a_d[]"> </textarea>
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area answers" name="a_d[]"> </textarea>
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area answers" name="a_d[]"> </textarea>
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area answers" name="a_d[]"> </textarea>
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area answers" name="a_d[]"> </textarea>
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area answers" name="a_d[]"> </textarea>
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area answers" name="a_d[]"> </textarea>
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area answers" name="a_d[]"> </textarea>
+                    </div>   <!-- end of div for a-more-options -->
+                </div>  <!-- end of form-group for a_more_options   -->
+            </div>  <!-- end div modal body -->
+
+            <!-- ********** begin script to display additional text boxes depending on question type option selected ********** -->
+                <script language = "javascript">
+                function change_options(q_type_selected)
+                   {
+                    // clear the options textboxes from any previous entries
+                    document.getElementByClass('text-area answers').innerHTML = "";
+
+                    // the question type selected is passed in to the function
+                    // get the label and option div's for dropdown list, checkbox 
+                    // and radio button so we can set them to display 
+                    // or not display based on the selected question type
+                    var ddl_l = document.getElementById('a_ddl_label');
+                    var ddl_o = document.getElementById('a_ddl_options');
+
+                    var cb_l = document.getElementById('a_cb_label');
+                    var cb_o = document.getElementById('a_cb_options');
+
+                    var rb_l = document.getElementById('a_rb_label');
+                    var rb_o = document.getElementById('a_rb_options');
+
+                    // display the answer option boxes based on the question type selected 
+                    switch(q_type_selected){
+                        case 'drop_down_list':
+                            // hide radio buttons label div
+                            rb_l.style.display='none';
+                            // hide radio button options div
+                            rb_o.style.display='none';
+                            // hide checkbox label div
+                            cb_l.style.display = 'none';
+                            // hide checkbox options div
+                            cb_o.style.display = 'none';
+                            // clear radio button label text
+                            document.getElementById('a_rb_label').innerHTML="";
+                            // clear checkbox label text
+                            document.getElementById('a_cb_label').innerHTML="";
+
+                            // display drop down label div
+                            ddl_l.style.display='inline-block';
+                            // display drop down label text
+                            document.getElementById('a_ddl_label').innerHTML="Input up to 15 Drop-Down List Options:";
+                            // display drop down options div
+                            ddl_o.style.display='inline-block';
+                            break;
+                        case 'check_box':
+                            // hide radio buttons label div
+                            rb_l.style.display='none';
+                            // hide radio button options div
+                            rb_o.style.display='none';
+                            // hide dropdown list label div
+                            ddl_l.style.display = 'none';
+                            // hide dropdown list options div
+                            ddl_o.style.display = 'none';
+                            // clear radio button label text
+                            document.getElementById('a_rb_label').innerHTML="";
+                            // clear dropdown list label text
+                            document.getElementById('a_ddl_label').innerHTML="";
+
+                            // display check box label div
+                            cb_l.style.display='inline-block';
+                            // display the checkbox label text
+                            document.getElementById('a_cb_label').innerHTML="Input up to 6 Check Box Options:";
+
+                            // display checkbox options div
+                            cb_o.style.display='inline-block';
+                            break;
+                        case 'radio_button':
+                            // hide checkbox label div
+                            cb_l.style.display='none';
+                            // hide checkbox options div
+                            cb_o.style.display='none';
+                            // hide dropdown list label div
+                            ddl_l.style.display = 'none';
+                            // hide dropdown list options div
+                            ddl_o.style.display = 'none';
+                            // clear checkbox label text
+                            document.getElementById('a_cb_label').innerHTML="";
+                            // clear dropdown list label text
+                            document.getElementById('a_ddl_label').innerHTML="";
+
+                            // display radio button label div
+                            rb_l.style.display='inline-block';
+                            // display radio button label text
+                            document.getElementById('a_rb_label').innerHTML="Input up to 6 Radio Button Options:";
+
+                            // display radio button options div
+                            rb_o.style.display='inline-block';
+                            break;    
+                        default:
+                            // hide drop down label div
+                            ddl_l.style.display='none';
+                            // hide drop down options div
+                            ddl_o.style.display='none';
+                            // hide radio buttons label div
+                            rb_l.style.display='none';
+                            // hide radio button options div
+                            rb_o.style.display='none';
+                            // hide checkbox label div
+                            cb_l.style.display = 'none';
+                            // hide checkbox options div
+                            cb_o.style.display = 'none';
+                            // clear drop down label text
+                            document.getElementById('a_ddl_label').innerHTML="";
+                            // clear radio button label text
+                            document.getElementById('a_rb_label').innerHTML="";
+                            // clear checkbox label text
+                            document.getElementById('a_cb_label').innerHTML="";
+                            break;
+                    }
+                }
+                </script> 
+            <!-- ********** end of script to display additional text boxes depending on question type option selected ********** -->
+
+            <div class="modal-footer">
+                <input type="hidden" id="add_edit_info" name="" value="">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary"> Save changes</button>
+            </form>    
+
+            </div>  <!-- end modal footer -->
+        </div>   <!-- end div class="modal-content"  -->
+    </div>  <!-- end div class="modal-dialog"  -->
+</div>  <!-- end div class="modal fade"  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- *********************************************************************************** -->
+<!-- ************** this works except it doesn't clear data fields for answers ********* -->
+<!-- *********************************************************************************** -->
+
+
+
+<!-- Add/Modify a Question Modal -->
+<div class="modal fade" id="addBeforeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            
+            <div class="modal-header">
+                <form name="add_mod_form" method="post" action="/tip/edit">
+                <!--  send a token with the form for Laravel to validate - to confirm this is the form that is on the server for the website to prevent people to make forms and inject forms/data    -->
+                {{ csrf_field() }}
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="add_edit_modal"></h4>
+            </div>   <!-- end div class modal header  -->
+            
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="question_text">Question:</label>
+                    <textarea style="width:100%" style="font-weight:bold" style="font-size=lg" class="text-area" id="question_text" name="question_text" > </textarea>
+                </div>
+                <div class="form-group">
+                    <label for="question_desc">Example:</label>
+                    <textarea style="width:100%" style="font-weight:bold" style="font-size=lg" class="text-area" id="question_desc" name="question_desc"> </textarea>
+                </div>
+                <div class="form-group">
+                    <label for="q_type">Question Type:</label>
+                    <select name="q_type" id="q_type" class="form-control" style="width:200px" onchange="java_script_:change_options(this.options[this.selectedIndex].value)">
+                        <option value="text_box">TEXT-BOX</option>
+                        <option value="scrolling_text_box">SCROLLING TEXT-BOX</option>
+                        <option value="drop_down_list">DROPDOWN LIST</option>
+                        <option value="check_box">CHECKBOXES</option>
+                        <option value="radio_button">RADIO BUTTONS</option>
+                    </select>
+                </div>  <!-- end of form-group for question type drop down   -->
+<!--  ********************************************************************************* -->
+                <div class="form-group">  
+                    <label id="a_rb_label" for="a_rb_options" style="width:100%"></label>
+                    <div id="a_rb_options" style="display: none;">  
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                    </div>           <!-- end of a_options -->
+                    <label id="a_cb_label" for="a_cb_options" style="width:100%"></label>
+                    <div id="a_cb_options" style="display: none;">  
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                    </div>           <!-- end of a_options -->
+                    
+<!--                </div> -->  <!-- end of form-group for a_options -->
+<!--                <div class="form-group">    -->         
+                    <label id="a_ddl_label" for="a_ddl_options" style="width:100%"></label>
+                    <div id="a_ddl_options" style="display: none;"> 
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                    </div>   <!-- end of div for a-more-options -->
+                </div>  <!-- end of form-group for a_more_options   -->
+            </div>  <!-- end div modal body -->
+
+            <!-- ********** begin script to display additional text boxes depending on question type option selected ********** -->
+                <script language = "javascript">
+                function change_options(q_type_selected)
+                   {
+                    // var q_type_selected = document.getElementById('q_type').options[document.getElementById(add_mod_form.q_type).selectedIndex].value');
+                    // get the value of the question type selected from the add mod form
+        // var selectvariable = formname.selectname;
+        // var printvar = document.getElementById('firstP');
+        // store selectvariable index in printvar:   printvar.innerHTML = selectvariable.selectedIndex;
+        // store selectvariable value in printvar:   printvar.innerHTML = selectvariable[selectvariable.selectedIndex].value);
+        // store selectvariable text in printvar:   printvar.innerHTML = selectvariable[selectvariable.selectedIndex].text);
+                    // var q_type_selected = document.add_mod_form.q_type.value;
+
+
+
+                    // the question type selected is passed in to the function
+                    // get the label and option div's for dropdown list, checkbox and radio button
+                    var ddl_l = document.getElementById('a_ddl_label');
+                    var ddl_o = document.getElementById('a_ddl_options');
+
+                    var cb_l = document.getElementById('a_cb_label');
+                    var cb_o = document.getElementById('a_cb_options');
+
+                    var rb_l = document.getElementById('a_rb_label');
+                    var rb_o = document.getElementById('a_rb_options');
+
+                    // determine the question type selected and display accordingly                
+                    switch(q_type_selected){
+                        case 'drop_down_list':
+                            // hide radio buttons label div
+                            rb_l.style.display='none';
+                            // hide radio button options div
+                            rb_o.style.display='none';
+                            // hide checkbox label div
+                            cb_l.style.display = 'none';
+                            // hide checkbox options div
+                            cb_o.style.display = 'none';
+                            // clear radio button label text
+                            document.getElementById('a_rb_label').innerHTML="";
+                            // clear checkbox label text
+                            document.getElementById('a_cb_label').innerHTML="";
+
+                            // display drop down label div
+                            ddl_l.style.display='inline-block';
+                            // display drop down label text
+                            document.getElementById('a_ddl_label').innerHTML="Input up to 15 Drop-Down List Options:";
+//                          document.getElementById('a_ddl_label').innerHTML = "Input up to 15 Drop-Down List Options:";
+
+                            // display drop down options div
+                            ddl_o.style.display='inline-block';
+
+                            // clear the options textboxes from any previous entries
+                            document.getElementById('a_text').innerHTML="";
+                            break;
+                        case 'check_box':
+                            // hide radio buttons label div
+                            rb_l.style.display='none';
+                            // hide radio button options div
+                            rb_o.style.display='none';
+                            // hide dropdown list label div
+                            ddl_l.style.display = 'none';
+                            // hide dropdown list options div
+                            ddl_o.style.display = 'none';
+                            // clear radio button label text
+                            document.getElementById('a_rb_label').innerHTML="";
+                            // clear dropdown list label text
+                            document.getElementById('a_ddl_label').innerHTML="";
+
+                            // display check box label div
+                            cb_l.style.display='inline-block';
+                            // display the checkbox label text
+                            document.getElementById('a_cb_label').innerHTML="Input up to 6 Check Box Options:";
+//                          document.getElementById('a_cb_label').innerHTML = "Input up to 6 Check Box Options:";
+
+                            // display checkbox options div
+                            cb_o.style.display='inline-block';
+
+                            // clear the options textboxes from any previous entries
+                            document.getElementById('a_text').innerHTML="";
+                            break;
+                        case 'radio_button':
+                            // hide checkbox label div
+                            cb_l.style.display='none';
+                            // hide checkbox options div
+                            cb_o.style.display='none';
+                            // hide dropdown list label div
+                            ddl_l.style.display = 'none';
+                            // hide dropdown list options div
+                            ddl_o.style.display = 'none';
+                            // clear checkbox label text
+                            document.getElementById('a_cb_label').innerHTML="";
+                            // clear dropdown list label text
+                            document.getElementById('a_ddl_label').innerHTML="";
+
+                            // display radio button label div
+                            rb_l.style.display='inline-block';
+                            // display radio button label text
+                            document.getElementById('a_rb_label').innerHTML="Input up to 6 Radio Button Options:";
+//                          document.getElementById('a_rb_label').innerHTML = "Input up to 6 Radio Button Options:";
+
+                            // display radio button options div
+                            rb_o.style.display='inline-block';
+
+                            // clear the options textboxes from any previous entries
+                            document.getElementById('a_text').innerHTML="";
+                            break;    
+                        default:
+                            // clear the options textboxes
+                            document.getElementById('a_text').innerHTML="";
+                            // hide drop down label div
+                            ddl_l.style.display='none';
+                            // hide drop down options div
+                            ddl_o.style.display='none';
+                            // hide radio buttons label div
+                            rb_l.style.display='none';
+                            // hide radio button options div
+                            rb_o.style.display='none';
+                            // hide checkbox label div
+                            cb_l.style.display = 'none';
+                            // hide checkbox options div
+                            cb_o.style.display = 'none';
+                            // clear drop down label text
+                            document.getElementById('a_ddl_label').innerHTML="";
+                            // clear radio button label text
+                            document.getElementById('a_rb_label').innerHTML="";
+                            // clear checkbox label text
+                            document.getElementById('a_cb_label').innerHTML="";
+                            break;
+                    }
+                }
+                </script> 
+            <!-- ********** end of script to display additional text boxes depending on question type option selected ********** -->
+
+            <div class="modal-footer">
+                <input type="hidden" id="add_edit_info" name="" value="">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary"> Save changes</button>
+            </form>    
+
+            </div>  <!-- end modal footer -->
+        </div>   <!-- end div class="modal-content"  -->
+    </div>  <!-- end div class="modal-dialog"  -->
+</div>  <!-- end div class="modal fade"  -->
+
+
+
+<label id="lbltipAddedComment"></label>
+<script>
+  document.getElementById('lbltipAddedComment').innerHTML = 'your tip has been submitted!';
+</script>
+
+
+
+
+
+
+
+<!-- *********************************************************************************** -->
+<!-- ************** old - displays all 5 + 15 textboxes short and mis-aligned ********** -->
+<!-- *********************************************************************************** -->
+
+<!-- Add/Modify a Question Modal -->
+<div class="modal fade" id="addBeforeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            
+            <div class="modal-header">
+                <form name="add_mod_form" method="post" action="/tip/edit">
+                <!--  send a token with the form for Laravel to validate - to confirm this is the form that is on the server for the website to prevent people to make forms and inject forms/data    -->
+                {{ csrf_field() }}
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="add_edit_modal"></h4>
+            </div>   <!-- end div class modal header  -->
+            
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="question_text">Question:</label>
+                    <textarea style="width:100%" style="font-weight:bold" style="font-size=lg" class="text-area" id="question_text" name="question_text" > </textarea>
+                </div>
+                <div class="form-group">
+                    <label for="question_desc">Example:</label>
+                    <textarea style="width:100%" style="font-weight:bold" style="font-size=lg" class="text-area" id="question_desc" name="question_desc"> </textarea>
+                </div>
+                <div class="form-group">
+                    <label for="q_type">Question Type:</label>
+                    <select name="q_type" id="q_type" class="form-control" style="width:200px" onchange="java_script_:change_options(this.options[this.selectedIndex].value)">
+                        <option value="text_box">TEXT-BOX</option>
+                        <option value="scrolling_text_box">SCROLLING TEXT-BOX</option>
+                        <option value="drop_down_list">DROPDOWN LIST</option>
+                        <option value="check_box">CHECKBOXES</option>
+                        <option value="radio_button">RADIO BUTTONS</option>
+                    </select>
+                </div>  <!-- end of form-group for question type drop down   -->
+<!--  ********************************************************************************* -->
+                <div class="form-group">
+<!--                    <div id="answer_label" class="row" style="display: none;">  -->
+                    <div id="answer_label" class="row" style="display: none;">
+                        <label id="answer_label_text" for="a_options" style="width:100%"></label>
+                    </div>    
+                </div>   <!-- end of answer label form group -->    
+                <div class="form-group">
+                    <div id="a_options" style="display: none;">  
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_rcd[]"> </textarea>
+                            </div>
+                        </div>    
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_rcd[]"> </textarea>
+                            </div>
+                        </div>    
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_rcd[]"> </textarea>
+                            </div>
+                        </div>    
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_rcd[]"> </textarea>
+                            </div>
+                        </div>    
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_rcd[]"> </textarea>
+                            </div>
+                        </div>    
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_rcd[]"> </textarea>
+                            </div>
+                        </div>    
+                    </div> <!-- end of a_options -->
+                </div>   <!-- end of form-group for a_options -->
+                <div class="form-group">               
+                    <div id="a_more_options" class="row" style="display: none;"> 
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                            </div>
+                        </div>    
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                            </div>
+                        </div>    
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                            </div>
+                        </div>    
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                            </div>
+                        </div>    
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                            </div>
+                        </div>    
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                            </div>
+                        </div>    
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                            </div>
+                        </div>    
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                            </div>
+                        </div>    
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                            </div>
+                        </div>
+                    </div>   <!-- end of div for a-more-options -->
+                </div>  <!-- end of form-group for a_options and a_more_options   -->
+            </div>  <!-- end div modal body -->
+
+            <!-- ********** begin script to display additional text boxes depending on question type option selected ********** -->
+                <script language = "javascript">
+                function change_options(q_type_selected)
+                   {
+                    // var q_type_selected = document.getElementById('q_type').options[document.getElementById(add_mod_form.q_type).selectedIndex].value');
+//                     var q_type_selected = document.add_mod_form.q_type.value; 
+                    var x = document.getElementById('answer_label');
+                    var y = document.getElementById('a_options');
+                    var z = document.getElementById('a_more_options');
+                
+                    switch(q_type_selected){
+                        case 'drop_down_list':
+                            x.style.display='inline-block';
+                            document.getElementById('answer_label_text').innerHTML="Input up to 15 Drop-Down List Options:";
+                            y.style.display='inline-block';
+                            z.style.display='inline-block';
+                            break;
+                        case 'check_box':
+                            x.style.display = 'inline-block';
+                            document.getElementById('answer_label_text').innerHTML = "Input up to 6 Check-Box List Options:";
+                            y.style.display = 'inline-block';
+                            z.style.display='none';
+                            break;
+                        case 'radio_button':
+                            x.style.display = 'inline-block';
+                            document.getElementById('answer_label_text').innerHTML = "Input up to 15 Radio Button List Options:";
+                            y.style.display = 'inline-block';
+                            z.style.display='none';
+                            break;    
+                        default:
+                            x.style.display='none';
+                            document.getElementById('answer_label_text').innerHTML="";
+                            y.style.display='none';
+                            z.style.display='none';
+                            break;
+
+                        
+                    }
+                }
+                </script> 
+            <!-- ********** end of script to display additional text boxes depending on question type option selected ********** -->
+
+            <div class="modal-footer">
+                <input type="hidden" id="add_edit_info" name="" value="">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary"> Save changes</button>
+            </form>    
+            
+
+            
+            
+            </div>  <!-- end modal footer -->
+        </div>   <!-- end div class="modal-content"  -->
+    </div>  <!-- end div class="modal-dialog"  -->
+</div>  <!-- end div class="modal fade"  -->
+
+
+
+<label id="lbltipAddedComment"></label>
+<script>
+  document.getElementById('lbltipAddedComment').innerHTML = 'your tip has been submitted!';
+</script>
+
+
+<!-- *********************************************************************************** -->
+<!-- ************************* latest one that doesn't display the text boxes ********** -->
+<!-- *********************************************************************************** -->
+
+<!-- Add/Modify a Question Modal -->
+<div class="modal fade" id="addBeforeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            
+            <div class="modal-header">
+                <form name="add_mod_form" method="post" action="/tip/edit">
+                <!--  send a token with the form for Laravel to validate - to confirm this is the form that is on the server for the website to prevent people to make forms and inject forms/data    -->
+                {{ csrf_field() }}
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="add_edit_modal"></h4>
+            </div>   <!-- end div class modal header  -->
+            
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="question_text">Question:</label>
+                    <textarea style="width:100%" style="font-weight:bold" style="font-size=lg" class="text-area" id="question_text" name="question_text" > </textarea>
+                </div>
+                <div class="form-group">
+                    <label for="question_desc">Example:</label>
+                    <textarea style="width:100%" style="font-weight:bold" style="font-size=lg" class="text-area" id="question_desc" name="question_desc"> </textarea>
+                </div>
+                <div class="form-group">
+                    <label for="q_type">Question Type:</label>
+                    <select name="q_type" id="q_type" class="form-control" style="width:200px" onchange="java_script_:change_options(this.options[this.selectedIndex].value)">
+                        <option value="text_box">TEXT-BOX</option>
+                        <option value="scrolling_text_box">SCROLLING TEXT-BOX</option>
+                        <option value="drop_down_list">DROPDOWN LIST</option>
+                        <option value="check_box">CHECKBOXES</option>
+                        <option value="radio_button">RADIO BUTTONS</option>
+                    </select>
+                </div>  <!-- end of form-group for question type drop down   -->
+<!--  ********************************************************************************* -->
+                <div class="form-group">  
+                    <label id="a_rb_label" for="a_rb_options" style="width:100%"></label>
+                    <div id="a_rb_options" style="display: none;">  
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                    </div>           <!-- end of a_options -->
+                    <label id="a_cb_label" for="a_cb_options" style="width:100%"></label>
+                    <div id="a_cb_options" style="display: none;">  
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                    </div>           <!-- end of a_options -->
+                    
+<!--                </div> -->  <!-- end of form-group for a_options -->
+<!--                <div class="form-group">    -->         
+                    <label id="a_ddl_label" for="a_ddl_options" style="width:100%"></label>
+                    <div id="a_ddl_options" style="display: none;"> 
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                                <textarea id="a_text" style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                    </div>   <!-- end of div for a-more-options -->
+                </div>  <!-- end of form-group for a_more_options   -->
+            </div>  <!-- end div modal body -->
+
+            <!-- ********** begin script to display additional text boxes depending on question type option selected ********** -->
+                <script language = "javascript">
+                function change_options(q_type_selected)
+                   {
+                    // var q_type_selected = document.getElementById('q_type').options[document.getElementById(add_mod_form.q_type).selectedIndex].value');
+                    // get the value of the question type selected from the add mod form
+
+        // var selectvariable = formname.selectname;
+        // var printvar = document.getElementById('firstP');
+        // store selectvariable index in printvar:   printvar.innerHTML = selectvariable.selectedIndex;
+        // store selectvariable value in printvar:   printvar.innerHTML = selectvariable[selectvariable.selectedIndex].value);
+        // store selectvariable text in printvar:   printvar.innerHTML = selectvariable[selectvariable.selectedIndex].text);
+
+                    var q_type_selected = document.add_mod_form.q_type.value;
+
+
+
+                    // get the label and option div's for dropdown list, checkbox and radio button
+                    var ddl_l = document.getElementById('a_ddl_label');
+                    var ddl_o = document.getElementById('a_ddl_options');
+
+                    var cb_l = document.getElementById('a_cb_label');
+                    var cb_o = document.getElementById('a_cb_options');
+
+                    var rb_l = document.getElementById('a_rb_label');
+                    var rb_o = document.getElementById('a_rb_options');
+
+                    // determine the question type selected and display accordingly                
+                    switch(q_type_selected){
+                        case 'drop_down_list':
+                            // hide radio buttons label div
+                            rb_l.style.display='none';
+                            // hide radio button options div
+                            rb_o.style.display='none';
+                            // hide checkbox label div
+                            cb_l.style.display = 'none';
+                            // hide checkbox options div
+                            cb_o.style.display = 'none';
+                            // clear radio button label text
+                            document.getElementById('a_rb_label').innerHTML="";
+                            // clear checkbox label text
+                            document.getElementById('a_cb_label').innerHTML="";
+
+                            // display drop down label div
+                            ddl_l.style.display='inline-block';
+                            // display drop down label text
+                            document.getElementById('a_ddl_label').innerHTML="Input up to 15 Drop-Down List Options:";
+//                          document.getElementById('a_ddl_label').innerHTML = "Input up to 15 Drop-Down List Options:";
+
+                            // display drop down options div
+                            ddl_o.style.display='inline-block';
+
+                            // clear the options textboxes from any previous entries
+                            document.getElementById('a_text').innerHTML="";
+                            break;
+                        case 'check_box':
+                            // hide radio buttons label div
+                            rb_l.style.display='none';
+                            // hide radio button options div
+                            rb_o.style.display='none';
+                            // hide dropdown list label div
+                            ddl_l.style.display = 'none';
+                            // hide dropdown list options div
+                            ddl_o.style.display = 'none';
+                            // clear radio button label text
+                            document.getElementById('a_rb_label').innerHTML="";
+                            // clear dropdown list label text
+                            document.getElementById('a_ddl_label').innerHTML="";
+
+                            // display check box label div
+                            cb_l.style.display='inline-block';
+                            // display the checkbox label text
+                            document.getElementById('a_cb_label').innerHTML="Input up to 6 Check Box Options:";
+//                          document.getElementById('a_cb_label').innerHTML = "Input up to 6 Check Box Options:";
+
+                            // display checkbox options div
+                            cb_o.style.display='inline-block';
+
+                            // clear the options textboxes from any previous entries
+                            document.getElementById('a_text').innerHTML="";
+                            break;
+                        case 'radio_button':
+                            // hide checkbox label div
+                            cb_l.style.display='none';
+                            // hide checkbox options div
+                            cb_o.style.display='none';
+                            // hide dropdown list label div
+                            ddl_l.style.display = 'none';
+                            // hide dropdown list options div
+                            ddl_o.style.display = 'none';
+                            // clear checkbox label text
+                            document.getElementById('a_cb_label').innerHTML="";
+                            // clear dropdown list label text
+                            document.getElementById('a_ddl_label').innerHTML="";
+
+                            // display radio button label div
+                            rb_l.style.display='inline-block';
+                            // display radio button label text
+                            document.getElementById('a_rb_label').innerHTML="Input up to 6 Radio Button Options:";
+//                          document.getElementById('a_rb_label').innerHTML = "Input up to 6 Radio Button Options:";
+
+                            // display radio button options div
+                            rb_o.style.display='inline-block';
+
+                            // clear the options textboxes from any previous entries
+                            document.getElementById('a_text').innerHTML="";
+                            break;    
+                        default:
+                            // clear the options textboxes
+                            document.getElementById('a_text').innerHTML="";
+                            // hide drop down label div
+                            ddl_l.style.display='none';
+                            // hide drop down options div
+                            ddl_o.style.display='none';
+                            // hide radio buttons label div
+                            rb_l.style.display='none';
+                            // hide radio button options div
+                            rb_o.style.display='none';
+                            // hide checkbox label div
+                            cb_l.style.display = 'none';
+                            // hide checkbox options div
+                            cb_o.style.display = 'none';
+                            // clear drop down label text
+                            document.getElementById('a_ddl_label').innerHTML="";
+                            // clear radio button label text
+                            document.getElementById('a_rb_label').innerHTML="";
+                            // clear checkbox label text
+                            document.getElementById('a_cb_label').innerHTML="";
+                            break;
+                    }
+                }
+                </script> 
+            <!-- ********** end of script to display additional text boxes depending on question type option selected ********** -->
+
+            <div class="modal-footer">
+                <input type="hidden" id="add_edit_info" name="" value="">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary"> Save changes</button>
+            </form>    
+            
+
+            
+            
+            </div>  <!-- end modal footer -->
+        </div>   <!-- end div class="modal-content"  -->
+    </div>  <!-- end div class="modal-dialog"  -->
+</div>  <!-- end div class="modal fade"  -->
+
+
+
+<label id="lbltipAddedComment"></label>
+<script>
+  document.getElementById('lbltipAddedComment').innerHTML = 'your tip has been submitted!';
+</script>
+
+
+<!-- *********************************************************************************** -->
+<!-- ************** old - displays all 5 + 15 textboxes short and mis-aligned ********** -->
+<!-- *********************************************************************************** -->
+
+<!-- Add/Modify a Question Modal -->
+<div class="modal fade" id="addBeforeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            
+            <div class="modal-header">
+                <form name="add_mod_form" method="post" action="/tip/edit">
+                <!--  send a token with the form for Laravel to validate - to confirm this is the form that is on the server for the website to prevent people to make forms and inject forms/data    -->
+                {{ csrf_field() }}
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="add_edit_modal"></h4>
+            </div>   <!-- end div class modal header  -->
+            
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="question_text">Question:</label>
+                    <textarea style="width:100%" style="font-weight:bold" style="font-size=lg" class="text-area" id="question_text" name="question_text" > </textarea>
+                </div>
+                <div class="form-group">
+                    <label for="question_desc">Example:</label>
+                    <textarea style="width:100%" style="font-weight:bold" style="font-size=lg" class="text-area" id="question_desc" name="question_desc"> </textarea>
+                </div>
+                <div class="form-group">
+                    <label for="q_type">Question Type:</label>
+                    <select name="q_type" id="q_type" class="form-control" style="width:200px" onchange="java_script_:change_options(this.options[this.selectedIndex].value)">
+                        <option value="text_box">TEXT-BOX</option>
+                        <option value="scrolling_text_box">SCROLLING TEXT-BOX</option>
+                        <option value="drop_down_list">DROPDOWN LIST</option>
+                        <option value="check_box">CHECKBOXES</option>
+                        <option value="radio_button">RADIO BUTTONS</option>
+                    </select>
+                </div>  <!-- end of form-group for question type drop down   -->
+<!--  ********************************************************************************* -->
+                <div class="form-group">
+<!--                    <div id="answer_label" class="row" style="display: none;">  -->
+                    <div id="answer_label" class="row" style="display: none;">
+                        <label id="answer_label_text" for="a_options" style="width:100%"></label>
+                    </div>    
+                </div>   <!-- end of answer label form group -->    
+                <div class="form-group">
+                    <div id="a_options" style="display: none;">  
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_rcd[]"> </textarea>
+                            </div>
+                        </div>    
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_rcd[]"> </textarea>
+                            </div>
+                        </div>    
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_rcd[]"> </textarea>
+                            </div>
+                        </div>    
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_rcd[]"> </textarea>
+                            </div>
+                        </div>    
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_rcd[]"> </textarea>
+                            </div>
+                        </div>    
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_rcd[]"> </textarea>
+                            </div>
+                        </div>    
+                    </div> <!-- end of a_options -->
+                </div>   <!-- end of form-group for a_options -->
+                <div class="form-group">               
+                    <div id="a_more_options" class="row" style="display: none;"> 
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                            </div>
+                        </div>    
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                            </div>
+                        </div>    
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                            </div>
+                        </div>    
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                            </div>
+                        </div>    
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                            </div>
+                        </div>    
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                            </div>
+                        </div>    
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                            </div>
+                        </div>    
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                            </div>
+                        </div>    
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <textarea style="width:100%" style="font-weight:bold" style="font-size =lg" class="text-area" name="a_d[]"> </textarea>
+                            </div>
+                        </div>
+                    </div>   <!-- end of div for a-more-options -->
+                </div>  <!-- end of form-group for a_options and a_more_options   -->
+            </div>  <!-- end div modal body -->
+
+            <!-- ********** begin script to display additional text boxes depending on question type option selected ********** -->
+                <script language = "javascript">
+                function change_options(q_type_selected)
+                   {
+                    // var q_type_selected = document.getElementById('q_type').options[document.getElementById(add_mod_form.q_type).selectedIndex].value');
+//                     var q_type_selected = document.add_mod_form.q_type.value; 
+                    var x = document.getElementById('answer_label');
+                    var y = document.getElementById('a_options');
+                    var z = document.getElementById('a_more_options');
+                
+                    switch(q_type_selected){
+                        case 'drop_down_list':
+                            x.style.display='inline-block';
+                            document.getElementById('answer_label_text').innerHTML="Input up to 15 Drop-Down List Options:";
+                            y.style.display='inline-block';
+                            z.style.display='inline-block';
+                            break;
+                        case 'check_box':
+                            x.style.display = 'inline-block';
+                            document.getElementById('answer_label_text').innerHTML = "Input up to 6 Check-Box List Options:";
+                            y.style.display = 'inline-block';
+                            z.style.display='none';
+                            break;
+                        case 'radio_button':
+                            x.style.display = 'inline-block';
+                            document.getElementById('answer_label_text').innerHTML = "Input up to 15 Radio Button List Options:";
+                            y.style.display = 'inline-block';
+                            z.style.display='none';
+                            break;    
+                        default:
+                            x.style.display='none';
+                            document.getElementById('answer_label_text').innerHTML="";
+                            y.style.display='none';
+                            z.style.display='none';
+                            break;
+
+                        
+                    }
+                }
+                </script> 
+            <!-- ********** end of script to display additional text boxes depending on question type option selected ********** -->
+
+            <div class="modal-footer">
+                <input type="hidden" id="add_edit_info" name="" value="">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary"> Save changes</button>
+            </form>    
+
+            </div>  <!-- end modal footer -->
+        </div>   <!-- end div class="modal-content"  -->
+    </div>  <!-- end div class="modal-dialog"  -->
+</div>  <!-- end div class="modal fade"  -->
+
+
+
+<label id="lbltipAddedComment"></label>
+<script>
+  document.getElementById('lbltipAddedComment').innerHTML = 'your tip has been submitted!';
+</script>

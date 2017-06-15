@@ -3,31 +3,27 @@
         <ul class="nav metismenu" id="side-menu">
             <li class="nav-header">
                 <div class="dropdown profile-element">
-                        <span class="clear text-center">
+                        <span class="clear">
                             <span class="block m-t-xs">
-                               <img src="/images/nsc_logo_t.png" height="96" width="96">
+				<img src="/images/nsc_logo_t.png" height="64" width="64">&nbsp;&nbsp;&nbsp;
+                                <strong class="font-bold" color="white">Michael Fraser</strong>
                             </span> 
-                            <strong class="font-bold">
-                            @if( Auth::check() )
-                            {{ Auth::user()->name }}
-                            @else Unauthenticated User
-                            @endif
-			                </strong>
                         </span>
+                    </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                        <li><a href="{{ url('logout') }}">Logout</a></li>
+                        <li><a href="#">Logout</a></li>
                     </ul>
                 </div>
                 <div class="logo-element">
                     <img src="/images/nsc_logo.png" height="64" width="64"> 
                 </div>
             </li>
-            <li class="{{ isActiveRoute('reports') }}">
-                <a href="{{ url('/reports') }}"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Reports</span> </a>
+            <li class="<?php echo e(isActiveRoute('reports')); ?>">
+                <a href="<?php echo e(url('/reports')); ?>"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Reports</span> </a>
                 <ul class="nav nav-second-level collapse in">
-                    <li class="active">
+                    <li class="">
                         <a href="#">Report Filters<span class="fa arrow"></span></a>
-                        <ul class="nav nav-third-level collapse in">
+                        <ul class="nav nav-third-level collapse" style="height: 0px;">
                             <li class="">
                                 <a href="#"><h5>Quarter</h5></a>
                                 <ul class="nav nav-third-level collapse selected-filter-child" style="height: 0px;">
@@ -132,7 +128,7 @@
                             </ul>
                         </li>
                         <li>
-                           <a class="report_submit_button"><button class="btn btn-primary btn-block">Search</button></a>
+                           <a><button class="btn btn-primary btn-block">Search</button></a>
                         </li>
                         </form>
                     </ul>
@@ -154,11 +150,14 @@
                     </li>
                 </ul>
             </li>
-            <li class="{{ isActiveRoute('admin/show') }}">
-                <a href="{{ url('/admin/show') }}"><i class="fa fa-th"></i> <span class="nav-label">Admin Management</span></a>
+            <li class="<?php echo e(isActiveRoute('admin/create')); ?>">
+                <a href="<?php echo e(url('/admin/create')); ?>"><i class="fa fa-th"></i> <span class="nav-label">Admin Management</span></a>
             </li>
-            <li class="{{ isActiveRoute('tip/edit') }}">
-                <a href="{{ url('/tip/edit') }}"><i class="fa fa-table"></i> <span class="nav-label">TIPS Management</span> </a>
+            <li class="<?php echo e(isActiveRoute('tip/edit')); ?>">
+                <a href="<?php echo e(url('/tip/edit')); ?>"><i class="fa fa-table"></i> <span class="nav-label">TIPS Management</span> </a>
+            </li>
+            <li class="<?php echo e(isActiveRoute('admin/show')); ?>">
+                <a href="<?php echo e(url('/admin/show')); ?>"><i class="fa fa-star"></i> <span class="nav-label">Inactivate User</span> </a>
             </li>
             
         </ul>

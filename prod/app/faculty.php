@@ -2,15 +2,26 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model as Eloquent;
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Auth\Authenticatable as AuthenticableTrait;
+//use Illuminate\Auth\UserTrait;
+//use Illuminate\Auth\UserInterface;
+//use Illuminate\Auth\Reminders\RemindableTrait;
+//use Illuminate\Auth\Reminders\RemindableInterface;
 
-class faculty extends Model
+class faculty extends Eloquent implements Authenticatable//, RemindableInterface, UserInterface
 {
+    use AuthenticableTrait;
+    //use UserTrait;
+    //use RemindableTrait;
+    
     protected $fillable = [
         'faculty_id',
         'division_id',
         'faculty_name',
         'email',
+        'faculty_canvas_id',
         'employee_type',
         'is_admin',
         'is_active'

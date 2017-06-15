@@ -61,6 +61,6 @@ class Handler extends ExceptionHandler
             return response()->json(['error' => 'Unauthenticated.'], 401);
         }
 
-        return Redirect::to('https://north-seattle-college.acme.instructure.com/login/canvas');
+        return Redirect::to('/login');
     }
 }

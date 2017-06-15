@@ -22,10 +22,6 @@ class CreateQuestionsTable extends Migration
             $table->text('question_desc')->nullable();
             $table->timestamps();
         });
-
-        
-        // Insert questions test data
-        
     }
 
     /**

@@ -9,9 +9,7 @@
     <link rel="stylesheet" href="{!! asset('css/vendor.css', true) !!}" type="text/css" />
     <link rel="stylesheet" href="{!! asset('css/app.css', true) !!}" type="text/css" />
     <link rel="stylesheet" href="{!! asset('css/custom.css', true) !!}" type="text/css" />
-    <!--For index page for autocomplete styling-->
-    <!--<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/smoothness/jquery-ui.css">-->
-
+    <script src="jquery-3.2.1.min.js"></script>    
     
 </head>
 <body>

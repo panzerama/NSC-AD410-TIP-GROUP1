@@ -15,6 +15,7 @@ class question extends Model
         'is_active',
         'question_desc'
         ];
+        
     protected $primaryKey = 'question_id';    
         
     public function answer(){
