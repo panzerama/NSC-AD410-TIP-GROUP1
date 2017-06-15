@@ -3,11 +3,12 @@
 
         <div class="ibox float-e-margins">
             <div class="ibox-title">
+                <a id="download3" download="primary_ELO.jpg"><button type="button" class="label label-primary pull-right" onClick="download3()">jpg</button></a>
                 <h5>Primary ELO added by TIP</h5>
             </div>
             <div class="ibox-content">
                 <div><iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
-                    <canvas id="barChart4" height="110" style="display: block; height: 110px;"></canvas>
+                    <canvas id="barChart4" height="100" style="display: block; height: 100px;"></canvas>
                 </div>
             </div>
         </div>
@@ -16,7 +17,7 @@
          
 
 <!-- ChartJS-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script> 
 
 <?php
     $answer = array_keys($data['primary_ELO']);
@@ -74,7 +75,15 @@ theData.reverse();
 
     var ctx8 = document.getElementById("barChart4").getContext("2d");
     new Chart(ctx8, {type: 'bar', data: barData4, options: barOptions4});
-//----------------------------------------------------------------      
+    
+    function download3(){
+        var download = document.getElementById("download3");
+        var image = document.getElementById("barChart4").toDataURL("image/jpg", 1.0)
+                    .replace("image/jpg", "image/octet-stream");
+        download.setAttribute("href", image);
+    } 
+    
+  
 </script>
 
 
