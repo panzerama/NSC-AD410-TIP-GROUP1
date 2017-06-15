@@ -23,7 +23,7 @@ class LoginController extends Controller
         
         include 'config.php';
         
-        if(!Auth::check()) {
+        if(Auth::check()) {
             return redirect ('/tip');
         }
         
