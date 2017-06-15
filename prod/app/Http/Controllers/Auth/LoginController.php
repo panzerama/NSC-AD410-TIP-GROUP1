@@ -86,8 +86,6 @@ class LoginController extends Controller
                 
                 // check if the name and email is already in the database
 		        $count = DB::table('faculty')->select('*')->where('faculty_name', $name)->where('email', $email)->count();
-                
-	            Log::info('Value of $count ' . $count);
 		 
                 if($count > 0) {
                     DB::table('faculty')->where('email', $email)->update(['faculty_canvas_id' => $faculty_canvas_id]);
@@ -98,7 +96,7 @@ class LoginController extends Controller
                 //find user_id
                 $user_id = User::select('users.id')
                     ->join('faculty', 'users.email', '=', 'faculty.email')
-                    ->where('faculty.faculty_id', $faculty_id)
+                    ->where('faculty.faculty_id', $faculty)
                     ->get();
                 
                 $user = Auth::loginUsingId($user_id, true);
