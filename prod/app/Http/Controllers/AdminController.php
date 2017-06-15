@@ -18,15 +18,16 @@ class AdminController extends Controller {
     protected $signedIn;
     
     public function __construct() {
-
-        $this->middleware(function ($request, $next) {
+       /* 
+       $this->middleware(function ($request, $next) {
             $this->user = $this->signedIn = Auth::user();
             if(isset($this->user)) {
                  return $next($request);
             } else {
                 return redirect('/login');
             }
-        });
+        }); 
+        */
     }
     
     public function index() {
