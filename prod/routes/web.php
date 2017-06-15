@@ -59,7 +59,7 @@ Route::get('/logout', 'Auth\LoginController@destroy')->name('logout'); // Log Ou
  Route::get('/admin','AdminController@index'); // Splash Page for Admin Functions
  Route::get('/admin/create', 'AdminController@create');
  Route::post('/admin/show','AdminController@store')->name('adminStore'); // Submit and Store New Admin Form
- Route::get('/admin/show','AdminController@show'); //show faculty list // Create New Admin Form
+ Route::get('/admin/show','AdminController@show')->middleware('auth:web'); //show faculty list // Create New Admin Form
  Route::get('/admin/update/{id}/{status}', 'AdminController@update'); //Change User Status
  
  
