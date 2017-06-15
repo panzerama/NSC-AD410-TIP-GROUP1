@@ -23,6 +23,10 @@ class LoginController extends Controller
         
         include 'config.php';
         
+        if(!Auth::check()) {
+            return redirect ('/tip');
+        }
+        
         //start session
         session_start();
         
