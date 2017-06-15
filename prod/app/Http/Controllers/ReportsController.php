@@ -93,9 +93,9 @@ class ReportsController extends Controller
        $reports_array[$key] = $table_array;
     }
     
-    private function reportsDataBuilder(&$reports_array, $base_query){
+    private function reportsDataBuilder(&$reports_array, $base_query, $department_code){
         // aggregator that assembles the various data points for reporting
-        ReportsController::tipsSummary($reports_array, $base_query);
+        ReportsController::tipsSummary($reports_array, $base_query, $department_code);
         ReportsController::tipsByMonth($reports_array, $base_query);
         ReportsController::tipsByDivision($reports_array, $base_query);
         ReportsController::evidenceChangeNeeded($reports_array, $base_query);

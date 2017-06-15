@@ -14,12 +14,10 @@
 /***************************
  *  Tip Routing
  ***************************/
-<<<<<<< HEAD
+ 
 //Default Route
 Route::get('/', 'Auth\LoginController@index')->name('login'); // Main page route
 
-=======
->>>>>>> search-func
 // Create Tip
 Route::get('/tip', 'TipsController@index'); // Tips Create Form P.1
 Route::get('tip/questions', 'TipsController@create'); // Tips Create Form P.2
