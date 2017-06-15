@@ -63,12 +63,11 @@ class ReportsController extends Controller
         $key = "table_data";
         
         //$base_query should not be operated on directly
-        $table_query = clone $base_query;
+        //$table_query = clone $base_query;
         
          //building a collection based on the query lets us manipulate the data
         //in a safe way.
-        $table_query
-            ->select('tips.*', 'faculty.*', 'divisions.*')
+        $table_query = DB::table('tips')
             ->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')
             ->join('divisions', 'tips.division_id', '=', 'divisions.division_id')
             ->join('faculty', 'faculty_tips.faculty_id', '=', 'faculty.faculty_id');
