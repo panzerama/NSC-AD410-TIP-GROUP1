@@ -44,6 +44,24 @@ class ReportsController extends Controller
         return view('reports/index', ['data' => $reports_array]);
     }
     
+    public function show(Request $request){
+        
+        //init array
+        $reports_array = array();
+        //create basic query - for index, this is just 'tips'
+        $filtered_query = SearchController::filter_constructor($request);
+        $department_code = $request['division'];
+        //pass query and array into reportsDataBuilder
+        ReportsController::reportsDataBuilder($reports_array, $filtered_query, $department_code);
+        
+        // the form options should be based on the set of all tips, not the filtered tips
+        // todo: accurate?
+        $form_options = ReportsController::formOptions(SearchController::base_constructor(), $request);
+        
+        //return view with amended report array
+        return view('reports/index', ['data' => $reports_array, 'form_options' => $form_options]);
+    }
+    
     public function table()
     {
         //return all tips with division and faculty, let frontend

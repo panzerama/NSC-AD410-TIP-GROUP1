@@ -7,7 +7,10 @@
         <h2>Reports Dashboard</h2>
     <ol class="breadcrumb">
         <li class="active">
-            <strong>Reports</strong>
+            <strong>Summary Reports</strong>
+        </li>
+        <li>
+            <a href="qareports">Q/A Reports</a>
         </li>
         <li>
             <a href="table">Data Table</a>

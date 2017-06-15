@@ -87,6 +87,8 @@ Route::get('/logout', 'Auth\LoginController@destroy')->name('logout')->middlewar
  ***************************/
  
  Route::get('/reports','ReportsController@index')->middleware('auth:web','auth.admin:web'); // Reports Splash Page
+  Route::post('/reports/filter','ReportsController@show')->middleware('auth:web','auth.admin:web'); // filter form calls this route
+
  Route::get('/table','ReportsController@table')->middleware('auth:web','auth.admin:web'); // Display Table
  Route::get('/reports/filter','ReportsController@create')->middleware('auth:web','auth.admin:web'); // Show Reports Filter Form
  Route::get('/reports/results','ReportsController@show')->middleware('auth:web','auth.admin:web'); // Display Reports
