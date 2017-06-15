@@ -13,6 +13,9 @@ use App\division;
 use DB;
 use App\Mail\TipConfirm;
 use App\Http\Controllers\Auth\LoginController;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Support\Facades\Auth;
 
 class TipsController extends Controller
 {
@@ -82,8 +85,7 @@ class TipsController extends Controller
         //     )
         // ));
         
-        // $faculty_id = Auth::id();
-        $faculty_id = $request->user()->id; // Change this to a faculty id that has only one tip two unfinished tips will mess up query
+        $faculty_id = Auth::id();
         // keep the same faculty id thorughout the whole controller
         
         $tip_query = DB::table('tips')->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')
@@ -145,7 +147,7 @@ class TipsController extends Controller
     public function create()
     {
         // replace with auth id when implemented
-        $faculty_id = $request->user()->id;
+        $faculty_id = Auth::id();
         
         // check if user has an active tip.
         $tip_query = DB::table('tips')->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')
@@ -182,7 +184,7 @@ class TipsController extends Controller
     public function store(Request $request)
     {
         // test id do not change will replace once auth is authenticated
-        $faculty_id = $request->user()->id;
+        $faculty_id = Auth::id();
         // query to find current tip
         $tip_query = DB::table('tips')->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')
                                       ->join('faculty', 'faculty_tips.faculty_id', '=', 'faculty.faculty_id')
@@ -359,7 +361,7 @@ class TipsController extends Controller
         
         //TO DO: update $faculty_id to use auth/login
         //$faculty_id = Auth::id();
-        $faculty_id =1;
+        $faculty_id = Auth::id();
         
         $faculty = DB::table('faculty')->where('faculty_id', $faculty_id)->first();
         $email = $faculty->email;
