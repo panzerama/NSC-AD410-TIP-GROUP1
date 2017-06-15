@@ -33,8 +33,10 @@ class AdminAuthenticate {
 	 */
 	public function handle($request, Closure $next) { 
 	    $user = $this->auth->user();
+	    Log::info(var_export($user, true));
 	    if(isset($user)) {
 	        $faculty = DB::table('faculty')->select('*')->join('users', 'faculty.email', '=', 'users.email')->where('users.id', $user->id)->first();
+	        Log::info(var_export($faculty, true));
 	        if($faculty->is_admin) {
 	            return $next($request);
 	        } else {
