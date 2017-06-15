@@ -75,64 +75,6 @@
 @endsection
 
 @section('page-js-files')
-<<<<<<< HEAD
-
-<!--Import jQuery before export.js-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-
-
-    <!--Data Table-->
-    <script type="text/javascript"  src=" https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript"  src=" https://cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js"></script>
-
-    <!--Export table buttons-->
-    <script type="text/javascript"  src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
-    <script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.24/build/pdfmake.min.js" ></script>
-    <script type="text/javascript"  src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.24/build/vfs_fonts.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/buttons.html5.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/buttons.print.min.js"></script>
-
-@stop
-
-@section('page-style-files')
-  <!--Export table button CSS-->
-
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.3.1/css/buttons.dataTables.min.css">
-
-@stop
-
-@section('page-js-script')
-<script type="text/javascript">
-var theData = {"data": <?php echo json_encode($data); ?> };
-</script>
-<script type="text/javascript">
-$(document).ready(function() {
-    $('#tips_data').DataTable({
-        dom: '<"pull-left"l><"pull-right"B><f>rtip',
-     "buttons": [ 'copy', 'csv', 'excel', 'pdf', 'print'   ],
-     "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
-   "data": theData.data,
-        "columns": [
-            {"data": "division_id" },
-            {"data": "faculty_name" },
-            {"data": "email" },
-            {"data": "employee_type" },
-            {"data": "course_number" },
-            {"data": "quarter" },
-            {"data": "year" },
-            {"data": "is_group" },
-            {"data": "is_finished" },
-            {"data": "created_at" },
-            {"data": "updated_at" },
-
-        ]
-    });
-} );
-</script>
-@stop
-
-=======
 
 <!--Import jQuery before export.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -197,4 +139,3 @@ $(document).ready(function() {
 } );
 </script>
 @stop
->>>>>>> master
