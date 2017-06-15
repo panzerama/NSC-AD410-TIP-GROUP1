@@ -84,7 +84,7 @@ class LoginController extends Controller
                 Log::info('This is faculty ' . var_export($faculty, true));
                 
                 //find user_id
-                $db_user = DB::table('users')->select('id')->join('faculty', 'users.email', '=', 'faculty.email')->where('faculty.faculty_id', $faculty->id)->first();
+                $db_user = DB::table('users')->select('id')->join('faculty', 'users.email', '=', 'faculty.email')->where('faculty.faculty_id', $faculty->faculty_id)->first();
                     
                 //create instance of authenticated user
                 $user = Auth::loginUsingId($db_user->id, true);
