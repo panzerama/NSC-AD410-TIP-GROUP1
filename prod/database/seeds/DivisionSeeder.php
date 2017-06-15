@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class FacultyTableSeeder extends Seeder
+class DivisionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
