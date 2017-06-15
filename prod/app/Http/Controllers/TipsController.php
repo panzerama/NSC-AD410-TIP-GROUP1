@@ -27,7 +27,7 @@ class TipsController extends Controller
     */
     public function index()
     {
-        dd(DB::table('faculty_tips')->get());
+        //dd(DB::table('faculty_tips')->get());
         // **********************  DEBUGGING   ******************************************
         //        dd(DB::table('faculty_tips')->get());
         // ******************************************************************************
