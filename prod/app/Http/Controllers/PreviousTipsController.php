@@ -19,7 +19,7 @@ class PreviousTipsController extends Controller
         // get tip id by faculty id
         // for each tip id grab quarter, year, amount of questions answer, timestamp,
         // compact it all in view along with $submitted
-        $faculty_id = 18;
+        $faculty_id = $request->user()->id;
         $tip_information = [];
         // join tips and faculty tips to get number of tips submitted by user 
         $faculty_tips = DB::table('faculty_tips')->join('tips', 'faculty_tips.tips_id', '=', 'tips.tips_id')

@@ -82,7 +82,7 @@ class TipsController extends Controller
         // ));
         
         // $faculty_id = Auth::id();
-        $faculty_id =18; // Change this to a faculty id that has only one tip two unfinished tips will mess up query
+        $faculty_id = $request->user()->id; // Change this to a faculty id that has only one tip two unfinished tips will mess up query
         // keep the same faculty id thorughout the whole controller
         
         $tip_query = DB::table('tips')->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')
@@ -144,7 +144,7 @@ class TipsController extends Controller
     public function create()
     {
         // replace with auth id when implemented
-        $faculty_id = 18;
+        $faculty_id = $request->user()->id;
         
         // check if user has an active tip.
         $tip_query = DB::table('tips')->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')
@@ -181,7 +181,7 @@ class TipsController extends Controller
     public function store(Request $request)
     {
         // test id do not change will replace once auth is authenticated
-        $faculty_id = 18;
+        $faculty_id = $request->user()->id;
         // query to find current tip
         $tip_query = DB::table('tips')->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')
                                       ->join('faculty', 'faculty_tips.faculty_id', '=', 'faculty.faculty_id')
