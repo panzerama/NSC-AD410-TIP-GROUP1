@@ -40,8 +40,11 @@ class ReportsController extends Controller
         $base_query = DB::table('tips');
         //pass query and array into reportsDataBuilder
         ReportsController::reportsDataBuilder($reports_array, $base_query);
+        
+        $form_options = ReportsController::formOptions($base_query);
+        
         //return view with amended report array
-        return view('reports/index', ['data' => $reports_array]);
+        return view('reports/index', ['data' => $reports_array, 'form_options' => $form_options]);
     }
     
     public function show(Request $request){
