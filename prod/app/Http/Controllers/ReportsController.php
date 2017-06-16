@@ -292,6 +292,8 @@ class ReportsController extends Controller
         $list_of_answers = $answer_collection
                                 ->pluck('answer_text')
                                 ->unique();
+                            
+        $evidence_change_needed = array();
         
        foreach($list_of_answers as $idx => $answer){
             $countByChangeNeeded =
