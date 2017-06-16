@@ -282,7 +282,9 @@ $(document).ready(function() {
         }
 });
 });
-    
+$('.expand-filter').click(function(){
+    $('.filter-content').slideToggle('slow');
+});
 </script>
 
 @stop
