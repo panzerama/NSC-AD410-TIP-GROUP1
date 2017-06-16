@@ -444,5 +444,138 @@ class ReportsController extends Controller
         // ->with('previous_tips_query',$previous_tips_query);
     }
     
+    public static function formOptions($base_query, Request $request = null){
+        $form_options = array();
+        $form_query = clone $base_query;
+        
+        ReportsController::startDateOptions($form_options, $request);
+        ReportsController::endDateOptions($form_options, $request);
+        ReportsController::divisionOptions($form_query, $form_options, $request);
+        ReportsController::courseOptions($form_query, $form_options, $request);
+        ReportsController::questionOptions($form_query, $form_options, $request);
+        $form_options['keyword'] = $request['keyword'];
+        
+        return $form_options;
+    }
+    
+    public static function startDateOptions(&$form_options, $request){
+        //start date options
+        if($request != null){
+            $selection_start_date = $request['quarter-start'];
+        } else {
+            $selection_start_date = "";
+        }
+        
+        $key = "start_date_options";
+        $today = Carbon::today();
+        $start_date = Carbon::today()->subYears(3)->firstOfQuarter();;
+        while($start_date->lte($today)){
+            $current_quarter = $start_date->quarter;
+            $next_date_option = "";
+            $is_selected = false;
+            
+            switch($current_quarter) {
+                case '1':
+                    $next_date_option = "Winter " . $start_date->format('Y');
+                    break;
+                case '2':
+                    $next_date_option = "Spring " . $start_date->format('Y');
+                    break;
+                case '3':
+                    $next_date_option = "Summer " . $start_date->format('Y');
+                    break;
+                case '4':
+                    $next_date_option = "Fall " . $start_date->format('Y');
+                    break;
+            }
+            
+            if($next_date_option === $selection_start_date){ $is_selected = true; }
+            
+            $form_options[$key][] = array($next_date_option, $is_selected);
+            $start_date->addMonths(3);
+        }
+    }
+    
+    public static function endDateOptions(&$form_options, $request){
+        //end date options
+        if($request != null){
+            $selection_end_date = $request['quarter-end'];
+        } else {
+            $selection_end_date = "";
+        }
+        
+        $key = "end_date_options";
+        $today = Carbon::today();
+        $start_date = Carbon::today()->subYears(3)->firstOfQuarter();;
+        while($start_date->lte($today)){
+            $current_quarter = $start_date->quarter;
+            $next_date_option = "";
+            $is_selected = false;
+            
+            switch($current_quarter) {
+                case '1':
+                    $next_date_option = "Winter " . $start_date->format('Y');
+                    break;
+                case '2':
+                    $next_date_option = "Spring " . $start_date->format('Y');
+                    break;
+                case '3':
+                    $next_date_option = "Summer " . $start_date->format('Y');
+                    break;
+                case '4':
+                    $next_date_option = "Fall " . $start_date->format('Y');
+                    break;
+            }
+            
+            if($next_date_option === $selection_end_date){ $is_selected = true; }
+            
+            $form_options[$key][] = array($next_date_option, $is_selected);
+            $start_date->addMonths(3);
+        }
+    }
+    
+    public static function divisionOptions($form_query, &$form_options, $request){
+        //Divisions
+        $key = "division_options";
+        
+        $divisions_list = $form_query->pluck('abbr')->unique()->all();
+        
+        foreach($divisions_list as $division){
+            if($division == $request['division']){
+                $form_options[$key][] = array($division, true);
+            } else {
+                $form_options[$key][] = array($division, false);
+            }
+        }
+    }
+    
+    public static function courseOptions($form_query, &$form_options, $request){
+        //courses
+        $key = "course_options";
+        $course_list = $form_query->pluck('course_name')->unique()->all();
+        
+        foreach($course_list as $course){
+            if($course == $request['course']){
+                $form_options[$key][] = array($course, true);
+            } else {
+                $form_options[$key][] = array($course, false);
+            }
+        }
+    }
+    
+    public static function questionOptions($form_query, &$form_options, $request){
+        //questions
+        $key = "question_options";
+        $question_list = DB::table('questions')->pluck('question_text')->all();
+        
+        foreach($question_list as $question){
+            if($question == $request['question']){
+                $form_options[$key][] = array($question, true);
+            } else {
+                $form_options[$key][] = array($question, false);
+            }
+        }
+    }
+    
    
 }
