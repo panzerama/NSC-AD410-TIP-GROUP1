@@ -142,15 +142,15 @@ class ReportsController extends Controller
         
         //building a collection based on the query lets us manipulate the data
         //in a safe way.
-        $summary_query
-            ->join('faculty_tips', 
-                   'tips.tips_id', 
-                   '=', 
-                   'faculty_tips.tips_id')
-            ->join('faculty', 
-                   'faculty_tips.faculty_id', 
-                   '=', 
-                   'faculty.faculty_id');
+        // $summary_query
+        //     ->join('faculty_tips', 
+        //           'tips.tips_id', 
+        //           '=', 
+        //           'faculty_tips.tips_id')
+        //     ->join('faculty', 
+        //           'faculty_tips.faculty_id', 
+        //           '=', 
+        //           'faculty.faculty_id');
         
         $summary_collection = $summary_query->get();
         
