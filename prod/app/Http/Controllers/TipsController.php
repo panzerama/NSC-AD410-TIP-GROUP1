@@ -356,12 +356,12 @@ class TipsController extends Controller
          return redirect('/tip/previous')->with('status', 'tip submmitted');  
         }
     }
-    
+    /*
     public function sendEmail(){
         
         //TO DO: update $faculty_id to use auth/login
-        //$faculty_id = Auth::id();
         $faculty_id = Auth::id();
+        
         
         $faculty = DB::table('faculty')->where('faculty_id', $faculty_id)->first();
         $email = $faculty->email;
@@ -370,5 +370,5 @@ class TipsController extends Controller
         \Mail::to($email)->send(new TipConfirm($email, $name));
         
     }
-
+    */
 }
