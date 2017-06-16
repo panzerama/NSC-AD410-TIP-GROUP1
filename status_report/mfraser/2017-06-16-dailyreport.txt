@@ -1,0 +1,31 @@
+Michael Fraser
+Status Report 30
+Date: 06/16/2017
+
+What have you completed since the last report?
+
+1) Built middleware for admin auth in Laravel
+
+2) Recoded LoginController for auth checks
+
+3) Presented our app to committee and class
+
+What do you plan to complete by the next report?
+
+1) Done for the quarter, but will finish documentation, etc/ 
+
+What is getting in your way?
+
+1) Nothing. Hopefully we won the competition. =)
+
+
+
+
+
+
+
+
+
+
+
+

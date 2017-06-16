@@ -1,0 +1,33 @@
+Michael Fraser
+Status Report 29
+Date: 06/14/2017
+
+What have you completed since the last report?
+
+1) Meeting with team via web session
+
+2) Went over auth, search function, and various features to wrap up
+
+3) Worked on adding auth session id to nav blades
+
+3) Reviewed PowerPoint
+
+What do you plan to complete by the next report?
+
+1) Presentation
+
+What is getting in your way?
+
+1) Time, need more hours in the day. =P
+
+
+
+
+
+
+
+
+
+
+
+
