@@ -246,9 +246,7 @@ class ReportsController extends Controller
         
         $division_query = clone $base_query;
         
-        $division_collection = $division_query
-            ->join('divisions', 'divisions.division_id', '=', 'tips.division_id')
-            ->get();
+        $division_collection = $division_query->get();
             
         $list_of_divisions = $division_collection
                                 ->pluck('abbr')
