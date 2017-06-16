@@ -433,6 +433,7 @@ class ReportsController extends Controller
                                 ->pluck('answer_text')
                                 ->unique();
         
+        $primary_ELO = array();
         foreach($list_of_answers as $idx => $answer){
             $countByELO =
                   $answer_collection->where('answer_text', '=', $answer)
