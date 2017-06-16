@@ -9,11 +9,6 @@ use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Support\Facades\Auth;
 
 class AccountController extends Controller {
-    // this __construct() function will need to be at the top
-    // of all controllers doing any storing stuff.
-    public function __construct() {
-        $this->middleware('auth');
-    }
     
     public function index() {
         //update this when LoginController is setup
