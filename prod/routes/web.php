@@ -90,7 +90,7 @@ Route::get('/logout', 'Auth\LoginController@destroy')->name('logout')->middlewar
   Route::post('/reports/filter','ReportsController@show')->middleware('auth:web','auth.admin:web'); // filter form calls this route
 
  Route::get('/table','ReportsController@table')->middleware('auth:web','auth.admin:web'); // Display Table
- Route::get('/reports/filter','ReportsController@create')->middleware('auth:web','auth.admin:web'); // Show Reports Filter Form
+ //Route::get('/reports/filter','ReportsController@create')->middleware('auth:web','auth.admin:web'); // Show Reports Filter Form
  Route::get('/reports/results','ReportsController@show')->middleware('auth:web','auth.admin:web'); // Display Reports
  Route::get('/reports/tip/{id}','ReportsController@showTip')->middleware('auth:web','auth.admin:web'); // Display Specific Previous Tip
 
