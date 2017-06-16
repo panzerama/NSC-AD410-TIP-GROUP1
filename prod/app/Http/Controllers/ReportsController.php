@@ -327,6 +327,8 @@ class ReportsController extends Controller
         $list_of_answers = $answer_collection
                                 ->pluck('answer_text')
                                 ->unique();
+                                
+                                $how_impact_assessed = array();
         
         foreach($list_of_answers as $idx => $answer){
             $countByImpactAssessed =
@@ -360,6 +362,8 @@ class ReportsController extends Controller
         $list_of_answers = $answer_collection
                                 ->pluck('answer_text')
                                 ->unique();
+                                
+                                $type_of_change = array();
         
         foreach($list_of_answers as $idx => $answer){
             $countByTypeChange =
@@ -392,6 +396,8 @@ class ReportsController extends Controller
         $list_of_answers = $answer_collection
                                 ->pluck('answer_text')
                                 ->unique();
+                                
+                                $new_opportunities = array();
         
         foreach($list_of_answers as $idx => $answer){
             $countByNewOpp =
