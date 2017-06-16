@@ -18,6 +18,116 @@
     </ol>
 </div>
 
+<div class="row wrapper border-bottom white-bg page-heading">
+    
+        <h2>Filter Data</h2>
+   
+    <div class="row filter-content" style="display: none;">
+        <div class="col-lg-12">
+            <form name="report-filter" method="post" action="/reports/filter">
+                {{ csrf_field() }}
+                <div id="filter-quarter" class="float full-width">
+                    <div class="filter-form-group filter-ui-left">
+                        <label class="filter-ui-label">From:</label>
+                        <select class="form-control filter-ui-right" name="quarter-start">
+                                <option>---</option>
+                                @foreach ($form_options['start_date_options'] as $option)
+                                    @if ($option[1])
+                                        <option selected>{{ $option[0] }}</option>
+                                    @else
+                                        <option>{{ $option[0] }}</option>
+                                    @endif
+                                @endforeach
+                        </select>
+                    </div> <!-- END filter-form-group -->
+                    
+                    <div class="filter-form-group filter-ui-right">                        
+                        <label class="filter-ui-label">To:</label>
+                        <select class="form-control filter-ui-right" name="quarter-end">
+                                <option>---</option>
+                                @foreach ($form_options['end_date_options'] as $option)
+                                    @if ($option[1])
+                                        <option selected>{{ $option[0] }}</option>
+                                    @else
+                                        <option>{{ $option[0] }}</option>
+                                    @endif
+                                @endforeach
+                        </select>
+                    </div> <!-- END filter-form-group -->
+                </div> <!-- END filter-quarter -->
+                
+                <div id="filter-faculty" class="float full-width">
+                    <div class="filter-form-group filter-ui-left"> 
+                        <label class="filter-ui-label" name="division">Division:</label>
+                        <select class="form-control filter-ui-right" name="division">
+                                <option>All</option>
+                                @foreach  ($form_options['division_options'] as $option)
+                                    @if ($option[1])
+                                        <option selected>{{ $option[0] }}</option>
+                                    @else
+                                        <option>{{ $option[0] }}</option>
+                                    @endif 
+                                @endforeach
+                        </select>
+                    </div> <!-- END filter-form-group -->
+                    
+                    <div class="filter-form-group filter-ui-right"> 
+                        <label class="filter-ui-label">Course:</label>
+                        <select class="form-control filter-ui-right" name="course">
+                                <option>All</option>
+                                @foreach  ($form_options['course_options'] as $option)
+                                    @if ($option[1])
+                                        <option selected>{{ $option[0] }}</option>
+                                    @else
+                                        <option>{{ $option[0] }}</option>
+                                  @endif 
+                                @endforeach
+                        </select>
+                    </div> <!-- END filter-form-group -->
+                </div><!-- filter-faculty -->
+                
+                <div id="filter-radio" class="full-width filter-ui-radio">
+                        <div class="radio radio-info report-filter-radio filter-ui-left">
+                            <input type="radio" id="single-tips" value="single-tips" name="type">
+                            <label for="single-tips">Single</label>
+                        </div>
+                        <div class="radio radio-info report-filter-radio filter-ui-left">
+                            <input type="radio" id="group-tips" value="group-tips" name="type" >
+                            <label for="group-tips">Group</label>
+                        </div>
+                        <div class="radio radio-info report-filter-radio filter-ui-left">
+                            <input type="radio" id="all-tips" value="all-tips" name="type" checked="">
+                            <label for="all-tips">All</label>
+                        </div>
+                </div>
+
+                
+                <div id="filter-question">
+                    <label class="filter-ui-label">Question:</label>
+                    <select class="form-control full-width" name="question">
+                            <option>All</option>
+                            @foreach ($form_options['question_options'] as $option)
+                                @if ($option[1])
+                                    <option selected>{{ $option[0] }}</option>
+                                @else
+                                    <option>{{ $option[0] }}</option>
+                               @endif 
+                            @endforeach
+                    </select>
+                    
+                    <label class="filter-ui-label full-width">Search Answer By Keyword(s):</label>
+                    <input type="text" class="form-control full-width" style="margin-bottom: 10px;" name="keyword"
+                        placeholder="{{ $form_options['keyword'] }}">
+                </div><!-- END filter-question -->
+               <a class="report_submit_button"><button class="btn btn-primary btn-block">Search</button></a>
+            </form>
+        </div>
+    </div>
+    <div id="filter-display-controls">
+        <span class="expand-filter">Show / Hide Filters</span>
+    </div>
+</div>
+
 <div class="wrapper wrapper-content">   
 <div class="row">
             <div class="col-lg-6">
