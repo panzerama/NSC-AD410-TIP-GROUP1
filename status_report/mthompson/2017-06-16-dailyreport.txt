@@ -1,0 +1,13 @@
+Mitch Thompson
+Status Report
+6/16/2017
+
+-Created controller and mail functions to send email to user on tips submission
+-Refactored email functions to handle contact form and sending email on submission
+-Presented project!
+
+
+
+
+
+

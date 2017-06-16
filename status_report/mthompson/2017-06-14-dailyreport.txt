@@ -1,0 +1,15 @@
+Mitch Thompson
+Status Report
+6/14/2017
+
+-Tweaked UI. Changed background color back to default. Removed extra ibox lines. Modified the way logged in user name displays with logo.
+-Tweaked questionnaire UI for better display of text boxes and errors
+-Added code for hiding group/indy question if user already selected an answer
+-Tested submitting tips. Merged tips-questionnaire branch into master resolving conflicts.
+-Attended Tuesday & Wednesday stand-up meetings
+
+
+
+
+
+
