@@ -6,6 +6,11 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
 
+use Datatables;
+use Yajra\Datatables\Html\Builder;
+use Illuminate\Http\Request;
+use App\Http\Controllers\SearchController;
+
 class ReportsController extends Controller
 {
     //1. filters for each 'report' data set
