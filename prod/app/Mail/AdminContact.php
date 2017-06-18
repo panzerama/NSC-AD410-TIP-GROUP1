@@ -11,9 +11,10 @@ class AdminContact extends Mailable
 {
     use Queueable, SerializesModels;
     
-    public $topic;
-    public $body;
+    public $name;
     public $email;
+    public $body;
+    public $topic;
     public $subject;
     
     /**
@@ -21,11 +22,12 @@ class AdminContact extends Mailable
      *
      * @return void
      */
-    public function __construct(string $email, string $topic, string $body)
+    public function __construct(string $name, string $email, string $topic, string $body)
     {
+        $this->name = $name;
+        $this->email = $email;
         $this->topic = $topic;
         $this->body = $body;
-        $this->email = $email;
         $this->subject = 'Email from TIP App';
     }
 

@@ -18,11 +18,18 @@
                         <small>Fill out form to message the Admin</small>
                     </div>
                     <div class="ibox-content">
+                        
+                            <div class="form-group">
+                               <label class="col-lg-2 control-label">Email</label>
+                               <div class="col-lg-9">
+                                   <input type="text" placeholder="Name" class="form-control" name="name" value="{{ $name }}" required>
+                               </div>
+                           </div>
                            
                            <div class="form-group">
                                <label class="col-lg-2 control-label">Email</label>
                                <div class="col-lg-9">
-                                   <input type="email" placeholder="Email" class="form-control" name="email" required>
+                                   <input type="email" placeholder="Email" class="form-control" name="email" value="{{ $email }}" required>
                                </div>
                            </div>
                            

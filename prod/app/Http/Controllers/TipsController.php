@@ -125,7 +125,7 @@ class TipsController extends Controller
     public function create()
     {
         // replace with auth id when implemented
-        $faculty_id = 31;
+        $faculty_id = 1;
         
         // check if user has an active tip.
         $tip_query = DB::table('tips')->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')
