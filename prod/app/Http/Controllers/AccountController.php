@@ -32,9 +32,9 @@ class AccountController extends Controller {
  +      $employment = request('employee_type');
         $division_id = request('division_id');
         
-+       $affected = DB::table('faculty')->where('faculty_id', $faculty_id)->update(['division_id' => $division_id, 'employee_type' => $employment]);
++       $update = DB::table('faculty')->where('faculty_id', $faculty_id)->update(['division_id' => $division_id, 'employee_type' => $employment]);
             
-        if(!empty($affected)) {
+        if(!empty($update)) {
             //redirects user to Tip Questionnaire
             return redirect()->action('TipsController@index');
         }
