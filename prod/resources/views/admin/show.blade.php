@@ -5,12 +5,7 @@
 @section('content')
 
 <div class="wrapper wrapper-content animated fadeInRight">
-<h2>Reports Dashboard</h2>
-    <ol class="breadcrumb">
-        <li class="active">
-            <strong>Admin Management</strong>
-        </li>
-    </ol>
+<h2><i class="fa fa-th"></i>Admin Management</h2>
 </div>
     <div class="row">
         <div class="col-lg-12">
