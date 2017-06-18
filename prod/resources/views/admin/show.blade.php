@@ -5,10 +5,15 @@
 @section('content')
 
 <div class="wrapper wrapper-content animated fadeInRight">
+<h2>Reports Dashboard</h2>
+    <ol class="breadcrumb">
+        <li class="active">
+            <strong>Admin Management</strong>
+        </li>
+    </ol>
+</div>
     <div class="row">
         <div class="col-lg-12">
-            <h2>Admin Management</h2>
-            <br>
             <ul class="nav nav-tabs">
               <li class="active"><a data-toggle="tab" href="#active">Active Faculty</a></li>
               <li><a data-toggle="tab" href="#inactive">Inactive Faculty</a></li>
