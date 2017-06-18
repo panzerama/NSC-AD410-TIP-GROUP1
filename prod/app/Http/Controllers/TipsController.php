@@ -12,12 +12,31 @@ use App\faculty_tip;
 use App\division;
 use DB;
 use App\Mail\TipConfirm;
+use App\Http\Controllers\Auth\LoginController;
+
 class TipsController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     **/
 
+    // this __construct() function will need to be at the top of all controllers doing any storing stuff.
+    /*public function __construct() {
+        $this->middleware('auth');
+    }
+    */
     public function index()
     {   
-        //dd(DB::table('faculty')->get());
+        // **********************  DEBUGGING   ******************************************
+        //        dd(DB::table('faculty_tips')->get());
+        // ******************************************************************************
+
+        // replace with auth id when implemented
+        // $faculty_id =8; // Do not change this!!
+
+        // dd(DB::table('faculty')->get());
         // dd(DB::table('faculty_tips')->get());
         // dd(DB::table('tips'->get());
         // first check db to see if divisions table has these collumns 
@@ -62,9 +81,10 @@ class TipsController extends Controller
         //         'is_active' => true
         //     )
         // ));
-        $faculty_id =1; // Change this to a faculty id that has only one tip two unfinished tips will mess up query
+        
+        // $faculty_id = Auth::id();
+        $faculty_id =18; // Change this to a faculty id that has only one tip two unfinished tips will mess up query
         // keep the same faculty id thorughout the whole controller
-
         
         $tip_query = DB::table('tips')->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')
                                       ->join('faculty', 'faculty_tips.faculty_id', '=', 'faculty.faculty_id')
@@ -125,7 +145,7 @@ class TipsController extends Controller
     public function create()
     {
         // replace with auth id when implemented
-        $faculty_id = 1;
+        $faculty_id = 18;
         
         // check if user has an active tip.
         $tip_query = DB::table('tips')->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')
@@ -162,7 +182,7 @@ class TipsController extends Controller
     public function store(Request $request)
     {
         // test id do not change will replace once auth is authenticated
-        $faculty_id = 1;
+        $faculty_id = 18;
         // query to find current tip
         $tip_query = DB::table('tips')->join('faculty_tips', 'tips.tips_id', '=', 'faculty_tips.tips_id')
                                       ->join('faculty', 'faculty_tips.faculty_id', '=', 'faculty.faculty_id')
@@ -338,7 +358,8 @@ class TipsController extends Controller
     public function sendEmail(){
         
         //TO DO: update $faculty_id to use auth/login
-        $faculty_id =1;
+        //$faculty_id = Auth::id();
+        $faculty_id =18;
         
         $faculty = DB::table('faculty')->where('faculty_id', $faculty_id)->first();
         $email = $faculty->email;

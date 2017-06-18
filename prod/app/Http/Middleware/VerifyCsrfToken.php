@@ -12,6 +12,11 @@ class VerifyCsrfToken extends BaseVerifier
      * @var array
      */
     protected $except = [
-        //
+        "/tip/edit/modify",
+        "/tip/edit/add",
+        "/tip/edit/inactivate",
+        "/division/edit/modify",
+        "/division/edit/add",
+        "/division/edit/inactivate"
     ];
 }

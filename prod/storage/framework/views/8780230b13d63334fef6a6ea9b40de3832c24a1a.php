@@ -1,15 +1,12 @@
-@extends('layouts.admin-app')
 <style>
     .textarea{
-        
     font-size: 60px;
     }
     
 </style>
 
-<<<<<<< HEAD
-@section('title', 'TIPS Management')
-@section('content')
+<?php $__env->startSection('title', 'TIPS Management'); ?>
+<?php $__env->startSection('content'); ?>
 <?php
     set_include_path('lib/TipsManagementFunctions.php');
     $q_number = array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16);
@@ -53,7 +50,7 @@
                     <textarea style="width:100%" class="text-area" name="q_text"><?php echo $question; ?></textarea>
                     </div>
                     <div class="col-lg-6">
-                        <p>  
+                        <p>
                             <button type="button" class="btn btn-outline btn-default" name="addbefore" >Add New Before</button>
                             <button type="button" class="btn btn-outline btn-primary" name="addafter">Add New After</button>
                             <button type="button" class="btn btn-outline btn-success" name="moveup">Move Up</button>
@@ -109,19 +106,6 @@
             }
         }
     ?>
-=======
-@section('title', 'Placeholder Text')
+<?php $__env->stopSection(); ?>
 
-@section('content')
-<div class="wrapper wrapper-content animated fadeInRight">
-    <div class="row">
-        <div class="col-lg-12">
-            <h2>Placeholder Text</h2>
-            
-            
-            </div><!-- ibox -->
-        </div><!-- col-lg-12 -->
-    </div><!-- row -->
-</div><!-- wrapper -->
->>>>>>> b1f7bd0bc12fedff8909dca3aa11512bde41493f
-@endsection
+<?php echo $__env->make('layouts.admin-app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -16,7 +16,7 @@ class tip extends model
         'year',
         'is_finished',
         'is_group'];
-    
+        
     protected $primaryKey = 'tips_id'; 
        
     public function tips_questions(){
