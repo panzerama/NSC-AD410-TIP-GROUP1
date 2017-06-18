@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="ow wrapper border-bottom white-bg page-heading">
+<div class="row wrapper border-bottom white-bg page-heading">
 <h2><i class="fa fa-th"></i>Admin Management</h2>
 </div>
     <div class="row">
