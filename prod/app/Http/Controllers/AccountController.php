@@ -27,7 +27,7 @@ class AccountController extends Controller {
     //called after user confirms details and picks primary division.
     //this function will update users row in the facutly table by udpationg their division id
     public function updateFirstTime() {
-        $faculty_id = request('faculty_id');
+        $faculty_id = intval(request('faculty_id'));
  +        
  +      $employment = request('employee_type');
         $division_id = request('division_id');
@@ -39,8 +39,6 @@ class AccountController extends Controller {
             return redirect()->action('TipsController@index');
         }
        
-            //update failed 
-            return false; 
         
     }
 }
