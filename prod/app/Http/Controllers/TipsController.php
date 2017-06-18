@@ -351,7 +351,7 @@ class TipsController extends Controller
             ->update(['is_finished' => 1]);
         
         //send email to user on submit
-        TipsController::sendEmail();
+        //TipsController::sendEmail();
         
          return redirect('/tip/previous')->with('status', 'tip submmitted');  
         }
@@ -359,7 +359,6 @@ class TipsController extends Controller
     /*
     public function sendEmail(){
         
-        //TO DO: update $faculty_id to use auth/login
         $faculty_id = Auth::id();
         
         
