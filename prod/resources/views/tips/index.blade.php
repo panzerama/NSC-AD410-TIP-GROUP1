@@ -4,15 +4,7 @@
 
 @section('content')
 <div class="row wrapper border-bottom white-bg page-heading">
-        <h2>Reports Dashboard</h2>
-    <ol class="breadcrumb">
-        <li class="active">
-            <strong>Reports</strong>
-        </li>
-        <li>
-            <a href="table">Data Table</a>
-        </li>
-    </ol>
+    <h2 class="pull-left"><i class="fa fa-th"></i> Tip Questionnaire</h2>
 </div>
 <!-- First TIP Questionnaire page - url 'tip' -->
 <div class="wrapper wrapper-content animated fadeInRight">
@@ -29,7 +21,7 @@
  
             <!-- Start TIP instructions -->
             <div class="col-sm-12">
-                <h1>TIPS Submission</h1>
+                <h1>TIPS Instructions</h1>
                 <div class="tip-instructions">
                     <p>As you prepare to record a tip in this shell, please be thinking about the following pieces of information. Most of the pieces you can fill in even before you implement your change. In fact, some faculty have found it helpful to do so. The last items on the list can be entered only after you have implemented and evaluated your change.</p>
                     <ul>
