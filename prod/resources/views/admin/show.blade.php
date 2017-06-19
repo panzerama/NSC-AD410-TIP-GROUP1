@@ -3,7 +3,6 @@
 @section('title', 'Admin Management')
 
 @section('content')
-{{--
 <div class="row wrapper border-bottom white-bg page-heading">
     <h2 class="pull-left"><i class="fa fa-th"></i>Admin Management</h2>
 </div>
@@ -165,5 +164,4 @@
         </div>
     </div>
 </div>
---}}
 @endsection
