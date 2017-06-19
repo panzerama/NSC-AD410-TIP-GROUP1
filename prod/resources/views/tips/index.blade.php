@@ -3,7 +3,17 @@
 @section('title', 'TIP Submission')
 
 @section('content')
-
+<div class="row wrapper border-bottom white-bg page-heading">
+        <h2>Reports Dashboard</h2>
+    <ol class="breadcrumb">
+        <li class="active">
+            <strong>Reports</strong>
+        </li>
+        <li>
+            <a href="table">Data Table</a>
+        </li>
+    </ol>
+</div>
 <!-- First TIP Questionnaire page - url 'tip' -->
 <div class="wrapper wrapper-content animated fadeInRight">
     <!--if question one is not filled out will be empty-->

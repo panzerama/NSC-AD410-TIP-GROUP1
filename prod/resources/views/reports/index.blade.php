@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="row wrapper border-bottom white-bg page-heading">
-        <h2>Reports Dashboard</h2>
+<h2>Reports Dashboard</h2>
     <ol class="breadcrumb">
         <li class="active">
             <strong>Reports</strong>
