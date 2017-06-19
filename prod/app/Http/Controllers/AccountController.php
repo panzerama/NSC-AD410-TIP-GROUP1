@@ -25,7 +25,7 @@ class AccountController extends Controller {
     //this function will update users row in the facutly table by udpationg their division id
     public function updateFirstTime() {
         //$faculty_id = 5;
-        $faculty_id = Auth::id();
+        $faculty_id = intval(Auth::id());
  +        
  +      $employment = request('employee_type');
         $division_id = intval(request('division_id'));
