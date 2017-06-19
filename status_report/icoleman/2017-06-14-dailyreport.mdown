@@ -1,0 +1,9 @@
+Ilsa Coleman
+Status Report
+6/14/2017
+
+- Added image export options for reports charts (.jpg)
+- Improved layout of reports so that they are more responsive, and legends, etc are not cutoff when window resized.
+- Corrected summary report status bar % calculation.
+To-do:
+- Create .csv export option for reports.

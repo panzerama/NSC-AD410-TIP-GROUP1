@@ -1,0 +1,10 @@
+Ilsa Coleman
+Status Report
+6/16/2017
+
+- Assisted in presentation to faculty 6/15/17.
+To-do:
+- Change 'Tips by division' report to display % faculty per division, rather than number of faculty members per division.
+    This will allow a more accurate comparison across divisions which may have dramatically different numbers of faculty.
+- Continue to work on .csv export of reports data.
+- Work on documentation for the application.
