@@ -3,6 +3,7 @@
 @section('title', 'Admin Management')
 
 @section('content')
+{{--
 <div class="row wrapper border-bottom white-bg page-heading">
     <h2 class="pull-left"><i class="fa fa-th"></i>Admin Management</h2>
 </div>
@@ -17,7 +18,6 @@
             </ul>
         </div>
     </div>
-
     <div class="tab-content">
         <div id="active" class="ibox float-e-margins tab-pane fade in active">
             <div class="ibox-content">
@@ -48,8 +48,7 @@
                     </tbody>
                 </table>
             </div>
-        </div>
-            
+        </div> 
         <div id="inactive" class="ibox float-e-margins tab-pane fade in">
             <div class="ibox-content">
                     <table class="table table-striped">
@@ -74,7 +73,6 @@
                 </table>
             </div>
         </div>
-
         <div id="add" class="ibox float-e-margins tab-pane fade in">
             <div class="ibox-content">
                 <h4>Fill out form & submit to add a faculty member. Check 'Make Admin' to give faculty member admin privileges. </h4>
@@ -143,7 +141,6 @@
                 </form>
             </div>
         </div>
-
         <div id="admins" class="ibox float-e-margins tab-pane fade in">
             <div class="ibox-content">
                 <table class="table table-striped">
@@ -168,4 +165,5 @@
         </div>
     </div>
 </div>
+--}}
 @endsection
