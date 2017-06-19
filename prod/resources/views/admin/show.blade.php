@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="row wrapper border-bottom white-bg page-heading">
-    <h2 class="pull-left"><i class="fa fa-th"></i>Admin Management</h2>
+    <h2 class="pull-left"><i class="fa fa-th"></i> Admin Management</h2>
 </div>
 <div class="wrapper wrapper-content"> 
     <div class="row">
@@ -86,14 +86,12 @@
                             <input type="text" required class="form-control" name="name">
                         </div>
                     </div>
-                    
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Email</label>
                         <div class="col-sm-8">
                             <input type="email" required class="form-control" name="email">
                         </div>
                     </div>
-                    
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Division</label>
                         <div class="col-sm-8">
@@ -104,8 +102,7 @@
                                 @endforeach
                             </select>
                         </div>
-                    </div>
-                        
+                    </div> 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Employee Type</label>
                         <div class="col-sm-8">
@@ -116,9 +113,7 @@
                             </select>
                         </div>
                     </div>
-
                     <br><br>
-                    
                     <div class="form-group">
                         <label class="col-sm-offset-3">Would you like to give this user admin privileges?</label>
                         <br><br>
@@ -129,9 +124,7 @@
                             </select>
                         </div>
                     </div>
-                    
                     <br><br>
-                    
                     <div class="form-group">
                         <div class="col-sm-3 col-md-offset-9">
                             <button class="btn btn-lg btn-block btn-primary" value="add" name="add" type="submit">Add Faculty</button>
